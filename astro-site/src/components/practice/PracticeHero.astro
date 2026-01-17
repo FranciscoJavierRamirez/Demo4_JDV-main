@@ -1,0 +1,162 @@
+---
+interface Props {
+  badge: string;
+  h1: string;
+  tagline: string;
+}
+
+const { badge, h1, tagline } = Astro.props;
+---
+
+<section class="practice-hero">
+  <div class="container">
+    <div class="practice-hero-content">
+      <span class="practice-badge">{badge}</span>
+      <h1>{h1}</h1>
+      <p class="tagline">{tagline}</p>
+      <div class="hero-actions">
+        <button class="btn btn-primary" onclick="openModal()">
+          <i class="fas fa-calendar-check"></i>
+          Agendar Consulta Gratuita
+        </button>
+        <a href="tel:+56912345678" class="btn btn-secondary">
+          <i class="fas fa-phone"></i>
+          Llamar Ahora
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .practice-hero {
+    background: linear-gradient(135deg, var(--blue-primary) 0%, var(--blue-dark) 100%);
+    color: white;
+    padding: var(--space-20) 0 var(--space-16);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .practice-hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    animation: float 25s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(-30px, -30px); }
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-6);
+    position: relative;
+    z-index: 1;
+  }
+
+  .practice-hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .practice-badge {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    padding: var(--space-2) var(--space-4);
+    border-radius: 50px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: var(--space-6);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+  .practice-hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    line-height: 1.2;
+    margin-bottom: var(--space-6);
+    font-weight: 700;
+  }
+
+  .tagline {
+    font-size: clamp(1.125rem, 2vw, 1.5rem);
+    line-height: 1.6;
+    margin-bottom: var(--space-10);
+    opacity: 0.95;
+    font-weight: 400;
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+    justify-content: center;
+    align-items: center;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-4) var(--space-8);
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all var(--transition-base);
+    cursor: pointer;
+    border: none;
+    font-family: var(--font-sans);
+  }
+
+  .btn-primary {
+    background: white;
+    color: var(--blue-primary);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.2);
+  }
+
+  .btn-secondary {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: 2px solid white;
+    backdrop-filter: blur(10px);
+  }
+
+  .btn-secondary:hover {
+    background: white;
+    color: var(--blue-primary);
+  }
+
+  @media (max-width: 768px) {
+    .practice-hero {
+      padding: var(--space-16) 0 var(--space-12);
+    }
+
+    .hero-actions {
+      flex-direction: column;
+      width: 100%;
+    }
+
+    .btn {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+</style>

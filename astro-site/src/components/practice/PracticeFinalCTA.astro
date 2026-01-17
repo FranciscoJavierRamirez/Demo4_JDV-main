@@ -1,0 +1,190 @@
+---
+interface Props {
+  headline: string;
+  text: string;
+  button: string;
+}
+
+const { headline, text, button } = Astro.props;
+---
+
+<section class="final-cta">
+  <div class="container">
+    <div class="cta-content">
+      <div class="cta-icon">
+        <i class="fas fa-shield-alt"></i>
+      </div>
+      <h2>{headline}</h2>
+      <p>{text}</p>
+      <div class="cta-actions">
+        <button class="btn btn-primary" onclick="openModal()">
+          <i class="fas fa-calendar-check"></i>
+          {button}
+        </button>
+        <a href="https://wa.me/56912345678?text=Hola,%20necesito%20asesoría%20urgente" class="btn btn-whatsapp" target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-whatsapp"></i>
+          WhatsApp Directo
+        </a>
+      </div>
+      <p class="cta-note">
+        <i class="fas fa-info-circle"></i>
+        Respuesta en menos de 24 horas · Consulta inicial gratuita (30 min)
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .final-cta {
+    padding: var(--space-20) 0;
+    background: linear-gradient(135deg, var(--blue-primary) 0%, var(--blue-dark) 100%);
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .final-cta::before,
+  .final-cta::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+  }
+
+  .final-cta::before {
+    width: 500px;
+    height: 500px;
+    top: -250px;
+    right: -100px;
+    animation: float 20s ease-in-out infinite;
+  }
+
+  .final-cta::after {
+    width: 400px;
+    height: 400px;
+    bottom: -200px;
+    left: -100px;
+    animation: float 25s ease-in-out infinite reverse;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(-20px, -20px) scale(1.05); }
+  }
+
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 var(--space-6);
+    position: relative;
+    z-index: 1;
+  }
+
+  .cta-content {
+    text-align: center;
+  }
+
+  .cta-icon {
+    font-size: 4rem;
+    margin-bottom: var(--space-6);
+    opacity: 0.9;
+  }
+
+  .final-cta h2 {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin-bottom: var(--space-6);
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  .final-cta > .container > .cta-content > p:first-of-type {
+    font-size: 1.25rem;
+    line-height: 1.7;
+    margin-bottom: var(--space-10);
+    opacity: 0.95;
+  }
+
+  .cta-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+    justify-content: center;
+    margin-bottom: var(--space-8);
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-5) var(--space-8);
+    font-size: 1.0625rem;
+    font-weight: 600;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all var(--transition-base);
+    cursor: pointer;
+    border: none;
+    font-family: var(--font-sans);
+  }
+
+  .btn-primary {
+    background: white;
+    color: var(--blue-primary);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.25);
+  }
+
+  .btn-whatsapp {
+    background: #25D366;
+    color: white;
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3);
+  }
+
+  .btn-whatsapp:hover {
+    background: #1fba57;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 30px rgba(37, 211, 102, 0.4);
+  }
+
+  .cta-note {
+    font-size: 0.9375rem;
+    opacity: 0.9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+  }
+
+  .cta-note i {
+    color: var(--gold);
+  }
+
+  @media (max-width: 768px) {
+    .final-cta {
+      padding: var(--space-16) 0;
+    }
+
+    .cta-icon {
+      font-size: 3rem;
+    }
+
+    .cta-actions {
+      flex-direction: column;
+      width: 100%;
+    }
+
+    .btn {
+      width: 100%;
+      justify-content: center;
+    }
+
+    .final-cta > .container > .cta-content > p:first-of-type {
+      font-size: 1.125rem;
+    }
+  }
+</style>

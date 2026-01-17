@@ -1,0 +1,111 @@
+---
+interface Props {
+  points: string[];
+}
+
+const { points } = Astro.props;
+---
+
+<section class="pain-points">
+  <div class="container">
+    <div class="section-header">
+      <h2>Los desafíos que enfrentas</h2>
+      <p>Entiendo perfectamente las preocupaciones que tienes:</p>
+    </div>
+    <ul class="pain-list">
+      {points.map((point) => (
+        <li class="pain-item">
+          <i class="fas fa-exclamation-triangle"></i>
+          <span>{point}</span>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<style>
+  .pain-points {
+    padding: var(--space-16) 0;
+    background: white;
+  }
+
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 var(--space-6);
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: var(--space-10);
+  }
+
+  .section-header h2 {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    color: var(--gray-900);
+    margin-bottom: var(--space-4);
+    font-weight: 700;
+  }
+
+  .section-header p {
+    font-size: 1.125rem;
+    color: var(--gray-600);
+  }
+
+  .pain-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .pain-item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-4);
+    padding: var(--space-5);
+    background: var(--gray-50);
+    border-left: 4px solid var(--gold);
+    border-radius: 8px;
+    transition: all var(--transition-base);
+  }
+
+  .pain-item:hover {
+    background: #FFF9F0;
+    transform: translateX(4px);
+  }
+
+  .pain-item i {
+    color: var(--gold);
+    font-size: 1.25rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .pain-item span {
+    font-size: 1rem;
+    color: var(--gray-700);
+    line-height: 1.7;
+  }
+
+  @media (max-width: 768px) {
+    .pain-points {
+      padding: var(--space-12) 0;
+    }
+
+    .pain-item {
+      padding: var(--space-4);
+    }
+
+    .pain-item i {
+      font-size: 1rem;
+    }
+
+    .pain-item span {
+      font-size: 0.9375rem;
+    }
+  }
+</style>

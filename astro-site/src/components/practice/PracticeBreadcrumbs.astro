@@ -1,0 +1,62 @@
+---
+interface Props {
+  areaName: string;
+}
+
+const { areaName } = Astro.props;
+---
+
+<nav aria-label="Breadcrumb" class="breadcrumb">
+  <ol>
+    <li><a href="/">Inicio</a></li>
+    <li><a href="/#areas-practica">Áreas de Práctica</a></li>
+    <li aria-current="page">{areaName}</li>
+  </ol>
+</nav>
+
+<style>
+  .breadcrumb {
+    background: var(--gray-50);
+    padding: var(--space-4) 0;
+  }
+
+  .breadcrumb ol {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 0 var(--space-6);
+  }
+
+  .breadcrumb li {
+    display: flex;
+    align-items: center;
+    font-size: 0.875rem;
+    color: var(--gray-600);
+  }
+
+  .breadcrumb li:not(:last-child)::after {
+    content: "/";
+    margin-left: var(--space-2);
+    color: var(--gray-400);
+  }
+
+  .breadcrumb a {
+    color: var(--blue-primary);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+  }
+
+  .breadcrumb a:hover {
+    color: var(--blue-dark);
+    text-decoration: underline;
+  }
+
+  .breadcrumb li[aria-current="page"] {
+    color: var(--gray-900);
+    font-weight: 500;
+  }
+</style>

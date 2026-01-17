@@ -291,6 +291,84 @@ const modalCollection = defineCollection({
   }),
 });
 
+const practicesCollection = defineCollection({
+  type: 'content',
+  schema: z.object({
+    slug: z.string().optional(),
+
+    seo: z.object({
+      title: z.string(),
+      description: z.string(),
+      canonical: z.string().optional(),
+    }),
+
+    hero: z.object({
+      badge: z.string(),
+      h1: z.string(),
+      tagline: z.string(),
+    }),
+
+    trust: z.array(
+      z.object({
+        value: z.string(),
+        label: z.string(),
+      })
+    ),
+
+    target: z.array(
+      z.object({
+        icon: z.string(),
+        title: z.string(),
+        description: z.string(),
+      })
+    ),
+
+    painPoints: z.array(z.string()),
+
+    objective: z.object({
+      text: z.string(),
+      commitments: z.array(z.string()),
+    }),
+
+    results: z.array(
+      z.object({
+        icon: z.string(),
+        title: z.string(),
+        description: z.string(),
+      })
+    ),
+
+    servicesIncluded: z.array(
+      z.object({
+        icon: z.string(),
+        title: z.string(),
+        description: z.string(),
+      })
+    ),
+
+    process: z.array(
+      z.object({
+        step: z.number(),
+        title: z.string(),
+        description: z.string(),
+      })
+    ),
+
+    faq: z.array(
+      z.object({
+        question: z.string(),
+        answer: z.string(),
+      })
+    ),
+
+    finalCta: z.object({
+      headline: z.string(),
+      text: z.string(),
+      button: z.string(),
+    }),
+  }),
+});
+
 export const collections = {
   home: homeCollection,
   stats: statsCollection,
@@ -303,4 +381,5 @@ export const collections = {
   cta: ctaCollection,
   footer: footerCollection,
   modal: modalCollection,
+  practices: practicesCollection,
 };

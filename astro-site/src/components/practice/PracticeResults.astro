@@ -1,0 +1,113 @@
+---
+interface ResultItem {
+  icon: string;
+  title: string;
+  description: string;
+}
+
+interface Props {
+  items: ResultItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<section class="practice-results">
+  <div class="container">
+    <div class="section-header">
+      <h2>Resultados que obtendrás</h2>
+      <p>Al trabajar conmigo, conseguirás:</p>
+    </div>
+    <div class="results-grid">
+      {items.map((item) => (
+        <div class="result-card">
+          <div class="result-icon">{item.icon}</div>
+          <h3>{item.title}</h3>
+          <p>{item.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .practice-results {
+    padding: var(--space-16) 0;
+    background: white;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-6);
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: var(--space-12);
+  }
+
+  .section-header h2 {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    color: var(--gray-900);
+    margin-bottom: var(--space-4);
+    font-weight: 700;
+  }
+
+  .section-header p {
+    font-size: 1.125rem;
+    color: var(--gray-600);
+  }
+
+  .results-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: var(--space-6);
+  }
+
+  .result-card {
+    background: var(--gray-50);
+    padding: var(--space-8);
+    border-radius: 16px;
+    text-align: center;
+    transition: all var(--transition-base);
+    border: 2px solid transparent;
+  }
+
+  .result-card:hover {
+    background: white;
+    border-color: var(--blue-primary);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+  }
+
+  .result-icon {
+    font-size: 3.5rem;
+    margin-bottom: var(--space-4);
+  }
+
+  .result-card h3 {
+    font-family: var(--font-sans);
+    font-size: 1.25rem;
+    color: var(--gray-900);
+    margin-bottom: var(--space-3);
+    font-weight: 600;
+  }
+
+  .result-card p {
+    font-size: 0.9375rem;
+    color: var(--gray-600);
+    line-height: 1.7;
+  }
+
+  @media (max-width: 768px) {
+    .practice-results {
+      padding: var(--space-12) 0;
+    }
+
+    .results-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

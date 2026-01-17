@@ -1,0 +1,111 @@
+---
+interface TargetItem {
+  icon: string;
+  title: string;
+  description: string;
+}
+
+interface Props {
+  items: TargetItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<section class="practice-target">
+  <div class="container">
+    <div class="section-header">
+      <h2>¿Estás en alguna de estas situaciones?</h2>
+      <p>Esta área de práctica es para ti si:</p>
+    </div>
+    <div class="target-grid">
+      {items.map((item) => (
+        <div class="target-card">
+          <div class="target-icon">{item.icon}</div>
+          <h3>{item.title}</h3>
+          <p>{item.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .practice-target {
+    padding: var(--space-16) 0;
+    background: var(--gray-50);
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-6);
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: var(--space-12);
+  }
+
+  .section-header h2 {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    color: var(--gray-900);
+    margin-bottom: var(--space-4);
+    font-weight: 700;
+  }
+
+  .section-header p {
+    font-size: 1.125rem;
+    color: var(--gray-600);
+  }
+
+  .target-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-6);
+  }
+
+  .target-card {
+    background: white;
+    padding: var(--space-8);
+    border-radius: 16px;
+    border: 1px solid var(--gray-200);
+    transition: all var(--transition-base);
+  }
+
+  .target-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+    border-color: var(--blue-primary);
+  }
+
+  .target-icon {
+    font-size: 3rem;
+    margin-bottom: var(--space-4);
+  }
+
+  .target-card h3 {
+    font-family: var(--font-sans);
+    font-size: 1.25rem;
+    color: var(--gray-900);
+    margin-bottom: var(--space-3);
+    font-weight: 600;
+  }
+
+  .target-card p {
+    font-size: 0.9375rem;
+    color: var(--gray-600);
+    line-height: 1.7;
+  }
+
+  @media (max-width: 768px) {
+    .practice-target {
+      padding: var(--space-12) 0;
+    }
+
+    .target-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

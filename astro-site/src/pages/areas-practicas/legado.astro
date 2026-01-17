@@ -1,0 +1,218 @@
+---
+import { getEntry } from 'astro:content';
+import PracticeLayout from '../../layouts/PracticeLayout.astro';
+import Header from '../../components/nav/Header.astro';
+import PracticeBreadcrumbs from '../../components/practice/PracticeBreadcrumbs.astro';
+import PracticeHero from '../../components/practice/PracticeHero.astro';
+import PracticeTrustBar from '../../components/practice/PracticeTrustBar.astro';
+import PracticeTarget from '../../components/practice/PracticeTarget.astro';
+import PracticePainPoints from '../../components/practice/PracticePainPoints.astro';
+import PracticeObjective from '../../components/practice/PracticeObjective.astro';
+import PracticeResults from '../../components/practice/PracticeResults.astro';
+import PracticeServicesIncluded from '../../components/practice/PracticeServicesIncluded.astro';
+import PracticeProcess from '../../components/practice/PracticeProcess.astro';
+import PracticeFAQ from '../../components/practice/PracticeFAQ.astro';
+import PracticeFinalCTA from '../../components/practice/PracticeFinalCTA.astro';
+import Footer from '../../components/home/Footer.astro';
+import Modal from '../../components/home/Modal.astro';
+import WhatsAppFloat from '../../components/WhatsAppFloat.astro';
+import BackToTop from '../../components/BackToTop.astro';
+
+// Obtener contenido de la colección
+const practiceEntry = await getEntry('practices', 'legado');
+
+if (!practiceEntry) {
+  throw new Error('No se encontró el contenido para Legado');
+}
+
+const { data, render } = practiceEntry;
+const { Content } = await render();
+
+// Obtener datos del footer y modal (reutilizados del Home)
+const footerEntry = await getEntry('footer', 'home');
+const modalEntry = await getEntry('modal', 'home');
+
+if (!footerEntry || !modalEntry) {
+  throw new Error('No se encontró contenido de footer o modal');
+}
+
+const footerData = footerEntry.data;
+const modalData = modalEntry.data;
+---
+
+<PracticeLayout
+  title={data.seo.title}
+  description={data.seo.description}
+  canonical={data.seo.canonical}
+>
+  <!-- Navegación reutilizada del Home -->
+  <Header />
+
+  <!-- Breadcrumbs -->
+  <PracticeBreadcrumbs areaName={data.hero.h1} />
+
+  <!-- Hero Section -->
+  <PracticeHero
+    badge={data.hero.badge}
+    h1={data.hero.h1}
+    tagline={data.hero.tagline}
+  />
+
+  <!-- Trust Bar -->
+  <PracticeTrustBar items={data.trust} />
+
+  <!-- Target Audience -->
+  <PracticeTarget items={data.target} />
+
+  <!-- Pain Points -->
+  <PracticePainPoints points={data.painPoints} />
+
+  <!-- Objective / Commitment -->
+  <PracticeObjective
+    text={data.objective.text}
+    commitments={data.objective.commitments}
+  />
+
+  <!-- Results -->
+  <PracticeResults items={data.results} />
+
+  <!-- Services Included -->
+  <PracticeServicesIncluded items={data.servicesIncluded} />
+
+  <!-- Process -->
+  <PracticeProcess steps={data.process} />
+
+  <!-- FAQ -->
+  <PracticeFAQ items={data.faq} areaName={data.hero.h1} />
+
+  <!-- Markdown Content (optional extra content) -->
+  <section class="practice-content">
+    <div class="container">
+      <div class="content-wrapper">
+        <Content />
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <PracticeFinalCTA
+    headline={data.finalCta.headline}
+    text={data.finalCta.text}
+    button={data.finalCta.button}
+  />
+
+  <!-- Footer reutilizado del Home -->
+  <Footer data={footerData} />
+
+  <!-- Modal reutilizado del Home -->
+  <Modal data={modalData} />
+
+  <!-- WhatsApp Float Button -->
+  <WhatsAppFloat />
+
+  <!-- Back to Top Button -->
+  <BackToTop />
+</PracticeLayout>
+
+<style>
+  .practice-content {
+    padding: var(--space-16) 0;
+    background: white;
+  }
+
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 var(--space-6);
+  }
+
+  .content-wrapper {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--gray-700);
+  }
+
+  /* Estilos para el contenido Markdown */
+  .content-wrapper :global(h2) {
+    font-family: var(--font-display);
+    font-size: clamp(1.75rem, 3vw, 2rem);
+    color: var(--gray-900);
+    margin-top: var(--space-12);
+    margin-bottom: var(--space-6);
+    font-weight: 700;
+  }
+
+  .content-wrapper :global(h3) {
+    font-family: var(--font-sans);
+    font-size: 1.5rem;
+    color: var(--gray-900);
+    margin-top: var(--space-10);
+    margin-bottom: var(--space-4);
+    font-weight: 600;
+  }
+
+  .content-wrapper :global(h4) {
+    font-family: var(--font-sans);
+    font-size: 1.25rem;
+    color: var(--gray-800);
+    margin-top: var(--space-8);
+    margin-bottom: var(--space-3);
+    font-weight: 600;
+  }
+
+  .content-wrapper :global(p) {
+    margin-bottom: var(--space-6);
+  }
+
+  .content-wrapper :global(ul),
+  .content-wrapper :global(ol) {
+    margin-bottom: var(--space-6);
+    padding-left: var(--space-8);
+  }
+
+  .content-wrapper :global(li) {
+    margin-bottom: var(--space-3);
+  }
+
+  .content-wrapper :global(strong) {
+    color: var(--gray-900);
+    font-weight: 600;
+  }
+
+  .content-wrapper :global(a) {
+    color: var(--blue-primary);
+    text-decoration: underline;
+    transition: color var(--transition-fast);
+  }
+
+  .content-wrapper :global(a:hover) {
+    color: var(--blue-dark);
+  }
+
+  .content-wrapper :global(hr) {
+    border: none;
+    border-top: 2px solid var(--gray-200);
+    margin: var(--space-12) 0;
+  }
+
+  .content-wrapper :global(blockquote) {
+    border-left: 4px solid var(--blue-primary);
+    padding-left: var(--space-6);
+    margin: var(--space-8) 0;
+    font-style: italic;
+    color: var(--gray-600);
+    background: var(--gray-50);
+    padding: var(--space-6);
+    border-radius: 8px;
+  }
+
+  @media (max-width: 768px) {
+    .practice-content {
+      padding: var(--space-12) 0;
+    }
+
+    .content-wrapper :global(h2) {
+      margin-top: var(--space-10);
+    }
+  }
+</style>

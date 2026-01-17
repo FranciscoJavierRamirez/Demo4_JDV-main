@@ -1,0 +1,461 @@
+---
+import { getEntry } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/nav/Header.astro';
+import Footer from '../../components/home/Footer.astro';
+import Modal from '../../components/home/Modal.astro';
+import WhatsAppFloat from '../../components/WhatsAppFloat.astro';
+import BackToTop from '../../components/BackToTop.astro';
+
+// Obtener datos
+const areasData = await getEntry('areas', 'home');
+const footerEntry = await getEntry('footer', 'home');
+const modalEntry = await getEntry('modal', 'home');
+
+if (!areasData || !footerEntry || !modalEntry) {
+  throw new Error('No se encontró contenido necesario');
+}
+
+const { areas } = areasData.data;
+const footerData = footerEntry.data;
+const modalData = modalEntry.data;
+
+// Separar áreas implementadas de pendientes
+const areasImplementadas = areas.filter(area =>
+  area.link.includes('/defensa-estatutaria') || area.link.includes('/legado')
+);
+
+const areasPendientes = areas.filter(area =>
+  area.link.includes('#')
+);
+---
+
+<BaseLayout>
+  <Header />
+
+  <!-- Hero Section -->
+  <section class="areas-hero">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/">Inicio</a>
+        <span>/</span>
+        <span>Áreas de Práctica</span>
+      </nav>
+      <h1>Nuestras Áreas de Práctica</h1>
+      <p class="hero-subtitle">
+        Soluciones jurídicas especializadas con 35 años de experiencia en la Contraloría General de la República
+      </p>
+    </div>
+  </section>
+
+  <!-- Áreas Implementadas -->
+  <section class="areas-main">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Disponibles ahora</span>
+        <h2>Servicios Activos</h2>
+        <p>Estas áreas ya cuentan con información detallada y servicio completo</p>
+      </div>
+
+      <div class="areas-grid featured">
+        {areasImplementadas.map(area => (
+          <a href={area.link} class="area-card featured-card">
+            <div class="area-icon featured">
+              <i class={area.icon}></i>
+            </div>
+            <h3>{area.title}</h3>
+            <p>{area.description}</p>
+            <span class="card-cta">
+              Ver detalles completos <i class="fas fa-arrow-right"></i>
+            </span>
+            <span class="status-badge active">Servicio Activo</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Áreas Pendientes -->
+  <section class="areas-pending" id="mas-areas">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge secondary">Próximamente</span>
+        <h2>Más Áreas de Práctica</h2>
+        <p>Servicios adicionales que ofrezco. Contáctame para más información.</p>
+      </div>
+
+      <div class="areas-grid">
+        {areasPendientes.map(area => (
+          <div class="area-card pending-card" id={area.link.replace('/areas-practicas#', '')}>
+            <div class="area-icon">
+              <i class={area.icon}></i>
+            </div>
+            <h3>{area.title}</h3>
+            <p>{area.description}</p>
+            <button class="card-cta secondary" onclick="openModal()">
+              Consultar disponibilidad <i class="fas fa-envelope"></i>
+            </button>
+            <span class="status-badge pending">Información por consulta</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Final -->
+  <section class="areas-cta">
+    <div class="container">
+      <div class="cta-content">
+        <div class="cta-icon">
+          <i class="fas fa-balance-scale"></i>
+        </div>
+        <h2>¿No estás seguro qué área necesitas?</h2>
+        <p>Agenda una consulta gratuita y te orientaré sobre la mejor solución legal para tu caso.</p>
+        <div class="cta-actions">
+          <button class="btn btn-primary" onclick="openModal()">
+            <i class="fas fa-calendar-check"></i>
+            Agendar Consulta Gratuita
+          </button>
+          <a href="https://wa.me/56912345678" class="btn btn-whatsapp" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-whatsapp"></i>
+            WhatsApp Directo
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer data={footerData} />
+  <Modal data={modalData} />
+  <WhatsAppFloat />
+  <BackToTop />
+</BaseLayout>
+
+<style>
+  .areas-hero {
+    background: linear-gradient(135deg, var(--blue-primary) 0%, var(--blue-dark) 100%);
+    color: white;
+    padding: var(--space-16) 0 var(--space-12);
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-6);
+  }
+
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: 0.875rem;
+    margin-bottom: var(--space-6);
+    opacity: 0.9;
+  }
+
+  .breadcrumb a {
+    color: white;
+    text-decoration: none;
+    transition: opacity var(--transition-fast);
+  }
+
+  .breadcrumb a:hover {
+    opacity: 0.8;
+    text-decoration: underline;
+  }
+
+  .areas-hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    margin-bottom: var(--space-4);
+    font-weight: 700;
+  }
+
+  .hero-subtitle {
+    font-size: 1.25rem;
+    opacity: 0.95;
+    max-width: 700px;
+  }
+
+  .areas-main,
+  .areas-pending {
+    padding: var(--space-16) 0;
+  }
+
+  .areas-main {
+    background: white;
+  }
+
+  .areas-pending {
+    background: var(--gray-50);
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: var(--space-12);
+  }
+
+  .section-badge {
+    display: inline-block;
+    background: var(--blue-primary);
+    color: white;
+    padding: var(--space-2) var(--space-4);
+    border-radius: 50px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: var(--space-4);
+  }
+
+  .section-badge.secondary {
+    background: var(--gray-400);
+  }
+
+  .section-header h2 {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    color: var(--gray-900);
+    margin-bottom: var(--space-4);
+    font-weight: 700;
+  }
+
+  .section-header p {
+    font-size: 1.125rem;
+    color: var(--gray-600);
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .areas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--space-6);
+  }
+
+  .areas-grid.featured {
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: var(--space-8);
+  }
+
+  .area-card {
+    background: white;
+    padding: var(--space-8);
+    border-radius: 16px;
+    border: 2px solid var(--gray-200);
+    transition: all var(--transition-base);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .featured-card {
+    border-color: var(--blue-primary);
+    box-shadow: 0 8px 30px rgba(0, 74, 151, 0.1);
+  }
+
+  .area-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+  }
+
+  .featured-card:hover {
+    box-shadow: 0 12px 40px rgba(0, 74, 151, 0.2);
+  }
+
+  .area-icon {
+    width: 80px;
+    height: 80px;
+    background: var(--gray-100);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--space-6);
+    transition: all var(--transition-base);
+  }
+
+  .area-icon.featured {
+    background: linear-gradient(135deg, var(--blue-primary) 0%, var(--blue-dark) 100%);
+  }
+
+  .area-icon i {
+    font-size: 2.5rem;
+    color: var(--gray-600);
+  }
+
+  .area-icon.featured i {
+    color: white;
+  }
+
+  .area-card:hover .area-icon {
+    transform: scale(1.1);
+  }
+
+  .area-card h3 {
+    font-family: var(--font-sans);
+    font-size: 1.5rem;
+    color: var(--gray-900);
+    margin-bottom: var(--space-3);
+    font-weight: 600;
+  }
+
+  .area-card p {
+    font-size: 1rem;
+    color: var(--gray-600);
+    line-height: 1.7;
+    margin-bottom: var(--space-6);
+    flex-grow: 1;
+  }
+
+  .card-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    color: var(--blue-primary);
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: gap var(--transition-fast);
+  }
+
+  .featured-card .card-cta {
+    color: var(--blue-primary);
+  }
+
+  .area-card:hover .card-cta {
+    gap: var(--space-3);
+  }
+
+  .card-cta.secondary {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    font-family: var(--font-sans);
+  }
+
+  .status-badge {
+    position: absolute;
+    top: var(--space-4);
+    right: var(--space-4);
+    padding: var(--space-2) var(--space-3);
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .status-badge.active {
+    background: #10b981;
+    color: white;
+  }
+
+  .status-badge.pending {
+    background: var(--gray-300);
+    color: var(--gray-700);
+  }
+
+  .areas-cta {
+    background: linear-gradient(135deg, var(--blue-primary) 0%, var(--blue-dark) 100%);
+    color: white;
+    padding: var(--space-20) 0;
+  }
+
+  .cta-content {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .cta-icon {
+    font-size: 4rem;
+    margin-bottom: var(--space-6);
+    opacity: 0.9;
+  }
+
+  .cta-content h2 {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    margin-bottom: var(--space-4);
+    font-weight: 700;
+  }
+
+  .cta-content p {
+    font-size: 1.25rem;
+    opacity: 0.95;
+    margin-bottom: var(--space-8);
+  }
+
+  .cta-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+    justify-content: center;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-5) var(--space-8);
+    font-size: 1.0625rem;
+    font-weight: 600;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all var(--transition-base);
+    cursor: pointer;
+    border: none;
+    font-family: var(--font-sans);
+  }
+
+  .btn-primary {
+    background: white;
+    color: var(--blue-primary);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.25);
+  }
+
+  .btn-whatsapp {
+    background: #25D366;
+    color: white;
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3);
+  }
+
+  .btn-whatsapp:hover {
+    background: #1fba57;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 30px rgba(37, 211, 102, 0.4);
+  }
+
+  @media (max-width: 768px) {
+    .areas-hero {
+      padding: var(--space-12) 0 var(--space-10);
+    }
+
+    .areas-main,
+    .areas-pending {
+      padding: var(--space-12) 0;
+    }
+
+    .areas-grid,
+    .areas-grid.featured {
+      grid-template-columns: 1fr;
+    }
+
+    .cta-actions {
+      flex-direction: column;
+      width: 100%;
+    }
+
+    .btn {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+</style>

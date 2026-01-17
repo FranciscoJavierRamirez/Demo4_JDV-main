@@ -1,0 +1,155 @@
+---
+interface ProcessStep {
+  step: number;
+  title: string;
+  description: string;
+}
+
+interface Props {
+  steps: ProcessStep[];
+}
+
+const { steps } = Astro.props;
+---
+
+<section class="practice-process">
+  <div class="container">
+    <div class="section-header">
+      <h2>¿Cómo trabajamos juntos?</h2>
+      <p>El proceso es simple y transparente:</p>
+    </div>
+    <div class="process-timeline">
+      {steps.map((step, index) => (
+        <div class="process-step">
+          <div class="step-number">{step.step}</div>
+          <div class="step-content">
+            <h3>{step.title}</h3>
+            <p>{step.description}</p>
+          </div>
+          {index < steps.length - 1 && <div class="step-connector"></div>}
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .practice-process {
+    padding: var(--space-16) 0;
+    background: white;
+  }
+
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 var(--space-6);
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: var(--space-12);
+  }
+
+  .section-header h2 {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    color: var(--gray-900);
+    margin-bottom: var(--space-4);
+    font-weight: 700;
+  }
+
+  .section-header p {
+    font-size: 1.125rem;
+    color: var(--gray-600);
+  }
+
+  .process-timeline {
+    position: relative;
+  }
+
+  .process-step {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: var(--space-6);
+    position: relative;
+    padding-bottom: var(--space-10);
+  }
+
+  .process-step:last-child {
+    padding-bottom: 0;
+  }
+
+  .step-number {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--blue-primary) 0%, var(--blue-dark) 100%);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    box-shadow: 0 4px 15px rgba(0, 74, 151, 0.2);
+  }
+
+  .step-content {
+    padding-top: var(--space-2);
+  }
+
+  .step-content h3 {
+    font-family: var(--font-sans);
+    font-size: 1.25rem;
+    color: var(--gray-900);
+    margin-bottom: var(--space-3);
+    font-weight: 600;
+  }
+
+  .step-content p {
+    font-size: 1rem;
+    color: var(--gray-600);
+    line-height: 1.7;
+  }
+
+  .step-connector {
+    position: absolute;
+    left: 30px;
+    top: 60px;
+    width: 2px;
+    height: calc(100% - 60px);
+    background: linear-gradient(180deg, var(--blue-primary) 0%, var(--gray-300) 100%);
+  }
+
+  @media (max-width: 768px) {
+    .practice-process {
+      padding: var(--space-12) 0;
+    }
+
+    .process-step {
+      grid-template-columns: auto 1fr;
+      gap: var(--space-4);
+      padding-bottom: var(--space-8);
+    }
+
+    .step-number {
+      width: 50px;
+      height: 50px;
+      font-size: 1.25rem;
+    }
+
+    .step-connector {
+      left: 25px;
+      top: 50px;
+      height: calc(100% - 50px);
+    }
+
+    .step-content h3 {
+      font-size: 1.125rem;
+    }
+
+    .step-content p {
+      font-size: 0.9375rem;
+    }
+  }
+</style>
