@@ -12,8 +12,11 @@ const { brand, columns, trust, bottom, legal } = footerData.data;
   <Newsletter />
 
   <!-- Footer Content -->
-  <div class="py-20 pb-8">
-    <div class="container">
+  <div class="relative py-20 pb-8">
+    <!-- Subtle gradient transition from Newsletter -->
+    <div class="absolute top-0 left-0 right-0 h-16 bg-gradient-to-b from-[var(--blue-deeper)]/20 to-transparent pointer-events-none"></div>
+    
+    <div class="container relative">
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
         <!-- Brand Column -->
         <div class="flex flex-col gap-4">
@@ -53,7 +56,7 @@ const { brand, columns, trust, bottom, legal } = footerData.data;
           <ul class="list-none flex flex-col gap-3">
             {columns.areas.links.map(link => (
               <li>
-                <a href={link.href} class="text-white/85 no-underline transition-all duration-150 text-[0.9375rem] hover:text-[var(--gold)] hover:pl-2">
+                <a href={link.href} class="text-white/85 no-underline transition-all duration-300 ease-out text-[0.9375rem] hover:text-[var(--gold)] hover:translate-x-1 inline-block">
                   {link.text}
                 </a>
               </li>
@@ -67,7 +70,7 @@ const { brand, columns, trust, bottom, legal } = footerData.data;
           <ul class="list-none flex flex-col gap-3">
             {columns.company.links.map(link => (
               <li>
-                <a href={link.href} class="text-white/85 no-underline transition-all duration-150 text-[0.9375rem] hover:text-[var(--gold)] hover:pl-2">
+                <a href={link.href} class="text-white/85 no-underline transition-all duration-300 ease-out text-[0.9375rem] hover:text-[var(--gold)] hover:translate-x-1 inline-block">
                   {link.text}
                 </a>
               </li>
@@ -118,7 +121,7 @@ const { brand, columns, trust, bottom, legal } = footerData.data;
       </h3>
       <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 max-w-[800px] mx-auto">
         {trust.badges.map(badge => (
-          <div class={`flex flex-col items-center text-center p-4 gap-2 rounded-xl border-2 border-transparent transition-all duration-200 hover:-translate-y-1 hover:bg-gradient-to-br hover:from-[rgba(201,169,97,0.15)] hover:to-[rgba(212,175,55,0.1)] hover:border-[rgba(201,169,97,0.3)] hover:shadow-[0_4px_20px_rgba(201,169,97,0.3)] ${badge.featured ? 'bg-gradient-to-br from-[rgba(201,169,97,0.15)] to-[rgba(212,175,55,0.1)] border-[rgba(201,169,97,0.3)] p-5' : ''}`}>
+          <div class={`flex flex-col items-center text-center p-4 gap-2 rounded-xl border-2 border-transparent transition-all duration-300 ease-out hover:-translate-y-[3px] hover:bg-gradient-to-br hover:from-[rgba(201,169,97,0.15)] hover:to-[rgba(212,175,55,0.1)] hover:border-[rgba(201,169,97,0.3)] hover:shadow-[0_6px_24px_rgba(201,169,97,0.25)] ${badge.featured ? 'bg-gradient-to-br from-[rgba(201,169,97,0.15)] to-[rgba(212,175,55,0.1)] border-[rgba(201,169,97,0.3)] p-5' : ''}`}>
             <i class={`${badge.icon} text-[2rem] text-[var(--gold)] mb-2 transition-all duration-200 ${badge.featured ? 'text-[2.25rem] text-[var(--gold-light)]' : ''}`}></i>
             <span class={`text-[var(--gray-300)] text-sm leading-snug transition-all duration-200 ${badge.featured ? 'text-[var(--gold-light)] font-semibold' : ''}`} set:html={badge.text}></span>
           </div>

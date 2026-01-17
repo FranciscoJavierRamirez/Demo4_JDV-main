@@ -7,7 +7,7 @@ if (!heroData?.data) {
   throw new Error("Hero data not found from content collection");
 }
 
-const { badge, title, subtitle, cta, trust, floatingCards, scrollIndicator, images } = heroData.data;
+const { badge, title, subtitle, cta, trust, scrollIndicator, images } = heroData.data;
 
 // Process Markdown bold syntax to HTML strong tags
 const processedSubtitle = subtitle
@@ -24,8 +24,20 @@ const processedSubtitle = subtitle
     <div class="absolute top-[40%] left-[30%] w-[40%] h-[40%] rounded-full bg-[radial-gradient(circle,rgba(201,162,84,0.15)_0%,transparent_70%)] blur-[80px] animate-[float_15s_ease-in-out_infinite_5s]"></div>
   </div>
 
+  <!-- Justice Statue Image - Golden Metallic Effect -->
+  <div class="absolute inset-0 z-[1] pointer-events-none overflow-hidden">
+    <img 
+      src="/justice-hero.jpg" 
+      alt=""
+      class="absolute right-[-5%] top-[10%] w-[60%] md:w-[50%] lg:w-[45%] h-auto object-contain opacity-0 md:opacity-100 blur-[1px] mix-blend-overlay"
+      style="filter: sepia(100%) saturate(300%) brightness(0.9) hue-rotate(15deg) blur(2px); mask-image: linear-gradient(to left, black 40%, transparent 90%);"
+    />
+    <!-- Golden overlay for metallic effect -->
+    <div class="absolute right-[-5%] top-[10%] w-[60%] md:w-[50%] lg:w-[45%] h-[80%] bg-gradient-to-l from-[rgba(201,169,97,0.15)] via-[rgba(201,169,97,0.08)] to-transparent mix-blend-overlay hidden md:block"></div>
+  </div>
+
   <!-- Noise Texture Overlay -->
-  <div class="absolute inset-0 z-[1] opacity-[0.03] pointer-events-none mix-blend-overlay" style="background-image: url('data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noise\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.65\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noise)\'/%3E%3C/svg%3E');"></div>
+  <div class="absolute inset-0 z-[2] opacity-[0.03] pointer-events-none mix-blend-overlay" style="background-image: url('data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noise\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.65\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noise)\'/%3E%3C/svg%3E');"></div>
 
   <!-- Background Image with Overlay -->
   <img 
@@ -35,14 +47,14 @@ const processedSubtitle = subtitle
   />
   
   <!-- Gradient Overlay for Legibility -->
-  <div class="absolute inset-0 z-[2] bg-gradient-to-r from-[rgba(12,35,64,0.98)] via-[rgba(12,35,64,0.95)] to-[rgba(26,77,122,0.85)]"></div>
+  <div class="absolute inset-0 z-[3] bg-gradient-to-r from-[rgba(12,35,64,0.98)] via-[rgba(12,35,64,0.92)] to-[rgba(26,77,122,0.75)]"></div>
 
   <!-- Main Container -->
   <div class="relative z-10 w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="grid grid-cols-1 md:grid-cols-12 lg:grid-cols-2 gap-6 md:gap-8 lg:gap-12 items-center">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
       
       <!-- Hero Content -->
-      <div class="text-white md:col-span-7 lg:col-span-1">
+      <div class="text-white">
         <!-- Badge -->
         <div class="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 bg-white/10 backdrop-blur-lg rounded-full border border-white/20 text-xs sm:text-sm font-semibold mb-4 sm:mb-5 shadow-lg">
           <i class={`${badge.icon} text-[var(--gold)] text-sm sm:text-base`}></i>
@@ -85,62 +97,51 @@ const processedSubtitle = subtitle
           </a>
         </div>
 
-        <!-- Trust Items - Responsive grid -->
-        <div class="grid grid-cols-2 sm:flex sm:flex-wrap gap-2 sm:gap-3">
-          {trust.map(item => (
-            <div class={`flex items-center gap-2 px-2.5 py-2 sm:px-3 sm:py-2 rounded-lg ${item.featured ? 'bg-gradient-to-br from-[var(--gold)] to-[var(--gold-light)] shadow-[0_4px_16px_rgba(201,169,97,0.3)] col-span-2 sm:col-span-1' : 'bg-white/10 backdrop-blur-sm border border-white/10'}`}>
-              <div class={`w-6 h-6 sm:w-7 sm:h-7 flex items-center justify-center rounded-md flex-shrink-0 ${item.featured ? 'bg-white/25' : 'bg-white/10'}`}>
-                <i class={`${item.icon} text-xs sm:text-sm ${item.featured ? 'text-white' : 'text-[var(--gold)]'}`}></i>
+        <!-- Trust Items - Glassed cards grid in new layout -->
+        <div class="grid grid-cols-2 gap-3 max-w-[500px]">
+          {trust.map((item, index) => (
+            <div 
+              class={`glass-trust-card flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-300 hover:scale-[1.02] hover:bg-white/15
+                ${item.featured 
+                  ? 'bg-gradient-to-br from-[var(--gold)] to-[var(--gold-dark)] shadow-[0_4px_20px_rgba(201,169,97,0.35)] col-span-2' 
+                  : 'bg-white/10 backdrop-blur-md border border-white/15'}
+              `}
+              style={`animation: fadeInUp 0.6s ease-out ${0.5 + index * 0.1}s forwards; opacity: 0;`}
+            >
+              <div class={`w-10 h-10 flex items-center justify-center rounded-lg flex-shrink-0 ${item.featured ? 'bg-white/25' : 'bg-white/10'}`}>
+                <i class={`${item.icon} text-base ${item.featured ? 'text-white' : 'text-[var(--gold)]'}`}></i>
               </div>
               <div class={item.featured ? 'text-white' : ''}>
-                <strong class="block text-[10px] sm:text-xs font-bold leading-none">{item.title}</strong>
-                <span class={`text-[9px] sm:text-[10px] ${item.featured ? 'text-white/90' : 'text-white/70'}`}>{item.subtitle}</span>
+                <strong class="block text-sm font-bold leading-tight">{item.title}</strong>
+                <span class={`text-xs ${item.featured ? 'text-white/90' : 'text-white/70'}`}>{item.subtitle}</span>
               </div>
             </div>
           ))}
         </div>
       </div>
 
-      <!-- Hero Visual - Image with floating cards -->
-      <div class="relative hidden md:block md:col-span-5 lg:col-span-1">
+      <!-- Hero Visual - Image of Jacqueline (without floating cards) -->
+      <div class="relative hidden lg:flex justify-center items-center">
         <!-- Main Image Container -->
-        <div class="relative mx-auto w-full max-w-[280px] md:max-w-[320px] lg:max-w-[400px]">
+        <div class="relative w-full max-w-[380px]">
+          <!-- Decorative glow behind image -->
+          <div class="absolute inset-0 bg-gradient-to-br from-[var(--gold)]/20 to-[var(--blue-primary)]/20 rounded-2xl blur-[60px] scale-110"></div>
+          
           <!-- Image Frame with 4:5 aspect ratio -->
-          <div class="relative aspect-[4/5] rounded-xl md:rounded-2xl overflow-hidden shadow-[0_20px_40px_-12px_rgba(0,0,0,0.4)] md:shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)] bg-white/5">
+          <div class="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)] bg-white/5 border border-white/10">
             <img 
               src={images.hero}
               alt={images.heroAlt}
               class="w-full h-full object-cover object-top"
             />
             <!-- Subtle gradient overlay -->
-            <div class="absolute inset-0 bg-gradient-to-t from-[rgba(12,35,64,0.2)] via-transparent to-transparent pointer-events-none"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-[rgba(12,35,64,0.3)] via-transparent to-transparent pointer-events-none"></div>
           </div>
 
-          <!-- Floating Card 1 - Bottom Left -->
-          <div 
-            class="absolute bottom-4 -left-2 md:bottom-6 md:-left-4 lg:bottom-8 lg:-left-6 bg-white rounded-lg md:rounded-xl p-2 md:p-3 shadow-[0_15px_30px_rgba(0,0,0,0.12)] md:shadow-[0_20px_40px_rgba(0,0,0,0.15)] flex items-center gap-2 md:gap-2.5 animate-[floatCard_6s_ease-in-out_infinite]"
-          >
-            <div class="w-7 h-7 md:w-8 md:h-8 lg:w-9 lg:h-9 flex items-center justify-center bg-gradient-to-br from-[var(--blue-primary)] to-[var(--blue-dark)] rounded-md md:rounded-lg flex-shrink-0">
-              <i class={`${floatingCards[0].icon} text-white text-xs md:text-sm`}></i>
-            </div>
-            <div>
-              <div class="text-base md:text-lg font-extrabold text-[var(--gray-900)] leading-none font-[var(--font-display)]">{floatingCards[0].number}</div>
-              <div class="text-[9px] md:text-[10px] text-[var(--gray-500)] font-medium">{floatingCards[0].label}</div>
-            </div>
-          </div>
-
-          <!-- Floating Card 2 - Top Right -->
-          <div 
-            class="absolute top-4 -right-2 md:top-6 md:-right-4 lg:top-8 lg:-right-6 bg-white rounded-lg md:rounded-xl p-2 md:p-3 shadow-[0_15px_30px_rgba(0,0,0,0.12)] md:shadow-[0_20px_40px_rgba(0,0,0,0.15)] flex items-center gap-2 md:gap-2.5 animate-[floatCard_6s_ease-in-out_infinite]"
-            style="animation-delay: 3s;"
-          >
-            <div class="w-7 h-7 md:w-8 md:h-8 lg:w-9 lg:h-9 flex items-center justify-center bg-gradient-to-br from-[var(--gold)] to-[var(--gold-dark)] rounded-md md:rounded-lg flex-shrink-0">
-              <i class={`${floatingCards[1].icon} text-white text-xs md:text-sm`}></i>
-            </div>
-            <div>
-              <div class="text-base md:text-lg font-extrabold text-[var(--gray-900)] leading-none font-[var(--font-display)]">{floatingCards[1].number}</div>
-              <div class="text-[9px] md:text-[10px] text-[var(--gray-500)] font-medium">{floatingCards[1].label}</div>
-            </div>
+          <!-- Name badge at bottom -->
+          <div class="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-white/95 backdrop-blur-md rounded-xl px-5 py-3 shadow-[0_10px_30px_rgba(0,0,0,0.15)] border border-white/50">
+            <p class="text-sm font-bold text-[var(--gray-900)] text-center">Jacqueline Del Valle</p>
+            <p class="text-xs text-[var(--gray-600)] text-center">Abogada Fundadora</p>
           </div>
         </div>
       </div>
@@ -162,5 +163,20 @@ const processedSubtitle = subtitle
 <style>
   h1 {
     font-family: var(--font-display);
+  }
+
+  .glass-trust-card {
+    backdrop-filter: blur(12px);
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 </style>

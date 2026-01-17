@@ -92,6 +92,7 @@ const areasCollection = defineCollection({
       title: z.string(),
       description: z.string(),
       link: z.string(),
+      image: z.string().optional(),
     })),
   }),
 });
@@ -306,6 +307,7 @@ const practicesCollection = defineCollection({
       badge: z.string(),
       h1: z.string(),
       tagline: z.string(),
+      image: z.string().optional(),
     }),
 
     trust: z.array(

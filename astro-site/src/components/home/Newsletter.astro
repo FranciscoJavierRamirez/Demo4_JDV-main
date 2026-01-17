@@ -6,8 +6,14 @@ const { title, subtitle, placeholder, buttonText, note } = newsletterData.data;
 ---
 
 <!-- Newsletter Section -->
-<div class="bg-gradient-to-br from-[var(--blue-dark)] to-[var(--blue-deeper)] py-12 mb-8">
-  <div class="container">
+<div class="relative bg-gradient-to-br from-[var(--blue-dark)] to-[var(--blue-deeper)] py-12 mb-8 overflow-hidden">
+  <!-- Decorative Orbs -->
+  <div class="absolute inset-0 pointer-events-none">
+    <div class="absolute w-[280px] h-[280px] rounded-full blur-[80px] opacity-[0.15] -top-[80px] -right-[60px] bg-[radial-gradient(circle,var(--gold)_0%,transparent_70%)]"></div>
+    <div class="absolute w-[200px] h-[200px] rounded-full blur-[60px] opacity-[0.12] -bottom-[50px] -left-[40px] bg-[radial-gradient(circle,var(--gold-light)_0%,transparent_70%)]"></div>
+  </div>
+  
+  <div class="container relative z-10">
     <div class="flex flex-col gap-6 text-center max-w-[800px] mx-auto">
       <!-- Title -->
       <h3 class="font-[var(--font-display)] text-[clamp(1.75rem,3vw,2.25rem)] text-white mb-2 font-bold flex items-center justify-center gap-3">
@@ -27,14 +33,15 @@ const { title, subtitle, placeholder, buttonText, note } = newsletterData.data;
           placeholder={placeholder}
           required
           aria-label="Email para newsletter"
-          class="flex-1 px-5 py-4 border-2 border-white/20 rounded-xl bg-white/10 text-white text-base backdrop-blur-lg transition-all duration-200 placeholder:text-white/60 focus:outline-none focus:border-[var(--gold-primary)] focus:bg-white/15 focus:shadow-[0_0_0_4px_rgba(201,162,84,0.15)]"
+          class="flex-1 px-5 py-4 border-2 border-white/20 rounded-xl bg-white/10 text-white text-base backdrop-blur-lg transition-all duration-300 placeholder:text-white/60 focus:outline-none focus:border-[var(--gold)] focus:bg-white/15 focus:shadow-[0_0_0_4px_rgba(201,162,84,0.2),0_0_20px_rgba(201,162,84,0.15)]"
         />
         <button 
           type="submit" 
-          class="px-6 py-4 bg-[var(--gold)] text-white border-none rounded-xl font-semibold cursor-pointer flex items-center justify-center gap-2 transition-all duration-200 text-base hover:-translate-y-0.5 hover:bg-[var(--gold-light)] hover:shadow-[0_10px_30px_rgba(201,169,97,0.3)]"
+          class="group relative px-6 py-4 bg-[var(--gold-gradient)] text-[var(--gray-900)] border-none rounded-xl font-semibold cursor-pointer flex items-center justify-center gap-2 transition-all duration-200 text-base hover:-translate-y-0.5 hover:shadow-[0_10px_30px_rgba(201,169,97,0.3)] overflow-hidden"
         >
-          {buttonText}
-          <i class="fas fa-arrow-right"></i>
+          <span class="absolute top-0 -left-full w-full h-full bg-gradient-to-r from-transparent via-white/40 to-transparent animate-[shimmer_3s_infinite] z-[1]"></span>
+          <span class="relative z-[2]">{buttonText}</span>
+          <i class="fas fa-arrow-right relative z-[2]"></i>
         </button>
       </form>
 

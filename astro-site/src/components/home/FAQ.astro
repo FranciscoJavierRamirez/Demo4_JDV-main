@@ -23,13 +23,15 @@ function processMarkdown(text: string): string {
       <h2 class="font-[var(--font-display)] text-[clamp(2rem,4vw,3rem)] font-bold text-[var(--gray-900)] mb-4 tracking-[-0.02em]">
         {sectionTitle}
       </h2>
-      <p class="text-base lg:text-lg text-[var(--gray-600)] max-w-[600px] mx-auto leading-relaxed">
+      <p class="text-base lg:text-lg text-[var(--gray-600)] max-w-[600px] mx-auto leading-relaxed mb-6">
         {sectionSubtitle}
       </p>
+      <!-- Decorative gold line -->
+      <div class="w-24 h-1 bg-gradient-to-r from-[var(--gold)] to-transparent mx-auto rounded-full opacity-80"></div>
     </div>
 
     <!-- FAQ Container -->
-    <div class="max-w-[800px] mx-auto space-y-3">
+    <div class="max-w-[800px] mx-auto space-y-4">
       {questions.map(faq => (
         <div class="faq-item bg-white rounded-xl overflow-hidden border border-[var(--gray-100)] shadow-[0_2px_8px_rgba(0,0,0,0.04)] transition-all duration-300 hover:shadow-[0_4px_16px_rgba(0,0,0,0.08)] hover:border-[var(--gray-200)]" data-faq={faq.id}>
           <button 
@@ -75,16 +77,26 @@ function processMarkdown(text: string): string {
 </section>
 
 <style>
+  .faq-item {
+    border-left: 3px solid transparent;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
   .faq-item.active .faq-question .fa-chevron-down {
     transform: rotate(180deg);
   }
 
   .faq-item.active .faq-question > div {
-    background: var(--blue-primary);
+    background: var(--gold);
   }
 
   .faq-item.active .faq-question .fa-chevron-down {
     color: white;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .faq-item .faq-question .fa-chevron-down {
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .faq-item.active .faq-answer {
@@ -92,8 +104,8 @@ function processMarkdown(text: string): string {
   }
 
   .faq-item.active {
-    border-color: var(--blue-primary);
-    box-shadow: 0 4px 20px rgba(59, 130, 246, 0.15);
+    border-left-color: var(--gold);
+    box-shadow: 0 4px 20px rgba(201, 169, 97, 0.12);
   }
 
   .faq-question:hover > div {
@@ -101,7 +113,7 @@ function processMarkdown(text: string): string {
   }
 
   .faq-item.active .faq-question:hover > div {
-    background: var(--blue-dark);
+    background: var(--gold-dark);
   }
 </style>
 

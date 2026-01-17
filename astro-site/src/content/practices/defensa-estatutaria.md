@@ -10,6 +10,7 @@ hero:
   badge: "Especialización CGR · 35 Años"
   h1: "Defensa Estatutaria para Funcionarios Públicos"
   tagline: "Protegemos tu estabilidad laboral ante procedimientos disciplinarios"
+  image: "/areas/defensa-estatutaria.jpg"
 
 trust:
   - value: "35+"
