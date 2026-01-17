@@ -13,6 +13,7 @@ import Footer from '../components/home/Footer.astro';
 import Modal from '../components/home/Modal.astro';
 import WhatsAppFloat from '../components/WhatsAppFloat.astro';
 import BackToTop from '../components/BackToTop.astro';
+import ModernDemo from '../components/ModernDemo.jsx';
 ---
 
 <BaseLayout>
@@ -42,6 +43,9 @@ import BackToTop from '../components/BackToTop.astro';
 
   <!-- CTA: Astro Component powered by Content Collection -->
   <CTA />
+
+  <!-- Demo Component: React + Tailwind Deployment Verification -->
+  <ModernDemo client:visible />
 
   <!-- Footer: Astro Component powered by Content Collection -->
   <Footer />

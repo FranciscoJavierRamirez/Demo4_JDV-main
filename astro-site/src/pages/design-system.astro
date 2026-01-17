@@ -1,0 +1,148 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { Cursor, ArrowRight, ShieldCheck, Scales, Bank } from '@phosphor-icons/react';
+
+const title = "Design Ops 2026 | System Verification";
+---
+
+<BaseLayout title={title}>
+  <main class="min-h-screen py-24 px-4 md:px-12 max-w-7xl mx-auto space-y-32">
+    
+    <!-- Header -->
+    <header class="space-y-6">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 border border-accent/20 text-accent text-sm font-medium">
+        <span class="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
+        V.T.E.F. Verification
+      </div>
+      <h1 class="text-fluid-h1 font-bold tracking-tight text-main">
+        Design System <span class="text-accent italic">2026</span>
+      </h1>
+      <p class="text-fluid-body text-muted max-w-2xl">
+        This page verifies the implementation of the Visual & Technical Excellence Framework (V.T.E.F.).
+        It tests Typography, Layered Shadows, Color Physics, and Micro-interactions.
+      </p>
+    </header>
+
+    <!-- 1. The Physics of Interface (Shadows) -->
+    <section class="space-y-8">
+      <div class="border-b border-black/5 pb-4 mb-8">
+        <h2 class="text-fluid-h2">1. Physics & Light</h2>
+        <p class="text-muted">Layered shadows that simulate physical depth.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+        <!-- Low Elevation -->
+        <div class="p-8 rounded-2xl bg-white shadow-layered-sm border border-black/5 flex flex-col justify-center items-center aspect-square transition-all duration-300 hover:-translate-y-1">
+          <span class="text-muted mb-4 font-mono text-xs">Elevation: Low</span>
+          <div class="w-16 h-16 rounded-xl bg-surface-secondary"></div>
+        </div>
+
+        <!-- Medium Elevation -->
+        <div class="p-8 rounded-2xl bg-white shadow-layered-md border border-black/5 flex flex-col justify-center items-center aspect-square transition-all duration-300 hover:-translate-y-2">
+          <span class="text-muted mb-4 font-mono text-xs">Elevation: Medium</span>
+          <div class="w-16 h-16 rounded-xl bg-surface-secondary"></div>
+        </div>
+
+        <!-- High Elevation -->
+        <div class="p-8 rounded-2xl bg-white shadow-layered-lg border border-black/5 flex flex-col justify-center items-center aspect-square transition-all duration-300 hover:-translate-y-4">
+          <span class="text-muted mb-4 font-mono text-xs">Elevation: High</span>
+          <div class="w-16 h-16 rounded-xl bg-accent text-white flex items-center justify-center">
+            <ShieldCheck size={32} weight="duotone" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Typography & Rhythm -->
+    <section class="space-y-8">
+      <div class="border-b border-black/5 pb-4 mb-8">
+        <h2 class="text-fluid-h2">2. Fluid Typography</h2>
+        <p class="text-muted">Perfect fourth scale using CSS Clamp.</p>
+      </div>
+
+      <div class="space-y-8 p-12 bg-surface-secondary rounded-3xl border border-black/5">
+        <div class="grid grid-cols-[100px_1fr] items-baseline gap-4">
+          <span class="text-xs font-mono text-muted">H1</span>
+          <h1 class="text-fluid-h1">Legal Excellence</h1>
+        </div>
+        <div class="grid grid-cols-[100px_1fr] items-baseline gap-4">
+          <span class="text-xs font-mono text-muted">H2</span>
+          <h2 class="text-fluid-h2">Corporate Defense</h2>
+        </div>
+        <div class="grid grid-cols-[100px_1fr] items-baseline gap-4">
+          <span class="text-xs font-mono text-muted">H3</span>
+          <h3 class="text-fluid-h3">Services Overview</h3>
+        </div>
+        <div class="grid grid-cols-[100px_1fr] items-baseline gap-4">
+          <span class="text-xs font-mono text-muted">Body</span>
+          <p class="text-fluid-body text-muted max-w-prose">
+            The law firm of the future doesn't just win cases; it provides clarity in a complex world. 
+            Our digital presence reflects our transparency and strength.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Glassmorphism & Materials -->
+    <section class="space-y-8">
+      <div class="border-b border-black/5 pb-4 mb-8">
+        <h2 class="text-fluid-h2">3. Materials (Glass 2.0)</h2>
+        <p class="text-muted">Backdrop blurs with inner light borders.</p>
+      </div>
+
+      <div class="relative h-96 rounded-3xl overflow-hidden flex items-center justify-center bg-gradient-to-br from-blue-50 to-purple-50">
+        <!-- Abstract Background Shapes -->
+        <div class="absolute top-1/4 left-1/4 w-64 h-64 bg-accent/20 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-64 h-64 bg-blue-400/20 rounded-full blur-3xl"></div>
+
+        <!-- Glass Card -->
+        <div class="relative glass-panel rounded-2xl p-8 max-w-md w-full mx-4 border-light transform transition-transform hover:scale-105 duration-500 ease-[var(--ease-spring)]">
+          <div class="flex items-center gap-4 mb-6">
+            <div class="p-3 bg-accent/10 rounded-lg text-accent">
+              <Scales size={24} weight="fill" />
+            </div>
+            <div>
+              <h3 class="font-bold text-lg">Glass Card</h3>
+              <p class="text-xs text-muted">Blur: 12px | Saturation: 180%</p>
+            </div>
+          </div>
+          <p class="text-muted text-sm leading-relaxed">
+            This card uses the backdrop-filter property combined with a subtle inner border gradient to simulate a physical glass material.
+          </p>
+          <button class="mt-6 w-full py-3 rounded-lg bg-accent text-white font-medium shadow-lg shadow-accent/25 hover:shadow-accent/40 active:scale-[0.98] transition-all duration-200 ease-[var(--ease-spring)] flex items-center justify-center gap-2 group">
+            Interact with me
+            <ArrowRight weight="bold" class="group-hover:translate-x-1 transition-transform" />
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Interactive Components -->
+    <section class="space-y-8 pb-24">
+      <div class="border-b border-black/5 pb-4 mb-8">
+        <h2 class="text-fluid-h2">4. Micro-interactions</h2>
+        <p class="text-muted">Spring animations and tactile feedback.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+        <button class="h-14 rounded-xl bg-black text-white font-medium hover:scale-105 active:scale-95 transition-transform duration-300 ease-[var(--ease-spring)]">
+          Spring Scale
+        </button>
+        
+        <button class="h-14 rounded-xl border border-black/10 text-main font-medium hover:border-accent hover:text-accent transition-colors duration-200">
+          Color Shift
+        </button>
+        
+        <button class="h-14 rounded-xl bg-accent text-white font-medium shadow-layered-md hover:shadow-layered-lg hover:-translate-y-1 transition-all duration-300">
+          Elevation Lift
+        </button>
+        
+        <div class="h-14 rounded-xl bg-surface-secondary border border-black/5 flex items-center px-4 gap-2 group cursor-text">
+          <Cursor class="text-muted group-hover:text-accent transition-colors" />
+          <span class="text-muted text-sm group-hover:translate-x-1 transition-transform">Input Focus</span>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</BaseLayout>
