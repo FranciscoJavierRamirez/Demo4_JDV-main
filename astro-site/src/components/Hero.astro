@@ -8,7 +8,7 @@ const { badge, title, subtitle, cta, trust, floatingCards, scrollIndicator, imag
 const processedSubtitle = subtitle.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
 ---
 
-<section id="hero" class="relative min-h-screen flex items-center pt-24 pb-16 lg:pt-28 lg:pb-20 overflow-hidden bg-gradient-to-br from-[#0077C8] to-[#1A4D7A]">
+<section id="hero" class="relative min-h-[90vh] flex items-start pt-28 pb-12 lg:pt-32 lg:pb-16 overflow-hidden bg-gradient-to-br from-[#0077C8] to-[#1A4D7A]">
   <!-- Background Image -->
   <img 
     src={images.background} 
@@ -27,18 +27,18 @@ const processedSubtitle = subtitle.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong
 
   <!-- Main Container -->
   <div class="relative z-10 w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="grid grid-cols-1 lg:grid-cols-[1fr_0.9fr] gap-10 lg:gap-16 items-center">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
       
-      <!-- Hero Content - Always first on mobile -->
-      <div class="text-white">
+      <!-- Hero Content -->
+      <div class="text-white pt-4">
         <!-- Badge -->
-        <div class="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-lg rounded-full border border-white/20 text-sm font-semibold mb-6 shadow-lg">
+        <div class="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-lg rounded-full border border-white/20 text-sm font-semibold mb-5 shadow-lg">
           <i class={`${badge.icon} text-[var(--gold)] text-base`}></i>
           <span class="leading-tight">{badge.text}</span>
         </div>
 
         <!-- Title -->
-        <h1 class="font-[var(--font-display)] text-[clamp(2.25rem,5vw,3.75rem)] font-black leading-[1.05] mb-6 tracking-[-0.02em]">
+        <h1 class="font-[var(--font-display)] text-[clamp(2rem,4.5vw,3.5rem)] font-black leading-[1.08] mb-5 tracking-[-0.02em]">
           <span class="block text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.4)]">
             {title.line1}
           </span>
@@ -49,14 +49,14 @@ const processedSubtitle = subtitle.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong
 
         <!-- Subtitle -->
         <p 
-          class="text-base sm:text-lg leading-relaxed text-white/90 mb-8 max-w-[560px] [&_strong]:font-semibold [&_strong]:text-[var(--gold-light)]"
+          class="text-base leading-relaxed text-white/90 mb-6 max-w-[520px] [&_strong]:font-semibold [&_strong]:text-[var(--gold-light)]"
           set:html={processedSubtitle}
         ></p>
 
-        <!-- CTAs - Prominent placement -->
-        <div class="flex flex-col sm:flex-row gap-4 mb-10">
+        <!-- CTAs -->
+        <div class="flex flex-col sm:flex-row gap-3 mb-6">
           <button 
-            class="group relative px-8 py-4 text-base bg-[var(--gold-gradient)] text-[var(--gray-900)] border-none rounded-xl font-bold shadow-[var(--shadow-gold)] overflow-hidden transition-all duration-200 hover:translate-y-[-2px] hover:scale-[1.02] active:scale-[0.98]"
+            class="group relative px-6 py-3.5 text-base bg-[var(--gold-gradient)] text-[var(--gray-900)] border-none rounded-xl font-bold shadow-[var(--shadow-gold)] overflow-hidden transition-all duration-200 hover:translate-y-[-2px] hover:scale-[1.02] active:scale-[0.98]"
             onclick={cta.primary.action}
           >
             <span class="absolute top-0 -left-full w-full h-full bg-gradient-to-r from-transparent via-white/40 to-transparent animate-[shimmer_3s_infinite] z-[1]"></span>
@@ -66,23 +66,23 @@ const processedSubtitle = subtitle.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong
           
           <a 
             href={cta.secondary.href} 
-            class="px-8 py-4 text-base bg-white/10 backdrop-blur-lg text-white border-2 border-white/30 rounded-xl font-semibold flex items-center justify-center gap-2 transition-all duration-200 hover:bg-white/20 hover:border-white/50"
+            class="px-6 py-3.5 text-base bg-white/10 backdrop-blur-lg text-white border-2 border-white/30 rounded-xl font-semibold flex items-center justify-center gap-2 transition-all duration-200 hover:bg-white/20 hover:border-white/50"
           >
             <i class={cta.secondary.icon}></i>
             <span>{cta.secondary.text}</span>
           </a>
         </div>
 
-        <!-- Trust Items - Single row on desktop -->
-        <div class="flex flex-wrap gap-3 lg:gap-4">
+        <!-- Trust Items - Single row with horizontal scroll on mobile -->
+        <div class="flex gap-2 overflow-x-auto pb-2 lg:pb-0 lg:flex-wrap lg:gap-3 scrollbar-hide">
           {trust.map(item => (
-            <div class={`flex items-center gap-2 px-3 py-2 rounded-lg ${item.featured ? 'bg-gradient-to-br from-[var(--gold)] to-[var(--gold-light)] shadow-[0_4px_16px_rgba(201,169,97,0.3)]' : 'bg-white/10 backdrop-blur-sm border border-white/10'}`}>
-              <div class={`w-8 h-8 flex items-center justify-center rounded-lg flex-shrink-0 ${item.featured ? 'bg-white/25' : 'bg-white/10'}`}>
-                <i class={`${item.icon} text-base ${item.featured ? 'text-white' : 'text-[var(--gold)]'}`}></i>
+            <div class={`flex items-center gap-2 px-3 py-2 rounded-lg flex-shrink-0 ${item.featured ? 'bg-gradient-to-br from-[var(--gold)] to-[var(--gold-light)] shadow-[0_4px_16px_rgba(201,169,97,0.3)]' : 'bg-white/10 backdrop-blur-sm border border-white/10'}`}>
+              <div class={`w-7 h-7 flex items-center justify-center rounded-md flex-shrink-0 ${item.featured ? 'bg-white/25' : 'bg-white/10'}`}>
+                <i class={`${item.icon} text-sm ${item.featured ? 'text-white' : 'text-[var(--gold)]'}`}></i>
               </div>
               <div class={item.featured ? 'text-white' : ''}>
-                <strong class="block text-sm font-bold leading-none">{item.title}</strong>
-                <span class={`text-xs ${item.featured ? 'text-white/90' : 'text-white/70'}`}>{item.subtitle}</span>
+                <strong class="block text-xs font-bold leading-none whitespace-nowrap">{item.title}</strong>
+                <span class={`text-[10px] whitespace-nowrap ${item.featured ? 'text-white/90' : 'text-white/70'}`}>{item.subtitle}</span>
               </div>
             </div>
           ))}
@@ -92,42 +92,42 @@ const processedSubtitle = subtitle.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong
       <!-- Hero Visual - Image with floating cards -->
       <div class="relative hidden lg:block">
         <!-- Main Image Container -->
-        <div class="relative mx-auto w-full max-w-[380px] xl:max-w-[420px]">
-          <!-- Image Frame -->
-          <div class="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)] bg-white/5">
+        <div class="relative mx-auto w-full max-w-[400px]">
+          <!-- Image Frame with 4:5 aspect ratio -->
+          <div class="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)] bg-white/5">
             <img 
               src={images.hero}
               alt={images.heroAlt}
               class="w-full h-full object-cover object-top"
             />
             <!-- Subtle gradient overlay -->
-            <div class="absolute inset-0 bg-gradient-to-t from-[rgba(12,35,64,0.3)] via-transparent to-transparent pointer-events-none"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-[rgba(12,35,64,0.2)] via-transparent to-transparent pointer-events-none"></div>
           </div>
 
           <!-- Floating Card 1 - Bottom Left -->
           <div 
-            class="absolute -bottom-4 -left-8 bg-white rounded-xl p-3 shadow-[0_20px_40px_rgba(0,0,0,0.15)] flex items-center gap-3 animate-[floatCard_6s_ease-in-out_infinite]"
+            class="absolute bottom-8 -left-6 bg-white rounded-xl p-3 shadow-[0_20px_40px_rgba(0,0,0,0.15)] flex items-center gap-2.5 animate-[floatCard_6s_ease-in-out_infinite]"
           >
-            <div class="w-10 h-10 flex items-center justify-center bg-gradient-to-br from-[var(--blue-primary)] to-[var(--blue-dark)] rounded-lg flex-shrink-0">
-              <i class={`${floatingCards[0].icon} text-white`}></i>
+            <div class="w-9 h-9 flex items-center justify-center bg-gradient-to-br from-[var(--blue-primary)] to-[var(--blue-dark)] rounded-lg flex-shrink-0">
+              <i class={`${floatingCards[0].icon} text-white text-sm`}></i>
             </div>
             <div>
-              <div class="text-xl font-extrabold text-[var(--gray-900)] leading-none font-[var(--font-display)]">{floatingCards[0].number}</div>
-              <div class="text-xs text-[var(--gray-500)] font-medium">{floatingCards[0].label}</div>
+              <div class="text-lg font-extrabold text-[var(--gray-900)] leading-none font-[var(--font-display)]">{floatingCards[0].number}</div>
+              <div class="text-[10px] text-[var(--gray-500)] font-medium">{floatingCards[0].label}</div>
             </div>
           </div>
 
           <!-- Floating Card 2 - Top Right -->
           <div 
-            class="absolute -top-4 -right-8 bg-white rounded-xl p-3 shadow-[0_20px_40px_rgba(0,0,0,0.15)] flex items-center gap-3 animate-[floatCard_6s_ease-in-out_infinite]"
+            class="absolute top-8 -right-6 bg-white rounded-xl p-3 shadow-[0_20px_40px_rgba(0,0,0,0.15)] flex items-center gap-2.5 animate-[floatCard_6s_ease-in-out_infinite]"
             style="animation-delay: 3s;"
           >
-            <div class="w-10 h-10 flex items-center justify-center bg-gradient-to-br from-[var(--gold)] to-[var(--gold-dark)] rounded-lg flex-shrink-0">
-              <i class={`${floatingCards[1].icon} text-white`}></i>
+            <div class="w-9 h-9 flex items-center justify-center bg-gradient-to-br from-[var(--gold)] to-[var(--gold-dark)] rounded-lg flex-shrink-0">
+              <i class={`${floatingCards[1].icon} text-white text-sm`}></i>
             </div>
             <div>
-              <div class="text-xl font-extrabold text-[var(--gray-900)] leading-none font-[var(--font-display)]">{floatingCards[1].number}</div>
-              <div class="text-xs text-[var(--gray-500)] font-medium">{floatingCards[1].label}</div>
+              <div class="text-lg font-extrabold text-[var(--gray-900)] leading-none font-[var(--font-display)]">{floatingCards[1].number}</div>
+              <div class="text-[10px] text-[var(--gray-500)] font-medium">{floatingCards[1].label}</div>
             </div>
           </div>
         </div>
@@ -137,18 +137,27 @@ const processedSubtitle = subtitle.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong
 
   <!-- Scroll Indicator -->
   <button 
-    class="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 text-white opacity-80 cursor-pointer transition-all duration-200 hover:opacity-100 hover:translate-y-[2px] bg-transparent border-none"
+    class="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-1.5 text-white opacity-70 cursor-pointer transition-all duration-200 hover:opacity-100 hover:translate-y-[2px] bg-transparent border-none"
     onclick={`document.getElementById('${scrollIndicator.target.slice(1)}').scrollIntoView({behavior: 'smooth'})`}
   >
-    <div class="w-10 h-10 flex items-center justify-center bg-white/10 backdrop-blur-lg border border-white/20 rounded-full animate-[bounceArrow_2s_ease-in-out_infinite]">
-      <i class="fas fa-chevron-down text-lg text-[var(--gold)]"></i>
+    <div class="w-9 h-9 flex items-center justify-center bg-white/10 backdrop-blur-lg border border-white/20 rounded-full animate-[bounceArrow_2s_ease-in-out_infinite]">
+      <i class="fas fa-chevron-down text-base text-[var(--gold)]"></i>
     </div>
-    <span class="text-xs font-semibold tracking-wider uppercase">{scrollIndicator.text}</span>
+    <span class="text-[10px] font-semibold tracking-wider uppercase">{scrollIndicator.text}</span>
   </button>
 </section>
 
 <style>
   h1 {
     font-family: var(--font-display);
+  }
+  
+  /* Hide scrollbar for trust items on mobile */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
   }
 </style>

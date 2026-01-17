@@ -8,7 +8,7 @@ import FullscreenMenu from './FullscreenMenu.astro';
   id="mainNav" 
   role="navigation" 
   aria-label="Navegación principal"
-  class="fixed top-0 left-0 right-0 z-[1000] bg-[rgba(250,250,249,0.85)] backdrop-blur-[20px] backdrop-saturate-[180%] border-b border-white/30 transition-all duration-200 shadow-[0_4px_20px_0_rgba(0,0,0,0.08)]"
+  class="fixed top-0 left-0 right-0 z-[1000] bg-[rgba(250,250,249,0.9)] backdrop-blur-[20px] backdrop-saturate-[180%] border-b border-white/30 transition-all duration-200 shadow-[0_4px_20px_0_rgba(0,0,0,0.08)]"
 >
   <div class="flex items-center justify-between h-[72px] px-4 sm:px-6 max-w-[1440px] mx-auto">
     <!-- Logo -->
@@ -60,13 +60,15 @@ import FullscreenMenu from './FullscreenMenu.astro';
       <li role="none"><a href="#faq" class="nav-link-desktop" role="menuitem">FAQ</a></li>
       <li role="none"><a href="#contact" class="nav-link-desktop" role="menuitem">Contacto</a></li>
       <li role="none">
+        <!-- CTA Button - Prominent Design -->
         <button 
-          class="btn-nav-cta inline-flex items-center gap-2 px-5 py-2.5 bg-[var(--gold-gradient)] text-[var(--gray-900)] border-none rounded-xl font-semibold text-sm cursor-pointer shadow-[0_4px_12px_rgba(201,169,97,0.25)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_8px_20px_rgba(201,169,97,0.35)]"
+          class="btn-nav-cta relative inline-flex items-center gap-2 px-6 py-3 bg-[var(--gold-gradient)] text-[var(--gray-900)] border-2 border-[var(--gold)] rounded-xl font-bold text-sm cursor-pointer shadow-[0_4px_16px_rgba(201,169,97,0.4)] transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02] hover:shadow-[0_8px_24px_rgba(201,169,97,0.5)] overflow-hidden"
           onclick="openModal()" 
           aria-label="Abrir formulario de consulta gratuita"
         >
-          <span>Consulta Gratuita</span>
-          <i class="fas fa-arrow-right text-xs" aria-hidden="true"></i>
+          <span class="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full animate-[shimmer_3s_infinite]"></span>
+          <span class="relative">Consulta Gratuita</span>
+          <i class="fas fa-arrow-right text-xs relative" aria-hidden="true"></i>
         </button>
       </li>
     </ul>
@@ -140,5 +142,11 @@ import FullscreenMenu from './FullscreenMenu.astro';
   #mainNav.scrolled {
     background: rgba(250, 250, 249, 0.95);
     box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.1);
+  }
+
+  /* Shimmer animation for CTA */
+  @keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
   }
 </style>
