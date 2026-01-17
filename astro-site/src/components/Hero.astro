@@ -2,28 +2,40 @@
 import { getEntry } from 'astro:content';
 
 const heroData = await getEntry('home', 'hero');
+
+if (!heroData?.data) {
+  throw new Error("Hero data not found from content collection");
+}
+
 const { badge, title, subtitle, cta, trust, floatingCards, scrollIndicator, images } = heroData.data;
 
 // Process Markdown bold syntax to HTML strong tags
-const processedSubtitle = subtitle.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+const processedSubtitle = subtitle
+  ? subtitle.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+  : '';
+
 ---
 
-<section id="hero" class="relative min-h-[85vh] md:min-h-[90vh] flex items-center pt-24 pb-10 md:pt-28 md:pb-12 lg:pt-32 lg:pb-16 overflow-hidden bg-gradient-to-br from-[#0077C8] to-[#1A4D7A]">
-  <!-- Background Image -->
+<section id="hero" class="relative min-h-[85vh] md:min-h-[90vh] flex items-center pt-24 pb-10 md:pt-28 md:pb-12 lg:pt-32 lg:pb-16 overflow-hidden bg-[var(--blue-deeper)]">
+  <!-- Complex Mesh Gradient Background -->
+  <div class="absolute inset-0 z-0">
+    <div class="absolute top-[-20%] left-[-10%] w-[70%] h-[70%] rounded-full bg-[radial-gradient(circle,rgba(59,130,246,0.4)_0%,transparent_70%)] blur-[120px] animate-[float_20s_ease-in-out_infinite]"></div>
+    <div class="absolute bottom-[-10%] right-[-5%] w-[60%] h-[60%] rounded-full bg-[radial-gradient(circle,rgba(29,78,216,0.4)_0%,transparent_70%)] blur-[100px] animate-[float_25s_ease-in-out_infinite_reverse]"></div>
+    <div class="absolute top-[40%] left-[30%] w-[40%] h-[40%] rounded-full bg-[radial-gradient(circle,rgba(201,162,84,0.15)_0%,transparent_70%)] blur-[80px] animate-[float_15s_ease-in-out_infinite_5s]"></div>
+  </div>
+
+  <!-- Noise Texture Overlay -->
+  <div class="absolute inset-0 z-[1] opacity-[0.03] pointer-events-none mix-blend-overlay" style="background-image: url('data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noise\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.65\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noise)\'/%3E%3C/svg%3E');"></div>
+
+  <!-- Background Image with Overlay -->
   <img 
     src={images.background} 
     alt="Oficina jurídica moderna JDV" 
-    class="absolute inset-0 w-full h-full object-cover z-[1] blur-[2px] brightness-90 saturate-95 scale-105"
+    class="absolute inset-0 w-full h-full object-cover z-[0] opacity-40 mix-blend-overlay blur-[2px] scale-105"
   />
   
-  <!-- Overlay for legibility - adjusted for mobile -->
-  <div class="absolute inset-0 z-[2] bg-gradient-to-r from-[rgba(12,35,64,0.97)] via-[rgba(12,35,64,0.93)] to-[rgba(26,77,122,0.88)] md:from-[rgba(12,35,64,0.95)] md:via-[rgba(12,35,64,0.90)] md:to-[rgba(26,77,122,0.85)]"></div>
-
-  <!-- Animated Orbs -->
-  <div class="absolute inset-0 z-[3] overflow-hidden pointer-events-none">
-    <div class="absolute w-[250px] h-[250px] sm:w-[350px] sm:h-[350px] md:w-[400px] md:h-[400px] lg:w-[500px] lg:h-[500px] rounded-full blur-[80px] md:blur-[100px] opacity-15 md:opacity-20 -top-[50px] -right-[50px] md:-top-[100px] md:-right-[100px] bg-[radial-gradient(circle,var(--gold)_0%,transparent_70%)] animate-[float_25s_ease-in-out_infinite]"></div>
-    <div class="absolute w-[200px] h-[200px] sm:w-[280px] sm:h-[280px] md:w-[350px] md:h-[350px] lg:w-[400px] lg:h-[400px] rounded-full blur-[80px] md:blur-[100px] opacity-15 md:opacity-20 -bottom-[50px] -left-[50px] md:-bottom-[100px] md:-left-[100px] bg-[radial-gradient(circle,var(--gold-light)_0%,transparent_70%)] animate-[float_25s_ease-in-out_infinite_8s]"></div>
-  </div>
+  <!-- Gradient Overlay for Legibility -->
+  <div class="absolute inset-0 z-[2] bg-gradient-to-r from-[rgba(12,35,64,0.98)] via-[rgba(12,35,64,0.95)] to-[rgba(26,77,122,0.85)]"></div>
 
   <!-- Main Container -->
   <div class="relative z-10 w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
@@ -38,23 +50,23 @@ const processedSubtitle = subtitle.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong
         </div>
 
         <!-- Title -->
-        <h1 class="font-[var(--font-display)] text-[clamp(1.75rem,5vw,3.5rem)] font-black leading-[1.1] mb-4 sm:mb-5 tracking-[-0.02em]">
-          <span class="block text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.4)]">
+        <h1 class="font-[var(--font-display)] text-[clamp(2.5rem,5vw,4rem)] font-black leading-[1.05] mb-5 sm:mb-6 tracking-[-0.02em] animate-[fadeInUp_0.8s_ease-out_forwards]">
+          <span class="block text-white drop-shadow-[0_4px_12px_rgba(0,0,0,0.5)]">
             {title.line1}
           </span>
-          <span class="inline-block bg-gradient-to-br from-white to-[var(--gold-light)] bg-clip-text text-transparent">
+          <span class="inline-block bg-gradient-to-br from-[#FDFBF7] via-[#E5D5AA] to-[#C9A254] bg-clip-text text-transparent drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)]">
             {title.line2}
           </span>
         </h1>
 
         <!-- Subtitle -->
         <p 
-          class="text-sm sm:text-base leading-relaxed text-white/90 mb-5 sm:mb-6 max-w-[520px] [&_strong]:font-semibold [&_strong]:text-[var(--gold-light)]"
+          class="text-base sm:text-lg leading-relaxed text-white/90 mb-6 sm:mb-8 max-w-[540px] [&_strong]:font-semibold [&_strong]:text-[var(--gold-light)] opacity-0 animate-[fadeInUp_0.8s_ease-out_0.2s_forwards]"
           set:html={processedSubtitle}
         ></p>
 
         <!-- CTAs -->
-        <div class="flex flex-col sm:flex-row gap-3 mb-5 sm:mb-6">
+        <div class="flex flex-col sm:flex-row gap-4 mb-8 sm:mb-10 opacity-0 animate-[fadeInUp_0.8s_ease-out_0.4s_forwards]">
           <button 
             class="group relative px-5 py-3 sm:px-6 sm:py-3.5 text-sm sm:text-base bg-[var(--gold-gradient)] text-[var(--gray-900)] border-none rounded-xl font-bold shadow-[var(--shadow-gold)] overflow-hidden transition-all duration-200 hover:translate-y-[-2px] hover:scale-[1.02] active:scale-[0.98]"
             onclick={cta.primary.action}
