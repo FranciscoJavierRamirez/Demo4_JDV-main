@@ -1,4 +1,32 @@
 <!-- Back to Top -->
-<button class="back-to-top" id="backToTop" aria-label="Volver arriba">
+<button 
+  id="backToTop" 
+  class="back-to-top fixed bottom-[calc(2rem+80px)] right-8 w-[52px] h-[52px] bg-[var(--gray-900)] text-white border-none rounded-full hidden items-center justify-center cursor-pointer shadow-lg z-[999] transition-all duration-200 hover:bg-[var(--blue-primary)] hover:scale-110"
+  aria-label="Volver arriba"
+>
   <i class="fas fa-chevron-up"></i>
 </button>
+
+<style>
+  .back-to-top.show {
+    display: flex;
+  }
+</style>
+
+<script>
+  const backToTop = document.getElementById('backToTop');
+  
+  // Show/hide button based on scroll position
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 500) {
+      backToTop?.classList.add('show');
+    } else {
+      backToTop?.classList.remove('show');
+    }
+  }, { passive: true });
+
+  // Scroll to top on click
+  backToTop?.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+</script>

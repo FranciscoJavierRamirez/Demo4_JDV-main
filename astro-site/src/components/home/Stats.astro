@@ -5,21 +5,93 @@ const statsData = await getEntry('stats', 'home');
 const { stats } = statsData.data;
 ---
 
-<!-- Stats Section -->
-<section class="stats-section" id="stats">
+<section id="stats" class="py-20 bg-[var(--white)]">
   <div class="container">
-    <div class="stats-grid">
-      {stats.map(stat => (
-        <div class="stat-item">
-          <div class="stat-icon">
-            <i class={stat.icon}></i>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      {stats.map((stat, index) => (
+        <div 
+          class="stat-item flex items-center gap-5 p-8 bg-[var(--gray-50)] rounded-2xl transition-all duration-200 shadow-[var(--shadow-premium)] hover:-translate-y-1 hover:scale-[1.02] hover:shadow-[var(--shadow-premium-hover)]"
+          style={`transition-delay: ${index * 100}ms`}
+        >
+          <!-- Icon -->
+          <div class="w-[72px] h-[72px] flex items-center justify-center bg-gradient-to-br from-[var(--blue-primary)] to-[var(--blue-dark)] rounded-[14px] flex-shrink-0">
+            <i class={`${stat.icon} text-[2rem] text-white`}></i>
           </div>
-          <div class="stat-content">
-            <div class="stat-number" data-target={stat.target}>0</div>
-            <div class="stat-label">{stat.label}</div>
+          
+          <!-- Content -->
+          <div class="flex-1">
+            <div 
+              class="stat-number text-[3rem] font-extrabold text-[var(--blue-primary)] font-[var(--font-display)] leading-none after:content-['+'] after:text-[var(--gold)]"
+              data-target={stat.target}
+            >
+              0
+            </div>
+            <div class="text-[var(--gray-600)] text-[0.9375rem] font-medium mt-2">
+              {stat.label}
+            </div>
           </div>
         </div>
       ))}
     </div>
   </div>
 </section>
+
+<script>
+  // Counter animation with IntersectionObserver
+  const animateCounter = (element: HTMLElement, target: number) => {
+    const duration = 2000;
+    const startTime = performance.now();
+    
+    const updateCounter = (currentTime: number) => {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      
+      // Easing function (ease-out-expo)
+      const easeOutExpo = 1 - Math.pow(2, -10 * progress);
+      const current = Math.round(target * easeOutExpo);
+      
+      element.textContent = current.toString();
+      
+      if (progress < 1) {
+        requestAnimationFrame(updateCounter);
+      } else {
+        element.textContent = target.toString();
+      }
+    };
+    
+    requestAnimationFrame(updateCounter);
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const statItem = entry.target as HTMLElement;
+        statItem.classList.add('visible');
+        
+        const numberEl = statItem.querySelector('.stat-number') as HTMLElement;
+        if (numberEl && numberEl.dataset.target) {
+          const target = parseInt(numberEl.dataset.target, 10);
+          animateCounter(numberEl, target);
+        }
+        
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+
+  document.querySelectorAll('.stat-item').forEach(el => observer.observe(el));
+</script>
+
+<style>
+  .stat-item {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  
+  .stat-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), 
+                transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+</style>

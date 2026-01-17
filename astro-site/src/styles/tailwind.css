@@ -1,1 +1,6 @@
-@import "tailwindcss";
+/* 
+ * Tailwind CSS Entry Point
+ * This file is kept for backwards compatibility.
+ * All styles are now in global.css
+ */
+@import "./global.css";

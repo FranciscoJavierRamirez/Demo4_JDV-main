@@ -6,34 +6,52 @@ const { title, subtitle, placeholder, buttonText, note } = newsletterData.data;
 ---
 
 <!-- Newsletter Section -->
-<div class="footer-newsletter">
+<div class="bg-gradient-to-br from-[var(--blue-dark)] to-[var(--blue-deeper)] py-12 mb-8">
   <div class="container">
-    <div class="newsletter-content">
-      <div class="newsletter-text">
-        <h3 class="newsletter-title">
-          <i class="fas fa-envelope-open-text"></i>
-          {title}
-        </h3>
-        <p class="newsletter-subtitle">
-          {subtitle}
-        </p>
-      </div>
-      <form class="newsletter-form" onsubmit="handleNewsletterSubmit(event)">
+    <div class="flex flex-col gap-6 text-center max-w-[800px] mx-auto">
+      <!-- Title -->
+      <h3 class="font-[var(--font-display)] text-[clamp(1.75rem,3vw,2.25rem)] text-white mb-2 font-bold flex items-center justify-center gap-3">
+        <i class="fas fa-envelope-open-text text-[var(--gold)]"></i>
+        {title}
+      </h3>
+      
+      <!-- Subtitle -->
+      <p class="text-[var(--gray-200)] text-[clamp(1rem,2vw,1.125rem)] leading-relaxed">
+        {subtitle}
+      </p>
+
+      <!-- Form -->
+      <form class="flex gap-3 max-w-[500px] mx-auto w-full flex-col sm:flex-row" onsubmit="handleNewsletterSubmit(event)">
         <input
           type="email"
           placeholder={placeholder}
           required
           aria-label="Email para newsletter"
-          class="newsletter-input"
+          class="flex-1 px-5 py-4 border-2 border-white/20 rounded-xl bg-white/10 text-white text-base backdrop-blur-lg transition-all duration-200 placeholder:text-white/60 focus:outline-none focus:border-[var(--gold-primary)] focus:bg-white/15 focus:shadow-[0_0_0_4px_rgba(201,162,84,0.15)]"
+        />
+        <button 
+          type="submit" 
+          class="px-6 py-4 bg-[var(--gold)] text-white border-none rounded-xl font-semibold cursor-pointer flex items-center justify-center gap-2 transition-all duration-200 text-base hover:-translate-y-0.5 hover:bg-[var(--gold-light)] hover:shadow-[0_10px_30px_rgba(201,169,97,0.3)]"
         >
-        <button type="submit" class="newsletter-btn">
           {buttonText}
           <i class="fas fa-arrow-right"></i>
         </button>
       </form>
-      <p class="newsletter-note">
-        <i class="fas fa-lock"></i> {note}
+
+      <!-- Note -->
+      <p class="text-[var(--gray-300)] text-sm flex items-center justify-center gap-2">
+        <i class="fas fa-lock text-[var(--gold)]"></i> 
+        {note}
       </p>
     </div>
   </div>
 </div>
+
+<script is:inline>
+  function handleNewsletterSubmit(event) {
+    event.preventDefault();
+    // TODO: Implement newsletter submission
+    alert('¡Gracias por suscribirte! Pronto recibirás nuestras actualizaciones legales.');
+    event.target.reset();
+  }
+</script>

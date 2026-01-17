@@ -1,42 +1,75 @@
+---
+const menuItems = [
+  { href: "#hero", label: "Inicio" },
+  { href: "/areas-practicas", label: "Áreas de Práctica" },
+  { href: "#about", label: "Quiénes Somos" },
+  { href: "../blog/", label: "Blog" },
+  { href: "#faq", label: "FAQ" },
+  { href: "#contact", label: "Contacto" }
+];
+---
+
 <!-- Full Screen Mobile Menu -->
-<div class="fullscreen-menu" id="fullscreenMenu" role="dialog" aria-modal="true" aria-label="Menú de navegación">
-  <div class="fullscreen-menu-bg" aria-hidden="true"></div>
-  <div class="fullscreen-menu-content">
-    <nav class="fullscreen-nav" aria-label="Navegación principal">
-      <a href="#hero" class="fullscreen-link" aria-label="Ir a inicio">
-        <span class="link-number" aria-hidden="true">01</span>
-        <span class="link-text">Inicio</span>
-      </a>
-      <a href="/areas-practicas" class="fullscreen-link" aria-label="Ver áreas de práctica">
-        <span class="link-number" aria-hidden="true">02</span>
-        <span class="link-text">Áreas de Práctica</span>
-      </a>
-      <a href="#about" class="fullscreen-link" aria-label="Ir a quiénes somos">
-        <span class="link-number" aria-hidden="true">03</span>
-        <span class="link-text">Quiénes Somos</span>
-      </a>
-      <a href="../blog/" class="fullscreen-link" aria-label="Ir al blog">
-        <span class="link-number" aria-hidden="true">04</span>
-        <span class="link-text">Blog</span>
-      </a>
-      <a href="#faq" class="fullscreen-link" aria-label="Ir a preguntas frecuentes">
-        <span class="link-number" aria-hidden="true">05</span>
-        <span class="link-text">FAQ</span>
-      </a>
-      <a href="#contact" class="fullscreen-link" aria-label="Ir a contacto">
-        <span class="link-number" aria-hidden="true">06</span>
-        <span class="link-text">Contacto</span>
-      </a>
+<div 
+  id="fullscreenMenu" 
+  class="fullscreen-menu fixed inset-0 z-[9999] opacity-0 invisible transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]"
+  role="dialog" 
+  aria-modal="true" 
+  aria-label="Menú de navegación"
+>
+  <!-- Background -->
+  <div class="absolute inset-0 bg-gradient-to-br from-[#0c2340] via-[#1a4d7a] to-[#0077C8]" aria-hidden="true"></div>
+  
+  <!-- Content -->
+  <div class="relative h-full flex flex-col justify-center px-8 py-24">
+    <nav class="flex flex-col gap-2" aria-label="Navegación principal">
+      {menuItems.map((item, index) => (
+        <a 
+          href={item.href} 
+          class="fullscreen-link group flex items-center gap-6 py-4 text-white no-underline opacity-0 -translate-x-8 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]"
+          style={`transition-delay: ${index * 80}ms`}
+          aria-label={`Ir a ${item.label}`}
+        >
+          <span class="link-number font-mono text-sm text-[var(--gold)] opacity-60 w-8" aria-hidden="true">
+            {String(index + 1).padStart(2, '0')}
+          </span>
+          <span class="link-text font-[var(--font-display)] text-[clamp(1.75rem,5vw,3rem)] font-bold tracking-[-0.02em] transition-all duration-300 group-hover:text-[var(--gold)] group-hover:translate-x-4">
+            {item.label}
+          </span>
+        </a>
+      ))}
     </nav>
 
-    <div class="fullscreen-footer">
-      <button class="btn-fullscreen-cta" aria-label="Abrir formulario de consulta gratuita" onclick="openModal(); document.getElementById('fullscreenMenu').classList.remove('active'); document.getElementById('navTogglePremium').classList.remove('active'); document.body.style.overflow = '';">
+    <!-- Footer -->
+    <div class="fullscreen-footer mt-auto pt-12 opacity-0 translate-y-8 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] delay-500">
+      <button 
+        class="w-full max-w-md py-5 px-8 bg-[var(--gold-gradient)] text-[var(--gray-900)] border-none rounded-2xl font-bold text-lg cursor-pointer shadow-[var(--shadow-gold)] transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_8px_24px_rgba(201,169,97,0.5)]"
+        aria-label="Abrir formulario de consulta gratuita" 
+        onclick="openModal(); document.getElementById('fullscreenMenu').classList.remove('active'); document.getElementById('navTogglePremium').classList.remove('active'); document.body.style.overflow = '';"
+      >
         Agendar Consulta Gratuita
       </button>
-      <div class="fullscreen-contact">
-        <p>+56 9 XXXX XXXX</p>
-        <p>contacto@jdviabogados.cl</p>
+      <div class="mt-8 text-white/80 space-y-2">
+        <p class="text-lg font-medium">+56 9 XXXX XXXX</p>
+        <p class="text-base opacity-80">contacto@jdviabogados.cl</p>
       </div>
     </div>
   </div>
 </div>
+
+<style>
+  .fullscreen-menu.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .fullscreen-menu.active .fullscreen-link {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .fullscreen-menu.active .fullscreen-footer {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>

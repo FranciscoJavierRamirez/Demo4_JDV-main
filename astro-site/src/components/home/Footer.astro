@@ -7,30 +7,40 @@ const { brand, columns, trust, bottom, legal } = footerData.data;
 ---
 
 <!-- Footer -->
-<footer class="main-footer">
+<footer class="bg-[var(--gray-900)] text-white">
   <!-- Newsletter Section -->
   <Newsletter />
 
   <!-- Footer Content -->
-  <div class="footer-content">
+  <div class="py-20 pb-8">
     <div class="container">
-      <div class="footer-grid">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
         <!-- Brand Column -->
-        <div class="footer-col">
-          <h3 class="footer-title">{brand.title}</h3>
-          <p class="footer-text">{brand.description}</p>
-          <div class="footer-rating">
-            <div class="rating-stars">
+        <div class="flex flex-col gap-4">
+          <h3 class="font-bold text-lg mb-2 text-[var(--gold)]">{brand.title}</h3>
+          <p class="opacity-85 leading-relaxed text-[0.9375rem]">{brand.description}</p>
+          
+          <!-- Rating -->
+          <div class="mt-4">
+            <div class="flex gap-1 mb-2">
               {Array.from({ length: Math.floor(brand.rating.stars) }).map(() => (
-                <i class="fas fa-star"></i>
+                <i class="fas fa-star text-[var(--gold)] text-lg"></i>
               ))}
-              {brand.rating.stars % 1 !== 0 && <i class="fas fa-star-half-alt"></i>}
+              {brand.rating.stars % 1 !== 0 && <i class="fas fa-star-half-alt text-[var(--gold)] text-lg"></i>}
             </div>
-            <p class="rating-text">{brand.rating.text}</p>
+            <p class="text-white/85 text-sm m-0">{brand.rating.text}</p>
           </div>
-          <div class="footer-social">
+          
+          <!-- Social -->
+          <div class="flex gap-3 mt-2">
             {brand.social.map(social => (
-              <a href={social.url} target="_blank" rel="noopener noreferrer" aria-label={social.label}>
+              <a 
+                href={social.url} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                aria-label={social.label}
+                class="w-11 h-11 flex items-center justify-center bg-white/10 rounded-[10px] text-white no-underline transition-all duration-150 hover:bg-[var(--gold)] hover:text-[var(--gray-900)] hover:-translate-y-0.5"
+              >
                 <i class={social.icon} aria-hidden="true"></i>
               </a>
             ))}
@@ -38,48 +48,61 @@ const { brand, columns, trust, bottom, legal } = footerData.data;
         </div>
 
         <!-- Áreas de Práctica Column -->
-        <div class="footer-col">
-          <h3 class="footer-title">{columns.areas.title}</h3>
-          <ul class="footer-links">
+        <div class="flex flex-col gap-4">
+          <h3 class="font-bold text-lg mb-2 text-[var(--gold)]">{columns.areas.title}</h3>
+          <ul class="list-none flex flex-col gap-3">
             {columns.areas.links.map(link => (
-              <li><a href={link.href}>{link.text}</a></li>
+              <li>
+                <a href={link.href} class="text-white/85 no-underline transition-all duration-150 text-[0.9375rem] hover:text-[var(--gold)] hover:pl-2">
+                  {link.text}
+                </a>
+              </li>
             ))}
           </ul>
         </div>
 
         <!-- Empresa Column -->
-        <div class="footer-col">
-          <h3 class="footer-title">{columns.company.title}</h3>
-          <ul class="footer-links">
+        <div class="flex flex-col gap-4">
+          <h3 class="font-bold text-lg mb-2 text-[var(--gold)]">{columns.company.title}</h3>
+          <ul class="list-none flex flex-col gap-3">
             {columns.company.links.map(link => (
-              <li><a href={link.href}>{link.text}</a></li>
+              <li>
+                <a href={link.href} class="text-white/85 no-underline transition-all duration-150 text-[0.9375rem] hover:text-[var(--gold)] hover:pl-2">
+                  {link.text}
+                </a>
+              </li>
             ))}
           </ul>
         </div>
 
         <!-- Contacto Column -->
-        <div class="footer-col">
-          <h3 class="footer-title">{columns.contact.title}</h3>
-          <ul class="footer-contact">
+        <div class="flex flex-col gap-4">
+          <h3 class="font-bold text-lg mb-2 text-[var(--gold)]">{columns.contact.title}</h3>
+          <ul class="list-none flex flex-col gap-3">
             {columns.contact.items.map(item => (
-              <li>
+              <li class="flex items-center gap-3 opacity-85 text-[0.9375rem]">
                 {item.href ? (
-                  <a href={item.href} class="footer-contact-link" target={item.href.startsWith('https://wa.me') ? '_blank' : undefined} rel={item.href.startsWith('https://wa.me') ? 'noopener noreferrer' : undefined}>
-                    <i class={item.icon}></i>
+                  <a 
+                    href={item.href} 
+                    class="flex items-center gap-3 text-white/85 no-underline transition-colors duration-150 hover:text-[var(--gold)]"
+                    target={item.href.startsWith('https://wa.me') ? '_blank' : undefined} 
+                    rel={item.href.startsWith('https://wa.me') ? 'noopener noreferrer' : undefined}
+                  >
+                    <i class={`${item.icon} text-[var(--gold)] w-5`}></i>
                     <span>{item.text}</span>
                   </a>
                 ) : (
                   <>
-                    <i class={item.icon}></i>
+                    <i class={`${item.icon} text-[var(--gold)] w-5`}></i>
                     <span>{item.text}</span>
                   </>
                 )}
               </li>
             ))}
           </ul>
-          <p class="footer-text" style="margin-top: 1rem;">
-            <strong>{columns.contact.schedule.title}</strong><br>
-            {columns.contact.schedule.days}<br>
+          <p class="text-white/85 mt-4 text-[0.9375rem]">
+            <strong>{columns.contact.schedule.title}</strong><br/>
+            {columns.contact.schedule.days}<br/>
             {columns.contact.schedule.hours}
           </p>
         </div>
@@ -88,14 +111,16 @@ const { brand, columns, trust, bottom, legal } = footerData.data;
   </div>
 
   <!-- Trust Badges -->
-  <div class="footer-trust">
+  <div class="bg-white/5 py-10 mt-8">
     <div class="container">
-      <h3 class="trust-title">{trust.title}</h3>
-      <div class="trust-badges-grid">
+      <h3 class="text-center text-[var(--gray-200)] text-[clamp(1.25rem,2.5vw,1.5rem)] mb-6 font-semibold">
+        {trust.title}
+      </h3>
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 max-w-[800px] mx-auto">
         {trust.badges.map(badge => (
-          <div class={`trust-badge${badge.featured ? ' trust-badge-featured' : ''}`}>
-            <i class={badge.icon}></i>
-            <span set:html={badge.text}></span>
+          <div class={`flex flex-col items-center text-center p-4 gap-2 rounded-xl border-2 border-transparent transition-all duration-200 hover:-translate-y-1 hover:bg-gradient-to-br hover:from-[rgba(201,169,97,0.15)] hover:to-[rgba(212,175,55,0.1)] hover:border-[rgba(201,169,97,0.3)] hover:shadow-[0_4px_20px_rgba(201,169,97,0.3)] ${badge.featured ? 'bg-gradient-to-br from-[rgba(201,169,97,0.15)] to-[rgba(212,175,55,0.1)] border-[rgba(201,169,97,0.3)] p-5' : ''}`}>
+            <i class={`${badge.icon} text-[2rem] text-[var(--gold)] mb-2 transition-all duration-200 ${badge.featured ? 'text-[2.25rem] text-[var(--gold-light)]' : ''}`}></i>
+            <span class={`text-[var(--gray-300)] text-sm leading-snug transition-all duration-200 ${badge.featured ? 'text-[var(--gold-light)] font-semibold' : ''}`} set:html={badge.text}></span>
           </div>
         ))}
       </div>
@@ -103,24 +128,26 @@ const { brand, columns, trust, bottom, legal } = footerData.data;
   </div>
 
   <!-- Footer Bottom -->
-  <div class="footer-bottom">
+  <div class="border-t border-white/10 py-8 text-center">
     <div class="container">
-      <p>{bottom.copyright}</p>
+      <p class="opacity-70 text-sm">{bottom.copyright}</p>
     </div>
   </div>
 
   <!-- Footer Legal -->
-  <div class="footer-legal">
+  <div class="bg-black/30 py-6 border-t border-white/10">
     <div class="container">
-      <nav class="legal-links" aria-label="Enlaces legales">
+      <nav class="flex flex-wrap justify-center gap-4 mb-4" aria-label="Enlaces legales">
         {legal.links.map((link, index) => (
           <>
-            <a href={link.href}>{link.text}</a>
-            {index < legal.links.length - 1 && <span class="separator">|</span>}
+            <a href={link.href} class="text-[var(--gray-400)] no-underline text-sm transition-colors duration-150 hover:text-[var(--gold)]">
+              {link.text}
+            </a>
+            {index < legal.links.length - 1 && <span class="text-[var(--gray-600)]">|</span>}
           </>
         ))}
       </nav>
-      <p class="disclaimer">
+      <p class="text-[var(--gray-500)] text-[0.8125rem] text-center max-w-[800px] mx-auto leading-relaxed">
         {legal.disclaimer}
       </p>
     </div>

@@ -6,50 +6,139 @@ const { title, proBonoNotice, fields, submitButton } = modalData.data;
 ---
 
 <!-- Modal -->
-<div class="modal" id="consultaModal">
-  <div class="modal-overlay" onclick="closeModal()"></div>
-  <div class="modal-content">
-    <button class="modal-close" onclick="closeModal()">
+<div id="consultaModal" class="modal fixed inset-0 z-[10000] hidden items-center justify-center p-6">
+  <!-- Overlay -->
+  <div class="absolute inset-0 bg-black/75 backdrop-blur-lg" onclick="closeModal()"></div>
+  
+  <!-- Content -->
+  <div class="relative bg-[var(--white)] max-w-[640px] w-full max-h-[90vh] overflow-y-auto rounded-3xl p-10 shadow-[var(--shadow-premium-hover)]">
+    <!-- Close Button -->
+    <button 
+      class="absolute top-5 right-5 w-11 h-11 flex items-center justify-center bg-[var(--gray-100)] border-none rounded-[10px] cursor-pointer transition-all duration-150 text-xl text-[var(--gray-900)] hover:bg-[var(--gray-900)] hover:text-white hover:scale-110 focus:outline-none focus-visible:outline-[3px] focus-visible:outline-[var(--blue-primary)] focus-visible:outline-offset-2"
+      onclick="closeModal()"
+      aria-label="Cerrar modal"
+    >
       <i class="fas fa-times"></i>
     </button>
-    <h2 class="modal-title">{title}</h2>
+
+    <!-- Title -->
+    <h2 class="font-[var(--font-display)] text-[2rem] font-bold mb-8 pr-12 text-[var(--gray-900)]">
+      {title}
+    </h2>
 
     <!-- Pro Bono Notice (hidden by default) -->
-    <div class="probono-notice" data-notice="probono" hidden>
-      <div class="notice-content" style="background: #f0fdf4; border-left: 4px solid #10b981; padding: 1rem; margin-bottom: 1.5rem; border-radius: 8px;">
-        <p style="margin: 0; color: #065f46; line-height: 1.6;">
+    <div data-notice="probono" class="hidden mb-6">
+      <div class="bg-[#f0fdf4] border-l-4 border-[#10b981] p-4 rounded-lg">
+        <p class="m-0 text-[#065f46] leading-relaxed">
           <strong>{proBonoNotice.title}</strong> {proBonoNotice.message}
         </p>
       </div>
     </div>
 
-    <form class="consulta-form" onsubmit="handleSubmit(event)">
-      <div class="form-group">
-        <label>{fields.name.label}</label>
-        <input type={fields.name.type} required={fields.name.required}>
+    <!-- Form -->
+    <form class="flex flex-col gap-5" onsubmit="handleSubmit(event)">
+      <div class="flex flex-col gap-2">
+        <label class="font-semibold text-[var(--gray-900)] text-[0.9375rem]">{fields.name.label}</label>
+        <input 
+          type={fields.name.type} 
+          required={fields.name.required}
+          class="px-4 py-4 border-2 border-[var(--gray-200)] rounded-[10px] font-inherit text-base transition-all duration-150 focus:outline-none focus:border-[var(--blue-primary)] focus:shadow-[0_0_0_4px_rgba(59,130,246,0.15)]"
+        />
       </div>
-      <div class="form-group">
-        <label>{fields.email.label}</label>
-        <input type={fields.email.type} required={fields.email.required}>
+      
+      <div class="flex flex-col gap-2">
+        <label class="font-semibold text-[var(--gray-900)] text-[0.9375rem]">{fields.email.label}</label>
+        <input 
+          type={fields.email.type} 
+          required={fields.email.required}
+          class="px-4 py-4 border-2 border-[var(--gray-200)] rounded-[10px] font-inherit text-base transition-all duration-150 focus:outline-none focus:border-[var(--blue-primary)] focus:shadow-[0_0_0_4px_rgba(59,130,246,0.15)]"
+        />
       </div>
-      <div class="form-group">
-        <label>{fields.phone.label}</label>
-        <input type={fields.phone.type} required={fields.phone.required}>
+      
+      <div class="flex flex-col gap-2">
+        <label class="font-semibold text-[var(--gray-900)] text-[0.9375rem]">{fields.phone.label}</label>
+        <input 
+          type={fields.phone.type} 
+          required={fields.phone.required}
+          class="px-4 py-4 border-2 border-[var(--gray-200)] rounded-[10px] font-inherit text-base transition-all duration-150 focus:outline-none focus:border-[var(--blue-primary)] focus:shadow-[0_0_0_4px_rgba(59,130,246,0.15)]"
+        />
       </div>
-      <div class="form-group">
-        <label>{fields.area.label}</label>
-        <select required={fields.area.required}>
+      
+      <div class="flex flex-col gap-2">
+        <label class="font-semibold text-[var(--gray-900)] text-[0.9375rem]">{fields.area.label}</label>
+        <select 
+          required={fields.area.required}
+          class="px-4 py-4 border-2 border-[var(--gray-200)] rounded-[10px] font-inherit text-base transition-all duration-150 focus:outline-none focus:border-[var(--blue-primary)] focus:shadow-[0_0_0_4px_rgba(59,130,246,0.15)] bg-white"
+        >
           <option value="">{fields.area.placeholder}</option>
           {fields.area.options.map(option => (
             <option>{option}</option>
           ))}
         </select>
       </div>
-      <div class="form-group">
-        <label>{fields.message.label}</label>
-        <textarea rows={fields.message.rows}></textarea>
+      
+      <div class="flex flex-col gap-2">
+        <label class="font-semibold text-[var(--gray-900)] text-[0.9375rem]">{fields.message.label}</label>
+        <textarea 
+          rows={fields.message.rows}
+          class="px-4 py-4 border-2 border-[var(--gray-200)] rounded-[10px] font-inherit text-base transition-all duration-150 focus:outline-none focus:border-[var(--blue-primary)] focus:shadow-[0_0_0_4px_rgba(59,130,246,0.15)] resize-y"
+        ></textarea>
       </div>
-      <button type="submit" class="btn btn-primary btn-block">{submitButton}</button>
+      
+      <button 
+        type="submit" 
+        class="w-full py-5 text-lg bg-[var(--gold)] text-[var(--gray-900)] border-none rounded-[10px] font-semibold cursor-pointer shadow-[var(--shadow)] transition-all duration-200 hover:bg-[var(--gold-light)] hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0"
+      >
+        {submitButton}
+      </button>
     </form>
   </div>
 </div>
+
+<style>
+  .modal.active {
+    display: flex;
+  }
+</style>
+
+<script is:inline>
+  function openModal() {
+    const modal = document.getElementById('consultaModal');
+    if (modal) {
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  function closeModal() {
+    const modal = document.getElementById('consultaModal');
+    const proBonoNotice = modal?.querySelector('[data-notice="probono"]');
+    if (modal) {
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+    if (proBonoNotice) {
+      proBonoNotice.classList.add('hidden');
+    }
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    // TODO: Implement form submission
+    alert('¡Gracias! Te contactaremos pronto.');
+    closeModal();
+    event.target.reset();
+  }
+
+  // Close on ESC key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeModal();
+    }
+  });
+
+  // Make functions global
+  window.openModal = openModal;
+  window.closeModal = closeModal;
+  window.handleSubmit = handleSubmit;
+</script>

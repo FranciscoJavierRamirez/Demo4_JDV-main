@@ -6,12 +6,12 @@ const { badges } = trustData.data;
 ---
 
 <!-- Trust Badges -->
-<section class="trust-badges-section">
+<section class="py-12 bg-[var(--gray-50)] border-t border-b border-[var(--gray-200)]">
   <div class="container">
-    <div class="trust-badges-grid">
+    <div class="flex justify-center items-center gap-10 flex-wrap">
       {badges.map(badge => (
-        <div class="badge-item">
-          <i class={badge.icon}></i>
+        <div class="flex items-center gap-3 font-semibold text-[var(--gray-700)] text-[0.9375rem]">
+          <i class={`${badge.icon} text-[1.75rem] text-[var(--gold)]`}></i>
           <span>{badge.text}</span>
         </div>
       ))}

@@ -6,20 +6,36 @@ const { sectionTitle, benefits } = benefitsData.data;
 ---
 
 <!-- Benefits Section -->
-<section class="benefits-section">
+<section class="py-24 bg-[var(--gray-50)]">
   <div class="container">
-    <div class="section-header">
-      <h2 class="section-title">{sectionTitle}</h2>
+    <!-- Section Header -->
+    <div class="text-center mb-16">
+      <h2 class="font-[var(--font-display)] text-[clamp(2rem,4vw,3rem)] font-extrabold text-[var(--gray-900)] mb-5 tracking-[-0.02em]">
+        {sectionTitle}
+      </h2>
     </div>
 
-    <div class="benefits-grid">
-      {benefits.map(benefit => (
-        <div class="benefit-card">
-          <div class="benefit-icon">
-            <i class={benefit.icon}></i>
+    <!-- Benefits Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      {benefits.map((benefit, index) => (
+        <div 
+          class="benefit-card p-10 bg-white rounded-[20px] text-center transition-all duration-200 shadow-[var(--shadow-premium)] hover:-translate-y-[6px] hover:scale-[1.02] hover:shadow-[var(--shadow-premium-hover)]"
+          style={`transition-delay: ${index * 50}ms`}
+        >
+          <!-- Icon -->
+          <div class="w-[72px] h-[72px] flex items-center justify-center bg-gradient-to-br from-[var(--blue-primary)] to-[var(--blue-dark)] rounded-2xl mx-auto mb-5">
+            <i class={`${benefit.icon} text-[2rem] text-white`}></i>
           </div>
-          <h3 class="benefit-title">{benefit.title}</h3>
-          <p class="benefit-text">{benefit.text}</p>
+          
+          <!-- Title -->
+          <h3 class="font-[var(--font-display)] text-xl font-bold text-[var(--gray-900)] mb-4">
+            {benefit.title}
+          </h3>
+          
+          <!-- Text -->
+          <p class="text-[var(--gray-600)] leading-relaxed text-[0.9375rem]">
+            {benefit.text}
+          </p>
         </div>
       ))}
     </div>

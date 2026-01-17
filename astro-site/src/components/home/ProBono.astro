@@ -6,49 +6,83 @@ const { sectionTitle, sectionSubtitle, intro, criteriaTitle, criteria, cta, visu
 ---
 
 <!-- Pro Bono Section -->
-<section class="probono-section">
+<section id="probono" class="py-20 bg-gradient-to-br from-[#f0fdf4] to-[#dcfce7]">
   <div class="container">
-    <div class="section-header">
-      <h2 class="section-title">{sectionTitle}</h2>
-      <p class="section-subtitle">{sectionSubtitle}</p>
+    <!-- Section Header -->
+    <div class="text-center mb-16">
+      <h2 class="font-[var(--font-display)] text-[clamp(2rem,4vw,3rem)] font-extrabold text-[var(--gray-900)] mb-5 tracking-[-0.02em]">
+        {sectionTitle}
+      </h2>
+      <p class="text-[clamp(1.125rem,2vw,1.25rem)] text-[var(--gray-600)] max-w-[700px] mx-auto leading-relaxed">
+        {sectionSubtitle}
+      </p>
     </div>
 
-    <div class="probono-content">
-      <div class="probono-text">
-        <div class="probono-intro">
-          <i class={`${intro.icon} probono-icon`}></i>
-          <p set:html={intro.text}></p>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+      <!-- Text Content -->
+      <div class="flex flex-col gap-6">
+        <!-- Intro -->
+        <div class="flex gap-4 items-start p-6 bg-white rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.08)]">
+          <i class={`${intro.icon} text-[2rem] text-[#10b981] flex-shrink-0`}></i>
+          <p class="m-0 leading-relaxed text-[var(--gray-700)] [&_strong]:font-semibold" set:html={intro.text}></p>
         </div>
 
-        <h3 class="probono-subtitle">{criteriaTitle}</h3>
-        <div class="probono-criteria">
+        <!-- Criteria Title -->
+        <h3 class="font-[var(--font-display)] text-2xl text-[var(--gray-900)] mb-4 font-bold">
+          {criteriaTitle}
+        </h3>
+
+        <!-- Criteria List -->
+        <div class="flex flex-col gap-4">
           {criteria.map(item => (
-            <div class="criteria-item">
-              <i class={item.icon}></i>
-              <span>{item.text}</span>
+            <div class="flex gap-3 items-start p-4 bg-white rounded-xl transition-all duration-200 hover:translate-x-2 hover:shadow-[0_4px_12px_rgba(16,185,129,0.15)]">
+              <i class={`${item.icon} text-xl text-[#10b981] flex-shrink-0 mt-0.5`}></i>
+              <span class="text-[var(--gray-700)] leading-relaxed">{item.text}</span>
             </div>
           ))}
         </div>
 
-        <div class="probono-cta-box">
-          <p><strong>{cta.question}</strong></p>
-          <p>{cta.description}</p>
-          <button class="btn-probono" onclick={cta.buttonAction}>
+        <!-- CTA Box -->
+        <div class="p-6 bg-gradient-to-br from-[#10b981] to-[#059669] rounded-2xl text-white text-center">
+          <p class="m-0 mb-4 leading-relaxed"><strong>{cta.question}</strong></p>
+          <p class="m-0 mb-6 leading-relaxed">{cta.description}</p>
+          <button 
+            class="px-6 py-4 bg-white text-[#10b981] border-none rounded-xl font-semibold text-base cursor-pointer inline-flex items-center gap-2 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_10px_30px_rgba(255,255,255,0.3)] hover:bg-[#f0fdf4]"
+            onclick={cta.buttonAction}
+          >
             <i class="fas fa-hand-holding-heart"></i>
             {cta.buttonText}
           </button>
         </div>
       </div>
 
-      <div class="probono-visual">
-        {visualCards.map(card => (
-          <div class="probono-card">
-            <i class={card.icon}></i>
-            <h4>{card.title}</h4>
-            <p>{card.text}</p>
+      <!-- Visual Cards -->
+      <div class="flex flex-col gap-4">
+        {visualCards.map((card, index) => (
+          <div 
+            class="probono-card p-6 bg-white rounded-2xl shadow-[var(--shadow-premium)] transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02] hover:shadow-[var(--shadow-premium-hover)]"
+            style={`transition-delay: ${index * 100}ms`}
+          >
+            <i class={`${card.icon} text-[2.5rem] text-[#10b981] mb-3`}></i>
+            <h4 class="font-[var(--font-display)] text-xl text-[var(--gray-900)] mb-2 font-bold">{card.title}</h4>
+            <p class="text-[var(--gray-600)] leading-relaxed m-0">{card.text}</p>
           </div>
         ))}
       </div>
     </div>
   </div>
 </section>
+
+<script>
+  // Pro Bono modal function
+  window.openProBonoModal = function() {
+    const modal = document.getElementById('consultaModal');
+    const proBonoNotice = modal?.querySelector('[data-notice="probono"]');
+    if (proBonoNotice) {
+      proBonoNotice.hidden = false;
+    }
+    if (typeof window.openModal === 'function') {
+      window.openModal();
+    }
+  };
+</script>

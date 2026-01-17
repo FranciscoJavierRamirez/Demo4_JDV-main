@@ -3,25 +3,51 @@ import { getEntry } from 'astro:content';
 
 const faqData = await getEntry('faq', 'home');
 const { sectionTitle, sectionSubtitle, questions } = faqData.data;
+
+// Process Markdown bold syntax to HTML strong tags
+function processMarkdown(text: string): string {
+  return text.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+}
 ---
 
 <!-- FAQ Section -->
-<section class="faq-section" id="faq">
+<section id="faq" class="py-20 lg:py-28 bg-[var(--white)]">
   <div class="container">
-    <div class="section-header">
-      <h2 class="section-title">{sectionTitle}</h2>
-      <p class="section-subtitle">{sectionSubtitle}</p>
+    <!-- Section Header -->
+    <div class="text-center mb-12 lg:mb-16">
+      <h2 class="font-[var(--font-display)] text-[clamp(2rem,4vw,3rem)] font-bold text-[var(--gray-900)] mb-4 tracking-[-0.02em]">
+        {sectionTitle}
+      </h2>
+      <p class="text-base lg:text-lg text-[var(--gray-600)] max-w-[600px] mx-auto leading-relaxed">
+        {sectionSubtitle}
+      </p>
     </div>
 
-    <div class="faq-container">
+    <!-- FAQ Container -->
+    <div class="max-w-[800px] mx-auto space-y-3">
       {questions.map(faq => (
-        <div class="faq-item" data-faq={faq.id}>
-          <button class="faq-question" onclick={`toggleFaq(${faq.id})`}>
-            <span>{faq.question}</span>
-            <i class="fas fa-chevron-down faq-icon"></i>
+        <div class="faq-item bg-white rounded-xl overflow-hidden border border-[var(--gray-100)] shadow-[0_2px_8px_rgba(0,0,0,0.04)] transition-all duration-300 hover:shadow-[0_4px_16px_rgba(0,0,0,0.08)] hover:border-[var(--gray-200)]" data-faq={faq.id}>
+          <button 
+            class="faq-question w-full flex items-center justify-between gap-4 p-5 text-left bg-transparent border-none cursor-pointer transition-all duration-200"
+            onclick={`toggleFaq(${faq.id})`}
+            aria-expanded="false"
+            aria-controls={`faq-answer-${faq.id}`}
+          >
+            <span class="font-[var(--font-display)] text-base lg:text-lg font-semibold text-[var(--gray-900)]">{faq.question}</span>
+            <div class="w-8 h-8 flex items-center justify-center bg-[var(--gray-50)] rounded-full flex-shrink-0 transition-all duration-300">
+              <i class="fas fa-chevron-down text-sm text-[var(--blue-primary)] transition-transform duration-300"></i>
+            </div>
           </button>
-          <div class="faq-answer">
-            <p set:html={faq.answer}></p>
+          <div 
+            id={`faq-answer-${faq.id}`}
+            class="faq-answer max-h-0 overflow-hidden transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]"
+          >
+            <div class="px-5 pb-5">
+              <p 
+                class="text-[var(--gray-600)] leading-relaxed text-sm lg:text-base [&_strong]:font-semibold [&_strong]:text-[var(--gray-900)] [&_a]:text-[var(--blue-primary)] [&_a]:font-semibold [&_a]:no-underline [&_a]:hover:underline"
+                set:html={processMarkdown(faq.answer)}
+              ></p>
+            </div>
           </div>
         </div>
       ))}
@@ -36,9 +62,59 @@ const { sectionTitle, sectionSubtitle, questions } = faqData.data;
         "name": faq.question,
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": faq.answer.replace(/<[^>]*>/g, '')
+          "text": faq.answer.replace(/<[^>]*>/g, '').replace(/\*\*(.+?)\*\*/g, '$1')
         }
       }))
     })} />
   </div>
 </section>
+
+<style>
+  .faq-item.active .faq-question .fa-chevron-down {
+    transform: rotate(180deg);
+  }
+
+  .faq-item.active .faq-question > div {
+    background: var(--blue-primary);
+  }
+
+  .faq-item.active .faq-question .fa-chevron-down {
+    color: white;
+  }
+
+  .faq-item.active .faq-answer {
+    max-height: 500px;
+  }
+
+  .faq-item.active {
+    border-color: var(--blue-primary);
+    box-shadow: 0 4px 20px rgba(59, 130, 246, 0.15);
+  }
+
+  .faq-question:hover > div {
+    background: var(--gray-100);
+  }
+
+  .faq-item.active .faq-question:hover > div {
+    background: var(--blue-dark);
+  }
+</style>
+
+<script is:inline>
+  function toggleFaq(id) {
+    const faqItem = document.querySelector(`[data-faq="${id}"]`);
+    const isActive = faqItem.classList.contains('active');
+    
+    // Close all other FAQs
+    document.querySelectorAll('.faq-item').forEach(item => {
+      item.classList.remove('active');
+      item.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+    });
+    
+    // Toggle current FAQ
+    if (!isActive) {
+      faqItem.classList.add('active');
+      faqItem.querySelector('.faq-question').setAttribute('aria-expanded', 'true');
+    }
+  }
+</script>
