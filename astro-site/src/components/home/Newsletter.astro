@@ -1,0 +1,39 @@
+---
+import { getEntry } from 'astro:content';
+
+const newsletterData = await getEntry('newsletter', 'home');
+const { title, subtitle, placeholder, buttonText, note } = newsletterData.data;
+---
+
+<!-- Newsletter Section -->
+<div class="footer-newsletter">
+  <div class="container">
+    <div class="newsletter-content">
+      <div class="newsletter-text">
+        <h3 class="newsletter-title">
+          <i class="fas fa-envelope-open-text"></i>
+          {title}
+        </h3>
+        <p class="newsletter-subtitle">
+          {subtitle}
+        </p>
+      </div>
+      <form class="newsletter-form" onsubmit="handleNewsletterSubmit(event)">
+        <input
+          type="email"
+          placeholder={placeholder}
+          required
+          aria-label="Email para newsletter"
+          class="newsletter-input"
+        >
+        <button type="submit" class="newsletter-btn">
+          {buttonText}
+          <i class="fas fa-arrow-right"></i>
+        </button>
+      </form>
+      <p class="newsletter-note">
+        <i class="fas fa-lock"></i> {note}
+      </p>
+    </div>
+  </div>
+</div>

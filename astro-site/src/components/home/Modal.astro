@@ -1,0 +1,55 @@
+---
+import { getEntry } from 'astro:content';
+
+const modalData = await getEntry('modal', 'home');
+const { title, proBonoNotice, fields, submitButton } = modalData.data;
+---
+
+<!-- Modal -->
+<div class="modal" id="consultaModal">
+  <div class="modal-overlay" onclick="closeModal()"></div>
+  <div class="modal-content">
+    <button class="modal-close" onclick="closeModal()">
+      <i class="fas fa-times"></i>
+    </button>
+    <h2 class="modal-title">{title}</h2>
+
+    <!-- Pro Bono Notice (hidden by default) -->
+    <div class="probono-notice" data-notice="probono" hidden>
+      <div class="notice-content" style="background: #f0fdf4; border-left: 4px solid #10b981; padding: 1rem; margin-bottom: 1.5rem; border-radius: 8px;">
+        <p style="margin: 0; color: #065f46; line-height: 1.6;">
+          <strong>{proBonoNotice.title}</strong> {proBonoNotice.message}
+        </p>
+      </div>
+    </div>
+
+    <form class="consulta-form" onsubmit="handleSubmit(event)">
+      <div class="form-group">
+        <label>{fields.name.label}</label>
+        <input type={fields.name.type} required={fields.name.required}>
+      </div>
+      <div class="form-group">
+        <label>{fields.email.label}</label>
+        <input type={fields.email.type} required={fields.email.required}>
+      </div>
+      <div class="form-group">
+        <label>{fields.phone.label}</label>
+        <input type={fields.phone.type} required={fields.phone.required}>
+      </div>
+      <div class="form-group">
+        <label>{fields.area.label}</label>
+        <select required={fields.area.required}>
+          <option value="">{fields.area.placeholder}</option>
+          {fields.area.options.map(option => (
+            <option>{option}</option>
+          ))}
+        </select>
+      </div>
+      <div class="form-group">
+        <label>{fields.message.label}</label>
+        <textarea rows={fields.message.rows}></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary btn-block">{submitButton}</button>
+    </form>
+  </div>
+</div>

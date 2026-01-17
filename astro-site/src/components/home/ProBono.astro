@@ -1,0 +1,54 @@
+---
+import { getEntry } from 'astro:content';
+
+const proBonoData = await getEntry('proBono', 'home');
+const { sectionTitle, sectionSubtitle, intro, criteriaTitle, criteria, cta, visualCards } = proBonoData.data;
+---
+
+<!-- Pro Bono Section -->
+<section class="probono-section">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">{sectionTitle}</h2>
+      <p class="section-subtitle">{sectionSubtitle}</p>
+    </div>
+
+    <div class="probono-content">
+      <div class="probono-text">
+        <div class="probono-intro">
+          <i class={`${intro.icon} probono-icon`}></i>
+          <p set:html={intro.text}></p>
+        </div>
+
+        <h3 class="probono-subtitle">{criteriaTitle}</h3>
+        <div class="probono-criteria">
+          {criteria.map(item => (
+            <div class="criteria-item">
+              <i class={item.icon}></i>
+              <span>{item.text}</span>
+            </div>
+          ))}
+        </div>
+
+        <div class="probono-cta-box">
+          <p><strong>{cta.question}</strong></p>
+          <p>{cta.description}</p>
+          <button class="btn-probono" onclick={cta.buttonAction}>
+            <i class="fas fa-hand-holding-heart"></i>
+            {cta.buttonText}
+          </button>
+        </div>
+      </div>
+
+      <div class="probono-visual">
+        {visualCards.map(card => (
+          <div class="probono-card">
+            <i class={card.icon}></i>
+            <h4>{card.title}</h4>
+            <p>{card.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

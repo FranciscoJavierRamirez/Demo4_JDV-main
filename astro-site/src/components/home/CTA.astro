@@ -1,0 +1,45 @@
+---
+import { getEntry } from 'astro:content';
+
+const ctaData = await getEntry('cta', 'home');
+const { icon, title, subtitle, actions, features } = ctaData.data;
+---
+
+<!-- CTA Section -->
+<section class="cta-section">
+  <!-- Animated Background Orbs -->
+  <div class="cta-orbs">
+    <div class="cta-orb cta-orb-1"></div>
+    <div class="cta-orb cta-orb-2"></div>
+  </div>
+
+  <div class="container">
+    <div class="cta-content">
+      <div class="cta-icon">
+        <i class={icon}></i>
+      </div>
+      <h2 class="cta-title">{title}</h2>
+      <p class="cta-subtitle">{subtitle}</p>
+
+      <div class="cta-actions">
+        <button class="btn-cta btn-cta-primary" onclick={actions.primary.action}>
+          <i class={actions.primary.icon}></i>
+          <span>{actions.primary.text}</span>
+        </button>
+        <a href={actions.phone.href} class="cta-phone">
+          <i class={actions.phone.icon}></i>
+          <span>{actions.phone.text}</span>
+        </a>
+      </div>
+
+      <div class="cta-features">
+        {features.map(feature => (
+          <div class="cta-feature">
+            <i class={feature.icon}></i>
+            <span>{feature.text}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

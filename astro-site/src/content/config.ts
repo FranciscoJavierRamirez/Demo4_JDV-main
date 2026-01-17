@@ -108,10 +108,199 @@ const benefitsCollection = defineCollection({
   }),
 });
 
+const proBonoCollection = defineCollection({
+  type: 'content',
+  schema: z.object({
+    sectionTitle: z.string(),
+    sectionSubtitle: z.string(),
+    intro: z.object({
+      icon: z.string(),
+      text: z.string(),
+    }),
+    criteriaTitle: z.string(),
+    criteria: z.array(z.object({
+      icon: z.string(),
+      text: z.string(),
+    })),
+    cta: z.object({
+      question: z.string(),
+      description: z.string(),
+      buttonText: z.string(),
+      buttonAction: z.string(),
+    }),
+    visualCards: z.array(z.object({
+      icon: z.string(),
+      title: z.string(),
+      text: z.string(),
+    })),
+  }),
+});
+
+const faqCollection = defineCollection({
+  type: 'content',
+  schema: z.object({
+    sectionTitle: z.string(),
+    sectionSubtitle: z.string(),
+    questions: z.array(z.object({
+      id: z.number(),
+      question: z.string(),
+      answer: z.string(),
+    })),
+  }),
+});
+
+const newsletterCollection = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string(),
+    subtitle: z.string(),
+    placeholder: z.string(),
+    buttonText: z.string(),
+    note: z.string(),
+  }),
+});
+
+const ctaCollection = defineCollection({
+  type: 'content',
+  schema: z.object({
+    icon: z.string(),
+    title: z.string(),
+    subtitle: z.string(),
+    actions: z.object({
+      primary: z.object({
+        icon: z.string(),
+        text: z.string(),
+        action: z.string(),
+      }),
+      phone: z.object({
+        icon: z.string(),
+        text: z.string(),
+        href: z.string(),
+      }),
+    }),
+    features: z.array(z.object({
+      icon: z.string(),
+      text: z.string(),
+    })),
+  }),
+});
+
+const footerCollection = defineCollection({
+  type: 'content',
+  schema: z.object({
+    brand: z.object({
+      title: z.string(),
+      description: z.string(),
+      rating: z.object({
+        stars: z.number(),
+        text: z.string(),
+      }),
+      social: z.array(z.object({
+        platform: z.string(),
+        url: z.string(),
+        icon: z.string(),
+        label: z.string(),
+      })),
+    }),
+    columns: z.object({
+      areas: z.object({
+        title: z.string(),
+        links: z.array(z.object({
+          text: z.string(),
+          href: z.string(),
+        })),
+      }),
+      company: z.object({
+        title: z.string(),
+        links: z.array(z.object({
+          text: z.string(),
+          href: z.string(),
+        })),
+      }),
+      contact: z.object({
+        title: z.string(),
+        items: z.array(z.object({
+          icon: z.string(),
+          text: z.string(),
+          href: z.string().optional(),
+        })),
+        schedule: z.object({
+          title: z.string(),
+          days: z.string(),
+          hours: z.string(),
+        }),
+      }),
+    }),
+    trust: z.object({
+      title: z.string(),
+      badges: z.array(z.object({
+        icon: z.string(),
+        text: z.string(),
+        featured: z.boolean().optional(),
+      })),
+    }),
+    bottom: z.object({
+      copyright: z.string(),
+    }),
+    legal: z.object({
+      links: z.array(z.object({
+        text: z.string(),
+        href: z.string(),
+      })),
+      disclaimer: z.string(),
+    }),
+  }),
+});
+
+const modalCollection = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string(),
+    proBonoNotice: z.object({
+      title: z.string(),
+      message: z.string(),
+    }),
+    fields: z.object({
+      name: z.object({
+        label: z.string(),
+        type: z.string(),
+        required: z.boolean(),
+      }),
+      email: z.object({
+        label: z.string(),
+        type: z.string(),
+        required: z.boolean(),
+      }),
+      phone: z.object({
+        label: z.string(),
+        type: z.string(),
+        required: z.boolean(),
+      }),
+      area: z.object({
+        label: z.string(),
+        placeholder: z.string(),
+        options: z.array(z.string()),
+        required: z.boolean(),
+      }),
+      message: z.object({
+        label: z.string(),
+        rows: z.number(),
+      }),
+    }),
+    submitButton: z.string(),
+  }),
+});
+
 export const collections = {
   home: homeCollection,
   stats: statsCollection,
   trustBadges: trustBadgesCollection,
   areas: areasCollection,
   benefits: benefitsCollection,
+  proBono: proBonoCollection,
+  faq: faqCollection,
+  newsletter: newsletterCollection,
+  cta: ctaCollection,
+  footer: footerCollection,
+  modal: modalCollection,
 };

@@ -1,0 +1,128 @@
+---
+import { getEntry } from 'astro:content';
+import Newsletter from './Newsletter.astro';
+
+const footerData = await getEntry('footer', 'home');
+const { brand, columns, trust, bottom, legal } = footerData.data;
+---
+
+<!-- Footer -->
+<footer class="main-footer">
+  <!-- Newsletter Section -->
+  <Newsletter />
+
+  <!-- Footer Content -->
+  <div class="footer-content">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Brand Column -->
+        <div class="footer-col">
+          <h3 class="footer-title">{brand.title}</h3>
+          <p class="footer-text">{brand.description}</p>
+          <div class="footer-rating">
+            <div class="rating-stars">
+              {Array.from({ length: Math.floor(brand.rating.stars) }).map(() => (
+                <i class="fas fa-star"></i>
+              ))}
+              {brand.rating.stars % 1 !== 0 && <i class="fas fa-star-half-alt"></i>}
+            </div>
+            <p class="rating-text">{brand.rating.text}</p>
+          </div>
+          <div class="footer-social">
+            {brand.social.map(social => (
+              <a href={social.url} target="_blank" rel="noopener noreferrer" aria-label={social.label}>
+                <i class={social.icon} aria-hidden="true"></i>
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <!-- Áreas de Práctica Column -->
+        <div class="footer-col">
+          <h3 class="footer-title">{columns.areas.title}</h3>
+          <ul class="footer-links">
+            {columns.areas.links.map(link => (
+              <li><a href={link.href}>{link.text}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Empresa Column -->
+        <div class="footer-col">
+          <h3 class="footer-title">{columns.company.title}</h3>
+          <ul class="footer-links">
+            {columns.company.links.map(link => (
+              <li><a href={link.href}>{link.text}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Contacto Column -->
+        <div class="footer-col">
+          <h3 class="footer-title">{columns.contact.title}</h3>
+          <ul class="footer-contact">
+            {columns.contact.items.map(item => (
+              <li>
+                {item.href ? (
+                  <a href={item.href} class="footer-contact-link" target={item.href.startsWith('https://wa.me') ? '_blank' : undefined} rel={item.href.startsWith('https://wa.me') ? 'noopener noreferrer' : undefined}>
+                    <i class={item.icon}></i>
+                    <span>{item.text}</span>
+                  </a>
+                ) : (
+                  <>
+                    <i class={item.icon}></i>
+                    <span>{item.text}</span>
+                  </>
+                )}
+              </li>
+            ))}
+          </ul>
+          <p class="footer-text" style="margin-top: 1rem;">
+            <strong>{columns.contact.schedule.title}</strong><br>
+            {columns.contact.schedule.days}<br>
+            {columns.contact.schedule.hours}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Trust Badges -->
+  <div class="footer-trust">
+    <div class="container">
+      <h3 class="trust-title">{trust.title}</h3>
+      <div class="trust-badges-grid">
+        {trust.badges.map(badge => (
+          <div class={`trust-badge${badge.featured ? ' trust-badge-featured' : ''}`}>
+            <i class={badge.icon}></i>
+            <span set:html={badge.text}></span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer Bottom -->
+  <div class="footer-bottom">
+    <div class="container">
+      <p>{bottom.copyright}</p>
+    </div>
+  </div>
+
+  <!-- Footer Legal -->
+  <div class="footer-legal">
+    <div class="container">
+      <nav class="legal-links" aria-label="Enlaces legales">
+        {legal.links.map((link, index) => (
+          <>
+            <a href={link.href}>{link.text}</a>
+            {index < legal.links.length - 1 && <span class="separator">|</span>}
+          </>
+        ))}
+      </nav>
+      <p class="disclaimer">
+        {legal.disclaimer}
+      </p>
+    </div>
+  </div>
+</footer>
