@@ -6,10 +6,120 @@ const { sectionTitle, sectionSubtitle, intro, criteriaTitle, criteria, cta, visu
 ---
 
 <!-- Pro Bono Section -->
-<section id="probono" class="py-20 bg-gradient-to-br from-[#f0fdf4] to-[#dcfce7]">
-  <div class="container">
+<section id="probono" class="probono-section relative py-24">
+  <!-- Decorative Zen Leaves - Visible background elements -->
+  <div class="absolute inset-0 pointer-events-none overflow-hidden" style="z-index: 0;" aria-hidden="true">
+    
+    <!-- MAIN LARGE LEAF - Left side -->
+    <svg width="320" height="320" viewBox="0 0 100 100" fill="none" style="position: absolute; top: 5%; left: 2%; opacity: 0.5; transform: rotate(-20deg);">
+      <path d="M50 2C50 2 15 25 10 55C5 85 38 98 50 98C62 98 95 85 90 55C85 25 50 2 50 2Z" fill="url(#zenLeaf1)"/>
+      <path d="M50 12C50 12 50 88 50 98" stroke="#2d6a4f" stroke-width="2.5" stroke-linecap="round" opacity="0.6"/>
+      <path d="M50 28C38 34 26 46 22 60" stroke="#2d6a4f" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/>
+      <path d="M50 28C62 34 74 46 78 60" stroke="#2d6a4f" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/>
+      <path d="M50 48C40 53 30 63 26 75" stroke="#2d6a4f" stroke-width="1.2" stroke-linecap="round" opacity="0.35"/>
+      <path d="M50 48C60 53 70 63 74 75" stroke="#2d6a4f" stroke-width="1.2" stroke-linecap="round" opacity="0.35"/>
+      <path d="M50 68C44 72 36 80 32 88" stroke="#2d6a4f" stroke-width="1" stroke-linecap="round" opacity="0.3"/>
+      <path d="M50 68C56 72 64 80 68 88" stroke="#2d6a4f" stroke-width="1" stroke-linecap="round" opacity="0.3"/>
+      <defs>
+        <linearGradient id="zenLeaf1" x1="20" y1="10" x2="80" y2="90" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stop-color="#84cc16"/>
+          <stop offset="35%" stop-color="#22c55e"/>
+          <stop offset="65%" stop-color="#16a34a"/>
+          <stop offset="100%" stop-color="#ca8a04"/>
+        </linearGradient>
+      </defs>
+    </svg>
+    
+    <!-- SECOND LARGE LEAF - Right side -->
+    <svg width="280" height="280" viewBox="0 0 100 100" fill="none" style="position: absolute; top: 8%; right: 3%; opacity: 0.45; transform: rotate(25deg);">
+      <path d="M50 5C50 5 18 28 14 55C10 82 40 95 50 95C60 95 90 82 86 55C82 28 50 5 50 5Z" fill="url(#zenLeaf2)"/>
+      <path d="M50 15C50 15 50 85 50 95" stroke="#2d6a4f" stroke-width="2" stroke-linecap="round" opacity="0.55"/>
+      <path d="M50 32C40 38 30 50 27 62" stroke="#2d6a4f" stroke-width="1.3" stroke-linecap="round" opacity="0.35"/>
+      <path d="M50 32C60 38 70 50 73 62" stroke="#2d6a4f" stroke-width="1.3" stroke-linecap="round" opacity="0.35"/>
+      <path d="M50 55C42 60 34 70 31 80" stroke="#2d6a4f" stroke-width="1" stroke-linecap="round" opacity="0.3"/>
+      <path d="M50 55C58 60 66 70 69 80" stroke="#2d6a4f" stroke-width="1" stroke-linecap="round" opacity="0.3"/>
+      <defs>
+        <linearGradient id="zenLeaf2" x1="80" y1="20" x2="20" y2="80" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stop-color="#a3e635"/>
+          <stop offset="40%" stop-color="#4ade80"/>
+          <stop offset="70%" stop-color="#22c55e"/>
+          <stop offset="100%" stop-color="#eab308"/>
+        </linearGradient>
+      </defs>
+    </svg>
+    
+    <!-- BOTTOM LEFT LEAF -->
+    <svg width="260" height="260" viewBox="0 0 100 100" fill="none" style="position: absolute; bottom: 5%; left: 5%; opacity: 0.42; transform: rotate(12deg);">
+      <path d="M50 8C50 8 22 30 18 55C14 80 42 92 50 92C58 92 86 80 82 55C78 30 50 8 50 8Z" fill="url(#zenLeaf3)"/>
+      <path d="M50 18C50 18 50 82 50 92" stroke="#2d6a4f" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+      <path d="M50 35C42 40 32 52 29 65" stroke="#2d6a4f" stroke-width="1.2" stroke-linecap="round" opacity="0.35"/>
+      <path d="M50 35C58 40 68 52 71 65" stroke="#2d6a4f" stroke-width="1.2" stroke-linecap="round" opacity="0.35"/>
+      <defs>
+        <linearGradient id="zenLeaf3" x1="30" y1="15" x2="70" y2="85" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stop-color="#bef264"/>
+          <stop offset="50%" stop-color="#4ade80"/>
+          <stop offset="85%" stop-color="#f59e0b"/>
+          <stop offset="100%" stop-color="#d97706"/>
+        </linearGradient>
+      </defs>
+    </svg>
+    
+    <!-- BOTTOM RIGHT ACCENT LEAF -->
+    <svg width="200" height="200" viewBox="0 0 100 100" fill="none" style="position: absolute; bottom: 10%; right: 8%; opacity: 0.38; transform: rotate(-18deg);">
+      <path d="M50 10C50 10 28 32 24 55C20 78 44 88 50 88C56 88 80 78 76 55C72 32 50 10 50 10Z" fill="url(#zenLeaf4)"/>
+      <path d="M50 20C50 20 50 78 50 88" stroke="#2d6a4f" stroke-width="1.8" stroke-linecap="round" opacity="0.45"/>
+      <path d="M50 38C44 43 36 53 33 64" stroke="#2d6a4f" stroke-width="1" stroke-linecap="round" opacity="0.3"/>
+      <path d="M50 38C56 43 64 53 67 64" stroke="#2d6a4f" stroke-width="1" stroke-linecap="round" opacity="0.3"/>
+      <defs>
+        <linearGradient id="zenLeaf4" x1="25" y1="20" x2="75" y2="80" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stop-color="#86efac"/>
+          <stop offset="45%" stop-color="#34d399"/>
+          <stop offset="80%" stop-color="#fbbf24"/>
+          <stop offset="100%" stop-color="#f59e0b"/>
+        </linearGradient>
+      </defs>
+    </svg>
+    
+    <!-- Small floating leaf - center top -->
+    <svg width="100" height="100" viewBox="0 0 100 100" fill="none" style="position: absolute; top: 25%; left: 35%; opacity: 0.35; transform: rotate(35deg);">
+      <path d="M50 15C50 15 32 35 30 52C28 69 46 78 50 78C54 78 72 69 70 52C68 35 50 15 50 15Z" fill="url(#zenLeaf5)"/>
+      <path d="M50 25C50 25 50 68 50 78" stroke="#2d6a4f" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/>
+      <defs>
+        <linearGradient id="zenLeaf5" x1="35" y1="20" x2="65" y2="75" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stop-color="#a3e635"/>
+          <stop offset="60%" stop-color="#22c55e"/>
+          <stop offset="100%" stop-color="#ca8a04"/>
+        </linearGradient>
+      </defs>
+    </svg>
+    
+    <!-- Small floating leaf - center right -->
+    <svg width="90" height="90" viewBox="0 0 100 100" fill="none" style="position: absolute; top: 45%; right: 25%; opacity: 0.32; transform: rotate(-30deg);">
+      <path d="M50 18C50 18 35 38 33 52C31 66 47 75 50 75C53 75 69 66 67 52C65 38 50 18 50 18Z" fill="url(#zenLeaf6)"/>
+      <path d="M50 28C50 28 50 65 50 75" stroke="#2d6a4f" stroke-width="1.2" stroke-linecap="round" opacity="0.35"/>
+      <defs>
+        <linearGradient id="zenLeaf6" x1="40" y1="25" x2="60" y2="70" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stop-color="#4ade80"/>
+          <stop offset="70%" stop-color="#f59e0b"/>
+        </linearGradient>
+      </defs>
+    </svg>
+  </div>
+  
+  <div class="container relative z-10">
     <!-- Section Header -->
     <div class="text-center mb-16">
+      <div class="inline-flex items-center gap-2 mb-4">
+        <svg class="w-6 h-6 text-[#22c55e]" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2C12 2 6 8 6 13C6 18 9 22 12 22C15 22 18 18 18 13C18 8 12 2 12 2Z" opacity="0.3"/>
+          <path d="M12 6C12 6 8 10 8 13.5C8 17 10 20 12 20C14 20 16 17 16 13.5C16 10 12 6 12 6Z"/>
+        </svg>
+        <span class="text-sm font-semibold text-[#16a34a] uppercase tracking-wider">Compromiso Social</span>
+        <svg class="w-6 h-6 text-[#22c55e] scale-x-[-1]" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2C12 2 6 8 6 13C6 18 9 22 12 22C15 22 18 18 18 13C18 8 12 2 12 2Z" opacity="0.3"/>
+          <path d="M12 6C12 6 8 10 8 13.5C8 17 10 20 12 20C14 20 16 17 16 13.5C16 10 12 6 12 6Z"/>
+        </svg>
+      </div>
       <h2 class="font-[var(--font-display)] text-[clamp(2rem,4vw,3rem)] font-extrabold text-[var(--gray-900)] mb-5 tracking-[-0.02em]">
         {sectionTitle}
       </h2>
@@ -22,56 +132,223 @@ const { sectionTitle, sectionSubtitle, intro, criteriaTitle, criteria, cta, visu
       <!-- Text Content -->
       <div class="flex flex-col gap-6">
         <!-- Intro -->
-        <div class="flex gap-4 items-start p-6 bg-white rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.08)]">
-          <i class={`${intro.icon} text-[2rem] text-[#10b981] flex-shrink-0`}></i>
-          <p class="m-0 leading-relaxed text-[var(--gray-700)] [&_strong]:font-semibold" set:html={intro.text}></p>
+        <div class="intro-card flex gap-4 items-start p-6 bg-white/90 backdrop-blur-sm rounded-2xl shadow-[0_4px_20px_rgba(34,197,94,0.08)]">
+          <i class={`${intro.icon} text-[2rem] text-[#22c55e] flex-shrink-0`}></i>
+          <p class="m-0 leading-relaxed text-[var(--gray-700)] [&_strong]:font-semibold [&_strong]:text-[#16a34a]" set:html={intro.text}></p>
         </div>
 
         <!-- Criteria Title -->
-        <h3 class="font-[var(--font-display)] text-2xl text-[var(--gray-900)] mb-4 font-bold">
+        <h3 class="font-[var(--font-display)] text-2xl text-[var(--gray-900)] mb-4 font-bold flex items-center gap-3">
+          <span class="w-8 h-1 bg-gradient-to-r from-[#22c55e] to-[#86efac] rounded-full"></span>
           {criteriaTitle}
         </h3>
 
         <!-- Criteria List -->
-        <div class="flex flex-col gap-4">
-          {criteria.map(item => (
-            <div class="flex gap-3 items-start p-4 bg-white rounded-xl transition-all duration-200 hover:translate-x-2 hover:shadow-[0_4px_12px_rgba(16,185,129,0.15)]">
-              <i class={`${item.icon} text-xl text-[#10b981] flex-shrink-0 mt-0.5`}></i>
+        <div class="flex flex-col gap-3">
+          {criteria.map((item, index) => (
+            <div 
+              class="criteria-item flex gap-3 items-start p-4 pl-5 bg-white/80 backdrop-blur-sm rounded-xl"
+              style={`animation-delay: ${index * 100}ms`}
+            >
+              <i class={`${item.icon} text-xl text-[#22c55e] flex-shrink-0 mt-0.5 transition-transform duration-300`}></i>
               <span class="text-[var(--gray-700)] leading-relaxed">{item.text}</span>
             </div>
           ))}
         </div>
 
         <!-- CTA Box -->
-        <div class="p-6 bg-gradient-to-br from-[#10b981] to-[#059669] rounded-2xl text-white text-center">
-          <p class="m-0 mb-4 leading-relaxed"><strong>{cta.question}</strong></p>
-          <p class="m-0 mb-6 leading-relaxed">{cta.description}</p>
+        <div class="cta-box p-8 bg-gradient-to-br from-[#22c55e] via-[#16a34a] to-[#15803d] rounded-2xl text-white text-center shadow-[0_10px_40px_rgba(34,197,94,0.3)]">
+          <p class="relative z-10 m-0 mb-4 leading-relaxed text-lg"><strong>{cta.question}</strong></p>
+          <p class="relative z-10 m-0 mb-6 leading-relaxed opacity-95">{cta.description}</p>
           <button 
-            class="px-6 py-4 bg-white text-[#10b981] border-none rounded-xl font-semibold text-base cursor-pointer inline-flex items-center gap-2 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_10px_30px_rgba(255,255,255,0.3)] hover:bg-[#f0fdf4]"
+            class="cta-button relative z-10 px-8 py-4 bg-white text-[#16a34a] border-none rounded-xl font-bold text-base cursor-pointer inline-flex items-center gap-3 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_15px_40px_rgba(255,255,255,0.35)] hover:bg-[#f0fdf4]"
             onclick={cta.buttonAction}
           >
-            <i class="fas fa-hand-holding-heart"></i>
+            <i class="fas fa-hand-holding-heart text-lg"></i>
             {cta.buttonText}
           </button>
         </div>
       </div>
 
       <!-- Visual Cards -->
-      <div class="flex flex-col gap-4">
+      <div class="flex flex-col gap-5">
         {visualCards.map((card, index) => (
           <div 
-            class="probono-card p-6 bg-white rounded-2xl shadow-[var(--shadow-premium)] transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02] hover:shadow-[var(--shadow-premium-hover)]"
-            style={`transition-delay: ${index * 100}ms`}
+            class="probono-card p-6 rounded-2xl"
+            style={`animation-delay: ${index * 200}ms`}
           >
-            <i class={`${card.icon} text-[2.5rem] text-[#10b981] mb-3`}></i>
-            <h4 class="font-[var(--font-display)] text-xl text-[var(--gray-900)] mb-2 font-bold">{card.title}</h4>
-            <p class="text-[var(--gray-600)] leading-relaxed m-0">{card.text}</p>
+            <div class="flex items-start gap-4">
+              <div class="card-icon-probono w-14 h-14 flex items-center justify-center rounded-xl bg-gradient-to-br from-[#dcfce7] to-[#bbf7d0] flex-shrink-0">
+                <i class={`${card.icon} text-2xl text-[#16a34a]`}></i>
+              </div>
+              <div>
+                <h4 class="font-[var(--font-display)] text-xl text-[var(--gray-900)] mb-2 font-bold">{card.title}</h4>
+                <p class="text-[var(--gray-600)] leading-relaxed m-0">{card.text}</p>
+              </div>
+            </div>
           </div>
         ))}
       </div>
     </div>
   </div>
 </section>
+
+<style>
+  /* Pro Bono Section Background - Zen garden with warm autumn touches */
+  .probono-section {
+    background: 
+      radial-gradient(ellipse at 15% 25%, rgba(163, 230, 53, 0.12) 0%, transparent 45%),
+      radial-gradient(ellipse at 85% 75%, rgba(251, 191, 36, 0.08) 0%, transparent 40%),
+      radial-gradient(ellipse at 50% 50%, rgba(134, 239, 172, 0.15) 0%, transparent 60%),
+      radial-gradient(ellipse at 75% 25%, rgba(74, 222, 128, 0.1) 0%, transparent 50%),
+      linear-gradient(160deg, #f0fdf4 0%, #ecfdf5 30%, #fefce8 70%, #f0fdf4 100%);
+  }
+
+  /* Keyframe animations */
+  @keyframes pulseGlow {
+    0%, 100% {
+      box-shadow: 0 4px 20px rgba(34, 197, 94, 0.1);
+    }
+    50% {
+      box-shadow: 0 8px 30px rgba(34, 197, 94, 0.2);
+    }
+  }
+
+  @keyframes iconPulse {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.08);
+    }
+  }
+
+  /* Card Enhancements */
+  .probono-card {
+    position: relative;
+    background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.9) 100%);
+    border: 1px solid rgba(34, 197, 94, 0.15);
+    animation: pulseGlow 4s ease-in-out infinite;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .probono-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.3), rgba(134, 239, 172, 0.2), rgba(34, 197, 94, 0.3));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+
+  .probono-card:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 
+      0 20px 40px rgba(34, 197, 94, 0.15),
+      0 0 0 1px rgba(34, 197, 94, 0.1);
+    animation-play-state: paused;
+  }
+
+  .probono-card:hover::before {
+    opacity: 1;
+  }
+
+  .probono-card:hover .card-icon-probono {
+    animation: iconPulse 1s ease-in-out infinite;
+  }
+
+  /* Intro card styling */
+  .intro-card {
+    position: relative;
+    border: 1px solid rgba(34, 197, 94, 0.1);
+    transition: all 0.3s ease;
+  }
+
+  .intro-card:hover {
+    box-shadow: 0 8px 30px rgba(34, 197, 94, 0.12);
+    border-color: rgba(34, 197, 94, 0.2);
+  }
+
+  /* Criteria item styling */
+  .criteria-item {
+    position: relative;
+    border: 1px solid transparent;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .criteria-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3px;
+    height: 0;
+    background: linear-gradient(180deg, #22c55e, #16a34a);
+    border-radius: 2px;
+    transition: height 0.3s ease;
+  }
+
+  .criteria-item:hover {
+    background: rgba(255, 255, 255, 0.9);
+    border-color: rgba(34, 197, 94, 0.15);
+    box-shadow: 0 4px 15px rgba(34, 197, 94, 0.1);
+  }
+
+  .criteria-item:hover::before {
+    height: 60%;
+  }
+
+  /* CTA Box enhanced */
+  .cta-box {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-box::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
+    animation: ctaShine 8s linear infinite;
+  }
+
+  @keyframes ctaShine {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  /* Button hover effect */
+  .cta-button {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-button::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent, rgba(34, 197, 94, 0.1), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.5s ease;
+  }
+
+  .cta-button:hover::after {
+    transform: translateX(100%);
+  }
+</style>
 
 <script>
   // Pro Bono modal function
