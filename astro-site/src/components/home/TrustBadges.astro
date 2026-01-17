@@ -1,0 +1,20 @@
+---
+import { getEntry } from 'astro:content';
+
+const trustData = await getEntry('trustBadges', 'home');
+const { badges } = trustData.data;
+---
+
+<!-- Trust Badges -->
+<section class="trust-badges-section">
+  <div class="container">
+    <div class="trust-badges-grid">
+      {badges.map(badge => (
+        <div class="badge-item">
+          <i class={badge.icon}></i>
+          <span>{badge.text}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,27 @@
+---
+import { getEntry } from 'astro:content';
+
+const benefitsData = await getEntry('benefits', 'home');
+const { sectionTitle, benefits } = benefitsData.data;
+---
+
+<!-- Benefits Section -->
+<section class="benefits-section">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">{sectionTitle}</h2>
+    </div>
+
+    <div class="benefits-grid">
+      {benefits.map(benefit => (
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <i class={benefit.icon}></i>
+          </div>
+          <h3 class="benefit-title">{benefit.title}</h3>
+          <p class="benefit-text">{benefit.text}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

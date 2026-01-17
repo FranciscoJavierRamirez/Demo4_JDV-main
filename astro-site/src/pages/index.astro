@@ -1,0 +1,33 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/nav/Header.astro';
+import Hero from '../components/Hero.astro';
+import Stats from '../components/home/Stats.astro';
+import TrustBadges from '../components/home/TrustBadges.astro';
+import AreasGrid from '../components/home/AreasGrid.astro';
+import Benefits from '../components/home/Benefits.astro';
+import RawRestFromProBono from '../components/RawRestFromProBono.astro';
+---
+
+<BaseLayout>
+  <!-- Navigation: Modular Astro components -->
+  <Header />
+
+  <!-- Hero: Astro Component powered by Content Collection -->
+  <Hero />
+
+  <!-- Stats: Astro Component powered by Content Collection -->
+  <Stats />
+
+  <!-- Trust Badges: Astro Component powered by Content Collection -->
+  <TrustBadges />
+
+  <!-- Áreas de Práctica: Astro Component powered by Content Collection -->
+  <AreasGrid />
+
+  <!-- Benefits: Astro Component powered by Content Collection -->
+  <Benefits />
+
+  <!-- Rest of Site: RAW HTML from /home/index.html -->
+  <RawRestFromProBono />
+</BaseLayout>

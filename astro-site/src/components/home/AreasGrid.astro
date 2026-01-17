@@ -1,0 +1,31 @@
+---
+import { getEntry } from 'astro:content';
+
+const areasData = await getEntry('areas', 'home');
+const { sectionTitle, sectionSubtitle, areas } = areasData.data;
+---
+
+<!-- Áreas de Práctica -->
+<section class="areas-section" id="areas">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">{sectionTitle}</h2>
+      <p class="section-subtitle">{sectionSubtitle}</p>
+    </div>
+
+    <div class="areas-grid">
+      {areas.map(area => (
+        <div class="area-card">
+          <div class="area-icon">
+            <i class={area.icon}></i>
+          </div>
+          <h3 class="area-title">{area.title}</h3>
+          <p class="area-description">{area.description}</p>
+          <a href={area.link} class="area-link">
+            Conocer más <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

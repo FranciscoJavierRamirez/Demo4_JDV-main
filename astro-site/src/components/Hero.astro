@@ -1,0 +1,85 @@
+---
+import { getEntry } from 'astro:content';
+
+const heroData = await getEntry('home', 'hero');
+const { badge, title, subtitle, cta, trust, floatingCards, scrollIndicator, images } = heroData.data;
+---
+
+<section class="hero" id="hero">
+  <img src={images.background} alt="Oficina jurídica moderna JDV" class="hero-bg">
+
+  <div class="hero-orbs">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+
+  <div class="hero-container">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <i class={badge.icon}></i>
+        <span>{badge.text}</span>
+      </div>
+
+      <h1 class="hero-title">
+        <span class="hero-title-line">{title.line1}</span>
+        <span class="hero-title-line hero-title-gradient">{title.line2}</span>
+      </h1>
+
+      <p class="hero-subtitle" set:html={subtitle}></p>
+
+      <div class="hero-ctas">
+        <button class="btn-hero-primary" onclick={cta.primary.action}>
+          <span>{cta.primary.text}</span>
+          <i class="fas fa-arrow-right"></i>
+        </button>
+        <a href={cta.secondary.href} class="btn-hero-secondary">
+          <i class={cta.secondary.icon}></i>
+          <span>{cta.secondary.text}</span>
+        </a>
+      </div>
+
+      <div class="hero-trust">
+        {trust.map(item => (
+          <div class={`trust-item${item.featured ? ' trust-item-featured' : ''}`}>
+            <div class="trust-icon">
+              <i class={item.icon}></i>
+            </div>
+            <div class="trust-text">
+              <strong>{item.title}</strong>
+              <span>{item.subtitle}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="hero-image-container">
+        <img src={images.hero}
+             alt={images.heroAlt}
+             class="hero-image">
+        <div class="hero-image-glow"></div>
+      </div>
+
+      {floatingCards.map((card, index) => (
+        <div class={`floating-card card-${index + 1}`}>
+          <div class="card-icon">
+            <i class={card.icon}></i>
+          </div>
+          <div class="card-content">
+            <div class="card-number">{card.number}</div>
+            <div class="card-label">{card.label}</div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <div class="scroll-indicator" onclick={`document.getElementById('${scrollIndicator.target.slice(1)}').scrollIntoView({behavior: 'smooth'})`}>
+    <div class="scroll-icon">
+      <i class="fas fa-chevron-down"></i>
+    </div>
+    <span>{scrollIndicator.text}</span>
+  </div>
+</section>
