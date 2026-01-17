@@ -1,0 +1,54 @@
+/* ==========================================
+   PERFORMANCE FIX - Imágenes lentas
+   ========================================== */
+
+/* Hero background - Prioridad baja (lazy) */
+.hero-bg {
+    content-visibility: auto;
+    contain-intrinsic-size: 1920px 1080px;
+}
+
+/* Imágenes críticas - Eager loading */
+.hero-image {
+    content-visibility: auto;
+}
+
+/* Reducir will-change para evitar memory leaks */
+.animated-element.complete,
+.fade-in-up.is-visible {
+    will-change: auto !important;
+}
+
+/* GPU acceleration solo en hover activo */
+.card,
+.area-card,
+.benefit-card {
+    will-change: auto;
+}
+
+.card:hover,
+.area-card:hover,
+.benefit-card:hover {
+    will-change: transform;
+}
+
+/* Optimizar backdrop-filter (costoso) */
+@supports not (backdrop-filter: blur(12px)) {
+    .main-nav,
+    .hero-content {
+        background: rgba(255, 255, 255, 0.95) !important;
+        backdrop-filter: none !important;
+    }
+}
+
+/* Reducir blur en mobile para performance */
+@media (max-width: 768px) {
+    .main-nav {
+        backdrop-filter: blur(8px) saturate(150%) !important;
+        -webkit-backdrop-filter: blur(8px) saturate(150%) !important;
+    }
+
+    .hero::before {
+        backdrop-filter: none !important;
+    }
+}
