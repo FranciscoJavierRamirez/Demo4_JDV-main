@@ -18,7 +18,7 @@ export function initNav() {
 }
 
 /**
- * Fullscreen mobile menu
+ * Fullscreen mobile menu - Enhanced with accessibility
  */
 function initFullscreenMenu() {
   const navTogglePremium = document.getElementById('navTogglePremium');
@@ -26,22 +26,52 @@ function initFullscreenMenu() {
 
   if (!navTogglePremium || !fullscreenMenu) return;
 
+  // Function to close menu
+  const closeMenu = () => {
+    navTogglePremium.classList.remove('active');
+    fullscreenMenu.classList.remove('active');
+    navTogglePremium.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+    // Return focus to toggle button
+    navTogglePremium.focus();
+  };
+
+  // Function to open menu
+  const openMenu = () => {
+    navTogglePremium.classList.add('active');
+    fullscreenMenu.classList.add('active');
+    navTogglePremium.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+    // Focus first link in menu
+    const firstLink = fullscreenMenu.querySelector('.fullscreen-link');
+    if (firstLink) {
+      setTimeout(() => firstLink.focus(), 100);
+    }
+  };
+
   // Toggle menu
   navTogglePremium.addEventListener('click', function(e) {
     e.stopPropagation();
-    navTogglePremium.classList.toggle('active');
-    fullscreenMenu.classList.toggle('active');
-    document.body.style.overflow = fullscreenMenu.classList.contains('active') ? 'hidden' : '';
+    const isActive = fullscreenMenu.classList.contains('active');
+    if (isActive) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
   });
 
   // Close menu on link click
   document.querySelectorAll('.fullscreen-link').forEach(link => {
     link.addEventListener('click', function() {
-      navTogglePremium.classList.remove('active');
-      fullscreenMenu.classList.remove('active');
-      document.body.style.overflow = '';
+      closeMenu();
     });
   });
+
+  // Close menu on background click
+  const menuBg = fullscreenMenu.querySelector('.fullscreen-menu-bg');
+  if (menuBg) {
+    menuBg.addEventListener('click', closeMenu);
+  }
 }
 
 /**
@@ -84,17 +114,25 @@ function initScrollBehavior() {
 }
 
 /**
- * ESC key closes fullscreen menu
+ * ESC key closes fullscreen menu and mega menu
  */
 function initEscapeKey() {
   const navTogglePremium = document.getElementById('navTogglePremium');
   const fullscreenMenu = document.getElementById('fullscreenMenu');
 
   document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape' && fullscreenMenu?.classList.contains('active')) {
-      navTogglePremium?.classList.remove('active');
-      fullscreenMenu.classList.remove('active');
-      document.body.style.overflow = '';
+    if (e.key === 'Escape') {
+      // Close fullscreen menu
+      if (fullscreenMenu?.classList.contains('active')) {
+        navTogglePremium?.classList.remove('active');
+        fullscreenMenu.classList.remove('active');
+        navTogglePremium?.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+        navTogglePremium?.focus();
+      }
+      
+      // Close mega menu (handled by closeMegaMenu)
+      closeMegaMenu();
     }
   });
 }

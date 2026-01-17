@@ -6,31 +6,67 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 **JDV & Abogados** - Professional law firm website for Jacqueline del Valle Inostroza, featuring a premium design inspired by Apple/Stripe with modern animations and exceptional user experience.
 
-**Tech Stack:** Pure HTML5, CSS3, Vanilla JavaScript (no frameworks or build tools)
+**Tech Stack:** Astro + Pure CSS3 + Vanilla JavaScript (ES6 modules)
 
 **Project Structure:**
 ```
-/home/
-  ├── index.html                    - Main page
-  ├── style.css                     - Complete styling
-  ├── script.js                     - Legacy (being migrated)
-  ├── assets/
-  │   └── js/
-  │       ├── main.js               - New entry point (ES6 modules)
-  │       ├── config.js             - Centralized configuration
-  │       └── modules/              - Feature-based modules
-  │           ├── nav.js            - Navigation & sticky behavior
-  │           ├── megaMenu.js       - Desktop mega menu
-  │           ├── modal.js          - Consultation modal
-  │           ├── animations.js     - Scroll animations
-  │           ├── stats.js          - Stats counter
-  │           ├── faq.js            - FAQ accordion
-  │           ├── backToTop.js      - Back to top button
-  │           ├── smoothScroll.js   - Smooth anchor scrolling
-  │           ├── newsletter.js     - Newsletter form
-  │           └── utils.js          - Utility functions
-  ├── README_HOME.md                - Technical documentation
-  └── CV y Servicios...md           - Business content
+/astro-site/
+  ├── src/
+  │   ├── components/
+  │   │   ├── Hero.astro            - Hero section
+  │   │   ├── BackToTop.astro       - Back to top button
+  │   │   ├── WhatsAppFloat.astro   - WhatsApp floating button
+  │   │   ├── home/                 - Home page components
+  │   │   │   ├── AreasGrid.astro   - Practice areas grid
+  │   │   │   ├── Benefits.astro    - Benefits section
+  │   │   │   ├── CTA.astro         - Call to action
+  │   │   │   ├── FAQ.astro         - FAQ accordion
+  │   │   │   ├── Footer.astro      - Site footer
+  │   │   │   ├── Modal.astro       - Consultation modal
+  │   │   │   ├── Newsletter.astro  - Newsletter signup
+  │   │   │   ├── ProBono.astro     - Pro bono section
+  │   │   │   ├── Stats.astro       - Animated stats
+  │   │   │   └── TrustBadges.astro - Trust indicators
+  │   │   ├── nav/                  - Navigation components
+  │   │   │   ├── Header.astro      - Main header/nav
+  │   │   │   ├── MegaMenu.astro    - Desktop mega menu
+  │   │   │   └── FullscreenMenu.astro - Mobile menu
+  │   │   └── practice/             - Practice area page components
+  │   │       ├── PracticeHero.astro
+  │   │       ├── PracticeProcess.astro
+  │   │       └── ... (11 components)
+  │   ├── content/                  - Content Collections (Markdown)
+  │   │   ├── config.ts             - Collection schemas
+  │   │   ├── home/hero.md          - Hero content
+  │   │   ├── areas/home.md         - Practice areas content
+  │   │   ├── benefits/home.md      - Benefits content
+  │   │   ├── stats/home.md         - Stats content
+  │   │   ├── faq/home.md           - FAQ content
+  │   │   ├── practices/            - Individual practice pages
+  │   │   │   ├── defensa-estatutaria.md
+  │   │   │   └── legado.md
+  │   │   └── ...                   - Other content collections
+  │   ├── layouts/
+  │   │   ├── BaseLayout.astro      - Main HTML layout
+  │   │   └── PracticeLayout.astro  - Practice area layout
+  │   └── pages/
+  │       ├── index.astro           - Home page
+  │       └── areas-practicas/      - Practice area pages
+  │           ├── index.astro
+  │           ├── defensa-estatutaria.astro
+  │           └── legado.astro
+  └── public/
+      ├── home/
+      │   ├── style.css             - All CSS (loaded by BaseLayout)
+      │   ├── fondo_hero.png        - Hero background image
+      │   ├── persona_hero.png      - Hero portrait image
+      │   └── assets/js/            - JavaScript modules
+      │       ├── main.js           - Entry point
+      │       ├── config.js         - Configuration
+      │       └── modules/          - Feature modules
+      ├── favicon.svg
+      ├── fondo_hero.png
+      └── persona_hero.png
 ```
 
 ## Development Commands
@@ -38,130 +74,119 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ### Running Locally
 
 ```bash
-# Option 1: Open directly in browser
-open home/index.html
+cd astro-site
 
-# Option 2: Local server (if needed for testing)
-python3 -m http.server 8000
-# Then visit: http://localhost:8000/home/
+# Install dependencies (first time only)
+npm install
+
+# Start dev server
+npm run dev
+# Visit: http://localhost:4321
+
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
 ```
 
 ### Validation and Testing
 
 ```bash
-# HTML Validation
-# Use: https://validator.w3.org/
+# Build validation
+npm run build
 
 # Performance Testing
 # Chrome DevTools > Lighthouse
 
 # Accessibility Testing
 # Chrome DevTools > Lighthouse > Accessibility
-# Or use axe DevTools extension
 ```
-
-### No Build Process
-
-This project intentionally uses no build tools, bundlers, or package managers. All code runs natively in the browser using **ES6 modules** (`type="module"`). Do not add npm, webpack, or similar tooling unless explicitly requested.
-
-**ES6 Modules:** The project uses native browser ES6 modules for code organization. Load the main entry point with:
-
-```html
-<script type="module" src="/assets/js/main.js"></script>
-```
-
-All modules use `import/export` syntax and are organized by feature for future Astro migration.
 
 ## Architecture Overview
 
-### Design System
+### Astro Architecture
 
-**CSS Variables** - All styling uses CSS custom properties defined in `:root`:
+The site uses Astro's component-based architecture:
+
+1. **Components** (`.astro` files) - Reusable UI components with scoped styles
+2. **Content Collections** (`.md` files) - Type-safe content management
+3. **Layouts** - Shared page structure (HTML head, scripts)
+4. **Pages** - Route definitions
+
+**Content is separated from presentation:**
+- All text content lives in `src/content/` as Markdown files
+- Components fetch content via `getEntry()` from Content Collections
+- This makes content updates easy without touching component code
+
+### CSS Architecture
+
+CSS is loaded from `/public/home/style.css` via `BaseLayout.astro`. All styling uses CSS custom properties:
+
 - Colors: `--blue-primary`, `--gold`, `--gray-*` series
-- Typography: `--font-display` (Playfair Display), `--font-sans` (Inter)
+- Typography: `--font-display` (Fraunces), `--font-sans` (Inter)
 - Spacing: 8pt grid system (`--space-4` through `--space-24`)
 - Transitions: Material Design 3 curves (`--transition-fast/base/slow`)
 
 **Responsive Strategy:**
 - Mobile-first approach with progressive enhancement
 - Breakpoints: 768px (tablet), 1024px (desktop), 1200px (large desktop)
-- Floating hero cards only display above 1200px to avoid mobile clutter
 
 ### JavaScript Architecture
 
-**Modular ES6 Architecture** - Pure vanilla JS organized by feature:
+JavaScript is loaded from `/public/home/assets/js/main.js` via `BaseLayout.astro`:
 
 **Module System:**
-
-- Entry point: [main.js](home/assets/js/main.js) - Initializes all modules
-- Configuration: [config.js](home/assets/js/config.js) - Centralized constants (delays, thresholds, breakpoints)
-- Feature modules in [modules/](home/assets/js/modules/) - One module per feature
-- Each module exports `init*()` function called from main.js
-- Backward compatibility: Functions temporarily exposed on `window` during migration
+- Entry point: `main.js` - Initializes all modules
+- Configuration: `config.js` - Centralized constants
+- Feature modules in `modules/` - One module per feature:
+  - `nav.js` - Navigation & sticky behavior
+  - `megaMenu.js` - Desktop mega menu
+  - `modal.js` - Consultation modal
+  - `animations.js` - Scroll animations
+  - `stats.js` - Stats counter
+  - `faq.js` - FAQ accordion
+  - `backToTop.js` - Back to top button
+  - `smoothScroll.js` - Smooth anchor scrolling
+  - `newsletter.js` - Newsletter form
+  - `utils.js` - Utility functions
 
 **Core Patterns:**
-
-1. **Event-Driven** - All interactions via event listeners attached in DOMContentLoaded
-2. **IntersectionObserver** - Used for:
-   - Stats counter animation (triggers once when entering viewport)
-   - Scroll-based fade-in animations for cards
-3. **RequestAnimationFrame** - Smooth 60fps animations via `throttle()` utility
-4. **Performance Patterns:**
-   - Event delegation where applicable
-   - Throttled scroll handlers with `requestAnimationFrame`
-   - Passive event listeners for scroll events
-   - CSS transforms/opacity for animations (GPU-accelerated)
-
-**Configuration Constants:**
-
-All timing values, thresholds, and breakpoints are centralized in [config.js](home/assets/js/config.js):
-
-- `ANIMATION_DELAYS` - Stagger delays, durations
-- `SCROLL_THRESHOLDS` - Sticky nav, hide/show triggers
-- `OBSERVER_OPTIONS` - IntersectionObserver configurations
-- `Z_INDEX` - Layering scale to avoid conflicts
-- `MODAL_TYPES` & `MODAL_TITLES` - Modal variant configurations
+1. **Event-Driven** - All interactions via event listeners in DOMContentLoaded
+2. **IntersectionObserver** - Stats counter, scroll animations
+3. **RequestAnimationFrame** - Smooth 60fps animations
+4. **Performance** - Throttled handlers, passive listeners, GPU-accelerated transforms
 
 ### Key Interactive Features
 
 **Navigation System:**
-- **Desktop**: Mega menu with hover interactions (4-column grid showing 8 practice areas)
+- **Desktop**: Mega menu with hover interactions (4-column grid, 8 practice areas)
 - **Mobile**: Fullscreen overlay menu with slide-in animation
-- **Sticky behavior**: Appears after 100px scroll
-- **Hide on scroll down**: Nav hides when scrolling down past 300px, reappears on scroll up
-- Both menus close via ESC key, outside click, or link selection
+- **Sticky behavior**: Appears after 100px scroll, hides on scroll down
 
 **Stats Counter:**
-- Animates from 0 to target value over 2 seconds
-- Triggers only once when section enters viewport (30% threshold)
-- Uses `requestAnimationFrame` for smooth animation
-- Values stored in `data-target` attributes
+- Animates from 0 to target over 2 seconds
+- Triggers once when entering viewport (30% threshold)
 
 **Modal System:**
-- Consultation form modal with backdrop blur
-- Blocks body scroll when active
-- Closes via ESC key, overlay click, or close button
-- Special `openProBonoModal()` variant that modifies modal content dynamically
+- Consultation form with backdrop blur
+- Blocks body scroll, closes via ESC/overlay/button
 
 **Scroll Animations:**
-- Progressive fade-in with stagger delay (100ms between elements)
-- Applied to: `.area-card`, `.benefit-card`, `.stat-item`, `.faq-item`, `.probono-card`
-- Uses IntersectionObserver with 10% threshold and -50px root margin
-- Elements start with `opacity: 0` and `translateY(30px)`
+- Progressive fade-in with 100ms stagger delay
+- Applied to cards, stats, FAQ items
 
 ### Page Sections
 
-1. **Hero Section**: Background image + 3 animated orbs + floating stats cards (desktop only) + trust indicators
-2. **Stats Section**: 4 animated counters (15+ years, 500+ cases, 8 areas, 98% satisfaction)
-3. **Trust Badges**: Static horizontal badges (no animations)
-4. **Practice Areas**: 8 cards with gradient hover effects (shield-alt, building, heart, file-signature, balance-scale, home, paw, chalkboard-teacher icons)
+1. **Hero Section**: Background image + animated orbs + floating cards (desktop) + trust indicators
+2. **Stats Section**: 4 animated counters
+3. **Trust Badges**: Static horizontal badges
+4. **Practice Areas**: 8 cards with gradient hover effects
 5. **Benefits Section**: 4 value propositions
-6. **CTA Section**: Blue gradient background with animated orb + consultation button
-7. **Footer**: 4-column layout (about + social, practice areas, contact, hours)
+6. **CTA Section**: Blue gradient + consultation button
+7. **Footer**: 4-column layout
 
 ### Service Areas (8 Total)
-
-As defined in [CV y Servicios (Jacquelie Del Valle) JDV & Abogados.md](home/CV%20y%20Servicios%20(Jacquelie%20Del%20Valle)%20JDV%20%26%20Abogados.md):
 
 1. **Defensa Estatutaria** - Defense of public sector employees
 2. **Defensa Administrativa** - Representation before public administration
@@ -174,56 +199,46 @@ As defined in [CV y Servicios (Jacquelie Del Valle) JDV & Abogados.md](home/CV%2
 
 ## Code Conventions
 
-### HTML
-- Semantic HTML5 elements (nav, main, section, footer)
-- ARIA labels on interactive elements
-- `loading="lazy"` on images
-- Alt text on all images (accessibility requirement)
+### Astro Components
+- Use Content Collections for all text content
+- Keep components focused and single-purpose
+- Use TypeScript interfaces for props
 
 ### CSS
 - Never use hardcoded values - always use CSS variables
 - Use `clamp()` for fluid typography
 - Animations use Material Design easing curves
-- All interactive elements must have hover states
 - Touch targets minimum 44x44px on mobile
 
 ### JavaScript
 - All functionality wrapped in DOMContentLoaded
 - Null checks before accessing DOM elements
-- `e.stopPropagation()` to prevent bubbling where needed
-- Console.log statements for form submissions (replace with backend integration)
-- Analytics tracking placeholders (`if (typeof gtag !== 'undefined')`)
+- Use ES6 modules with import/export
 
 ## Common Modifications
 
-### Adding a New Practice Area
-1. Update HTML in mega menu (both desktop mega-menu and fullscreen menu)
-2. Add card to practice areas section with matching icon
-3. Update service count in stats section if needed
-4. Add content to [CV y Servicios](home/CV%20y%20Servicios%20(Jacquelie%20Del%20Valle)%20JDV%20%26%20Abogados.md)
+### Adding Content
+Edit the appropriate Markdown file in `src/content/`:
+- Hero text: `content/home/hero.md`
+- Practice areas: `content/areas/home.md`
+- Stats: `content/stats/home.md`
+- FAQ: `content/faq/home.md`
+
+### Adding a New Practice Area Page
+1. Create content file: `src/content/practices/new-area.md`
+2. Create page file: `src/pages/areas-practicas/new-area.astro`
+3. Update navigation in `Header.astro`, `MegaMenu.astro`, `FullscreenMenu.astro`
 
 ### Updating Contact Information
-- Phone: Update in footer, CTA section, and WhatsApp floating button
-- Email: Update in footer
-- Address: Update in footer
-- Social media: Update footer links
+- Footer: `src/components/home/Footer.astro`
+- CTA: `src/components/home/CTA.astro`
+- WhatsApp: `src/components/WhatsAppFloat.astro`
 
-### Form Integration
-Current form handler in `script.js` (line 206-224) only logs to console. To integrate:
-1. Replace console.log with actual API call (fetch/XMLHttpRequest)
-2. Add server-side validation
-3. Implement email notification system
-4. Update success/error handling
+### Styling Changes
+Edit `/public/home/style.css` - all CSS is centralized there
 
-### Image Replacement
-Current placeholders from Unsplash:
-- Hero background: Line 321 in `index.html`
-- Portrait image: Line 326 in `index.html`
-
-For production:
-- Use WebP format with PNG/JPG fallback
-- Optimize to <200KB
-- Maintain aspect ratios (1920x1080 for background, 600x800 for portrait)
+### JavaScript Changes
+Edit modules in `/public/home/assets/js/modules/`
 
 ## Performance Targets
 
@@ -234,95 +249,52 @@ Expected Lighthouse scores:
 - SEO: 95+
 
 Core Web Vitals:
-- LCP (Largest Contentful Paint): <2.5s
-- FID (First Input Delay): <100ms
-- CLS (Cumulative Layout Shift): <0.1
+- LCP: <2.5s
+- FID: <100ms
+- CLS: <0.1
 
 ## Accessibility Standards
 
 WCAG 2.1 AA compliance:
-- Color contrast ratios: 4.5:1 for normal text, 3:1 for large text
-- Keyboard navigation: Full support with visible focus states
-- Screen reader: Semantic HTML + ARIA labels
-- Touch targets: 44x44px minimum on mobile
+- Color contrast: 4.5:1 normal text, 3:1 large text
+- Full keyboard navigation with visible focus states
+- Semantic HTML + ARIA labels
+- Touch targets: 44x44px minimum
 
 ## Browser Support
 
-Modern browsers only (ES6+ features used):
+Modern browsers (ES6+ features):
 - Chrome 90+
 - Firefox 88+
 - Safari 14+
 - Edge 90+
 
-Features requiring modern browsers:
-- IntersectionObserver
-- CSS custom properties
-- CSS Grid
-- RequestAnimationFrame
-- Template literals
-- Arrow functions
-
 ## Production Checklist
-
-Before deploying to production:
 
 1. **Content**
    - [ ] Replace placeholder images with professional photos
-   - [ ] Update all contact information (phone, email, address)
-   - [ ] Set correct WhatsApp link: `https://wa.me/56XXXXXXXXX`
-   - [ ] Review all service descriptions for accuracy
+   - [ ] Update contact information
+   - [ ] Set correct WhatsApp link
 
 2. **Backend Integration**
-   - [ ] Connect form submission to server endpoint
-   - [ ] Implement email notifications
-   - [ ] Add server-side validation
-   - [ ] Set up newsletter integration (Mailchimp/SendGrid/Brevo)
+   - [ ] Connect form submissions to server
+   - [ ] Set up newsletter integration
 
-3. **Analytics & Tracking**
+3. **Analytics**
    - [ ] Add Google Analytics 4
-   - [ ] Configure Google Tag Manager (optional)
-   - [ ] Set up conversion tracking for form submissions
-   - [ ] Add Facebook Pixel (optional)
+   - [ ] Configure conversion tracking
 
 4. **SEO**
-   - [ ] Add JSON-LD structured data for LegalService
+   - [ ] Add JSON-LD structured data
    - [ ] Create sitemap.xml
    - [ ] Configure robots.txt
-   - [ ] Generate Open Graph images (1200x630px)
-   - [ ] Generate Twitter Card images
 
-5. **Legal & Compliance**
+5. **Legal**
    - [ ] Add privacy policy page
    - [ ] Add terms and conditions
-   - [ ] Implement cookie consent (if required)
-   - [ ] GDPR compliance review (if applicable)
-
-## Technical Notes
-
-### Stats Counter Implementation
-The counter uses a mathematical approach to ensure smooth animation:
-```javascript
-const increment = target / (duration / 16); // 16ms = 60fps
-```
-This calculates how much to increment each frame to reach the target in exactly 2 seconds.
-
-### Mega Menu Hover Delay
-Desktop mega menu has 300ms delay before closing (`megaMenuTimeout`) to prevent accidental closes when mouse moves between menu and content.
-
-### Orb Animations
-Three decorative orbs with staggered delays (0s, 8s, 16s) create an organic, non-repetitive floating effect over 25-second cycle.
-
-### Hero Cards Visibility
-Floating cards use `display: none` on mobile/tablet to reduce visual complexity, only appearing as `display: block` at 1200px+.
-
-## Reference Documentation
-
-- [README_HOME.md](home/README_HOME.md) - Complete technical specification (505 lines)
-- [CV y Servicios...md](home/CV%20y%20Servicios%20(Jacquelie%20Del%20Valle)%20JDV%20%26%20Abogados.md) - Business content (410 lines)
 
 ## Design Inspiration
 
-Visual design inspired by:
 - **Apple.com** - Glassmorphism, hero sections, premium feel
 - **Stripe.com** - Gradient usage, spacing system
 - **Linear.app** - Modern animations, micro-interactions

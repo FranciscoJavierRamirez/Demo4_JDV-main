@@ -4,41 +4,52 @@ import FullscreenMenu from './FullscreenMenu.astro';
 ---
 
 <!-- Navigation Premium 2026 -->
-<nav class="main-nav" id="mainNav">
+<nav class="main-nav" id="mainNav" role="navigation" aria-label="Navegación principal">
   <div class="nav-container">
     <div class="nav-logo">
-      <a href="#hero" class="logo-text">
+      <a href="#hero" class="logo-text" aria-label="JDV & Abogados - Ir a inicio">
         <span class="logo-jdvi">JDV</span>
-        <span class="logo-separator">&</span>
+        <span class="logo-separator" aria-hidden="true">&</span>
         <span class="logo-abogados">Abogados</span>
       </a>
     </div>
 
     <!-- Botón Hamburger Premium -->
-    <button class="nav-toggle-premium" id="navTogglePremium" aria-label="Menú">
-      <span class="line line-1"></span>
-      <span class="line line-2"></span>
-      <span class="line line-3"></span>
+    <button 
+      class="nav-toggle-premium" 
+      id="navTogglePremium" 
+      aria-label="Abrir menú de navegación"
+      aria-expanded="false"
+      aria-controls="fullscreenMenu">
+      <span class="line line-1" aria-hidden="true"></span>
+      <span class="line line-2" aria-hidden="true"></span>
+      <span class="line line-3" aria-hidden="true"></span>
       <span class="menu-label">Menú</span>
     </button>
 
     <!-- Desktop Menu -->
-    <ul class="nav-menu-desktop">
-      <li><a href="#hero" class="nav-link-premium">Inicio</a></li>
-      <li class="has-mega">
-        <button class="nav-link-premium" id="areasToggle">
+    <ul class="nav-menu-desktop" role="menubar">
+      <li role="none"><a href="#hero" class="nav-link-premium" role="menuitem">Inicio</a></li>
+      <li class="has-mega" role="none">
+        <button 
+          class="nav-link-premium" 
+          id="areasToggle"
+          aria-expanded="false"
+          aria-haspopup="true"
+          aria-controls="megaMenu"
+          role="menuitem">
           Áreas de Práctica
-          <i class="fas fa-chevron-down chevron-icon"></i>
+          <i class="fas fa-chevron-down chevron-icon" aria-hidden="true"></i>
         </button>
       </li>
-      <li><a href="#about" class="nav-link-premium">Quiénes Somos</a></li>
-      <li><a href="../blog/" class="nav-link-premium">Blog</a></li>
-      <li><a href="#faq" class="nav-link-premium">FAQ</a></li>
-      <li><a href="#contact" class="nav-link-premium">Contacto</a></li>
-      <li>
-        <button class="btn-nav-cta" onclick="openModal()">
+      <li role="none"><a href="#about" class="nav-link-premium" role="menuitem">Quiénes Somos</a></li>
+      <li role="none"><a href="../blog/" class="nav-link-premium" role="menuitem">Blog</a></li>
+      <li role="none"><a href="#faq" class="nav-link-premium" role="menuitem">FAQ</a></li>
+      <li role="none"><a href="#contact" class="nav-link-premium" role="menuitem">Contacto</a></li>
+      <li role="none">
+        <button class="btn-nav-cta" onclick="openModal()" aria-label="Abrir formulario de consulta gratuita">
           <span>Consulta Gratuita</span>
-          <i class="fas fa-arrow-right"></i>
+          <i class="fas fa-arrow-right" aria-hidden="true"></i>
         </button>
       </li>
     </ul>
