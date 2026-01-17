@@ -14,6 +14,9 @@ import { initBackToTop } from './modules/backToTop.js';
 import { initSmoothScroll } from './modules/smoothScroll.js';
 import { initNewsletter, handleNewsletterSubmit } from './modules/newsletter.js';
 
+// Premium 2026 Enhancements
+import { initScrollAnimations as initPremiumScrollAnimations, autoAnimateElements } from './modules/scrollAnimations-premium.js';
+
 /**
  * Initialize all modules when DOM is ready
  */
@@ -33,6 +36,10 @@ document.addEventListener('DOMContentLoaded', function() {
   initStatsCounter();
   initBackToTop();
   initSmoothScroll();
+
+  // Premium 2026: Enhanced scroll animations
+  autoAnimateElements();
+  initPremiumScrollAnimations();
 
   // Forms
   initNewsletter();
