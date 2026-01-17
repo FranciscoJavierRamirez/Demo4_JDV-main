@@ -6,8 +6,13 @@ const { sectionTitle, benefits } = benefitsData.data;
 ---
 
 <!-- Benefits Section -->
-<section class="py-24 bg-[var(--gray-50)]">
-  <div class="container">
+<section class="relative py-24 bg-gradient-to-br from-[#f8fafc] via-[#f1f5f9] to-[#e2e8f0] overflow-hidden">
+  <!-- Animated floating orbs -->
+  <div class="absolute inset-0 pointer-events-none overflow-hidden">
+    <div class="absolute w-[300px] h-[300px] rounded-full blur-[100px] opacity-[0.08] top-[10%] right-[10%] bg-[radial-gradient(circle,var(--blue-primary)_0%,transparent_70%)] animate-[float_30s_ease-in-out_infinite]"></div>
+    <div class="absolute w-[250px] h-[250px] rounded-full blur-[80px] opacity-[0.06] bottom-[20%] left-[5%] bg-[radial-gradient(circle,var(--gold)_0%,transparent_70%)] animate-[float_25s_ease-in-out_infinite_5s]"></div>
+  </div>
+  <div class="container relative z-10">
     <!-- Section Header -->
     <div class="text-center mb-16">
       <h2 class="font-[var(--font-display)] text-[clamp(2rem,4vw,3rem)] font-extrabold text-[var(--gray-900)] mb-5 tracking-[-0.02em]">
@@ -19,7 +24,7 @@ const { sectionTitle, benefits } = benefitsData.data;
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
       {benefits.map((benefit, index) => (
         <div 
-          class="benefit-card p-10 bg-white rounded-[20px] text-center transition-all duration-200 shadow-[var(--shadow-premium)] hover:-translate-y-[6px] hover:scale-[1.02] hover:shadow-[var(--shadow-premium-hover)]"
+          class="benefit-card card-shine p-10 bg-white rounded-[20px] text-center transition-all duration-300 shadow-[var(--shadow-premium)] hover:-translate-y-[6px] hover:scale-[1.02] hover:shadow-[var(--shadow-premium-hover)] border border-transparent hover:border-[var(--blue-primary)]/20"
           style={`transition-delay: ${index * 50}ms`}
         >
           <!-- Icon -->

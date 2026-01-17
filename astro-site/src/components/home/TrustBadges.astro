@@ -6,12 +6,16 @@ const { badges } = trustData.data;
 ---
 
 <!-- Trust Badges -->
-<section class="py-12 bg-[var(--gray-50)] border-t border-b border-[var(--gray-200)]">
-  <div class="container">
-    <div class="flex justify-center items-center gap-10 flex-wrap">
+<section class="relative py-12 bg-gradient-to-r from-[#f8fafc] via-white to-[#f8fafc] border-t border-b border-[var(--gray-200)] overflow-hidden">
+  <!-- Subtle shimmer effect -->
+  <div class="absolute inset-0 pointer-events-none">
+    <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent animate-[shimmer_8s_ease-in-out_infinite] opacity-30"></div>
+  </div>
+  <div class="container relative z-10">
+    <div class="flex justify-center items-center gap-6 sm:gap-10 flex-wrap">
       {badges.map(badge => (
-        <div class="flex items-center gap-3 font-semibold text-[var(--gray-700)] text-[0.9375rem]">
-          <i class={`${badge.icon} text-[1.75rem] text-[var(--gold)]`}></i>
+        <div class="group flex items-center gap-3 font-semibold text-[var(--gray-700)] text-sm sm:text-[0.9375rem] transition-all duration-300 hover:text-[var(--gray-900)] hover:scale-105">
+          <i class={`${badge.icon} text-xl sm:text-[1.75rem] text-[var(--gold)] transition-all duration-300 group-hover:text-[var(--gold-dark)] group-hover:scale-110`}></i>
           <span>{badge.text}</span>
         </div>
       ))}

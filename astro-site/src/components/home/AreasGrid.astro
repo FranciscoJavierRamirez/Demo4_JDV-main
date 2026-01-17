@@ -5,8 +5,15 @@ const areasData = await getEntry('areas', 'home');
 const { sectionTitle, sectionSubtitle, areas } = areasData.data;
 ---
 
-<section id="areas" class="py-24 bg-[var(--white)]">
-  <div class="container">
+<section id="areas" class="relative py-24 bg-gradient-to-br from-white via-[#f0f9ff] to-[#faf5ff] overflow-hidden">
+  <!-- Decorative mesh gradient background -->
+  <div class="absolute inset-0 pointer-events-none">
+    <div class="absolute top-1/4 left-1/4 w-[500px] h-[500px] rounded-full blur-[150px] opacity-[0.06] bg-[radial-gradient(circle,var(--blue-primary)_0%,transparent_70%)]"></div>
+    <div class="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] rounded-full blur-[120px] opacity-[0.05] bg-[radial-gradient(circle,var(--gold)_0%,transparent_70%)]"></div>
+    <!-- Subtle grid pattern -->
+    <div class="absolute inset-0 opacity-[0.02]" style="background-image: linear-gradient(var(--gray-400) 1px, transparent 1px), linear-gradient(90deg, var(--gray-400) 1px, transparent 1px); background-size: 60px 60px;"></div>
+  </div>
+  <div class="container relative z-10">
     <!-- Section Header -->
     <div class="text-center mb-16">
       <h2 class="font-[var(--font-display)] text-[clamp(2rem,4vw,3rem)] font-extrabold text-[var(--gray-900)] mb-5 tracking-[-0.02em]">
@@ -22,7 +29,7 @@ const { sectionTitle, sectionSubtitle, areas } = areasData.data;
       {areas.map((area, index) => (
         <a 
           href={area.link}
-          class="group relative p-8 bg-white border-2 border-[var(--gray-100)] rounded-[20px] transition-all duration-300 cursor-pointer overflow-hidden shadow-[var(--shadow-premium)] hover:border-[var(--blue-primary)] hover:-translate-y-2 hover:scale-[1.02] hover:shadow-[var(--shadow-premium-hover)] animate-on-scroll"
+          class="group relative p-8 bg-white/95 backdrop-blur-sm border-2 border-[var(--gray-100)] rounded-[20px] transition-all duration-300 cursor-pointer overflow-hidden shadow-[var(--shadow-premium)] hover:border-[var(--blue-primary)] hover:-translate-y-2 hover:scale-[1.02] hover:shadow-[var(--shadow-premium-hover)] animate-on-scroll card-shine"
           style={`transition-delay: ${index * 50}ms`}
         >
           <!-- Top gradient bar on hover -->

@@ -1,11 +1,11 @@
 ---
 icon: "fas fa-balance-scale"
 title: "¿Necesitas Asesoría Legal?"
-subtitle: "Primera consulta gratuita. Conversemos sobre tu caso sin compromiso."
+subtitle: "Conversemos sobre tu caso. Primera consulta sin compromiso."
 actions:
   primary:
     icon: "fas fa-calendar-check"
-    text: "Agendar Consulta Ahora"
+    text: "Reserva tu Cita"
     action: "openModal()"
   phone:
     icon: "fas fa-phone-alt"

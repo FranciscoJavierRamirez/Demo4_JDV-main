@@ -5,8 +5,13 @@ const statsData = await getEntry('stats', 'home');
 const { stats } = statsData.data;
 ---
 
-<section id="stats" class="py-20 bg-[var(--white)]">
-  <div class="container">
+<section id="stats" class="relative py-20 bg-gradient-to-b from-white via-[#f8fafc] to-[#eff6ff] overflow-hidden">
+  <!-- Decorative background elements -->
+  <div class="absolute inset-0 pointer-events-none">
+    <div class="absolute top-0 right-0 w-[400px] h-[400px] rounded-full blur-[120px] opacity-[0.07] bg-[radial-gradient(circle,var(--blue-primary)_0%,transparent_70%)]"></div>
+    <div class="absolute bottom-0 left-0 w-[300px] h-[300px] rounded-full blur-[100px] opacity-[0.05] bg-[radial-gradient(circle,var(--gold)_0%,transparent_70%)]"></div>
+  </div>
+  <div class="container relative z-10">
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
       {stats.map((stat, index) => (
         <div 

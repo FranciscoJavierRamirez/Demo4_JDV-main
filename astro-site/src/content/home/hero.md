@@ -11,7 +11,7 @@ subtitle: "Jacqueline Del Valle Inostroza, con **35 años de experiencia** en la
 
 cta:
   primary:
-    text: "Agendar Consulta Gratuita"
+    text: "Agenda tu Consulta"
     action: "openModal()"
   secondary:
     text: "Ver Áreas de Práctica"
@@ -31,9 +31,9 @@ trust:
     title: "Pro Bono"
     subtitle: "Disponible"
     featured: false
-  - icon: "fas fa-gift"
-    title: "Consulta Gratuita"
-    subtitle: "Primera Asesoría"
+  - icon: "fas fa-comments"
+    title: "Primera Asesoría"
+    subtitle: "Sin Compromiso"
     featured: true
 
 floatingCards:
