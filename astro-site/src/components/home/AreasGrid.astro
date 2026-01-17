@@ -25,75 +25,69 @@ const { sectionTitle, sectionSubtitle, areas } = areasData.data;
     </div>
 
     <!-- Bento Grid Layout -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 auto-rows-[minmax(280px,auto)]">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 auto-rows-[minmax(300px,auto)]">
       {areas.map((area, index) => {
         const isFeatured = index === 0 || index === 1;
         return (
           <a 
             href={area.link}
-            class={`bento-card group relative p-8 rounded-[24px] border transition-all duration-300 overflow-hidden cursor-pointer hover:-translate-y-2 hover:shadow-2xl flex flex-col justify-between
-              ${isFeatured 
-                ? 'md:col-span-2 lg:col-span-2 min-h-[340px] border-[var(--blue-primary)]/20' 
-                : 'col-span-1 border-[var(--gray-200)]'}
+            class={`area-card group relative rounded-[24px] overflow-hidden cursor-pointer flex flex-col justify-end transition-all duration-500
+              ${isFeatured ? 'md:col-span-2 lg:col-span-2 min-h-[360px]' : 'col-span-1 min-h-[300px]'}
             `}
             style={`transition-delay: ${index * 50}ms`}
           >
-            <!-- Background Image Layer -->
+            <!-- Background Image Layer - Reveals on hover -->
             {area.image && (
               <div class="absolute inset-0 z-0">
                 <img 
                   src={area.image} 
                   alt=""
-                  class={`card-image w-full h-full object-cover transition-all duration-500 group-hover:scale-110
-                    ${isFeatured ? 'opacity-40 group-hover:opacity-50' : 'opacity-25 group-hover:opacity-35'}
-                  `}
+                  class="card-bg-image w-full h-full object-cover transition-all duration-700 ease-out"
                   loading="lazy"
                 />
-                <!-- Gradient Overlay - Enhanced for better visibility -->
-                <div class={`absolute inset-0 transition-all duration-300
-                  ${isFeatured 
-                    ? 'bg-gradient-to-br from-white/80 via-white/70 to-[var(--blue-50)]/60' 
-                    : 'bg-gradient-to-t from-white via-white/85 to-white/70'}
-                `}></div>
+                <!-- Color overlay that fades on hover -->
+                <div class="card-overlay absolute inset-0 transition-all duration-500"></div>
               </div>
             )}
             
-            <!-- Spotlight Effect Layer -->
-            <div class="spotlight absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-[1]"></div>
-            
-            <div class="relative z-10">
-              <!-- Icon -->
-              <div class={`w-16 h-16 flex items-center justify-center rounded-2xl mb-6 transition-all duration-300 group-hover:scale-110 group-hover:rotate-[-5deg]
-                ${isFeatured 
-                  ? 'bg-gradient-to-br from-[var(--blue-primary)] to-[var(--blue-deeper)] text-white shadow-[0_8px_30px_rgba(59,130,246,0.4)]' 
-                  : 'bg-white/90 backdrop-blur-sm text-[var(--blue-primary)] shadow-lg border border-[var(--gray-100)] group-hover:bg-[var(--blue-primary)] group-hover:text-white group-hover:border-transparent'}
-              `}>
-                <i class={`${area.icon} text-3xl`}></i>
-              </div>
+            <!-- Glassmorphism Content Container -->
+            <div class="card-content relative z-10 p-6 md:p-8 transition-all duration-500">
+              <!-- Glass background -->
+              <div class="absolute inset-0 glass-bg transition-all duration-500 rounded-t-[20px]"></div>
               
-              <!-- Content -->
-              <div>
-                <h3 class={`font-[var(--font-display)] font-bold mb-3 leading-tight transition-colors
+              <div class="relative z-10">
+                <!-- Icon -->
+                <div class={`card-icon w-14 h-14 flex items-center justify-center rounded-2xl mb-5 transition-all duration-500 shadow-lg
                   ${isFeatured 
-                    ? 'text-3xl text-[var(--gray-900)] group-hover:text-[var(--blue-primary)]' 
-                    : 'text-xl text-[var(--gray-900)] group-hover:text-[var(--blue-primary)]'}
+                    ? 'bg-gradient-to-br from-[var(--blue-primary)] to-[var(--blue-deeper)] text-white' 
+                    : 'bg-white/90 backdrop-blur-sm text-[var(--blue-primary)] border border-white/50'}
                 `}>
-                  {area.title}
-                </h3>
+                  <i class={`${area.icon} text-2xl`}></i>
+                </div>
                 
-                <p class={`leading-relaxed mb-6
-                  ${isFeatured ? 'text-[var(--gray-700)] text-base' : 'text-[var(--gray-600)] text-sm'}
-                `}>
-                  {area.description}
-                </p>
+                <!-- Content -->
+                <div>
+                  <h3 class={`card-title font-[var(--font-display)] font-bold mb-3 leading-tight transition-all duration-300
+                    ${isFeatured ? 'text-2xl md:text-3xl' : 'text-xl'}
+                  `}>
+                    {area.title}
+                  </h3>
+                  
+                  <p class="card-description text-sm leading-relaxed mb-5 transition-all duration-300">
+                    {area.description}
+                  </p>
+                </div>
+                
+                <!-- Action -->
+                <div class="card-action flex items-center gap-2 font-bold text-sm tracking-wide uppercase transition-all duration-300">
+                  <span>Explorar Área</span>
+                  <i class="fas fa-arrow-right transition-transform duration-300 group-hover:translate-x-2"></i>
+                </div>
               </div>
             </div>
             
-            <!-- Action -->
-            <div class="relative z-10 flex items-center gap-2 text-[var(--blue-primary)] font-bold text-sm tracking-wide uppercase group-hover:gap-3 transition-all">
-              <span>Explorar Área</span>
-              <i class="fas fa-arrow-right transition-transform duration-300 group-hover:translate-x-1"></i>
-            </div>
+            <!-- Spotlight Effect Layer -->
+            <div class="spotlight absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-[5]"></div>
           </a>
         );
       })}
@@ -102,57 +96,135 @@ const { sectionTitle, sectionSubtitle, areas } = areasData.data;
 </section>
 
 <style>
-  .bento-card {
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
-    background: white;
+  /* Base card styling - Glassmorphism */
+  .area-card {
+    background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(249,250,251,0.9) 100%);
+    border: 1px solid rgba(255,255,255,0.8);
+    box-shadow: 
+      0 4px 6px -1px rgba(0, 0, 0, 0.05),
+      0 2px 4px -1px rgba(0, 0, 0, 0.03),
+      inset 0 1px 0 rgba(255,255,255,0.6);
   }
 
-  .bento-card:hover {
+  .area-card:hover {
+    transform: translateY(-8px);
     box-shadow: 
-      0 25px 50px -12px rgba(0, 0, 0, 0.15),
+      0 25px 50px -12px rgba(0, 0, 0, 0.2),
       0 0 0 1px rgba(59, 130, 246, 0.1);
   }
 
-  /* Featured cards styling */
-  .bento-card:nth-child(1),
-  .bento-card:nth-child(2) {
-    background: linear-gradient(135deg, rgba(255,255,255,0.98) 0%, rgba(239,246,255,0.95) 100%);
+  /* Background image - desaturated by default, colorful on hover */
+  .card-bg-image {
+    filter: grayscale(60%) brightness(1.1);
+    transform: scale(1.05);
+    opacity: 0.4;
   }
 
-  .bento-card:nth-child(1):hover,
-  .bento-card:nth-child(2):hover {
+  .area-card:hover .card-bg-image {
+    filter: grayscale(0%) brightness(1) saturate(1.2);
+    transform: scale(1.15);
+    opacity: 0.85;
+  }
+
+  /* Overlay gradient - fades significantly on hover */
+  .card-overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(255,255,255,0.7) 0%,
+      rgba(255,255,255,0.85) 40%,
+      rgba(255,255,255,0.95) 100%
+    );
+  }
+
+  .area-card:hover .card-overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(12,35,64,0.1) 0%,
+      rgba(12,35,64,0.3) 50%,
+      rgba(12,35,64,0.7) 100%
+    );
+  }
+
+  /* Glass background for content */
+  .glass-bg {
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(12px);
+    border-top: 1px solid rgba(255,255,255,0.5);
+  }
+
+  .area-card:hover .glass-bg {
+    background: rgba(12,35,64,0.75);
+    backdrop-filter: blur(16px);
+  }
+
+  /* Text colors transition */
+  .card-title {
+    color: var(--gray-900);
+  }
+
+  .area-card:hover .card-title {
+    color: white;
+  }
+
+  .card-description {
+    color: var(--gray-600);
+  }
+
+  .area-card:hover .card-description {
+    color: rgba(255,255,255,0.9);
+  }
+
+  .card-action {
+    color: var(--blue-primary);
+  }
+
+  .area-card:hover .card-action {
+    color: var(--gold);
+  }
+
+  /* Icon styling on hover */
+  .area-card:hover .card-icon {
+    transform: scale(1.1) rotate(-5deg);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  }
+
+  .area-card:hover .card-icon:not(.bg-gradient-to-br) {
+    background: var(--gold);
+    color: white;
+    border-color: transparent;
+  }
+
+  /* Featured cards special styling */
+  .area-card:nth-child(1),
+  .area-card:nth-child(2) {
+    border-color: rgba(59, 130, 246, 0.15);
+  }
+
+  .area-card:nth-child(1):hover,
+  .area-card:nth-child(2):hover {
     box-shadow: 
-      0 30px 60px -15px rgba(59, 130, 246, 0.3),
+      0 30px 60px -15px rgba(59, 130, 246, 0.35),
       0 0 0 1px rgba(59, 130, 246, 0.2);
   }
 
+  /* Spotlight effect */
   .spotlight {
     background: radial-gradient(
       600px circle at var(--mouse-x) var(--mouse-y),
-      rgba(59, 130, 246, 0.12),
+      rgba(201, 169, 97, 0.15),
       transparent 40%
     );
   }
 
-  /* Image styling */
-  .card-image {
-    filter: saturate(1.1) contrast(1.05);
-  }
-
-  .bento-card:hover .card-image {
-    filter: saturate(1.2) contrast(1.1);
-  }
-
-  /* Featured cards get enhanced image visibility */
-  .bento-card:nth-child(1) .card-image,
-  .bento-card:nth-child(2) .card-image {
-    object-position: center top;
+  /* Content container positioning */
+  .card-content {
+    margin-top: auto;
   }
 </style>
 
 <script>
   // Spotlight Effect
-  const cards = document.querySelectorAll('.bento-card');
+  const cards = document.querySelectorAll('.area-card');
   cards.forEach(card => {
     card.addEventListener('mousemove', (e) => {
       const rect = (card as HTMLElement).getBoundingClientRect();
