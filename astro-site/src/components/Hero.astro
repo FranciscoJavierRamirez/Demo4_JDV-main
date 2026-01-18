@@ -16,7 +16,7 @@ const processedSubtitle = subtitle
 
 ---
 
-<section id="hero" class="relative min-h-[85vh] md:min-h-[90vh] flex items-center pt-24 pb-10 md:pt-28 md:pb-12 lg:pt-32 lg:pb-16 overflow-hidden bg-[var(--blue-deeper)]">
+<section id="hero" class="relative min-h-[85vh] md:min-h-[90vh] flex items-center pt-24 pb-10 md:pt-28 md:pb-12 lg:pt-32 lg:pb-16 overflow-hidden bg-(--blue-deeper)">
   <!-- Complex Mesh Gradient Background -->
   <div class="absolute inset-0 z-0">
     <div class="absolute top-[-20%] left-[-10%] w-[70%] h-[70%] rounded-full bg-[radial-gradient(circle,rgba(59,130,246,0.4)_0%,transparent_70%)] blur-[120px] animate-[float_20s_ease-in-out_infinite]"></div>
@@ -25,17 +25,17 @@ const processedSubtitle = subtitle
   </div>
 
   <!-- Noise Texture Overlay -->
-  <div class="absolute inset-0 z-[2] opacity-[0.03] pointer-events-none mix-blend-overlay" style="background-image: url('data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noise\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.65\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noise)\'/%3E%3C/svg%3E');"></div>
+  <div class="absolute inset-0 z-2 opacity-[0.03] pointer-events-none mix-blend-overlay" style="background-image: url('data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noise\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.65\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noise)\'/%3E%3C/svg%3E');"></div>
 
   <!-- Background Image with Overlay -->
   <img 
     src={images.background} 
     alt="Oficina jurídica moderna JDV" 
-    class="absolute inset-0 w-full h-full object-cover z-[0] opacity-40 mix-blend-overlay blur-[2px] scale-105"
+    class="absolute inset-0 w-full h-full object-cover z-0 opacity-40 mix-blend-overlay blur-[2px] scale-105"
   />
   
   <!-- Gradient Overlay for Legibility -->
-  <div class="absolute inset-0 z-[3] bg-gradient-to-br from-[rgba(12,35,64,0.98)] via-[rgba(12,35,64,0.94)] to-[rgba(26,77,122,0.88)]"></div>
+  <div class="absolute inset-0 z-3 bg-linear-to-br from-[rgba(12,35,64,0.98)] via-[rgba(12,35,64,0.94)] to-[rgba(26,77,122,0.88)]"></div>
 
   <!-- Main Container -->
   <div class="relative z-10 w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
@@ -44,36 +44,36 @@ const processedSubtitle = subtitle
       <!-- Hero Content - Left Side -->
       <div class="text-white lg:col-span-7">
         <!-- Badge -->
-        <div class="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 bg-white/10 backdrop-blur-lg rounded-full border border-white/20 text-xs sm:text-sm font-semibold mb-4 sm:mb-5 shadow-lg">
-          <i class={`${badge.icon} text-[var(--gold)] text-sm sm:text-base`}></i>
+        <div class="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 bg-white/10 backdrop-blur-lg rounded-full border border-white/20 text-xs sm:text-sm font-semibold mb-4 sm:mb-5 shadow-lg opacity-0 animate-[slideInDown_0.6s_ease-out_forwards]">
+          <i class={`${badge.icon} text-(--gold) text-sm sm:text-base`}></i>
           <span class="leading-tight">{badge.text}</span>
         </div>
 
         <!-- Title -->
-        <h1 class="font-[var(--font-display)] text-[clamp(2.5rem,5vw,4rem)] font-black leading-[1.05] mb-5 sm:mb-6 tracking-[-0.02em] animate-[fadeInUp_0.8s_ease-out_forwards]">
+        <h1 class="text-[clamp(2.5rem,5vw,4rem)] font-black leading-[1.05] mb-5 sm:mb-6 tracking-[-0.02em] opacity-0 animate-[fadeInUp_0.8s_ease-out_0.1s_forwards]">
           <span class="block text-white drop-shadow-[0_4px_12px_rgba(0,0,0,0.5)]">
             {title.line1}
           </span>
-          <span class="inline-block bg-gradient-to-br from-[#FDFBF7] via-[#E5D5AA] to-[#C9A254] bg-clip-text text-transparent drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)]">
+          <span class="inline-block bg-linear-to-br from-[#FDFBF7] via-[#E5D5AA] to-[#C9A254] bg-clip-text text-transparent drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)]">
             {title.line2}
           </span>
         </h1>
 
         <!-- Subtitle -->
         <p 
-          class="text-base sm:text-lg leading-relaxed text-white/90 mb-8 max-w-[580px] [&_strong]:font-semibold [&_strong]:text-[var(--gold-light)] opacity-0 animate-[fadeInUp_0.8s_ease-out_0.2s_forwards]"
+          class="text-base sm:text-lg leading-relaxed text-white/90 mb-8 max-w-[580px] [&_strong]:font-semibold [&_strong]:text-(--gold-light) opacity-0 animate-[fadeInUp_0.8s_ease-out_0.25s_forwards]"
           set:html={processedSubtitle}
         ></p>
 
         <!-- CTAs Row -->
-        <div class="flex flex-col sm:flex-row gap-4 mb-10 opacity-0 animate-[fadeInUp_0.8s_ease-out_0.4s_forwards]">
+        <div class="flex flex-col sm:flex-row gap-4 mb-10 opacity-0 animate-[fadeInUp_0.8s_ease-out_0.4s_forwards] will-change-[opacity,transform]">
           <button 
-            class="group relative px-6 py-4 text-base bg-gradient-to-br from-[#1a365d] via-[#1e3a5f] to-[#0f172a] border-2 border-[rgba(201,169,97,0.4)] rounded-xl font-bold shadow-[0_4px_20px_rgba(0,0,0,0.3),0_0_30px_rgba(201,169,97,0.15)] overflow-hidden transition-all duration-200 hover:translate-y-[-2px] hover:scale-[1.02] hover:border-[rgba(201,169,97,0.6)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.4),0_0_40px_rgba(201,169,97,0.25)] active:scale-[0.98]"
+            class="group relative px-6 py-4 text-base bg-linear-to-br from-[#1a365d] via-[#1e3a5f] to-[#0f172a] border-2 border-[rgba(201,169,97,0.4)] rounded-xl font-bold shadow-[0_4px_20px_rgba(0,0,0,0.3),0_0_30px_rgba(201,169,97,0.15)] overflow-hidden transition-all duration-200 hover:translate-y-[-2px] hover:scale-[1.02] hover:border-[rgba(201,169,97,0.6)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.4),0_0_40px_rgba(201,169,97,0.25)] active:scale-[0.98]"
             onclick={cta.primary.action}
           >
-            <span class="absolute top-0 -left-full w-full h-full bg-gradient-to-r from-transparent via-[rgba(201,169,97,0.3)] to-transparent animate-[shimmer_3s_infinite] z-[1]"></span>
-            <span class="relative z-[2] bg-gradient-to-r from-[#C9A961] via-[#E5D5AA] to-[#D4AF37] bg-clip-text text-transparent">{cta.primary.text}</span>
-            <i class="fas fa-arrow-right relative z-[2] ml-2 text-[#C9A961] transition-transform group-hover:translate-x-1"></i>
+            <span class="absolute top-0 -left-full w-full h-full bg-linear-to-r from-transparent via-[rgba(201,169,97,0.3)] to-transparent animate-[shimmer_3s_infinite] z-1"></span>
+            <span class="relative z-2 bg-linear-to-r from-[#C9A961] via-[#E5D5AA] to-[#D4AF37] bg-clip-text text-transparent">{cta.primary.text}</span>
+            <i class="fas fa-arrow-right relative z-2 ml-2 text-[#C9A961] transition-transform group-hover:translate-x-1"></i>
           </button>
           
           <a 
@@ -86,17 +86,17 @@ const processedSubtitle = subtitle
         </div>
 
         <!-- Trust Items - Horizontal glass cards -->
-        <div class="flex flex-wrap gap-3 opacity-0 animate-[fadeInUp_0.8s_ease-out_0.6s_forwards]">
+        <div class="flex flex-wrap gap-3 opacity-0 animate-[fadeInUp_0.8s_ease-out_0.55s_forwards] will-change-[opacity,transform]">
           {trust.map((item) => (
             <div 
               class={`glass-trust-card flex items-center gap-2.5 px-4 py-2.5 rounded-xl transition-all duration-300 hover:scale-[1.03]
                 ${item.featured 
-                  ? 'bg-gradient-to-br from-[var(--gold)] to-[var(--gold-dark)] shadow-[0_4px_20px_rgba(201,169,97,0.35)]' 
+                  ? 'bg-linear-to-br from-(--gold) to-(--gold-dark) shadow-[0_4px_20px_rgba(201,169,97,0.35)]' 
                   : 'bg-white/10 backdrop-blur-md border border-white/15 hover:bg-white/15'}
               `}
             >
-              <div class={`w-8 h-8 flex items-center justify-center rounded-lg flex-shrink-0 ${item.featured ? 'bg-white/25' : 'bg-white/10'}`}>
-                <i class={`${item.icon} text-sm ${item.featured ? 'text-white' : 'text-[var(--gold)]'}`}></i>
+              <div class={`w-8 h-8 flex items-center justify-center rounded-lg shrink-0 ${item.featured ? 'bg-white/25' : 'bg-white/10'}`}>
+                <i class={`${item.icon} text-sm ${item.featured ? 'text-white' : 'text-(--gold)'}`}></i>
               </div>
               <div class={item.featured ? 'text-white' : ''}>
                 <strong class="block text-xs font-bold leading-tight">{item.title}</strong>
@@ -110,25 +110,25 @@ const processedSubtitle = subtitle
       <!-- Hero Visual - Image of Jacqueline - Right Side -->
       <div class="relative hidden lg:flex justify-center items-center lg:col-span-5">
         <!-- Main Image Container -->
-        <div class="relative w-full max-w-[360px]">
+        <div class="relative w-full max-w-[360px] opacity-0 animate-[fadeInScale_1s_cubic-bezier(0.16,1,0.3,1)_0.3s_forwards] will-change-[opacity,transform]">
           <!-- Decorative glow behind image -->
-          <div class="absolute inset-0 bg-gradient-to-br from-[var(--gold)]/25 to-[var(--blue-primary)]/25 rounded-3xl blur-[80px] scale-125"></div>
+          <div class="absolute inset-0 bg-linear-to-br from-(--gold)/25 to-(--blue-primary)/25 rounded-3xl blur-[80px] scale-125"></div>
           
           <!-- Image Frame -->
-          <div class="relative aspect-[3/4] rounded-3xl overflow-hidden shadow-[0_30px_60px_-15px_rgba(0,0,0,0.5)] bg-white/5 border border-white/10">
+          <div class="relative aspect-3/4 rounded-3xl overflow-hidden shadow-[0_30px_60px_-15px_rgba(0,0,0,0.5)] bg-white/5 border border-white/10">
             <img 
               src={images.hero}
               alt={images.heroAlt}
               class="w-full h-full object-cover object-top"
             />
             <!-- Subtle gradient overlay -->
-            <div class="absolute inset-0 bg-gradient-to-t from-[rgba(12,35,64,0.4)] via-transparent to-transparent pointer-events-none"></div>
+            <div class="absolute inset-0 bg-linear-to-t from-[rgba(12,35,64,0.4)] via-transparent to-transparent pointer-events-none"></div>
           </div>
 
           <!-- Name badge at bottom -->
-          <div class="absolute -bottom-5 left-1/2 -translate-x-1/2 bg-white/95 backdrop-blur-md rounded-2xl px-6 py-4 shadow-[0_15px_40px_rgba(0,0,0,0.2)] border border-white/50">
-            <p class="text-base font-bold text-[var(--gray-900)] text-center">Jacqueline Del Valle</p>
-            <p class="text-sm text-[var(--gray-600)] text-center">Abogada Fundadora</p>
+          <div class="absolute -bottom-5 left-1/2 -translate-x-1/2 bg-white/95 backdrop-blur-md rounded-2xl px-6 py-4 shadow-[0_15px_40px_rgba(0,0,0,0.2)] border border-white/50 opacity-0 animate-[fadeInUp_0.6s_ease-out_0.7s_forwards]">
+            <p class="text-base font-bold text-(--gray-900) text-center">Jacqueline Del Valle</p>
+            <p class="text-sm text-(--gray-600) text-center">Abogada Fundadora</p>
           </div>
         </div>
       </div>
@@ -141,7 +141,7 @@ const processedSubtitle = subtitle
     onclick={`document.getElementById('${scrollIndicator.target.slice(1)}').scrollIntoView({behavior: 'smooth'})`}
   >
     <div class="w-9 h-9 flex items-center justify-center bg-white/10 backdrop-blur-lg border border-white/20 rounded-full animate-[bounceArrow_2s_ease-in-out_infinite]">
-      <i class="fas fa-chevron-down text-base text-[var(--gold)]"></i>
+      <i class="fas fa-chevron-down text-base text-(--gold)"></i>
     </div>
     <span class="text-[10px] font-semibold tracking-wider uppercase hidden sm:block">{scrollIndicator.text}</span>
   </button>
@@ -156,14 +156,27 @@ const processedSubtitle = subtitle
     backdrop-filter: blur(12px);
   }
 
-  @keyframes fadeInUp {
+  /* Animación elegante de entrada desde arriba para el badge */
+  @keyframes slideInDown {
     from {
       opacity: 0;
-      transform: translateY(20px);
+      transform: translateY(-15px);
     }
     to {
       opacity: 1;
       transform: translateY(0);
+    }
+  }
+
+  /* Animación con scale sutil para la imagen principal */
+  @keyframes fadeInScale {
+    from {
+      opacity: 0;
+      transform: scale(0.95) translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1) translateY(0);
     }
   }
 </style>

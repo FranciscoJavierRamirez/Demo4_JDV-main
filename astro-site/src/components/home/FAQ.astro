@@ -2,6 +2,11 @@
 import { getEntry } from 'astro:content';
 
 const faqData = await getEntry('faq', 'home');
+
+if (!faqData?.data) {
+  throw new Error("FAQ data not found from content collection");
+}
+
 const { sectionTitle, sectionSubtitle, questions } = faqData.data;
 
 // Process Markdown bold syntax to HTML strong tags
@@ -11,25 +16,25 @@ function processMarkdown(text: string): string {
 ---
 
 <!-- FAQ Section - Premium Dark Design with Glassmorphism -->
-<section id="faq" class="relative py-24 bg-gradient-to-br from-[var(--blue-deeper)] via-[var(--blue-dark)] to-[var(--blue-deeper)] overflow-hidden">
+<section id="faq" class="relative py-24 bg-linear-to-br from-[#1E40AF] via-[#2563EB] to-[#1E40AF] overflow-hidden">
   
   <!-- Decorative Background Elements -->
   <div class="absolute inset-0 pointer-events-none">
     <!-- Grid Pattern -->
     <div class="absolute inset-0 opacity-[0.05]" style="background-image: linear-gradient(rgba(255,255,255,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.3) 1px, transparent 1px); background-size: 40px 40px;"></div>
     
-    <!-- Glow Orbs -->
-    <div class="absolute top-0 left-1/4 w-[600px] h-[600px] bg-[radial-gradient(circle,rgba(59,130,246,0.15)_0%,transparent_70%)] blur-[100px] rounded-full mix-blend-screen animate-[pulseGlow_8s_ease-in-out_infinite]"></div>
-    <div class="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(201,162,84,0.1)_0%,transparent_70%)] blur-[100px] rounded-full mix-blend-screen animate-[pulseGlow_10s_ease-in-out_infinite_reverse]"></div>
+    <!-- Glow Orbs - with reduced motion fallback -->
+    <div class="faq-glow-orb absolute top-0 left-1/4 w-[600px] h-[600px] bg-[radial-gradient(circle,rgba(59,130,246,0.15)_0%,transparent_70%)] blur-[100px] rounded-full mix-blend-screen"></div>
+    <div class="faq-glow-orb faq-glow-orb--alt absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(201,162,84,0.1)_0%,transparent_70%)] blur-[100px] rounded-full mix-blend-screen"></div>
   </div>
 
   <div class="container relative z-10">
-    <!-- Section Header -->
-    <div class="text-center mb-16">
-      <h2 class="font-[var(--font-display)] text-[clamp(2rem,4vw,3rem)] font-extrabold text-white mb-6 tracking-[-0.02em] drop-shadow-lg">
+    <!-- Section Header with scroll animation -->
+    <div class="faq-header text-center mb-16">
+      <h2 class="font-(--font-display) text-[clamp(2rem,4vw,3rem)] text-white mb-6 tracking-[-0.02em] drop-shadow-lg">
         {sectionTitle}
       </h2>
-      <div class="w-24 h-1 bg-gradient-to-r from-[var(--gold)] to-transparent mx-auto rounded-full opacity-80 mb-6"></div>
+      <div class="faq-divider w-24 h-1 bg-linear-to-r from-[#C9A961] to-transparent mx-auto rounded-full opacity-80 mb-6"></div>
       <p class="text-base lg:text-lg text-white/80 max-w-[700px] mx-auto leading-relaxed">
         {sectionSubtitle}
       </p>
@@ -41,7 +46,7 @@ function processMarkdown(text: string): string {
         <div 
           class="faq-item group relative rounded-[24px] overflow-hidden transition-all duration-500"
           data-faq={faq.id}
-          style={`transition-delay: ${index * 50}ms`}
+          data-delay={index * 80}
         >
           <!-- Glassmorphism Background -->
           <div class="absolute inset-0 bg-white/5 backdrop-blur-md border border-white/10 rounded-[24px] transition-all duration-500"></div>
@@ -50,7 +55,7 @@ function processMarkdown(text: string): string {
           <div class="gradient-border absolute inset-0 rounded-[24px] opacity-0 transition-opacity duration-500"></div>
           
           <!-- Hover Gradient Glow -->
-          <div class="absolute inset-0 bg-gradient-to-br from-[var(--gold)]/0 via-[var(--gold)]/0 to-[var(--gold)]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-[24px]"></div>
+          <div class="absolute inset-0 bg-linear-to-br from-transparent via-transparent to-[rgba(201,169,97,0.05)] opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-[24px]"></div>
 
           <!-- Content Container -->
           <div class="relative z-10">
@@ -62,31 +67,31 @@ function processMarkdown(text: string): string {
               aria-controls={`faq-answer-${faq.id}`}
             >
               <!-- Question Text -->
-              <span class="flex-1 font-[var(--font-display)] text-base lg:text-xl font-semibold text-white transition-colors duration-300 group-hover:text-[var(--gold-light)]">
+              <span class="flex-1 font-(--font-display) text-base lg:text-xl text-white transition-colors duration-300 group-hover:text-[#D4C5A0]">
                 {faq.question}
               </span>
 
               <!-- Chevron Toggle with Icon Background -->
-              <div class="faq-chevron-wrapper w-12 h-12 flex items-center justify-center rounded-2xl bg-white/10 border border-white/10 flex-shrink-0 transition-all duration-500 group-hover:scale-110 group-hover:border-[var(--gold)]/30">
-                <i class="fas fa-chevron-down faq-chevron text-base text-[var(--gold)] transition-all duration-500"></i>
+              <div class="faq-chevron-wrapper w-12 h-12 flex items-center justify-center rounded-2xl bg-white/10 border border-white/10 shrink-0 transition-all duration-500 group-hover:scale-110 group-hover:border-[rgba(201,169,97,0.3)]">
+                <i class="fas fa-chevron-down faq-chevron text-base text-[#C9A961] transition-all duration-500"></i>
               </div>
             </button>
 
             <!-- Answer Content -->
             <div 
               id={`faq-answer-${faq.id}`}
-              class="faq-answer overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]"
+              class="faq-answer overflow-hidden transition-all duration-500 ease-expo"
               style="max-height: 0;"
             >
               <div class="px-6 lg:px-8 pb-8 pt-2">
                 <!-- Content Inner with fade-in effect -->
-                <div class="faq-answer-content opacity-0 transform translate-y-2 transition-all duration-400">
+                <div class="faq-answer-content opacity-0 translate-y-2 transition-all duration-400">
                   <div class="flex gap-4">
                     <!-- Decorative Line -->
-                    <div class="flex-shrink-0 w-1 bg-gradient-to-b from-[var(--gold)] to-transparent rounded-full"></div>
+                    <div class="shrink-0 w-1 bg-linear-to-b from-[#C9A961] to-transparent rounded-full"></div>
                     <!-- Answer Text -->
                     <p 
-                      class="flex-1 text-white/70 leading-relaxed text-sm lg:text-base [&_strong]:font-semibold [&_strong]:text-white [&_a]:text-[var(--gold-light)] [&_a]:font-semibold [&_a]:no-underline [&_a]:hover:underline"
+                      class="flex-1 text-white/70 leading-relaxed text-sm lg:text-base [&_strong]:font-semibold [&_strong]:text-white [&_a]:text-[#D4C5A0] [&_a]:font-semibold [&_a]:no-underline [&_a]:hover:underline"
                       set:html={processMarkdown(faq.answer)}
                     ></p>
                   </div>
@@ -116,13 +121,71 @@ function processMarkdown(text: string): string {
 
 <style>
   /* ==========================================
-     FAQ CARD BASE STYLES - GLASSMORPHISM
+     FAQ GLOW ORBS ANIMATION
      ========================================== */
   
+  .faq-glow-orb {
+    animation: faqPulseGlow 8s ease-in-out infinite;
+  }
+
+  .faq-glow-orb--alt {
+    animation: faqPulseGlow 10s ease-in-out infinite reverse;
+  }
+
+  @keyframes faqPulseGlow {
+    0%, 100% {
+      opacity: 0.5;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.8;
+      transform: scale(1.05);
+    }
+  }
+
+  /* ==========================================
+     SCROLL REVEAL ANIMATIONS
+     ========================================== */
+  
+  /* Header entrance animation */
+  .faq-header {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
+                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .faq-header.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Divider scale animation */
+  .faq-divider {
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.3s;
+  }
+
+  .faq-header.visible .faq-divider {
+    transform: scaleX(1);
+  }
+
+  /* FAQ items staggered entrance */
   .faq-item {
+    opacity: 0;
+    transform: translateY(30px) scale(0.98);
+    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.5s ease;
     box-shadow: 
       0 4px 6px -1px rgba(0, 0, 0, 0.3),
       0 2px 4px -1px rgba(0, 0, 0, 0.2);
+  }
+
+  .faq-item.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
   }
 
   /* ==========================================
@@ -148,11 +211,11 @@ function processMarkdown(text: string): string {
   .gradient-border {
     background: conic-gradient(
       from 0deg at 50% 50%,
-      var(--gold) 0deg,
-      var(--blue-primary) 90deg,
-      var(--gold-light) 180deg,
-      var(--blue-light) 270deg,
-      var(--gold) 360deg
+      #C9A961 0deg,
+      #3B82F6 90deg,
+      #D4C5A0 180deg,
+      #60A5FA 270deg,
+      #C9A961 360deg
     );
     background-size: 200% 200%;
     animation: rotateBorder 8s linear infinite;
@@ -192,7 +255,16 @@ function processMarkdown(text: string): string {
 
   .faq-item.active .gradient-border {
     opacity: 1;
-    animation: rotateBorder 4s linear infinite, pulseGlow 2s ease-in-out infinite;
+    animation: rotateBorder 4s linear infinite, activePulse 2s ease-in-out infinite;
+  }
+
+  @keyframes activePulse {
+    0%, 100% {
+      opacity: 0.7;
+    }
+    50% {
+      opacity: 1;
+    }
   }
 
   .faq-item.active .absolute.inset-0.bg-white\/5 {
@@ -207,7 +279,7 @@ function processMarkdown(text: string): string {
   }
 
   .faq-item.active .faq-chevron-wrapper {
-    background: var(--gold-gradient);
+    background: linear-gradient(135deg, #C9A254 0%, #D4C5A0 50%, #B89350 100%);
     border-color: transparent;
     box-shadow: 0 8px 20px rgba(201, 162, 84, 0.4);
   }
@@ -220,43 +292,11 @@ function processMarkdown(text: string): string {
   }
 
   /* ==========================================
-     GLOW EFFECT ANIMATION
-     ========================================== */
-  
-  @keyframes pulseGlow {
-    0%, 100% {
-      opacity: 0.5;
-      transform: scale(1);
-    }
-    50% {
-      opacity: 0.8;
-      transform: scale(1.05);
-    }
-  }
-
-  /* ==========================================
-     ENTRANCE ANIMATION
-     ========================================== */
-  
-  .faq-item {
-    opacity: 0;
-    transform: translateY(30px);
-    animation: fadeInUp 0.6s var(--ease-expo) forwards;
-  }
-
-  @keyframes fadeInUp {
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  /* ==========================================
      PERFORMANCE OPTIMIZATIONS
      ========================================== */
   
   .faq-item {
-    will-change: transform, box-shadow;
+    will-change: transform, opacity;
   }
 
   .faq-answer {
@@ -264,11 +304,35 @@ function processMarkdown(text: string): string {
   }
 
   .gradient-border {
-    will-change: opacity, background-position;
+    will-change: opacity;
   }
 
   .faq-chevron {
     will-change: transform;
+  }
+
+  /* ==========================================
+     REDUCED MOTION - Accessibility
+     ========================================== */
+  
+  @media (prefers-reduced-motion: reduce) {
+    .faq-header,
+    .faq-item {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+    
+    .faq-divider {
+      transform: scaleX(1);
+      transition: none;
+    }
+    
+    .faq-glow-orb,
+    .faq-glow-orb--alt,
+    .gradient-border {
+      animation: none;
+    }
   }
 </style>
 
@@ -321,29 +385,75 @@ function processMarkdown(text: string): string {
   }
 
   // Make function globally available
-  (window as any).toggleFaq = toggleFaq;
+  (window as unknown as Record<string, unknown>).toggleFaq = toggleFaq;
 
   // ==========================================
-  // INTERSECTION OBSERVER FOR ENTRANCE ANIMATIONS
+  // INTERSECTION OBSERVER FOR SCROLL ANIMATIONS
+  // Elegant staggered entrance when scrolling
   // ==========================================
   
   document.addEventListener('DOMContentLoaded', () => {
-    const faqCards = document.querySelectorAll('.faq-item');
+    // Header animation
+    const faqHeader = document.querySelector('.faq-header');
     
-    const observerOptions = {
-      threshold: 0.1,
+    // FAQ items with staggered animation
+    const faqItems = document.querySelectorAll('.faq-item');
+    
+    // Check for reduced motion preference
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    
+    if (prefersReducedMotion) {
+      // If reduced motion is preferred, show all elements immediately
+      faqHeader?.classList.add('visible');
+      faqItems.forEach(item => item.classList.add('visible'));
+      return;
+    }
+    
+    // Observer options for smooth reveal
+    const headerObserverOptions: IntersectionObserverInit = {
+      threshold: 0.2,
+      rootMargin: '0px 0px -80px 0px'
+    };
+
+    const itemObserverOptions: IntersectionObserverInit = {
+      threshold: 0.15,
       rootMargin: '0px 0px -50px 0px'
     };
 
-    const observer = new IntersectionObserver((entries) => {
+    // Header observer
+    const headerObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
+          headerObserver.unobserve(entry.target);
         }
       });
-    }, observerOptions);
+    }, headerObserverOptions);
 
-    faqCards.forEach(card => observer.observe(card));
+    // Items observer with staggered delay
+    const itemObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const target = entry.target as HTMLElement;
+          const delay = parseInt(target.dataset.delay || '0', 10);
+          
+          // Apply staggered delay for elegant sequential reveal
+          setTimeout(() => {
+            target.classList.add('visible');
+          }, delay);
+          
+          itemObserver.unobserve(target);
+        }
+      });
+    }, itemObserverOptions);
+
+    // Start observing
+    if (faqHeader) {
+      headerObserver.observe(faqHeader);
+    }
+    
+    faqItems.forEach(item => {
+      itemObserver.observe(item);
+    });
   });
 </script>
