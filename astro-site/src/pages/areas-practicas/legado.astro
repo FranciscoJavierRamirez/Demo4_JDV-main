@@ -27,17 +27,6 @@ if (!practiceEntry) {
 
 const { data, render } = practiceEntry;
 const { Content } = await render();
-
-// Obtener datos del footer y modal (reutilizados del Home)
-const footerEntry = await getEntry('footer', 'home');
-const modalEntry = await getEntry('modal', 'home');
-
-if (!footerEntry || !modalEntry) {
-  throw new Error('No se encontró contenido de footer o modal');
-}
-
-const footerData = footerEntry.data;
-const modalData = modalEntry.data;
 ---
 
 <PracticeLayout
@@ -103,10 +92,10 @@ const modalData = modalEntry.data;
   />
 
   <!-- Footer reutilizado del Home -->
-  <Footer data={footerData} />
+  <Footer />
 
   <!-- Modal reutilizado del Home -->
-  <Modal data={modalData} />
+  <Modal />
 
   <!-- WhatsApp Float Button -->
   <WhatsAppFloat />
