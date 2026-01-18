@@ -12,20 +12,45 @@ interface Props {
 const { items } = Astro.props;
 ---
 
-<section class="services-included">
+<section class="services-included" id="practice-services">
+  <!-- Background -->
+  <div class="services-bg">
+    <div class="services-mesh"></div>
+    <div class="services-pattern"></div>
+  </div>
+
   <div class="container">
-    <div class="section-header">
+    <div class="section-header services-header-reveal">
+      <span class="section-badge">
+        <i class="fas fa-list-check"></i>
+        Servicios
+      </span>
       <h2>Servicios incluidos</h2>
       <p>Esta área de práctica incluye:</p>
     </div>
+
     <div class="services-grid">
-      {items.map((item) => (
-        <div class="service-card">
-          <div class="service-header">
-            <span class="service-icon">{item.icon}</span>
-            <h3>{item.title}</h3>
+      {items.map((item, index) => (
+        <div 
+          class="service-card service-card-reveal" 
+          data-index={index}
+        >
+          <!-- Spotlight -->
+          <div class="card-spotlight"></div>
+          
+          <!-- Content -->
+          <div class="card-content">
+            <div class="service-header">
+              <div class="service-icon-wrapper">
+                <span class="service-icon">{item.icon}</span>
+              </div>
+              <h3>{item.title}</h3>
+            </div>
+            <p>{item.description}</p>
           </div>
-          <p>{item.description}</p>
+
+          <!-- Hover Accent -->
+          <div class="card-accent"></div>
         </div>
       ))}
     </div>
@@ -34,74 +59,220 @@ const { items } = Astro.props;
 
 <style>
   .services-included {
-    padding: var(--space-16) 0;
-    background: var(--gray-50);
+    position: relative;
+    padding: var(--space-20) 0;
+    background: linear-gradient(180deg, #f1f5f9 0%, #f8fafc 100%);
+    overflow: hidden;
   }
 
+  /* ========================================
+     BACKGROUND
+     ======================================== */
+  .services-bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  .services-mesh {
+    position: absolute;
+    inset: 0;
+    background: 
+      radial-gradient(ellipse 50% 30% at 50% 0%, rgba(59, 130, 246, 0.04) 0%, transparent 50%),
+      radial-gradient(ellipse 40% 25% at 100% 100%, rgba(201, 169, 97, 0.03) 0%, transparent 50%);
+  }
+
+  .services-pattern {
+    position: absolute;
+    inset: 0;
+    background-image: 
+      radial-gradient(circle at 1px 1px, rgba(0, 0, 0, 0.02) 1px, transparent 0);
+    background-size: 24px 24px;
+  }
+
+  /* ========================================
+     CONTAINER
+     ======================================== */
   .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 var(--space-6);
+    position: relative;
+    z-index: 10;
   }
 
+  /* ========================================
+     SECTION HEADER
+     ======================================== */
   .section-header {
     text-align: center;
-    margin-bottom: var(--space-12);
+    margin-bottom: var(--space-14);
+  }
+
+  .section-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-4);
+    background: linear-gradient(135deg, var(--blue-primary) 0%, var(--blue-dark) 100%);
+    color: white;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-radius: 50px;
+    margin-bottom: var(--space-5);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25);
+  }
+
+  .section-badge i {
+    font-size: 0.75rem;
   }
 
   .section-header h2 {
     font-family: var(--font-display);
-    font-size: clamp(2rem, 4vw, 2.5rem);
+    font-size: clamp(2rem, 4vw, 2.75rem);
     color: var(--gray-900);
     margin-bottom: var(--space-4);
     font-weight: 700;
+    letter-spacing: -0.02em;
   }
 
   .section-header p {
     font-size: 1.125rem;
     color: var(--gray-600);
+    max-width: 600px;
+    margin: 0 auto;
   }
 
+  /* ========================================
+     GRID
+     ======================================== */
   .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: var(--space-6);
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: var(--space-5);
   }
 
+  /* ========================================
+     CARDS
+     ======================================== */
   .service-card {
+    position: relative;
     background: white;
     padding: var(--space-6);
-    border-radius: 12px;
-    border: 1px solid var(--gray-200);
-    transition: all var(--transition-base);
+    border-radius: 16px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    overflow: hidden;
+    box-shadow: 
+      0 1px 3px rgba(0, 0, 0, 0.03),
+      0 4px 12px rgba(0, 0, 0, 0.02);
   }
 
   .service-card:hover {
+    transform: translateY(-4px);
     border-color: var(--blue-primary);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
-    transform: translateY(-2px);
+    box-shadow: 
+      0 12px 30px -8px rgba(59, 130, 246, 0.18),
+      0 0 0 1px rgba(59, 130, 246, 0.1);
   }
 
+  /* Spotlight */
+  .card-spotlight {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      300px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+      rgba(59, 130, 246, 0.06),
+      transparent 40%
+    );
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+  }
+
+  .service-card:hover .card-spotlight {
+    opacity: 1;
+  }
+
+  /* Accent */
+  .card-accent {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: linear-gradient(180deg, var(--blue-primary) 0%, var(--blue-light) 100%);
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .service-card:hover .card-accent {
+    transform: scaleY(1);
+  }
+
+  /* Content */
+  .card-content {
+    position: relative;
+    z-index: 5;
+  }
+
+  /* Header */
   .service-header {
     display: flex;
     align-items: center;
-    gap: var(--space-3);
+    gap: var(--space-4);
     margin-bottom: var(--space-3);
   }
 
-  .service-icon {
-    font-size: 2rem;
+  /* Icon */
+  .service-icon-wrapper {
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+    border-radius: 14px;
     flex-shrink: 0;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 2px 8px rgba(59, 130, 246, 0.1);
   }
 
+  .service-card:hover .service-icon-wrapper {
+    transform: scale(1.1);
+    background: linear-gradient(135deg, var(--blue-primary) 0%, var(--blue-dark) 100%);
+    box-shadow: 0 6px 16px rgba(59, 130, 246, 0.25);
+  }
+
+  .service-icon {
+    font-size: 1.5rem;
+    transition: all 0.4s ease;
+  }
+
+  .service-card:hover .service-icon {
+    transform: scale(1.1);
+    filter: grayscale(1) brightness(10);
+  }
+
+  /* Title */
   .service-card h3 {
     font-family: var(--font-sans);
     font-size: 1.125rem;
     color: var(--gray-900);
     font-weight: 600;
     margin: 0;
+    transition: color 0.3s ease;
+    line-height: 1.4;
   }
 
+  .service-card:hover h3 {
+    color: var(--blue-primary);
+  }
+
+  /* Description */
   .service-card p {
     font-size: 0.9375rem;
     color: var(--gray-600);
@@ -109,13 +280,104 @@ const { items } = Astro.props;
     margin: 0;
   }
 
+  /* ========================================
+     SCROLL REVEAL
+     ======================================== */
+  .services-header-reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .services-header-reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .service-card-reveal {
+    opacity: 0;
+    transform: translateY(30px) scale(0.98);
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .service-card-reveal.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  /* Stagger delays */
+  .service-card-reveal[data-index="0"].visible { transition-delay: 0ms; }
+  .service-card-reveal[data-index="1"].visible { transition-delay: 80ms; }
+  .service-card-reveal[data-index="2"].visible { transition-delay: 160ms; }
+  .service-card-reveal[data-index="3"].visible { transition-delay: 240ms; }
+  .service-card-reveal[data-index="4"].visible { transition-delay: 320ms; }
+  .service-card-reveal[data-index="5"].visible { transition-delay: 400ms; }
+
+  /* ========================================
+     RESPONSIVE
+     ======================================== */
   @media (max-width: 768px) {
     .services-included {
-      padding: var(--space-12) 0;
+      padding: var(--space-16) 0;
     }
 
     .services-grid {
       grid-template-columns: 1fr;
     }
   }
+
+  /* ========================================
+     REDUCED MOTION
+     ======================================== */
+  @media (prefers-reduced-motion: reduce) {
+    .services-header-reveal,
+    .service-card-reveal {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
 </style>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const section = document.getElementById('practice-services');
+    if (!section) return;
+
+    const header = section.querySelector('.services-header-reveal');
+    const cards = section.querySelectorAll('.service-card-reveal');
+
+    // Check for reduced motion
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (prefersReducedMotion) {
+      header?.classList.add('visible');
+      cards.forEach(card => card.classList.add('visible'));
+      return;
+    }
+
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          header?.classList.add('visible');
+          cards.forEach((card, i) => {
+            setTimeout(() => card.classList.add('visible'), 100 + i * 80);
+          });
+          observer.disconnect();
+        }
+      });
+    }, { threshold: 0.1 });
+
+    observer.observe(section);
+
+    // Spotlight effect
+    cards.forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        card.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
+        card.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
+      });
+    });
+  });
+</script>

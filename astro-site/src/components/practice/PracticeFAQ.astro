@@ -12,26 +12,58 @@ interface Props {
 const { items, areaName } = Astro.props;
 ---
 
-<section class="practice-faq">
+<section class="practice-faq" id="practice-faq">
+  <!-- Decorative Background Elements -->
+  <div class="faq-bg-elements">
+    <div class="faq-orb faq-orb-1"></div>
+    <div class="faq-orb faq-orb-2"></div>
+    <div class="faq-grid-pattern"></div>
+  </div>
+
   <div class="container">
-    <div class="section-header">
+    <!-- Section Header -->
+    <div class="section-header faq-header-reveal">
       <h2>Preguntas Frecuentes</h2>
+      <div class="section-divider"></div>
       <p>Resuelvo las dudas más comunes sobre {areaName}</p>
     </div>
+
+    <!-- FAQ List -->
     <div class="faq-list">
       {items.map((item, index) => (
-        <div class="faq-item">
-          <button
-            class="faq-question"
-            onclick={`toggleFaq(${index + 100})`}
-            aria-expanded="false"
-            aria-controls={`faq-answer-${index + 100}`}
-          >
-            <span>{item.question}</span>
-            <i class="fas fa-chevron-down"></i>
-          </button>
-          <div class="faq-answer" id={`faq-answer-${index + 100}`}>
-            <p>{item.answer}</p>
+        <div 
+          class="faq-item faq-item-reveal" 
+          data-faq-id={index + 100}
+          data-delay={index * 80}
+        >
+          <!-- Glassmorphism Background -->
+          <div class="faq-item-bg"></div>
+          
+          <!-- Gradient Border Animation Layer -->
+          <div class="faq-gradient-border"></div>
+          
+          <!-- Hover Glow -->
+          <div class="faq-hover-glow"></div>
+
+          <!-- Content -->
+          <div class="faq-item-content">
+            <button
+              class="faq-question"
+              onclick={`togglePracticeFaq(${index + 100})`}
+              aria-expanded="false"
+              aria-controls={`faq-answer-${index + 100}`}
+            >
+              <span class="faq-question-text">{item.question}</span>
+              <div class="faq-chevron-wrapper">
+                <i class="fas fa-chevron-down faq-chevron"></i>
+              </div>
+            </button>
+            <div class="faq-answer" id={`faq-answer-${index + 100}`}>
+              <div class="faq-answer-inner">
+                <div class="faq-answer-line"></div>
+                <p>{item.answer}</p>
+              </div>
+            </div>
           </div>
         </div>
       ))}
@@ -55,51 +87,189 @@ const { items, areaName } = Astro.props;
 
 <style>
   .practice-faq {
-    padding: var(--space-16) 0;
-    background: var(--gray-50);
+    position: relative;
+    padding: var(--space-20) 0;
+    background: linear-gradient(135deg, #1E40AF 0%, #2563EB 50%, #1E40AF 100%);
+    overflow: hidden;
   }
 
+  /* ========================================
+     BACKGROUND ELEMENTS
+     ======================================== */
+  .faq-bg-elements {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .faq-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    mix-blend-mode: screen;
+  }
+
+  .faq-orb-1 {
+    top: -10%;
+    left: 20%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.2) 0%, transparent 70%);
+    animation: practicePulseGlow 8s ease-in-out infinite;
+  }
+
+  .faq-orb-2 {
+    bottom: -10%;
+    right: 20%;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(201, 169, 97, 0.12) 0%, transparent 70%);
+    animation: practicePulseGlow 10s ease-in-out infinite reverse;
+  }
+
+  .faq-grid-pattern {
+    position: absolute;
+    inset: 0;
+    background-image: 
+      linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  /* ========================================
+     CONTAINER
+     ======================================== */
   .container {
     max-width: 900px;
     margin: 0 auto;
     padding: 0 var(--space-6);
+    position: relative;
+    z-index: 10;
   }
 
+  /* ========================================
+     SECTION HEADER
+     ======================================== */
   .section-header {
     text-align: center;
     margin-bottom: var(--space-12);
+    color: white;
   }
 
   .section-header h2 {
     font-family: var(--font-display);
-    font-size: clamp(2rem, 4vw, 2.5rem);
-    color: var(--gray-900);
-    margin-bottom: var(--space-4);
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: var(--space-5);
     font-weight: 700;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  .section-divider {
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--gold) 0%, transparent 100%);
+    border-radius: 2px;
+    margin: 0 auto var(--space-5);
   }
 
   .section-header p {
     font-size: 1.125rem;
-    color: var(--gray-600);
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto;
   }
 
+  /* ========================================
+     FAQ LIST
+     ======================================== */
   .faq-list {
     display: flex;
     flex-direction: column;
     gap: var(--space-4);
   }
 
+  /* ========================================
+     FAQ ITEM
+     ======================================== */
   .faq-item {
-    background: white;
-    border-radius: 12px;
-    border: 1px solid var(--gray-200);
+    position: relative;
+    border-radius: 20px;
     overflow: hidden;
-    transition: all var(--transition-base);
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .faq-item:hover {
-    border-color: var(--blue-primary);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    transform: translateY(-4px);
+  }
+
+  /* Glassmorphism Background */
+  .faq-item-bg {
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    transition: all 0.4s ease;
+  }
+
+  .faq-item:hover .faq-item-bg {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.15);
+  }
+
+  /* Gradient Border */
+  .faq-gradient-border {
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    padding: 2px;
+    background: conic-gradient(
+      from 0deg at 50% 50%,
+      var(--gold) 0deg,
+      var(--blue-light) 90deg,
+      var(--gold-light) 180deg,
+      var(--blue-primary) 270deg,
+      var(--gold) 360deg
+    );
+    background-size: 200% 200%;
+    animation: practiceGradientRotate 8s linear infinite;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    -webkit-mask-composite: xor;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+  }
+
+  .faq-item:hover .faq-gradient-border,
+  .faq-item.active .faq-gradient-border {
+    opacity: 1;
+  }
+
+  /* Hover Glow */
+  .faq-hover-glow {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, transparent 0%, transparent 50%, rgba(201, 169, 97, 0.05) 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+  }
+
+  .faq-item:hover .faq-hover-glow {
+    opacity: 1;
+  }
+
+  /* ========================================
+     FAQ QUESTION BUTTON
+     ======================================== */
+  .faq-item-content {
+    position: relative;
+    z-index: 5;
   }
 
   .faq-question {
@@ -107,63 +277,275 @@ const { items, areaName } = Astro.props;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: var(--space-5) var(--space-6);
+    gap: var(--space-5);
+    padding: var(--space-6) var(--space-7);
     background: none;
     border: none;
     text-align: left;
     cursor: pointer;
     font-family: var(--font-sans);
-    font-size: 1.0625rem;
+    transition: all 0.3s ease;
+  }
+
+  .faq-question-text {
+    flex: 1;
+    font-family: var(--font-display);
+    font-size: 1.125rem;
     font-weight: 600;
-    color: var(--gray-900);
-    transition: color var(--transition-fast);
+    color: white;
+    line-height: 1.5;
+    transition: color 0.3s ease;
   }
 
-  .faq-question:hover {
-    color: var(--blue-primary);
+  .faq-item:hover .faq-question-text {
+    color: var(--gold-light);
   }
 
-  .faq-question i {
-    color: var(--blue-primary);
-    transition: transform var(--transition-base);
+  /* Chevron Wrapper */
+  .faq-chevron-wrapper {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 14px;
     flex-shrink: 0;
-    margin-left: var(--space-4);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
-  .faq-question[aria-expanded="true"] i {
+  .faq-item:hover .faq-chevron-wrapper {
+    transform: scale(1.05);
+    border-color: rgba(201, 169, 97, 0.3);
+  }
+
+  .faq-chevron {
+    color: var(--gold);
+    font-size: 0.875rem;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* Active State */
+  .faq-item.active .faq-chevron {
     transform: rotate(180deg);
   }
 
+  .faq-item.active .faq-chevron-wrapper {
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+    border-color: transparent;
+    box-shadow: 0 8px 20px rgba(201, 169, 97, 0.35);
+  }
+
+  .faq-item.active .faq-chevron {
+    color: var(--gray-900);
+  }
+
+  .faq-item.active {
+    box-shadow: 
+      0 20px 40px -10px rgba(0, 0, 0, 0.3),
+      0 0 0 2px rgba(201, 169, 97, 0.4);
+  }
+
+  .faq-item.active .faq-item-bg {
+    background: rgba(255, 255, 255, 0.12);
+  }
+
+  /* ========================================
+     FAQ ANSWER
+     ======================================== */
   .faq-answer {
     max-height: 0;
     overflow: hidden;
-    transition: max-height var(--transition-base), padding var(--transition-base);
+    transition: max-height 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
-  .faq-answer.active {
-    max-height: 500px;
-    padding: 0 var(--space-6) var(--space-5);
+  .faq-answer-inner {
+    display: flex;
+    gap: var(--space-4);
+    padding: 0 var(--space-7) var(--space-6);
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.4s ease 0.1s;
+  }
+
+  .faq-item.active .faq-answer-inner {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .faq-answer-line {
+    flex-shrink: 0;
+    width: 3px;
+    background: linear-gradient(180deg, var(--gold) 0%, transparent 100%);
+    border-radius: 2px;
   }
 
   .faq-answer p {
-    font-size: 0.9375rem;
-    color: var(--gray-600);
+    font-size: 1rem;
     line-height: 1.8;
+    color: rgba(255, 255, 255, 0.8);
     margin: 0;
   }
 
+  /* ========================================
+     SCROLL REVEAL ANIMATIONS
+     ======================================== */
+  .faq-header-reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .faq-header-reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .faq-item-reveal {
+    opacity: 0;
+    transform: translateY(25px) scale(0.98);
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .faq-item-reveal.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  /* ========================================
+     RESPONSIVE
+     ======================================== */
   @media (max-width: 768px) {
     .practice-faq {
-      padding: var(--space-12) 0;
+      padding: var(--space-16) 0;
     }
 
     .faq-question {
-      padding: var(--space-4) var(--space-5);
+      padding: var(--space-5);
+    }
+
+    .faq-question-text {
       font-size: 1rem;
     }
 
-    .faq-answer.active {
-      padding: 0 var(--space-5) var(--space-4);
+    .faq-chevron-wrapper {
+      width: 40px;
+      height: 40px;
+    }
+
+    .faq-answer-inner {
+      padding: 0 var(--space-5) var(--space-5);
+    }
+  }
+
+  /* ========================================
+     REDUCED MOTION
+     ======================================== */
+  @media (prefers-reduced-motion: reduce) {
+    .faq-orb-1,
+    .faq-orb-2 {
+      animation: none;
+    }
+
+    .faq-gradient-border {
+      animation: none;
+    }
+
+    .faq-header-reveal,
+    .faq-item-reveal {
+      opacity: 1;
+      transform: none;
+      transition: none;
     }
   }
 </style>
+
+<script is:inline>
+  // FAQ Toggle Function
+  function togglePracticeFaq(id) {
+    const faqItem = document.querySelector(`[data-faq-id="${id}"]`);
+    const answerDiv = faqItem?.querySelector('.faq-answer');
+    const button = faqItem?.querySelector('.faq-question');
+    const isActive = faqItem?.classList.contains('active');
+
+    // Close all other FAQs
+    document.querySelectorAll('.faq-item').forEach(item => {
+      if (item !== faqItem) {
+        const otherAnswer = item.querySelector('.faq-answer');
+        const otherButton = item.querySelector('.faq-question');
+        
+        item.classList.remove('active');
+        otherButton?.setAttribute('aria-expanded', 'false');
+        
+        if (otherAnswer) {
+          otherAnswer.style.maxHeight = '0';
+        }
+      }
+    });
+
+    // Toggle current FAQ
+    if (!isActive) {
+      faqItem.classList.add('active');
+      button?.setAttribute('aria-expanded', 'true');
+      
+      if (answerDiv) {
+        answerDiv.style.maxHeight = answerDiv.scrollHeight + 'px';
+      }
+    } else {
+      faqItem.classList.remove('active');
+      button?.setAttribute('aria-expanded', 'false');
+      
+      if (answerDiv) {
+        answerDiv.style.maxHeight = '0';
+      }
+    }
+  }
+
+  // Make function globally available
+  window.togglePracticeFaq = togglePracticeFaq;
+
+  // Scroll Reveal Animation
+  document.addEventListener('DOMContentLoaded', () => {
+    const faqSection = document.getElementById('practice-faq');
+    const header = faqSection?.querySelector('.faq-header-reveal');
+    const items = faqSection?.querySelectorAll('.faq-item-reveal');
+
+    if (!faqSection) return;
+
+    // Check for reduced motion preference
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (prefersReducedMotion) {
+      header?.classList.add('visible');
+      items?.forEach(item => item.classList.add('visible'));
+      return;
+    }
+
+    const observerOptions = {
+      threshold: 0.15,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // Animate header first
+          header?.classList.add('visible');
+
+          // Then animate items with stagger
+          items?.forEach((item, index) => {
+            const delay = parseInt(item.dataset.delay || '0', 10);
+            setTimeout(() => {
+              item.classList.add('visible');
+            }, 100 + delay);
+          });
+
+          observer.disconnect();
+        }
+      });
+    }, observerOptions);
+
+    observer.observe(faqSection);
+  });
+</script>

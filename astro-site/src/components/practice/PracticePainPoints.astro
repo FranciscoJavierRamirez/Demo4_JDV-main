@@ -6,106 +6,349 @@ interface Props {
 const { points } = Astro.props;
 ---
 
-<section class="pain-points">
+<section class="pain-points" id="practice-pain">
+  <!-- Background -->
+  <div class="pain-bg">
+    <div class="pain-gradient"></div>
+  </div>
+
   <div class="container">
-    <div class="section-header">
-      <h2>Los desafíos que enfrentas</h2>
-      <p>Entiendo perfectamente las preocupaciones que tienes:</p>
+    <div class="section-header pain-header-reveal">
+      <span class="section-badge">
+        <i class="fas fa-exclamation-triangle"></i>
+        Situaciones frecuentes
+      </span>
+      <h2>¿Te identificas con alguna de estas situaciones?</h2>
+      <p>Muchos de mis clientes llegaron sintiéndose así:</p>
     </div>
-    <ul class="pain-list">
-      {points.map((point) => (
-        <li class="pain-item">
-          <i class="fas fa-exclamation-triangle"></i>
-          <span>{point}</span>
-        </li>
+
+    <div class="pain-list">
+      {points.map((point, index) => (
+        <div 
+          class="pain-item pain-item-reveal" 
+          data-index={index}
+        >
+          <div class="pain-icon-wrapper">
+            <div class="pain-icon-pulse"></div>
+            <i class="fas fa-times"></i>
+          </div>
+          <p>{point}</p>
+          <div class="pain-glow"></div>
+        </div>
       ))}
-    </ul>
+    </div>
   </div>
 </section>
 
 <style>
   .pain-points {
-    padding: var(--space-16) 0;
-    background: white;
+    position: relative;
+    padding: var(--space-20) 0;
+    background: linear-gradient(180deg, #fef2f2 0%, #fee2e2 50%, #fef2f2 100%);
+    overflow: hidden;
   }
 
+  /* ========================================
+     BACKGROUND
+     ======================================== */
+  .pain-bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  .pain-gradient {
+    position: absolute;
+    inset: 0;
+    background: 
+      radial-gradient(ellipse 60% 40% at 10% 20%, rgba(239, 68, 68, 0.06) 0%, transparent 50%),
+      radial-gradient(ellipse 50% 30% at 90% 80%, rgba(239, 68, 68, 0.04) 0%, transparent 50%);
+  }
+
+  /* ========================================
+     CONTAINER
+     ======================================== */
   .container {
     max-width: 900px;
     margin: 0 auto;
     padding: 0 var(--space-6);
+    position: relative;
+    z-index: 10;
   }
 
+  /* ========================================
+     SECTION HEADER
+     ======================================== */
   .section-header {
     text-align: center;
-    margin-bottom: var(--space-10);
+    margin-bottom: var(--space-12);
+  }
+
+  .section-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-4);
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+    color: white;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-radius: 50px;
+    margin-bottom: var(--space-5);
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.25);
+  }
+
+  .section-badge i {
+    font-size: 0.75rem;
   }
 
   .section-header h2 {
     font-family: var(--font-display);
-    font-size: clamp(2rem, 4vw, 2.5rem);
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
     color: var(--gray-900);
     margin-bottom: var(--space-4);
     font-weight: 700;
+    letter-spacing: -0.02em;
   }
 
   .section-header p {
     font-size: 1.125rem;
     color: var(--gray-600);
+    max-width: 600px;
+    margin: 0 auto;
   }
 
+  /* ========================================
+     PAIN LIST
+     ======================================== */
   .pain-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
     display: flex;
     flex-direction: column;
     gap: var(--space-4);
   }
 
+  /* ========================================
+     PAIN ITEM
+     ======================================== */
   .pain-item {
+    position: relative;
     display: flex;
-    align-items: flex-start;
-    gap: var(--space-4);
-    padding: var(--space-5);
-    background: var(--gray-50);
-    border-left: 4px solid var(--gold);
-    border-radius: 8px;
-    transition: all var(--transition-base);
+    align-items: center;
+    gap: var(--space-5);
+    padding: var(--space-6);
+    background: white;
+    border-radius: 16px;
+    border: 1px solid rgba(239, 68, 68, 0.1);
+    border-left: 4px solid #ef4444;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
   }
 
   .pain-item:hover {
-    background: #FFF9F0;
-    transform: translateX(4px);
+    transform: translateX(8px);
+    border-left-color: #dc2626;
+    box-shadow: 
+      0 8px 25px -5px rgba(239, 68, 68, 0.15),
+      0 0 0 1px rgba(239, 68, 68, 0.1);
   }
 
-  .pain-item i {
-    color: var(--gold);
-    font-size: 1.25rem;
+  /* Glow */
+  .pain-glow {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 100px;
+    background: linear-gradient(90deg, rgba(239, 68, 68, 0.08) 0%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+  }
+
+  .pain-item:hover .pain-glow {
+    opacity: 1;
+  }
+
+  /* Icon */
+  .pain-icon-wrapper {
+    position: relative;
     flex-shrink: 0;
-    margin-top: 2px;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+    border-radius: 14px;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
-  .pain-item span {
-    font-size: 1rem;
+  .pain-item:hover .pain-icon-wrapper {
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+    transform: scale(1.1);
+    box-shadow: 0 6px 16px rgba(239, 68, 68, 0.3);
+  }
+
+  .pain-icon-pulse {
+    position: absolute;
+    inset: 0;
+    border-radius: 14px;
+    background: rgba(239, 68, 68, 0.2);
+    opacity: 0;
+    animation: pulseRing 2s ease-out infinite;
+    pointer-events: none;
+  }
+
+  .pain-item:hover .pain-icon-pulse {
+    opacity: 1;
+  }
+
+  @keyframes pulseRing {
+    0% {
+      transform: scale(1);
+      opacity: 0.5;
+    }
+    100% {
+      transform: scale(1.5);
+      opacity: 0;
+    }
+  }
+
+  .pain-icon-wrapper i {
+    color: #ef4444;
+    font-size: 1.25rem;
+    transition: color 0.3s ease;
+  }
+
+  .pain-item:hover .pain-icon-wrapper i {
+    color: white;
+  }
+
+  /* Text */
+  .pain-item p {
+    position: relative;
+    z-index: 5;
+    font-size: 1.0625rem;
     color: var(--gray-700);
-    line-height: 1.7;
+    line-height: 1.6;
+    margin: 0;
+    font-weight: 500;
+    transition: color 0.3s ease;
   }
 
+  .pain-item:hover p {
+    color: var(--gray-900);
+  }
+
+  /* ========================================
+     SCROLL REVEAL
+     ======================================== */
+  .pain-header-reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .pain-header-reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .pain-item-reveal {
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .pain-item-reveal.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  /* Stagger */
+  .pain-item-reveal[data-index="0"].visible { transition-delay: 0ms; }
+  .pain-item-reveal[data-index="1"].visible { transition-delay: 100ms; }
+  .pain-item-reveal[data-index="2"].visible { transition-delay: 200ms; }
+  .pain-item-reveal[data-index="3"].visible { transition-delay: 300ms; }
+  .pain-item-reveal[data-index="4"].visible { transition-delay: 400ms; }
+
+  /* ========================================
+     RESPONSIVE
+     ======================================== */
   @media (max-width: 768px) {
     .pain-points {
-      padding: var(--space-12) 0;
+      padding: var(--space-16) 0;
     }
 
     .pain-item {
-      padding: var(--space-4);
+      padding: var(--space-5);
+      gap: var(--space-4);
     }
 
-    .pain-item i {
+    .pain-icon-wrapper {
+      width: 42px;
+      height: 42px;
+    }
+
+    .pain-icon-wrapper i {
+      font-size: 1.125rem;
+    }
+
+    .pain-item p {
       font-size: 1rem;
     }
+  }
 
-    .pain-item span {
-      font-size: 0.9375rem;
+  /* ========================================
+     REDUCED MOTION
+     ======================================== */
+  @media (prefers-reduced-motion: reduce) {
+    .pain-header-reveal,
+    .pain-item-reveal {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+
+    .pain-icon-pulse {
+      animation: none;
     }
   }
 </style>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const section = document.getElementById('practice-pain');
+    if (!section) return;
+
+    const header = section.querySelector('.pain-header-reveal');
+    const items = section.querySelectorAll('.pain-item-reveal');
+
+    // Check for reduced motion
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (prefersReducedMotion) {
+      header?.classList.add('visible');
+      items.forEach(item => item.classList.add('visible'));
+      return;
+    }
+
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          header?.classList.add('visible');
+          items.forEach((item, i) => {
+            setTimeout(() => item.classList.add('visible'), 150 + i * 100);
+          });
+          observer.disconnect();
+        }
+      });
+    }, { threshold: 0.15 });
+
+    observer.observe(section);
+  });
+</script>

@@ -12,21 +12,47 @@ interface Props {
 const { steps } = Astro.props;
 ---
 
-<section class="practice-process">
+<section class="practice-process" id="practice-process">
+  <!-- Background -->
+  <div class="process-bg">
+    <div class="process-gradient"></div>
+  </div>
+
   <div class="container">
-    <div class="section-header">
+    <div class="section-header process-header-reveal">
+      <span class="section-badge">
+        <i class="fas fa-route"></i>
+        Proceso
+      </span>
       <h2>¿Cómo trabajamos juntos?</h2>
       <p>El proceso es simple y transparente:</p>
     </div>
+
     <div class="process-timeline">
       {steps.map((step, index) => (
-        <div class="process-step">
-          <div class="step-number">{step.step}</div>
+        <div 
+          class="process-step process-step-reveal" 
+          data-index={index}
+        >
+          <!-- Step Number with Glow -->
+          <div class="step-number-wrapper">
+            <div class="step-number-glow"></div>
+            <div class="step-number">{step.step}</div>
+          </div>
+
+          <!-- Connector Line -->
+          {index < steps.length - 1 && (
+            <div class="step-connector">
+              <div class="connector-line"></div>
+              <div class="connector-progress"></div>
+            </div>
+          )}
+
+          <!-- Content Card -->
           <div class="step-content">
             <h3>{step.title}</h3>
             <p>{step.description}</p>
           </div>
-          {index < steps.length - 1 && <div class="step-connector"></div>}
         </div>
       ))}
     </div>
@@ -35,38 +61,94 @@ const { steps } = Astro.props;
 
 <style>
   .practice-process {
-    padding: var(--space-16) 0;
+    position: relative;
+    padding: var(--space-20) 0;
     background: white;
+    overflow: hidden;
   }
 
+  /* ========================================
+     BACKGROUND
+     ======================================== */
+  .process-bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  .process-gradient {
+    position: absolute;
+    inset: 0;
+    background: 
+      radial-gradient(ellipse 60% 40% at 0% 50%, rgba(59, 130, 246, 0.04) 0%, transparent 50%),
+      radial-gradient(ellipse 40% 30% at 100% 70%, rgba(201, 169, 97, 0.03) 0%, transparent 50%);
+  }
+
+  /* ========================================
+     CONTAINER
+     ======================================== */
   .container {
-    max-width: 1000px;
+    max-width: 900px;
     margin: 0 auto;
     padding: 0 var(--space-6);
+    position: relative;
+    z-index: 10;
   }
 
+  /* ========================================
+     SECTION HEADER
+     ======================================== */
   .section-header {
     text-align: center;
-    margin-bottom: var(--space-12);
+    margin-bottom: var(--space-14);
+  }
+
+  .section-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-4);
+    background: linear-gradient(135deg, var(--blue-primary) 0%, var(--blue-dark) 100%);
+    color: white;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-radius: 50px;
+    margin-bottom: var(--space-5);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25);
+  }
+
+  .section-badge i {
+    font-size: 0.75rem;
   }
 
   .section-header h2 {
     font-family: var(--font-display);
-    font-size: clamp(2rem, 4vw, 2.5rem);
+    font-size: clamp(2rem, 4vw, 2.75rem);
     color: var(--gray-900);
     margin-bottom: var(--space-4);
     font-weight: 700;
+    letter-spacing: -0.02em;
   }
 
   .section-header p {
     font-size: 1.125rem;
     color: var(--gray-600);
+    max-width: 600px;
+    margin: 0 auto;
   }
 
+  /* ========================================
+     TIMELINE
+     ======================================== */
   .process-timeline {
     position: relative;
   }
 
+  /* ========================================
+     STEP
+     ======================================== */
   .process-step {
     display: grid;
     grid-template-columns: auto 1fr;
@@ -79,23 +161,106 @@ const { steps } = Astro.props;
     padding-bottom: 0;
   }
 
+  /* ========================================
+     STEP NUMBER
+     ======================================== */
+  .step-number-wrapper {
+    position: relative;
+    z-index: 5;
+  }
+
+  .step-number-glow {
+    position: absolute;
+    inset: -8px;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.3) 0%, transparent 70%);
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+
+  .process-step:hover .step-number-glow {
+    opacity: 1;
+  }
+
   .step-number {
-    width: 60px;
-    height: 60px;
+    position: relative;
+    width: 64px;
+    height: 64px;
     background: linear-gradient(135deg, var(--blue-primary) 0%, var(--blue-dark) 100%);
     color: white;
-    border-radius: 50%;
+    border-radius: 18px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 1.5rem;
     font-weight: 700;
-    flex-shrink: 0;
-    box-shadow: 0 4px 15px rgba(0, 74, 151, 0.2);
+    font-family: var(--font-display);
+    box-shadow: 
+      0 4px 15px rgba(59, 130, 246, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
+  .process-step:hover .step-number {
+    transform: scale(1.1) rotate(-5deg);
+    box-shadow: 
+      0 8px 25px rgba(59, 130, 246, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  }
+
+  /* ========================================
+     CONNECTOR
+     ======================================== */
+  .step-connector {
+    position: absolute;
+    left: 32px;
+    top: 72px;
+    width: 2px;
+    height: calc(100% - 72px);
+    transform: translateX(-50%);
+  }
+
+  .connector-line {
+    position: absolute;
+    inset: 0;
+    background: var(--gray-200);
+    border-radius: 1px;
+  }
+
+  .connector-progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 0;
+    background: linear-gradient(180deg, var(--blue-primary) 0%, var(--blue-light) 100%);
+    border-radius: 1px;
+    transition: height 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .process-step.visible .connector-progress {
+    height: 100%;
+  }
+
+  /* ========================================
+     STEP CONTENT
+     ======================================== */
   .step-content {
-    padding-top: var(--space-2);
+    padding-top: var(--space-3);
+    background: linear-gradient(135deg, #fafafa 0%, #ffffff 100%);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 16px;
+    padding: var(--space-6);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+  }
+
+  .process-step:hover .step-content {
+    border-color: var(--blue-primary);
+    box-shadow: 
+      0 8px 25px -5px rgba(59, 130, 246, 0.15),
+      0 0 0 1px rgba(59, 130, 246, 0.1);
+    transform: translateX(8px);
   }
 
   .step-content h3 {
@@ -104,26 +269,57 @@ const { steps } = Astro.props;
     color: var(--gray-900);
     margin-bottom: var(--space-3);
     font-weight: 600;
+    transition: color 0.3s ease;
+  }
+
+  .process-step:hover .step-content h3 {
+    color: var(--blue-primary);
   }
 
   .step-content p {
     font-size: 1rem;
     color: var(--gray-600);
     line-height: 1.7;
+    margin: 0;
   }
 
-  .step-connector {
-    position: absolute;
-    left: 30px;
-    top: 60px;
-    width: 2px;
-    height: calc(100% - 60px);
-    background: linear-gradient(180deg, var(--blue-primary) 0%, var(--gray-300) 100%);
+  /* ========================================
+     SCROLL REVEAL
+     ======================================== */
+  .process-header-reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
+  .process-header-reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .process-step-reveal {
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .process-step-reveal.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  /* Stagger delays */
+  .process-step-reveal[data-index="0"].visible { transition-delay: 0ms; }
+  .process-step-reveal[data-index="1"].visible { transition-delay: 150ms; }
+  .process-step-reveal[data-index="2"].visible { transition-delay: 300ms; }
+  .process-step-reveal[data-index="3"].visible { transition-delay: 450ms; }
+
+  /* ========================================
+     RESPONSIVE
+     ======================================== */
   @media (max-width: 768px) {
     .practice-process {
-      padding: var(--space-12) 0;
+      padding: var(--space-16) 0;
     }
 
     .process-step {
@@ -133,15 +329,20 @@ const { steps } = Astro.props;
     }
 
     .step-number {
-      width: 50px;
-      height: 50px;
+      width: 52px;
+      height: 52px;
       font-size: 1.25rem;
+      border-radius: 14px;
     }
 
     .step-connector {
-      left: 25px;
-      top: 50px;
-      height: calc(100% - 50px);
+      left: 26px;
+      top: 60px;
+      height: calc(100% - 60px);
+    }
+
+    .step-content {
+      padding: var(--space-5);
     }
 
     .step-content h3 {
@@ -152,4 +353,55 @@ const { steps } = Astro.props;
       font-size: 0.9375rem;
     }
   }
+
+  /* ========================================
+     REDUCED MOTION
+     ======================================== */
+  @media (prefers-reduced-motion: reduce) {
+    .process-header-reveal,
+    .process-step-reveal {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+
+    .connector-progress {
+      height: 100%;
+      transition: none;
+    }
+  }
 </style>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const section = document.getElementById('practice-process');
+    if (!section) return;
+
+    const header = section.querySelector('.process-header-reveal');
+    const steps = section.querySelectorAll('.process-step-reveal');
+
+    // Check for reduced motion
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (prefersReducedMotion) {
+      header?.classList.add('visible');
+      steps.forEach(step => step.classList.add('visible'));
+      return;
+    }
+
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          header?.classList.add('visible');
+          steps.forEach((step, i) => {
+            setTimeout(() => step.classList.add('visible'), 200 + i * 150);
+          });
+          observer.disconnect();
+        }
+      });
+    }, { threshold: 0.15 });
+
+    observer.observe(section);
+  });
+</script>

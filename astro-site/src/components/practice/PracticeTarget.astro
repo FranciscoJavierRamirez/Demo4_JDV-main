@@ -12,18 +12,42 @@ interface Props {
 const { items } = Astro.props;
 ---
 
-<section class="practice-target">
+<section class="practice-target" id="practice-target">
+  <!-- Background Elements -->
+  <div class="target-bg">
+    <div class="target-mesh"></div>
+  </div>
+
   <div class="container">
-    <div class="section-header">
+    <div class="section-header target-header-reveal">
+      <span class="section-badge">
+        <i class="fas fa-bullseye"></i>
+        ¿Es para ti?
+      </span>
       <h2>¿Estás en alguna de estas situaciones?</h2>
       <p>Esta área de práctica es para ti si:</p>
     </div>
+
     <div class="target-grid">
-      {items.map((item) => (
-        <div class="target-card">
-          <div class="target-icon">{item.icon}</div>
-          <h3>{item.title}</h3>
-          <p>{item.description}</p>
+      {items.map((item, index) => (
+        <div 
+          class="target-card target-card-reveal" 
+          data-index={index}
+        >
+          <!-- Spotlight Effect -->
+          <div class="card-spotlight"></div>
+          
+          <!-- Card Content -->
+          <div class="card-content">
+            <div class="target-icon-wrapper">
+              <span class="target-icon">{item.icon}</span>
+            </div>
+            <h3>{item.title}</h3>
+            <p>{item.description}</p>
+          </div>
+
+          <!-- Hover Border Glow -->
+          <div class="card-border-glow"></div>
         </div>
       ))}
     </div>
@@ -32,80 +56,303 @@ const { items } = Astro.props;
 
 <style>
   .practice-target {
-    padding: var(--space-16) 0;
-    background: var(--gray-50);
+    position: relative;
+    padding: var(--space-20) 0;
+    background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+    overflow: hidden;
   }
 
+  /* ========================================
+     BACKGROUND
+     ======================================== */
+  .target-bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  .target-mesh {
+    position: absolute;
+    inset: 0;
+    background: 
+      radial-gradient(ellipse 60% 40% at 10% 20%, rgba(59, 130, 246, 0.06) 0%, transparent 50%),
+      radial-gradient(ellipse 50% 30% at 90% 80%, rgba(201, 169, 97, 0.04) 0%, transparent 50%);
+  }
+
+  /* ========================================
+     CONTAINER
+     ======================================== */
   .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 var(--space-6);
+    position: relative;
+    z-index: 10;
   }
 
+  /* ========================================
+     SECTION HEADER
+     ======================================== */
   .section-header {
     text-align: center;
-    margin-bottom: var(--space-12);
+    margin-bottom: var(--space-14);
+  }
+
+  .section-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-4);
+    background: linear-gradient(135deg, var(--blue-primary) 0%, var(--blue-dark) 100%);
+    color: white;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-radius: 50px;
+    margin-bottom: var(--space-5);
+  }
+
+  .section-badge i {
+    font-size: 0.75rem;
   }
 
   .section-header h2 {
     font-family: var(--font-display);
-    font-size: clamp(2rem, 4vw, 2.5rem);
+    font-size: clamp(2rem, 4vw, 2.75rem);
     color: var(--gray-900);
     margin-bottom: var(--space-4);
     font-weight: 700;
+    letter-spacing: -0.02em;
   }
 
   .section-header p {
     font-size: 1.125rem;
     color: var(--gray-600);
+    max-width: 600px;
+    margin: 0 auto;
   }
 
+  /* ========================================
+     GRID
+     ======================================== */
   .target-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: var(--space-6);
   }
 
+  /* ========================================
+     CARDS
+     ======================================== */
   .target-card {
+    position: relative;
     background: white;
     padding: var(--space-8);
-    border-radius: 16px;
-    border: 1px solid var(--gray-200);
-    transition: all var(--transition-base);
+    border-radius: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    overflow: hidden;
+    box-shadow: 
+      0 1px 3px rgba(0, 0, 0, 0.04),
+      0 4px 12px rgba(0, 0, 0, 0.03);
   }
 
   .target-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+    transform: translateY(-8px);
     border-color: var(--blue-primary);
+    box-shadow: 
+      0 20px 40px -10px rgba(59, 130, 246, 0.2),
+      0 0 0 1px rgba(59, 130, 246, 0.1);
+  }
+
+  /* Spotlight Effect */
+  .card-spotlight {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      400px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+      rgba(59, 130, 246, 0.08),
+      transparent 40%
+    );
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+  }
+
+  .target-card:hover .card-spotlight {
+    opacity: 1;
+  }
+
+  /* Border Glow */
+  .card-border-glow {
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), transparent 50%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+  }
+
+  .target-card:hover .card-border-glow {
+    opacity: 1;
+  }
+
+  /* Card Content */
+  .card-content {
+    position: relative;
+    z-index: 5;
+  }
+
+  /* Icon */
+  .target-icon-wrapper {
+    width: 72px;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+    border-radius: 18px;
+    margin-bottom: var(--space-5);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.1);
+  }
+
+  .target-card:hover .target-icon-wrapper {
+    transform: scale(1.1) rotate(-3deg);
+    background: linear-gradient(135deg, var(--blue-primary) 0%, var(--blue-dark) 100%);
+    box-shadow: 0 8px 24px rgba(59, 130, 246, 0.3);
   }
 
   .target-icon {
-    font-size: 3rem;
-    margin-bottom: var(--space-4);
+    font-size: 2.25rem;
+    transition: all 0.4s ease;
   }
 
+  .target-card:hover .target-icon {
+    transform: scale(1.1);
+    filter: grayscale(1) brightness(10);
+  }
+
+  /* Title */
   .target-card h3 {
     font-family: var(--font-sans);
     font-size: 1.25rem;
     color: var(--gray-900);
     margin-bottom: var(--space-3);
     font-weight: 600;
+    transition: color 0.3s ease;
   }
 
+  .target-card:hover h3 {
+    color: var(--blue-primary);
+  }
+
+  /* Description */
   .target-card p {
     font-size: 0.9375rem;
     color: var(--gray-600);
     line-height: 1.7;
+    margin: 0;
   }
 
+  /* ========================================
+     SCROLL REVEAL
+     ======================================== */
+  .target-header-reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .target-header-reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .target-card-reveal {
+    opacity: 0;
+    transform: translateY(40px) scale(0.97);
+    transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .target-card-reveal.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  /* Stagger delays */
+  .target-card-reveal[data-index="0"].visible { transition-delay: 0ms; }
+  .target-card-reveal[data-index="1"].visible { transition-delay: 100ms; }
+  .target-card-reveal[data-index="2"].visible { transition-delay: 200ms; }
+  .target-card-reveal[data-index="3"].visible { transition-delay: 300ms; }
+
+  /* ========================================
+     RESPONSIVE
+     ======================================== */
   @media (max-width: 768px) {
     .practice-target {
-      padding: var(--space-12) 0;
+      padding: var(--space-16) 0;
     }
 
     .target-grid {
       grid-template-columns: 1fr;
     }
   }
+
+  /* ========================================
+     REDUCED MOTION
+     ======================================== */
+  @media (prefers-reduced-motion: reduce) {
+    .target-header-reveal,
+    .target-card-reveal {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
 </style>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const section = document.getElementById('practice-target');
+    if (!section) return;
+
+    const header = section.querySelector('.target-header-reveal');
+    const cards = section.querySelectorAll('.target-card-reveal');
+
+    // Check for reduced motion
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (prefersReducedMotion) {
+      header?.classList.add('visible');
+      cards.forEach(card => card.classList.add('visible'));
+      return;
+    }
+
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          header?.classList.add('visible');
+          cards.forEach((card, i) => {
+            setTimeout(() => card.classList.add('visible'), 150 + i * 100);
+          });
+          observer.disconnect();
+        }
+      });
+    }, { threshold: 0.15 });
+
+    observer.observe(section);
+
+    // Spotlight effect
+    cards.forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        card.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
+        card.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
+      });
+    });
+  });
+</script>

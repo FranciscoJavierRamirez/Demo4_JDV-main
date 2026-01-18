@@ -10,6 +10,19 @@ const { badge, h1, tagline, image } = Astro.props;
 ---
 
 <section class="practice-hero">
+  <!-- Complex Mesh Gradient Background -->
+  <div class="hero-bg-mesh">
+    <div class="hero-orb hero-orb-1"></div>
+    <div class="hero-orb hero-orb-2"></div>
+    <div class="hero-orb hero-orb-3"></div>
+  </div>
+
+  <!-- Grid Pattern Overlay -->
+  <div class="hero-grid-pattern"></div>
+
+  <!-- Noise Texture -->
+  <div class="hero-noise"></div>
+
   <!-- Background Image with enhanced visibility -->
   {image && (
     <div class="hero-image-container">
@@ -22,46 +35,131 @@ const { badge, h1, tagline, image } = Astro.props;
       <div class="hero-image-overlay"></div>
     </div>
   )}
-  
-  <!-- Decorative animated orb -->
-  <div class="hero-orb"></div>
+
+  <!-- Gradient Overlay for Legibility -->
+  <div class="hero-gradient-overlay"></div>
   
   <div class="container">
     <div class="practice-hero-content">
-      <span class="practice-badge">{badge}</span>
-      <h1>{h1}</h1>
-      <p class="tagline">{tagline}</p>
-      <div class="hero-actions">
+      <!-- Badge with animation -->
+      <span class="practice-badge hero-animate" style="--delay: 0s">
+        <span class="badge-glow"></span>
+        <span class="badge-text">{badge}</span>
+      </span>
+
+      <!-- Title with animation -->
+      <h1 class="hero-animate" style="--delay: 0.1s">{h1}</h1>
+
+      <!-- Tagline with animation -->
+      <p class="tagline hero-animate" style="--delay: 0.2s">{tagline}</p>
+
+      <!-- CTA Buttons with animation -->
+      <div class="hero-actions hero-animate" style="--delay: 0.35s">
         <a href="https://wa.me/56965870256?text=Necesito%20m%C3%A1s%20informaci%C3%B3n%20porque%20estoy%20interesado%20en%20recibir%20asesor%C3%ADa%20legal" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+          <span class="btn-shimmer"></span>
           <i class="fab fa-whatsapp"></i>
-          Agendar Consulta Gratuita
+          <span>Agendar Consulta Gratuita</span>
         </a>
         <a href="tel:+56965870256" class="btn btn-secondary">
           <i class="fas fa-phone"></i>
-          Llamar Ahora
+          <span>Llamar Ahora</span>
         </a>
       </div>
     </div>
+  </div>
+
+  <!-- Scroll Indicator -->
+  <div class="scroll-indicator hero-animate" style="--delay: 0.5s">
+    <div class="scroll-icon">
+      <i class="fas fa-chevron-down"></i>
+    </div>
+    <span>Conoce más</span>
   </div>
 </section>
 
 <style>
   .practice-hero {
-    background: linear-gradient(135deg, var(--blue-primary) 0%, var(--blue-dark) 100%);
-    color: white;
-    padding: var(--space-20) 0 var(--space-16);
     position: relative;
-    overflow: hidden;
-    min-height: 50vh;
+    min-height: 85vh;
     display: flex;
     align-items: center;
+    padding: var(--space-24) 0 var(--space-20);
+    overflow: hidden;
+    background: linear-gradient(135deg, #0c2340 0%, #1a4d7a 50%, #0c2340 100%);
   }
 
-  /* Hero image with enhanced color */
+  /* ========================================
+     MESH GRADIENT BACKGROUND
+     ======================================== */
+  .hero-bg-mesh {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    overflow: hidden;
+  }
+
+  .hero-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    mix-blend-mode: screen;
+  }
+
+  .hero-orb-1 {
+    top: -20%;
+    left: -10%;
+    width: 60%;
+    height: 60%;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.4) 0%, transparent 70%);
+    animation: practiceFloat 20s ease-in-out infinite;
+  }
+
+  .hero-orb-2 {
+    bottom: -15%;
+    right: -5%;
+    width: 50%;
+    height: 50%;
+    background: radial-gradient(circle, rgba(30, 64, 175, 0.35) 0%, transparent 70%);
+    animation: practiceFloat 25s ease-in-out infinite reverse;
+  }
+
+  .hero-orb-3 {
+    top: 40%;
+    left: 30%;
+    width: 35%;
+    height: 35%;
+    background: radial-gradient(circle, rgba(201, 169, 97, 0.15) 0%, transparent 70%);
+    animation: practiceFloat 18s ease-in-out infinite 3s;
+  }
+
+  /* Grid Pattern */
+  .hero-grid-pattern {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background-image: 
+      linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    pointer-events: none;
+  }
+
+  /* Noise Texture */
+  .hero-noise {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    opacity: 0.02;
+    pointer-events: none;
+    mix-blend-mode: overlay;
+  }
+
+  /* Background Image */
   .hero-image-container {
     position: absolute;
     inset: 0;
-    z-index: 0;
+    z-index: 4;
   }
 
   .hero-image {
@@ -69,7 +167,7 @@ const { badge, h1, tagline, image } = Astro.props;
     height: 100%;
     object-fit: cover;
     object-position: center;
-    opacity: 0.45;
+    opacity: 0.35;
     filter: saturate(1.2) contrast(1.1);
   }
 
@@ -78,89 +176,112 @@ const { badge, h1, tagline, image } = Astro.props;
     inset: 0;
     background: linear-gradient(
       135deg,
-      rgba(30, 64, 175, 0.85) 0%,
-      rgba(59, 130, 246, 0.7) 50%,
-      rgba(30, 64, 175, 0.8) 100%
+      rgba(12, 35, 64, 0.85) 0%,
+      rgba(26, 77, 122, 0.7) 50%,
+      rgba(12, 35, 64, 0.85) 100%
     );
     mix-blend-mode: multiply;
   }
 
-  /* Secondary overlay for text legibility */
-  .hero-image-container::after {
-    content: '';
+  /* Gradient Overlay */
+  .hero-gradient-overlay {
     position: absolute;
     inset: 0;
+    z-index: 5;
     background: linear-gradient(
       to bottom,
-      rgba(12, 35, 64, 0.3) 0%,
-      rgba(12, 35, 64, 0.5) 100%
+      rgba(12, 35, 64, 0.4) 0%,
+      rgba(12, 35, 64, 0.6) 100%
     );
   }
 
-  .hero-orb {
-    position: absolute;
-    top: -50%;
-    right: -10%;
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
-    border-radius: 50%;
-    animation: float 25s ease-in-out infinite;
-    z-index: 1;
-  }
-
-  @keyframes float {
-    0%, 100% { transform: translate(0, 0); }
-    50% { transform: translate(-30px, -30px); }
-  }
-
+  /* ========================================
+     CONTAINER & CONTENT
+     ======================================== */
   .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 var(--space-6);
     position: relative;
-    z-index: 2;
+    z-index: 10;
   }
 
   .practice-hero-content {
-    max-width: 800px;
+    max-width: 850px;
     margin: 0 auto;
     text-align: center;
+    color: white;
   }
 
+  /* ========================================
+     BADGE - Premium Glass Style
+     ======================================== */
   .practice-badge {
-    display: inline-block;
-    background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(10px);
-    padding: var(--space-2) var(--space-4);
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-5);
+    margin-bottom: var(--space-8);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 50px;
     font-size: 0.875rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    margin-bottom: var(--space-6);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
   }
 
+  .badge-glow {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent, rgba(201, 169, 97, 0.3), transparent);
+    animation: practiceShimmer 3s ease-in-out infinite;
+  }
+
+  .badge-text {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ========================================
+     TITLE
+     ======================================== */
   .practice-hero h1 {
     font-family: var(--font-display);
-    font-size: clamp(2.5rem, 5vw, 3.5rem);
-    line-height: 1.2;
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    line-height: 1.1;
     margin-bottom: var(--space-6);
-    font-weight: 700;
-    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    text-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+    background: linear-gradient(180deg, #ffffff 0%, rgba(255, 255, 255, 0.9) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
+  /* ========================================
+     TAGLINE
+     ======================================== */
   .tagline {
-    font-size: clamp(1.125rem, 2vw, 1.5rem);
-    line-height: 1.6;
+    font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+    line-height: 1.7;
     margin-bottom: var(--space-10);
     opacity: 0.95;
     font-weight: 400;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    text-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
   }
 
+  /* ========================================
+     CTA BUTTONS
+     ======================================== */
   .hero-actions {
     display: flex;
     flex-wrap: wrap;
@@ -170,48 +291,126 @@ const { badge, h1, tagline, image } = Astro.props;
   }
 
   .btn {
+    position: relative;
     display: inline-flex;
     align-items: center;
-    gap: var(--space-2);
-    padding: var(--space-4) var(--space-8);
-    font-size: 1rem;
+    gap: var(--space-3);
+    padding: var(--space-5) var(--space-8);
+    font-size: 1.0625rem;
     font-weight: 600;
-    border-radius: 12px;
+    border-radius: 14px;
     text-decoration: none;
-    transition: all var(--transition-base);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     cursor: pointer;
     border: none;
     font-family: var(--font-sans);
+    overflow: hidden;
   }
 
   .btn-primary {
     background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
     color: var(--gray-900);
-    box-shadow: 0 4px 20px rgba(201, 169, 97, 0.4);
+    box-shadow: 
+      0 4px 20px rgba(201, 169, 97, 0.4),
+      0 0 40px rgba(201, 169, 97, 0.15);
+  }
+
+  .btn-shimmer {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    animation: practiceShimmer 2.5s ease-in-out infinite;
   }
 
   .btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 30px rgba(201, 169, 97, 0.5);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 
+      0 8px 35px rgba(201, 169, 97, 0.5),
+      0 0 60px rgba(201, 169, 97, 0.25);
   }
 
   .btn-secondary {
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.1);
     color: white;
-    border: 2px solid rgba(255, 255, 255, 0.4);
+    border: 2px solid rgba(255, 255, 255, 0.3);
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
   }
 
   .btn-secondary:hover {
-    background: white;
-    color: var(--blue-primary);
-    border-color: white;
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-2px);
   }
 
+  /* ========================================
+     SCROLL INDICATOR
+     ======================================== */
+  .scroll-indicator {
+    position: absolute;
+    bottom: var(--space-8);
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-2);
+    color: white;
+    opacity: 0.7;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .scroll-indicator:hover {
+    opacity: 1;
+    transform: translateX(-50%) translateY(3px);
+  }
+
+  .scroll-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    animation: practiceBounceArrow 2s ease-in-out infinite;
+  }
+
+  .scroll-icon i {
+    color: var(--gold);
+    font-size: 0.875rem;
+  }
+
+  .scroll-indicator span {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  /* ========================================
+     ANIMATIONS
+     ======================================== */
+  .hero-animate {
+    opacity: 0;
+    animation: practiceSlideInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: var(--delay, 0s);
+  }
+
+  /* ========================================
+     RESPONSIVE
+     ======================================== */
   @media (max-width: 768px) {
     .practice-hero {
-      padding: var(--space-16) 0 var(--space-12);
-      min-height: 60vh;
+      padding: var(--space-20) 0 var(--space-16);
+      min-height: 80vh;
     }
 
     .hero-actions {
@@ -225,7 +424,36 @@ const { badge, h1, tagline, image } = Astro.props;
     }
 
     .hero-image {
-      opacity: 0.35;
+      opacity: 0.25;
+    }
+
+    .scroll-indicator {
+      display: none;
+    }
+  }
+
+  /* ========================================
+     REDUCED MOTION
+     ======================================== */
+  @media (prefers-reduced-motion: reduce) {
+    .hero-orb-1,
+    .hero-orb-2,
+    .hero-orb-3 {
+      animation: none;
+    }
+
+    .hero-animate {
+      opacity: 1;
+      animation: none;
+    }
+
+    .badge-glow,
+    .btn-shimmer {
+      animation: none;
+    }
+
+    .scroll-icon {
+      animation: none;
     }
   }
 </style>

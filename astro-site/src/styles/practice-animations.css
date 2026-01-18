@@ -1,0 +1,502 @@
+/* ==========================================
+   Practice Pages - Shared Animations & Effects
+   Premium Visual System for Area de Practica
+   ========================================== */
+
+/* ==========================================
+   KEYFRAME ANIMATIONS
+   ========================================== */
+
+/* Fade In Up - Entrada desde abajo */
+@keyframes practiceSlideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fade In Down - Entrada desde arriba */
+@keyframes practiceSlideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fade In Scale - Entrada con escala */
+@keyframes practiceFadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Float Animation - Orbes decorativos */
+@keyframes practiceFloat {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(30px, -30px) scale(1.05);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.95);
+  }
+}
+
+/* Pulse Glow - Efecto de brillo pulsante */
+@keyframes practicePulseGlow {
+  0%, 100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+/* Shimmer Effect - Brillo en botones */
+@keyframes practiceShimmer {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+/* Gradient Border Rotation */
+@keyframes practiceGradientRotate {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 200% 200%;
+  }
+}
+
+/* Icon Reveal with bounce */
+@keyframes practiceIconReveal {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) rotate(-10deg);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.1) rotate(5deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+/* Bounce Arrow */
+@keyframes practiceBounceArrow {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(8px);
+  }
+}
+
+/* ==========================================
+   SCROLL REVEAL CLASSES
+   ========================================== */
+
+.practice-scroll-reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: 
+    opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.practice-scroll-reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.practice-scroll-reveal-scale {
+  opacity: 0;
+  transform: translateY(30px) scale(0.97);
+  transition: 
+    opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.practice-scroll-reveal-scale.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Header reveal - slides down */
+.practice-header-reveal {
+  opacity: 0;
+  transform: translateY(-25px) scale(0.98);
+  transition: 
+    opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.practice-header-reveal.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* ==========================================
+   GLASSMORPHISM CLASSES
+   ========================================== */
+
+.practice-glass-card {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+}
+
+.practice-glass-card-light {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 
+    0 4px 6px -1px rgba(0, 0, 0, 0.05),
+    0 2px 4px -1px rgba(0, 0, 0, 0.03),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+.practice-glass-dark {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ==========================================
+   GRADIENT BORDER EFFECT
+   ========================================== */
+
+.practice-gradient-border {
+  position: relative;
+}
+
+.practice-gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 2px;
+  background: conic-gradient(
+    from 0deg at 50% 50%,
+    var(--gold) 0deg,
+    var(--blue-primary) 90deg,
+    var(--gold-light) 180deg,
+    var(--blue-light) 270deg,
+    var(--gold) 360deg
+  );
+  background-size: 200% 200%;
+  animation: practiceGradientRotate 8s linear infinite;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask-composite: xor;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.practice-gradient-border:hover::before,
+.practice-gradient-border.active::before {
+  opacity: 1;
+}
+
+/* ==========================================
+   GLOW EFFECTS
+   ========================================== */
+
+.practice-glow-gold {
+  box-shadow: 
+    0 0 20px rgba(201, 169, 97, 0.15),
+    0 0 40px rgba(201, 169, 97, 0.1);
+}
+
+.practice-glow-gold:hover {
+  box-shadow: 
+    0 0 30px rgba(201, 169, 97, 0.25),
+    0 0 60px rgba(201, 169, 97, 0.15);
+}
+
+.practice-glow-blue {
+  box-shadow: 
+    0 0 20px rgba(59, 130, 246, 0.15),
+    0 0 40px rgba(59, 130, 246, 0.1);
+}
+
+.practice-glow-blue:hover {
+  box-shadow: 
+    0 0 30px rgba(59, 130, 246, 0.25),
+    0 0 60px rgba(59, 130, 246, 0.15);
+}
+
+/* ==========================================
+   ICON CONTAINERS
+   ========================================== */
+
+.practice-icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--blue-primary) 0%, var(--blue-dark) 100%);
+  border-radius: 16px;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.practice-icon-container:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.35);
+}
+
+.practice-icon-container-gold {
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+}
+
+.practice-icon-container-gold:hover {
+  box-shadow: 0 8px 25px rgba(201, 169, 97, 0.4);
+}
+
+/* ==========================================
+   BUTTON EFFECTS
+   ========================================== */
+
+.practice-btn-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.practice-btn-shimmer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.4) 50%,
+    transparent 100%
+  );
+  animation: practiceShimmer 3s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* ==========================================
+   DECORATIVE ORB ELEMENTS
+   ========================================== */
+
+.practice-orb {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  mix-blend-mode: screen;
+}
+
+.practice-orb-gold {
+  background: radial-gradient(circle, rgba(201, 169, 97, 0.15) 0%, transparent 70%);
+  animation: practiceFloat 20s ease-in-out infinite;
+}
+
+.practice-orb-blue {
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, transparent 70%);
+  animation: practiceFloat 25s ease-in-out infinite reverse;
+}
+
+.practice-orb-pulse {
+  animation: practicePulseGlow 8s ease-in-out infinite;
+}
+
+/* ==========================================
+   SPOTLIGHT EFFECT (Mouse Tracking)
+   ========================================== */
+
+.practice-spotlight {
+  position: relative;
+  overflow: hidden;
+}
+
+.practice-spotlight::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    400px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(201, 169, 97, 0.12),
+    transparent 40%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.practice-spotlight:hover::after {
+  opacity: 1;
+}
+
+/* ==========================================
+   PREMIUM SHADOWS
+   ========================================== */
+
+.practice-shadow-elevated {
+  box-shadow: 
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06),
+    0 20px 40px -10px rgba(0, 0, 0, 0.1);
+}
+
+.practice-shadow-elevated:hover {
+  box-shadow: 
+    0 10px 20px -5px rgba(0, 0, 0, 0.15),
+    0 4px 8px -2px rgba(0, 0, 0, 0.1),
+    0 30px 60px -15px rgba(0, 0, 0, 0.2);
+}
+
+/* ==========================================
+   MESH GRADIENT BACKGROUND
+   ========================================== */
+
+.practice-mesh-bg {
+  position: relative;
+  overflow: hidden;
+}
+
+.practice-mesh-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(ellipse 80% 50% at 20% 40%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
+    radial-gradient(ellipse 60% 40% at 80% 60%, rgba(201, 169, 97, 0.1) 0%, transparent 50%),
+    radial-gradient(ellipse 50% 30% at 50% 80%, rgba(30, 64, 175, 0.12) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+/* ==========================================
+   GRID PATTERN OVERLAY
+   ========================================== */
+
+.practice-grid-pattern::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+}
+
+/* ==========================================
+   NOISE TEXTURE OVERLAY
+   ========================================== */
+
+.practice-noise-overlay::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  opacity: 0.03;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+  z-index: 1;
+}
+
+/* ==========================================
+   DIVIDER WITH GRADIENT
+   ========================================== */
+
+.practice-divider {
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--gold) 0%, transparent 100%);
+  border-radius: 2px;
+  margin: 0 auto;
+}
+
+/* ==========================================
+   ACCESSIBILITY - Reduced Motion
+   ========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .practice-scroll-reveal,
+  .practice-scroll-reveal-scale,
+  .practice-header-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .practice-orb,
+  .practice-orb-gold,
+  .practice-orb-blue,
+  .practice-orb-pulse {
+    animation: none;
+  }
+
+  .practice-btn-shimmer::before {
+    animation: none;
+  }
+
+  .practice-gradient-border::before {
+    animation: none;
+  }
+
+  @keyframes practiceFloat,
+  @keyframes practicePulseGlow,
+  @keyframes practiceShimmer,
+  @keyframes practiceGradientRotate,
+  @keyframes practiceIconReveal {
+    from, to {
+      transform: none;
+      opacity: 1;
+    }
+  }
+}
+
+/* ==========================================
+   PERFORMANCE OPTIMIZATIONS
+   ========================================== */
+
+.practice-scroll-reveal,
+.practice-scroll-reveal-scale,
+.practice-header-reveal {
+  will-change: opacity, transform;
+}
+
+.practice-orb {
+  will-change: transform;
+}
+
+.practice-gradient-border::before {
+  will-change: opacity;
+}
