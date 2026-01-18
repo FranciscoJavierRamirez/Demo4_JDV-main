@@ -3,22 +3,116 @@ import { getEntry } from 'astro:content';
 
 const trustData = await getEntry('trustBadges', 'home');
 const { badges } = trustData.data;
+
+// Duplicate badges for seamless loop
+const duplicatedBadges = [...badges, ...badges, ...badges];
 ---
 
-<!-- Trust Badges -->
-<section class="relative py-12 bg-gradient-to-r from-[#f8fafc] via-white to-[#f8fafc] border-t border-b border-[var(--gray-200)] overflow-hidden">
-  <!-- Subtle shimmer effect -->
-  <div class="absolute inset-0 pointer-events-none">
-    <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent animate-[shimmer_8s_ease-in-out_infinite] opacity-30"></div>
+<!-- Trust Badges - Elegant Ribbon Marquee -->
+<section class="trust-ribbon relative py-0 overflow-hidden">
+  <!-- Background ribbon with gradient -->
+  <div class="absolute inset-0 bg-gradient-to-r from-[#0c2340] via-[#1e3a5f] to-[#0c2340]"></div>
+  
+  <!-- Decorative top edge with subtle glow -->
+  <div class="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[var(--gold)]/40 to-transparent"></div>
+  
+  <!-- Decorative bottom edge -->
+  <div class="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
+  
+  <!-- Ambient glow effects -->
+  <div class="absolute inset-0 pointer-events-none overflow-hidden">
+    <div class="absolute top-1/2 left-1/4 -translate-y-1/2 w-[300px] h-[100px] rounded-full blur-[60px] opacity-20 bg-[var(--gold)]"></div>
+    <div class="absolute top-1/2 right-1/4 -translate-y-1/2 w-[300px] h-[100px] rounded-full blur-[60px] opacity-20 bg-[var(--blue-primary)]"></div>
   </div>
-  <div class="container relative z-10">
-    <div class="flex justify-center items-center gap-6 sm:gap-10 flex-wrap">
-      {badges.map(badge => (
-        <div class="group flex items-center gap-3 font-semibold text-[var(--gray-700)] text-sm sm:text-[0.9375rem] transition-all duration-300 hover:text-[var(--gray-900)] hover:scale-105">
-          <i class={`${badge.icon} text-xl sm:text-[1.75rem] text-[var(--gold)] transition-all duration-300 group-hover:text-[var(--gold-dark)] group-hover:scale-110`}></i>
-          <span>{badge.text}</span>
+  
+  <!-- Marquee Container -->
+  <div class="marquee-container relative z-10 py-5">
+    <!-- Gradient fade edges -->
+    <div class="absolute left-0 top-0 bottom-0 w-24 sm:w-40 bg-gradient-to-r from-[#0c2340] to-transparent z-10 pointer-events-none"></div>
+    <div class="absolute right-0 top-0 bottom-0 w-24 sm:w-40 bg-gradient-to-l from-[#0c2340] to-transparent z-10 pointer-events-none"></div>
+    
+    <!-- Scrolling track -->
+    <div class="marquee-track flex items-center gap-12 sm:gap-16">
+      {duplicatedBadges.map((badge, index) => (
+        <div class="marquee-item flex items-center gap-3 whitespace-nowrap flex-shrink-0">
+          <!-- Icon container with glow -->
+          <div class="relative">
+            <div class="absolute inset-0 bg-[var(--gold)] rounded-full blur-md opacity-30"></div>
+            <i class={`${badge.icon} relative text-xl sm:text-2xl text-[var(--gold)] drop-shadow-[0_0_8px_rgba(201,169,97,0.5)]`}></i>
+          </div>
+          <!-- Text -->
+          <span class="font-semibold text-white/90 text-sm sm:text-base tracking-wide">
+            {badge.text}
+          </span>
+          <!-- Separator diamond -->
+          {index < duplicatedBadges.length - 1 && (
+            <span class="ml-8 sm:ml-12 text-[var(--gold)]/40 text-xs">◆</span>
+          )}
         </div>
       ))}
     </div>
   </div>
 </section>
+
+<style>
+  .trust-ribbon {
+    box-shadow: 
+      0 4px 20px rgba(0, 0, 0, 0.15),
+      inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  }
+  
+  .marquee-container {
+    overflow: hidden;
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 10%,
+      black 90%,
+      transparent
+    );
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 10%,
+      black 90%,
+      transparent
+    );
+  }
+  
+  .marquee-track {
+    animation: marquee 30s linear infinite;
+    width: max-content;
+  }
+  
+  .marquee-container:hover .marquee-track {
+    animation-play-state: paused;
+  }
+  
+  .marquee-item {
+    transition: all 0.3s ease;
+  }
+  
+  .marquee-container:hover .marquee-item:hover {
+    transform: scale(1.05);
+  }
+  
+  .marquee-container:hover .marquee-item:hover i {
+    filter: drop-shadow(0 0 12px rgba(201, 169, 97, 0.8));
+  }
+  
+  @keyframes marquee {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-33.33%);
+    }
+  }
+  
+  /* Pause animation when user prefers reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-track {
+      animation: none;
+    }
+  }
+</style>

@@ -1,3 +1,10 @@
+<!-- 
+  NEWSLETTER SECTION - COMENTADA TEMPORALMENTE
+  Esta sección no está habilitada por ahora.
+  Para habilitarla en el futuro, descomentar este código y agregarlo a index.astro
+-->
+
+<!-- 
 ---
 import { getEntry } from 'astro:content';
 
@@ -6,8 +13,10 @@ const { title, subtitle, placeholder, buttonText, note } = newsletterData.data;
 ---
 
 <!-- Newsletter Section -->
+<!-- 
 <div class="relative bg-gradient-to-br from-[var(--blue-dark)] to-[var(--blue-deeper)] py-12 mb-8 overflow-hidden">
   <!-- Decorative Orbs -->
+  <!-- 
   <div class="absolute inset-0 pointer-events-none">
     <div class="absolute w-[280px] h-[280px] rounded-full blur-[80px] opacity-[0.15] -top-[80px] -right-[60px] bg-[radial-gradient(circle,var(--gold)_0%,transparent_70%)]"></div>
     <div class="absolute w-[200px] h-[200px] rounded-full blur-[60px] opacity-[0.12] -bottom-[50px] -left-[40px] bg-[radial-gradient(circle,var(--gold-light)_0%,transparent_70%)]"></div>
@@ -16,17 +25,20 @@ const { title, subtitle, placeholder, buttonText, note } = newsletterData.data;
   <div class="container relative z-10">
     <div class="flex flex-col gap-6 text-center max-w-[800px] mx-auto">
       <!-- Title -->
+      <!-- 
       <h3 class="font-[var(--font-display)] text-[clamp(1.75rem,3vw,2.25rem)] text-white mb-2 font-bold flex items-center justify-center gap-3">
         <i class="fas fa-envelope-open-text text-[var(--gold)]"></i>
         {title}
       </h3>
       
       <!-- Subtitle -->
+      <!-- 
       <p class="text-[var(--gray-200)] text-[clamp(1rem,2vw,1.125rem)] leading-relaxed">
         {subtitle}
       </p>
 
       <!-- Form -->
+      <!-- 
       <form class="flex gap-3 max-w-[500px] mx-auto w-full flex-col sm:flex-row" onsubmit="handleNewsletterSubmit(event)">
         <input
           type="email"
@@ -46,6 +58,7 @@ const { title, subtitle, placeholder, buttonText, note } = newsletterData.data;
       </form>
 
       <!-- Note -->
+      <!-- 
       <p class="text-[var(--gray-300)] text-sm flex items-center justify-center gap-2">
         <i class="fas fa-lock text-[var(--gold)]"></i> 
         {note}
@@ -62,3 +75,4 @@ const { title, subtitle, placeholder, buttonText, note } = newsletterData.data;
     event.target.reset();
   }
 </script>
+-->

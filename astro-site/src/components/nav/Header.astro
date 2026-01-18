@@ -60,15 +60,18 @@ import FullscreenMenu from './FullscreenMenu.astro';
       <li role="none"><a href="#faq" class="nav-link-desktop" role="menuitem">FAQ</a></li>
       <li role="none"><a href="#contact" class="nav-link-desktop" role="menuitem">Contacto</a></li>
       <li role="none">
-        <!-- CTA Button - Prominent Design -->
+        <!-- CTA Button - Glassmorphism Design with Dynamic Shine -->
         <button 
-          class="btn-nav-cta relative inline-flex items-center gap-2 px-6 py-3 bg-[var(--gold-gradient)] text-[var(--gray-900)] border-2 border-[var(--gold)] rounded-xl font-bold text-sm cursor-pointer shadow-[0_4px_16px_rgba(201,169,97,0.4)] transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02] hover:shadow-[0_8px_24px_rgba(201,169,97,0.5)] overflow-hidden"
+          class="btn-nav-cta group relative inline-flex items-center gap-2 px-6 py-3 bg-white/20 backdrop-blur-md border border-[rgba(201,169,97,0.4)] rounded-xl font-bold text-sm cursor-pointer shadow-[0_4px_16px_rgba(201,169,97,0.15),inset_0_1px_0_rgba(255,255,255,0.4)] transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02] hover:shadow-[0_8px_24px_rgba(201,169,97,0.35),inset_0_1px_0_rgba(255,255,255,0.5)] hover:border-[rgba(201,169,97,0.6)] overflow-hidden"
           onclick="openModal()" 
           aria-label="Abrir formulario para agendar consulta"
         >
-          <span class="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full animate-[shimmer_3s_infinite]"></span>
-          <span class="relative">Agenda Ahora</span>
-          <i class="fas fa-arrow-right text-xs relative" aria-hidden="true"></i>
+          <!-- Dynamic shine effect -->
+          <span class="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full animate-[shimmer_2.5s_ease-in-out_infinite]"></span>
+          <!-- Inner glow border -->
+          <span class="absolute inset-0 rounded-xl bg-gradient-to-br from-[rgba(201,169,97,0.2)] via-transparent to-[rgba(201,169,97,0.1)] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+          <span class="relative bg-gradient-to-r from-[#C9A961] to-[#D4AF37] bg-clip-text text-transparent">Agenda Ahora</span>
+          <i class="fas fa-arrow-right text-xs relative text-[#C9A961] group-hover:translate-x-0.5 transition-transform duration-300" aria-hidden="true"></i>
         </button>
       </li>
     </ul>
@@ -144,9 +147,10 @@ import FullscreenMenu from './FullscreenMenu.astro';
     box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.1);
   }
 
-  /* Shimmer animation for CTA */
+  /* Dynamic shimmer animation for glassmorphism CTA */
   @keyframes shimmer {
-    0% { transform: translateX(-100%); }
-    100% { transform: translateX(100%); }
+    0% { transform: translateX(-100%); opacity: 0; }
+    50% { opacity: 1; }
+    100% { transform: translateX(100%); opacity: 0; }
   }
 </style>

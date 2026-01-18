@@ -5,11 +5,11 @@ const statsData = await getEntry('stats', 'home');
 const { stats } = statsData.data;
 ---
 
-<section id="stats" class="relative py-20 bg-gradient-to-b from-white via-[#f8fafc] to-[#eff6ff] overflow-hidden">
+<section id="stats" class="relative py-20 bg-gradient-to-b from-[#1e3a5f]/[0.04] via-[#dbeafe] to-[#e0f2fe] overflow-hidden">
   <!-- Decorative background elements -->
   <div class="absolute inset-0 pointer-events-none">
-    <div class="absolute top-0 right-0 w-[400px] h-[400px] rounded-full blur-[120px] opacity-[0.07] bg-[radial-gradient(circle,var(--blue-primary)_0%,transparent_70%)]"></div>
-    <div class="absolute bottom-0 left-0 w-[300px] h-[300px] rounded-full blur-[100px] opacity-[0.05] bg-[radial-gradient(circle,var(--gold)_0%,transparent_70%)]"></div>
+    <div class="absolute top-0 right-0 w-[500px] h-[500px] rounded-full blur-[120px] opacity-[0.12] bg-[radial-gradient(circle,var(--blue-primary)_0%,transparent_70%)]"></div>
+    <div class="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full blur-[100px] opacity-[0.08] bg-[radial-gradient(circle,var(--gold)_0%,transparent_70%)]"></div>
   </div>
   <div class="container relative z-10">
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -42,49 +42,125 @@ const { stats } = statsData.data;
 </section>
 
 <script>
-  // Counter animation with IntersectionObserver
-  const animateCounter = (element: HTMLElement, target: number) => {
-    const duration = 2000;
-    const startTime = performance.now();
+  // Counter animation with cyclic loop
+  const animateCounter = (element: HTMLElement, target: number, duration: number = 2000): Promise<void> => {
+    return new Promise((resolve) => {
+      const startTime = performance.now();
+      
+      const updateCounter = (currentTime: number) => {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        
+        // Easing function (ease-out-expo)
+        const easeOutExpo = 1 - Math.pow(2, -10 * progress);
+        const current = Math.round(target * easeOutExpo);
+        
+        element.textContent = current.toString();
+        
+        if (progress < 1) {
+          requestAnimationFrame(updateCounter);
+        } else {
+          element.textContent = target.toString();
+          resolve();
+        }
+      };
+      
+      requestAnimationFrame(updateCounter);
+    });
+  };
+
+  // Reset counter to 0 with quick animation
+  const resetCounter = (element: HTMLElement): Promise<void> => {
+    return new Promise((resolve) => {
+      const current = parseInt(element.textContent || '0', 10);
+      const duration = 400;
+      const startTime = performance.now();
+      
+      const updateCounter = (currentTime: number) => {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const value = Math.round(current * (1 - progress));
+        
+        element.textContent = value.toString();
+        
+        if (progress < 1) {
+          requestAnimationFrame(updateCounter);
+        } else {
+          element.textContent = '0';
+          resolve();
+        }
+      };
+      
+      requestAnimationFrame(updateCounter);
+    });
+  };
+
+  // Cyclic animation - runs every 4 seconds with stagger
+  const startCyclicAnimation = (statItems: NodeListOf<Element>) => {
+    const CYCLE_INTERVAL = 5000; // 5 seconds between cycles
+    const STAGGER_DELAY = 150; // 150ms between each stat
     
-    const updateCounter = (currentTime: number) => {
-      const elapsed = currentTime - startTime;
-      const progress = Math.min(elapsed / duration, 1);
+    const runCycle = async () => {
+      // Animate each stat with stagger
+      const items = Array.from(statItems);
       
-      // Easing function (ease-out-expo)
-      const easeOutExpo = 1 - Math.pow(2, -10 * progress);
-      const current = Math.round(target * easeOutExpo);
-      
-      element.textContent = current.toString();
-      
-      if (progress < 1) {
-        requestAnimationFrame(updateCounter);
-      } else {
-        element.textContent = target.toString();
+      for (let i = 0; i < items.length; i++) {
+        const item = items[i] as HTMLElement;
+        const numberEl = item.querySelector('.stat-number') as HTMLElement;
+        
+        if (numberEl && numberEl.dataset.target) {
+          // Add pulse effect
+          item.classList.add('pulsing');
+          
+          setTimeout(async () => {
+            const target = parseInt(numberEl.dataset.target!, 10);
+            await resetCounter(numberEl);
+            await animateCounter(numberEl, target, 1500);
+            item.classList.remove('pulsing');
+          }, i * STAGGER_DELAY);
+        }
       }
     };
     
-    requestAnimationFrame(updateCounter);
+    // Start the interval
+    setInterval(runCycle, CYCLE_INTERVAL);
   };
 
+  // Initial animation with IntersectionObserver
+  let hasAnimated = false;
+  const statItems = document.querySelectorAll('.stat-item');
+  
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const statItem = entry.target as HTMLElement;
-        statItem.classList.add('visible');
+      if (entry.isIntersecting && !hasAnimated) {
+        hasAnimated = true;
         
-        const numberEl = statItem.querySelector('.stat-number') as HTMLElement;
-        if (numberEl && numberEl.dataset.target) {
-          const target = parseInt(numberEl.dataset.target, 10);
-          animateCounter(numberEl, target);
-        }
+        // Animate all items on first view
+        statItems.forEach((item, index) => {
+          const statItem = item as HTMLElement;
+          
+          setTimeout(() => {
+            statItem.classList.add('visible');
+            
+            const numberEl = statItem.querySelector('.stat-number') as HTMLElement;
+            if (numberEl && numberEl.dataset.target) {
+              const target = parseInt(numberEl.dataset.target, 10);
+              animateCounter(numberEl, target);
+            }
+          }, index * 100);
+        });
         
-        observer.unobserve(entry.target);
+        // Start cyclic animation after initial animation completes
+        setTimeout(() => {
+          startCyclicAnimation(statItems);
+        }, 3000);
+        
+        observer.disconnect();
       }
     });
   }, { threshold: 0.3 });
 
-  document.querySelectorAll('.stat-item').forEach(el => observer.observe(el));
+  statItems.forEach(el => observer.observe(el));
 </script>
 
 <style>
@@ -98,5 +174,33 @@ const { stats } = statsData.data;
     transform: translateY(0);
     transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), 
                 transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  
+  /* Pulse effect during cyclic animation */
+  .stat-item.pulsing {
+    animation: statPulse 0.4s ease-out;
+  }
+  
+  .stat-item.pulsing .stat-number {
+    color: var(--gold);
+    transition: color 0.3s ease;
+  }
+  
+  @keyframes statPulse {
+    0% {
+      transform: scale(1);
+      box-shadow: var(--shadow-premium);
+    }
+    50% {
+      transform: scale(1.03);
+      box-shadow: 
+        0 0 0 4px rgba(201, 169, 97, 0.15),
+        0 8px 24px rgba(201, 169, 97, 0.2),
+        var(--shadow-premium);
+    }
+    100% {
+      transform: scale(1);
+      box-shadow: var(--shadow-premium);
+    }
   }
 </style>

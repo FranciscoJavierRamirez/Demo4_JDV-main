@@ -5,20 +5,35 @@ const areasData = await getEntry('areas', 'home');
 const { sectionTitle, sectionSubtitle, areas } = areasData.data;
 ---
 
-<section id="areas" class="relative py-24 bg-gradient-to-br from-white via-[#f0f9ff] to-[#faf5ff] overflow-hidden">
+<section id="areas" class="relative py-24 bg-gradient-to-b from-[#dbeafe] via-[#eff6ff] to-[#f8fafc] overflow-hidden">
   <!-- Decorative mesh gradient background -->
   <div class="absolute inset-0 pointer-events-none">
-    <div class="absolute top-1/4 left-1/4 w-[500px] h-[500px] rounded-full blur-[150px] opacity-[0.06] bg-[radial-gradient(circle,var(--blue-primary)_0%,transparent_70%)]"></div>
-    <div class="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] rounded-full blur-[120px] opacity-[0.05] bg-[radial-gradient(circle,var(--gold)_0%,transparent_70%)]"></div>
+    <div class="absolute top-1/4 left-1/4 w-[600px] h-[600px] rounded-full blur-[150px] opacity-[0.10] bg-[radial-gradient(circle,var(--blue-primary)_0%,transparent_70%)]"></div>
+    <div class="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] rounded-full blur-[120px] opacity-[0.08] bg-[radial-gradient(circle,var(--gold)_0%,transparent_70%)]"></div>
     <!-- Subtle grid pattern -->
-    <div class="absolute inset-0 opacity-[0.02]" style="background-image: linear-gradient(var(--gray-400) 1px, transparent 1px), linear-gradient(90deg, var(--gray-400) 1px, transparent 1px); background-size: 60px 60px;"></div>
+    <div class="absolute inset-0 opacity-[0.015]" style="background-image: linear-gradient(var(--blue-primary) 1px, transparent 1px), linear-gradient(90deg, var(--blue-primary) 1px, transparent 1px); background-size: 60px 60px;"></div>
   </div>
   <div class="container relative z-10">
-    <!-- Section Header -->
+    <!-- Section Header with Pill/Badge -->
     <div class="text-center mb-16">
-      <h2 class="font-[var(--font-display)] text-[clamp(2rem,4vw,3rem)] font-extrabold text-[var(--gray-900)] mb-5 tracking-[-0.02em]">
-        {sectionTitle}
-      </h2>
+      <!-- Elevated Pill Container -->
+      <div class="section-pill inline-block relative mb-6">
+        <!-- Glow effect behind -->
+        <div class="absolute inset-0 bg-gradient-to-r from-[var(--blue-primary)]/20 via-[var(--gold)]/15 to-[var(--blue-primary)]/20 rounded-full blur-xl opacity-60"></div>
+        
+        <!-- Pill content -->
+        <div class="relative bg-white/95 backdrop-blur-sm px-8 py-4 rounded-full shadow-[0_4px_20px_rgba(0,0,0,0.08),0_8px_40px_rgba(59,130,246,0.12)] border border-white/80">
+          <!-- Decorative icon -->
+          <div class="absolute -left-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-gradient-to-br from-[var(--gold)] to-[var(--gold-dark)] rounded-full flex items-center justify-center shadow-[0_4px_12px_rgba(201,169,97,0.4)]">
+            <i class="fas fa-balance-scale text-white text-sm"></i>
+          </div>
+          
+          <h2 class="font-[var(--font-display)] text-[clamp(1.75rem,3.5vw,2.5rem)] font-extrabold bg-gradient-to-r from-[#1e3a5f] via-[#2563eb] to-[#3b82f6] bg-clip-text text-transparent tracking-[-0.02em] pl-6">
+            {sectionTitle}
+          </h2>
+        </div>
+      </div>
+      
       <p class="text-[clamp(1.125rem,2vw,1.25rem)] text-[var(--gray-600)] max-w-[700px] mx-auto leading-relaxed">
         {sectionSubtitle}
       </p>
@@ -95,6 +110,31 @@ const { sectionTitle, sectionSubtitle, areas } = areasData.data;
 </section>
 
 <style>
+  /* Section Pill styling */
+  .section-pill {
+    animation: pillFloat 3s ease-in-out infinite;
+  }
+  
+  .section-pill:hover {
+    animation-play-state: paused;
+  }
+  
+  .section-pill:hover > div:last-child {
+    transform: translateY(-2px);
+    box-shadow: 
+      0 8px 30px rgba(0, 0, 0, 0.1),
+      0 12px 50px rgba(59, 130, 246, 0.18);
+  }
+  
+  @keyframes pillFloat {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-4px);
+    }
+  }
+  
   /* Base card styling - Glassmorphism */
   .area-card {
     background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(249,250,251,0.9) 100%);

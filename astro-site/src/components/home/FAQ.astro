@@ -10,50 +10,88 @@ function processMarkdown(text: string): string {
 }
 ---
 
-<!-- FAQ Section -->
-<section id="faq" class="relative py-20 lg:py-28 bg-gradient-to-t from-[#f8fafc] via-white to-[#fffbeb] overflow-hidden">
-  <!-- Decorative background elements -->
+<!-- FAQ Section - Premium Dark Design with Glassmorphism -->
+<section id="faq" class="relative py-24 bg-gradient-to-br from-[var(--blue-deeper)] via-[var(--blue-dark)] to-[var(--blue-deeper)] overflow-hidden">
+  
+  <!-- Decorative Background Elements -->
   <div class="absolute inset-0 pointer-events-none">
-    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] rounded-full blur-[150px] opacity-[0.04] bg-[radial-gradient(ellipse,var(--gold)_0%,transparent_70%)]"></div>
-    <div class="absolute bottom-0 right-0 w-[350px] h-[350px] rounded-full blur-[100px] opacity-[0.05] bg-[radial-gradient(circle,var(--blue-primary)_0%,transparent_70%)]"></div>
+    <!-- Grid Pattern -->
+    <div class="absolute inset-0 opacity-[0.05]" style="background-image: linear-gradient(rgba(255,255,255,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.3) 1px, transparent 1px); background-size: 40px 40px;"></div>
+    
+    <!-- Glow Orbs -->
+    <div class="absolute top-0 left-1/4 w-[600px] h-[600px] bg-[radial-gradient(circle,rgba(59,130,246,0.15)_0%,transparent_70%)] blur-[100px] rounded-full mix-blend-screen animate-[pulseGlow_8s_ease-in-out_infinite]"></div>
+    <div class="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(201,162,84,0.1)_0%,transparent_70%)] blur-[100px] rounded-full mix-blend-screen animate-[pulseGlow_10s_ease-in-out_infinite_reverse]"></div>
   </div>
+
   <div class="container relative z-10">
     <!-- Section Header -->
-    <div class="text-center mb-12 lg:mb-16">
-      <h2 class="font-[var(--font-display)] text-[clamp(2rem,4vw,3rem)] font-bold text-[var(--gray-900)] mb-4 tracking-[-0.02em]">
+    <div class="text-center mb-16">
+      <h2 class="font-[var(--font-display)] text-[clamp(2rem,4vw,3rem)] font-extrabold text-white mb-6 tracking-[-0.02em] drop-shadow-lg">
         {sectionTitle}
       </h2>
-      <p class="text-base lg:text-lg text-[var(--gray-600)] max-w-[600px] mx-auto leading-relaxed mb-6">
+      <div class="w-24 h-1 bg-gradient-to-r from-[var(--gold)] to-transparent mx-auto rounded-full opacity-80 mb-6"></div>
+      <p class="text-base lg:text-lg text-white/80 max-w-[700px] mx-auto leading-relaxed">
         {sectionSubtitle}
       </p>
-      <!-- Decorative gold line -->
-      <div class="w-24 h-1 bg-gradient-to-r from-[var(--gold)] to-transparent mx-auto rounded-full opacity-80"></div>
     </div>
 
     <!-- FAQ Container -->
-    <div class="max-w-[800px] mx-auto space-y-4">
-      {questions.map(faq => (
-        <div class="faq-item bg-white rounded-xl overflow-hidden border border-[var(--gray-100)] shadow-[0_2px_8px_rgba(0,0,0,0.04)] transition-all duration-300 hover:shadow-[0_4px_16px_rgba(0,0,0,0.08)] hover:border-[var(--gray-200)]" data-faq={faq.id}>
-          <button 
-            class="faq-question w-full flex items-center justify-between gap-4 p-5 text-left bg-transparent border-none cursor-pointer transition-all duration-200"
-            onclick={`toggleFaq(${faq.id})`}
-            aria-expanded="false"
-            aria-controls={`faq-answer-${faq.id}`}
-          >
-            <span class="font-[var(--font-display)] text-base lg:text-lg font-semibold text-[var(--gray-900)]">{faq.question}</span>
-            <div class="w-8 h-8 flex items-center justify-center bg-[var(--gray-50)] rounded-full flex-shrink-0 transition-all duration-300">
-              <i class="fas fa-chevron-down text-sm text-[var(--blue-primary)] transition-transform duration-300"></i>
-            </div>
-          </button>
-          <div 
-            id={`faq-answer-${faq.id}`}
-            class="faq-answer max-h-0 overflow-hidden transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]"
-          >
-            <div class="px-5 pb-5">
-              <p 
-                class="text-[var(--gray-600)] leading-relaxed text-sm lg:text-base [&_strong]:font-semibold [&_strong]:text-[var(--gray-900)] [&_a]:text-[var(--blue-primary)] [&_a]:font-semibold [&_a]:no-underline [&_a]:hover:underline"
-                set:html={processMarkdown(faq.answer)}
-              ></p>
+    <div class="max-w-[900px] mx-auto space-y-4">
+      {questions.map((faq, index) => (
+        <div 
+          class="faq-item group relative rounded-[24px] overflow-hidden transition-all duration-500"
+          data-faq={faq.id}
+          style={`transition-delay: ${index * 50}ms`}
+        >
+          <!-- Glassmorphism Background -->
+          <div class="absolute inset-0 bg-white/5 backdrop-blur-md border border-white/10 rounded-[24px] transition-all duration-500"></div>
+          
+          <!-- Gradient Border Animation Layer -->
+          <div class="gradient-border absolute inset-0 rounded-[24px] opacity-0 transition-opacity duration-500"></div>
+          
+          <!-- Hover Gradient Glow -->
+          <div class="absolute inset-0 bg-gradient-to-br from-[var(--gold)]/0 via-[var(--gold)]/0 to-[var(--gold)]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-[24px]"></div>
+
+          <!-- Content Container -->
+          <div class="relative z-10">
+            <!-- Question Button -->
+            <button 
+              class="faq-question w-full flex items-center justify-between gap-6 p-6 lg:p-8 text-left bg-transparent border-none cursor-pointer transition-all duration-300"
+              onclick={`toggleFaq(${faq.id})`}
+              aria-expanded="false"
+              aria-controls={`faq-answer-${faq.id}`}
+            >
+              <!-- Question Text -->
+              <span class="flex-1 font-[var(--font-display)] text-base lg:text-xl font-semibold text-white transition-colors duration-300 group-hover:text-[var(--gold-light)]">
+                {faq.question}
+              </span>
+
+              <!-- Chevron Toggle with Icon Background -->
+              <div class="faq-chevron-wrapper w-12 h-12 flex items-center justify-center rounded-2xl bg-white/10 border border-white/10 flex-shrink-0 transition-all duration-500 group-hover:scale-110 group-hover:border-[var(--gold)]/30">
+                <i class="fas fa-chevron-down faq-chevron text-base text-[var(--gold)] transition-all duration-500"></i>
+              </div>
+            </button>
+
+            <!-- Answer Content -->
+            <div 
+              id={`faq-answer-${faq.id}`}
+              class="faq-answer overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]"
+              style="max-height: 0;"
+            >
+              <div class="px-6 lg:px-8 pb-8 pt-2">
+                <!-- Content Inner with fade-in effect -->
+                <div class="faq-answer-content opacity-0 transform translate-y-2 transition-all duration-400">
+                  <div class="flex gap-4">
+                    <!-- Decorative Line -->
+                    <div class="flex-shrink-0 w-1 bg-gradient-to-b from-[var(--gold)] to-transparent rounded-full"></div>
+                    <!-- Answer Text -->
+                    <p 
+                      class="flex-1 text-white/70 leading-relaxed text-sm lg:text-base [&_strong]:font-semibold [&_strong]:text-white [&_a]:text-[var(--gold-light)] [&_a]:font-semibold [&_a]:no-underline [&_a]:hover:underline"
+                      set:html={processMarkdown(faq.answer)}
+                    ></p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -77,61 +115,235 @@ function processMarkdown(text: string): string {
 </section>
 
 <style>
+  /* ==========================================
+     FAQ CARD BASE STYLES - GLASSMORPHISM
+     ========================================== */
+  
   .faq-item {
-    border-left: 3px solid transparent;
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 
+      0 4px 6px -1px rgba(0, 0, 0, 0.3),
+      0 2px 4px -1px rgba(0, 0, 0, 0.2);
   }
 
-  .faq-item.active .faq-question .fa-chevron-down {
-    transform: rotate(180deg);
+  /* ==========================================
+     3D DEPTH EFFECT ON HOVER
+     ========================================== */
+  
+  .faq-item:hover {
+    transform: translateY(-8px) scale(1.01);
+    box-shadow: 
+      0 20px 40px -12px rgba(0, 0, 0, 0.5),
+      0 0 0 1px rgba(201, 162, 84, 0.3);
   }
 
-  .faq-item.active .faq-question > div {
-    background: var(--gold);
+  .faq-item:hover .absolute.inset-0.bg-white\/5 {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.15);
   }
 
-  .faq-item.active .faq-question .fa-chevron-down {
-    color: white;
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  /* ==========================================
+     GRADIENT BORDER ANIMATION
+     ========================================== */
+  
+  .gradient-border {
+    background: conic-gradient(
+      from 0deg at 50% 50%,
+      var(--gold) 0deg,
+      var(--blue-primary) 90deg,
+      var(--gold-light) 180deg,
+      var(--blue-light) 270deg,
+      var(--gold) 360deg
+    );
+    background-size: 200% 200%;
+    animation: rotateBorder 8s linear infinite;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    -webkit-mask-composite: xor;
+    padding: 2px;
   }
 
-  .faq-item .faq-question .fa-chevron-down {
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  @keyframes rotateBorder {
+    0% { 
+      background-position: 0% 0%;
+      filter: hue-rotate(0deg);
+    }
+    100% { 
+      background-position: 200% 200%;
+      filter: hue-rotate(360deg);
+    }
   }
 
-  .faq-item.active .faq-answer {
-    max-height: 500px;
+  .faq-item:hover .gradient-border {
+    opacity: 1;
   }
 
+  /* ==========================================
+     ACTIVE STATE - EXPANDED FAQ
+     ========================================== */
+  
   .faq-item.active {
-    border-left-color: var(--gold);
-    box-shadow: 0 4px 20px rgba(201, 169, 97, 0.12);
+    transform: scale(1.02);
+    box-shadow: 
+      0 25px 50px -12px rgba(59, 130, 246, 0.4),
+      0 0 0 2px rgba(201, 162, 84, 0.5),
+      0 0 60px rgba(201, 162, 84, 0.3);
   }
 
-  .faq-question:hover > div {
-    background: var(--gray-100);
+  .faq-item.active .gradient-border {
+    opacity: 1;
+    animation: rotateBorder 4s linear infinite, pulseGlow 2s ease-in-out infinite;
   }
 
-  .faq-item.active .faq-question:hover > div {
-    background: var(--gold-dark);
+  .faq-item.active .absolute.inset-0.bg-white\/5 {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(201, 162, 84, 0.3);
+  }
+
+  /* Chevron Animation on Active */
+  .faq-item.active .faq-chevron {
+    transform: rotate(180deg) scale(1.2);
+    color: white;
+  }
+
+  .faq-item.active .faq-chevron-wrapper {
+    background: var(--gold-gradient);
+    border-color: transparent;
+    box-shadow: 0 8px 20px rgba(201, 162, 84, 0.4);
+  }
+
+  /* Answer Content Fade In */
+  .faq-item.active .faq-answer-content {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 200ms;
+  }
+
+  /* ==========================================
+     GLOW EFFECT ANIMATION
+     ========================================== */
+  
+  @keyframes pulseGlow {
+    0%, 100% {
+      opacity: 0.5;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.8;
+      transform: scale(1.05);
+    }
+  }
+
+  /* ==========================================
+     ENTRANCE ANIMATION
+     ========================================== */
+  
+  .faq-item {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.6s var(--ease-expo) forwards;
+  }
+
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* ==========================================
+     PERFORMANCE OPTIMIZATIONS
+     ========================================== */
+  
+  .faq-item {
+    will-change: transform, box-shadow;
+  }
+
+  .faq-answer {
+    will-change: max-height;
+  }
+
+  .gradient-border {
+    will-change: opacity, background-position;
+  }
+
+  .faq-chevron {
+    will-change: transform;
   }
 </style>
 
-<script is:inline>
-  function toggleFaq(id) {
-    const faqItem = document.querySelector(`[data-faq="${id}"]`);
-    const isActive = faqItem.classList.contains('active');
+<script>
+  // ==========================================
+  // FAQ TOGGLE FUNCTION WITH SMOOTH EXPANSION
+  // ==========================================
+  
+  function toggleFaq(id: number) {
+    const faqItem = document.querySelector(`[data-faq="${id}"]`) as HTMLElement;
+    const answerDiv = faqItem?.querySelector('.faq-answer') as HTMLElement;
+    const button = faqItem?.querySelector('.faq-question') as HTMLButtonElement;
+    const isActive = faqItem?.classList.contains('active');
     
-    // Close all other FAQs
+    // Close all other FAQs with smooth animation
     document.querySelectorAll('.faq-item').forEach(item => {
-      item.classList.remove('active');
-      item.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+      if (item !== faqItem) {
+        const otherAnswer = item.querySelector('.faq-answer') as HTMLElement;
+        const otherButton = item.querySelector('.faq-question') as HTMLButtonElement;
+        
+        item.classList.remove('active');
+        otherButton?.setAttribute('aria-expanded', 'false');
+        
+        if (otherAnswer) {
+          otherAnswer.style.maxHeight = '0';
+        }
+      }
     });
     
     // Toggle current FAQ
     if (!isActive) {
+      // Open
       faqItem.classList.add('active');
-      faqItem.querySelector('.faq-question').setAttribute('aria-expanded', 'true');
+      button?.setAttribute('aria-expanded', 'true');
+      
+      // Calculate dynamic height for smooth expansion
+      if (answerDiv) {
+        const contentHeight = answerDiv.scrollHeight;
+        answerDiv.style.maxHeight = `${contentHeight}px`;
+      }
+    } else {
+      // Close
+      faqItem.classList.remove('active');
+      button?.setAttribute('aria-expanded', 'false');
+      
+      if (answerDiv) {
+        answerDiv.style.maxHeight = '0';
+      }
     }
   }
+
+  // Make function globally available
+  (window as any).toggleFaq = toggleFaq;
+
+  // ==========================================
+  // INTERSECTION OBSERVER FOR ENTRANCE ANIMATIONS
+  // ==========================================
+  
+  document.addEventListener('DOMContentLoaded', () => {
+    const faqCards = document.querySelectorAll('.faq-item');
+    
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    faqCards.forEach(card => observer.observe(card));
+  });
 </script>

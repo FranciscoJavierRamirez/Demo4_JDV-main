@@ -80,9 +80,6 @@ trust:
       text: "35 Años<br>CGR"
     - icon: "fas fa-star"
       text: "4.9/5 Estrellas<br>Google Reviews"
-    - icon: "fas fa-gift"
-      text: "Consulta<br>Gratuita"
-      featured: true
     - icon: "fas fa-lock"
       text: "Datos<br>Protegidos"
 
