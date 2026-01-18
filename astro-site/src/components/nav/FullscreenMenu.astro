@@ -42,15 +42,19 @@ const menuItems = [
 
     <!-- Footer -->
     <div class="fullscreen-footer mt-auto pt-12 opacity-0 translate-y-8 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] delay-500">
-      <button 
-        class="w-full max-w-md py-5 px-8 bg-[var(--gold-gradient)] text-[var(--gray-900)] border-none rounded-2xl font-bold text-lg cursor-pointer shadow-[var(--shadow-gold)] transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_8px_24px_rgba(201,169,97,0.5)]"
-        aria-label="Abrir formulario de consulta gratuita" 
-        onclick="openModal(); document.getElementById('fullscreenMenu').classList.remove('active'); document.getElementById('navTogglePremium').classList.remove('active'); document.body.style.overflow = '';"
+      <a 
+        href="https://wa.me/56965870256?text=Necesito%20m%C3%A1s%20informaci%C3%B3n%20porque%20estoy%20interesado%20en%20recibir%20asesor%C3%ADa%20legal"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="w-full max-w-md py-5 px-8 bg-[var(--gold-gradient)] text-[var(--gray-900)] border-none rounded-2xl font-bold text-lg cursor-pointer shadow-[var(--shadow-gold)] transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_8px_24px_rgba(201,169,97,0.5)] flex items-center justify-center gap-2 no-underline"
+        aria-label="Contactar por WhatsApp para consulta gratuita"
+        onclick="document.getElementById('fullscreenMenu').classList.remove('active'); document.getElementById('navTogglePremium').classList.remove('active'); document.body.style.overflow = '';"
       >
+        <i class="fab fa-whatsapp"></i>
         Agendar Consulta Gratuita
-      </button>
+      </a>
       <div class="mt-8 text-white/80 space-y-2">
-        <p class="text-lg font-medium">+56 9 XXXX XXXX</p>
+        <p class="text-lg font-medium">+56 9 6587 0256</p>
         <p class="text-base opacity-80">contacto@jdviabogados.cl</p>
       </div>
     </div>

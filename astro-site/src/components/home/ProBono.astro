@@ -54,13 +54,15 @@ const { sectionTitle, sectionSubtitle, intro, criteriaTitle, criteria, cta, visu
         <div class="probono-animate p-6 bg-linear-to-br from-[#10b981] to-[#059669] rounded-2xl text-white text-center" data-animate-delay="500">
           <p class="m-0 mb-4 leading-relaxed"><strong>{cta.question}</strong></p>
           <p class="m-0 mb-6 leading-relaxed">{cta.description}</p>
-          <button 
-            class="px-6 py-4 bg-white text-[#10b981] border-none rounded-xl font-semibold text-base cursor-pointer inline-flex items-center gap-2 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_10px_30px_rgba(255,255,255,0.3)] hover:bg-[#f0fdf4]"
-            onclick={cta.buttonAction}
+          <a 
+            href="https://wa.me/56965870256?text=Necesito%20informaci%C3%B3n%20para%20postular%20mi%20caso%20como%20Pro%20Bono"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="px-6 py-4 bg-white text-[#10b981] border-none rounded-xl font-semibold text-base cursor-pointer inline-flex items-center gap-2 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_10px_30px_rgba(255,255,255,0.3)] hover:bg-[#f0fdf4] no-underline"
           >
-            <i class="fas fa-hand-holding-heart"></i>
+            <i class="fab fa-whatsapp"></i>
             {cta.buttonText}
-          </button>
+          </a>
         </div>
       </div>
 

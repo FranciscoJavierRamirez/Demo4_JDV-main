@@ -67,14 +67,16 @@ const processedSubtitle = subtitle
 
         <!-- CTAs Row -->
         <div class="flex flex-col sm:flex-row gap-4 mb-10 opacity-0 animate-[fadeInUp_0.8s_ease-out_0.4s_forwards] will-change-[opacity,transform]">
-          <button 
-            class="group relative px-6 py-4 text-base bg-linear-to-br from-[#1a365d] via-[#1e3a5f] to-[#0f172a] border-2 border-[rgba(201,169,97,0.4)] rounded-xl font-bold shadow-[0_4px_20px_rgba(0,0,0,0.3),0_0_30px_rgba(201,169,97,0.15)] overflow-hidden transition-all duration-200 hover:translate-y-[-2px] hover:scale-[1.02] hover:border-[rgba(201,169,97,0.6)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.4),0_0_40px_rgba(201,169,97,0.25)] active:scale-[0.98]"
-            onclick={cta.primary.action}
+          <a 
+            href="https://wa.me/56965870256?text=Necesito%20m%C3%A1s%20informaci%C3%B3n%20porque%20estoy%20interesado%20en%20recibir%20asesor%C3%ADa%20legal"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group relative px-6 py-4 text-base bg-linear-to-br from-[#1a365d] via-[#1e3a5f] to-[#0f172a] border-2 border-[rgba(201,169,97,0.4)] rounded-xl font-bold shadow-[0_4px_20px_rgba(0,0,0,0.3),0_0_30px_rgba(201,169,97,0.15)] overflow-hidden transition-all duration-200 hover:translate-y-[-2px] hover:scale-[1.02] hover:border-[rgba(201,169,97,0.6)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.4),0_0_40px_rgba(201,169,97,0.25)] active:scale-[0.98] no-underline text-center"
           >
             <span class="absolute top-0 -left-full w-full h-full bg-linear-to-r from-transparent via-[rgba(201,169,97,0.3)] to-transparent animate-[shimmer_3s_infinite] z-1"></span>
             <span class="relative z-2 bg-linear-to-r from-[#C9A961] via-[#E5D5AA] to-[#D4AF37] bg-clip-text text-transparent">{cta.primary.text}</span>
-            <i class="fas fa-arrow-right relative z-2 ml-2 text-[#C9A961] transition-transform group-hover:translate-x-1"></i>
-          </button>
+            <i class="fab fa-whatsapp relative z-2 ml-2 text-[#C9A961] transition-transform group-hover:translate-x-1"></i>
+          </a>
           
           <a 
             href={cta.secondary.href} 
