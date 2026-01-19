@@ -326,58 +326,274 @@ const { sectionTitle, sectionSubtitle, areas } = areasData.data;
       transform: none;
       transition: none;
     }
+    
+    .section-pill {
+      animation: none;
+    }
+  }
+
+  /* ========================================
+     Mobile-Specific Premium Animations
+     Elegant, fluid, bidirectional scroll reveal
+     ======================================== */
+  
+  @media (max-width: 768px) {
+    /* Premium card reveal with elegant easing - bidirectional */
+    .scroll-reveal-card {
+      opacity: 0;
+      transform: translateY(30px);
+      filter: blur(4px);
+      transition: 
+        opacity 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+        transform 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+        filter 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    
+    .scroll-reveal-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0);
+    }
+    
+    /* Staggered animation delay based on card index via CSS custom property */
+    .scroll-reveal-card:nth-child(1) { transition-delay: 0ms; }
+    .scroll-reveal-card:nth-child(2) { transition-delay: 80ms; }
+    .scroll-reveal-card:nth-child(3) { transition-delay: 160ms; }
+    .scroll-reveal-card:nth-child(4) { transition-delay: 240ms; }
+    .scroll-reveal-card:nth-child(5) { transition-delay: 320ms; }
+    .scroll-reveal-card:nth-child(6) { transition-delay: 400ms; }
+    
+    /* Header reveal - elegant fade with blur */
+    .scroll-reveal-header {
+      opacity: 0;
+      transform: translateY(-20px);
+      filter: blur(3px);
+      transition: 
+        opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+        transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+        filter 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    
+    .scroll-reveal-header.visible {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0);
+    }
+    
+    /* Tactile feedback for mobile touch interactions */
+    .area-card:active {
+      transform: scale(0.985) !important;
+      transition: transform 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+    }
+    
+    .area-card:active .glass-bg {
+      background: rgba(255,255,255,0.95);
+    }
+    
+    /* Disable hover effects on mobile for cleaner touch experience */
+    .area-card:hover {
+      transform: none;
+    }
+    
+    .area-card:hover .card-content {
+      transform: translateY(0);
+    }
+    
+    .area-card:hover .card-bg-image {
+      transform: translateY(0) scale(1.02);
+      filter: grayscale(20%) brightness(1.05);
+      opacity: 0.75;
+    }
+    
+    .area-card:hover .card-overlay {
+      background: linear-gradient(
+        to top,
+        rgba(255,255,255,0.9) 0%,
+        rgba(255,255,255,0.6) 30%,
+        rgba(255,255,255,0.1) 50%,
+        transparent 70%
+      );
+      transform: translateY(0);
+    }
+    
+    .area-card:hover .glass-bg {
+      background: rgba(255,255,255,0.88);
+      border-top-color: rgba(255,255,255,0.5);
+    }
+    
+    .area-card:hover .card-title {
+      color: var(--gray-900);
+    }
+    
+    .area-card:hover .card-description {
+      color: var(--gray-600);
+    }
+    
+    .area-card:hover .card-action {
+      color: var(--blue-primary);
+    }
+    
+    .area-card:hover .card-icon {
+      transform: none;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    
+    .area-card:hover .card-icon:not(.bg-linear-to-br) {
+      background: rgba(255,255,255,0.9);
+      color: var(--blue-primary);
+      border-color: rgba(255,255,255,0.5);
+    }
+  }
+  
+  /* Performance optimizations for mobile */
+  @media (max-width: 768px) {
+    .scroll-reveal-card,
+    .scroll-reveal-header {
+      will-change: opacity, transform, filter;
+    }
+    
+    .scroll-reveal-card.visible,
+    .scroll-reveal-header.visible {
+      will-change: auto;
+    }
   }
 </style>
 
 <script>
   // ========================================
-  // Scroll Reveal Animation with IntersectionObserver
+  // Premium Scroll Reveal Animation System
+  // Bidirectional, fluid animations for mobile & desktop
   // ========================================
   const section = document.getElementById('areas');
-  const header = section?.querySelector('.scroll-reveal-header');
-  const cards = section?.querySelectorAll('.scroll-reveal-card');
+  const header = section?.querySelector('.scroll-reveal-header') as HTMLElement | null;
+  const cards = section?.querySelectorAll<HTMLElement>('.scroll-reveal-card');
 
-  if (section) {
-    const observerOptions: IntersectionObserverInit = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    };
+  // Detect mobile viewport
+  const isMobile = window.matchMedia('(max-width: 768px)').matches;
+  
+  // Check for reduced motion preference
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          // Reveal header first
-          if (header) {
-            header.classList.add('visible');
-          }
-          
-          // Then reveal cards with staggered delay
-          cards?.forEach((card, index) => {
-            setTimeout(() => {
-              card.classList.add('visible');
-            }, 150 + (index * 100)); // Start after header, then stagger
+  if (section && !prefersReducedMotion) {
+    if (isMobile) {
+      // ========================================
+      // MOBILE: Bidirectional scroll animations
+      // Cards reveal/hide based on viewport visibility
+      // ========================================
+      
+      // Header observer - bidirectional
+      if (header) {
+        const headerObserverOptions: IntersectionObserverInit = {
+          threshold: [0, 0.2, 0.4],
+          rootMargin: '50px 0px -20px 0px'
+        };
+        
+        const headerObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting && entry.intersectionRatio >= 0.2) {
+              header.classList.add('visible');
+            } else if (!entry.isIntersecting) {
+              // Optional: remove visible class when scrolling back up
+              // header.classList.remove('visible');
+            }
           });
-          
-          // Stop observing after animation triggered
-          revealObserver.disconnect();
-        }
+        }, headerObserverOptions);
+        
+        headerObserver.observe(header);
+      }
+      
+      // Card observers - bidirectional with smooth reveal
+      const cardObserverOptions: IntersectionObserverInit = {
+        threshold: [0, 0.1, 0.25, 0.5],
+        rootMargin: '20px 0px -60px 0px'
+      };
+      
+      // Track last scroll position for direction detection
+      let lastScrollY = window.scrollY;
+      let scrollDirection: 'up' | 'down' = 'down';
+      
+      window.addEventListener('scroll', () => {
+        scrollDirection = window.scrollY > lastScrollY ? 'down' : 'up';
+        lastScrollY = window.scrollY;
+      }, { passive: true });
+      
+      cards?.forEach((card, index) => {
+        const cardObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            const ratio = entry.intersectionRatio;
+            
+            if (entry.isIntersecting) {
+              // Progressive reveal based on visibility
+              if (ratio >= 0.1) {
+                // Use requestAnimationFrame for smooth animation
+                requestAnimationFrame(() => {
+                  card.classList.add('visible');
+                });
+              }
+            } else {
+              // When card exits viewport, optionally hide for re-animation
+              // Only hide if scrolling up and card is above viewport
+              if (scrollDirection === 'up' && entry.boundingClientRect.top > window.innerHeight) {
+                card.classList.remove('visible');
+              }
+            }
+          });
+        }, cardObserverOptions);
+        
+        cardObserver.observe(card);
       });
-    }, observerOptions);
+      
+    } else {
+      // ========================================
+      // DESKTOP: Staggered animation when section is visible
+      // All cards animate together with delay
+      // ========================================
+      const observerOptions: IntersectionObserverInit = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
 
-    revealObserver.observe(section);
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            // Reveal header first
+            if (header) {
+              header.classList.add('visible');
+            }
+            
+            // Then reveal cards with staggered delay
+            cards?.forEach((card, index) => {
+              setTimeout(() => {
+                card.classList.add('visible');
+              }, 150 + (index * 100));
+            });
+            
+            revealObserver.disconnect();
+          }
+        });
+      }, observerOptions);
+
+      revealObserver.observe(section);
+    }
+  } else if (prefersReducedMotion) {
+    // Immediately show all elements for users who prefer reduced motion
+    header?.classList.add('visible');
+    cards?.forEach(card => card.classList.add('visible'));
   }
 
   // ========================================
-  // Spotlight Effect (Mouse tracking)
+  // Spotlight Effect (Mouse tracking) - Desktop only
   // ========================================
-  const areaCards = document.querySelectorAll<HTMLElement>('.area-card');
-  areaCards.forEach(card => {
-    card.addEventListener('mousemove', (e: MouseEvent) => {
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      card.style.setProperty('--mouse-x', `${x}px`);
-      card.style.setProperty('--mouse-y', `${y}px`);
+  if (!isMobile) {
+    const areaCards = document.querySelectorAll<HTMLElement>('.area-card');
+    areaCards.forEach(card => {
+      card.addEventListener('mousemove', (e: MouseEvent) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        card.style.setProperty('--mouse-x', `${x}px`);
+        card.style.setProperty('--mouse-y', `${y}px`);
+      });
     });
-  });
+  }
 </script>
