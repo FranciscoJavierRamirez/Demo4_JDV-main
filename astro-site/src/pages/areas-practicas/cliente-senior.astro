@@ -22,10 +22,10 @@ import WhatsAppFloat from '../../components/WhatsAppFloat.astro';
 import BackToTop from '../../components/BackToTop.astro';
 
 // Obtener contenido de la colección
-const practiceEntry = await getEntry('practices', 'defensa-estatutaria');
+const practiceEntry = await getEntry('practices', 'cliente-senior');
 
 if (!practiceEntry) {
-  throw new Error('No se encontró el contenido para Defensa Estatutaria');
+  throw new Error('No se encontró el contenido para Cliente Senior');
 }
 
 const { data, render } = practiceEntry;
@@ -37,11 +37,11 @@ const { Content } = await render();
   description={data.seo.description}
   canonical={data.seo.canonical}
 >
-  <!-- Navegación reutilizada del Home -->
+  <!-- Navegación -->
   <Header />
 
   <!-- Breadcrumbs -->
-  <PracticeBreadcrumbs areaName={data.hero.h1 ?? ''} areaSlug={data.slug ?? ''} />
+  <PracticeBreadcrumbs areaName={data.hero.h1} />
 
   <!-- Hero Section -->
   <PracticeHero
@@ -76,7 +76,7 @@ const { Content } = await render();
   <PracticeProcess steps={data.process} />
 
   <!-- Markdown Content -->
-  <PracticeContent headerTitle="Información Detallada" headerBadge="Defensa">
+  <PracticeContent headerTitle="Información Detallada" headerBadge="Senior">
     <Content />
   </PracticeContent>
 
@@ -96,10 +96,10 @@ const { Content } = await render();
     button={data.finalCta.button}
   />
 
-  <!-- Footer reutilizado del Home -->
+  <!-- Footer -->
   <Footer />
 
-  <!-- Modal reutilizado del Home -->
+  <!-- Modal -->
   <Modal />
 
   <!-- WhatsApp Float Button -->
@@ -108,5 +108,3 @@ const { Content } = await render();
   <!-- Back to Top Button -->
   <BackToTop />
 </PracticeLayout>
-
-<!-- Estilos encapsulados en PracticeContent.astro -->
