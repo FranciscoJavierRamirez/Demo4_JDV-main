@@ -297,44 +297,6 @@ const { items } = Astro.props;
     50% { transform: scale(1.1); opacity: 1; }
   }
 
-  /* ========================================
-     MOBILE PREMIUM ANIMATIONS - Refined & Elegant
-     ======================================== */
-  
-  /* Card entrance - smooth fade up (no bounce, clean) */
-  @keyframes targetCardEnterMobile {
-    from {
-      opacity: 0;
-      transform: translateY(24px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  /* Icon entrance - gentle scale (no rotation) */
-  @keyframes targetIconEnterMobile {
-    from {
-      opacity: 0;
-      transform: scale(0.85);
-    }
-    to {
-      opacity: 1;
-      transform: scale(1);
-    }
-  }
-
-  /* Content fade - minimal movement */
-  @keyframes targetContentFadeMobile {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-
   /* Icon reveal animation on scroll */
   .target-card.visible .target-icon-wrapper {
     animation: targetIconReveal 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
@@ -433,7 +395,7 @@ const { items } = Astro.props;
   .target-card-reveal[data-index="3"].visible { transition-delay: 300ms; }
 
   /* ========================================
-     RESPONSIVE - Mobile Elegant Animations
+     RESPONSIVE - Mobile
      ======================================== */
   @media (max-width: 768px) {
     .practice-target {
@@ -445,81 +407,69 @@ const { items } = Astro.props;
       gap: var(--space-5);
     }
 
-    /* Header - smooth fade up */
+    /* Header - use same transition approach */
     .target-header-reveal {
       opacity: 0;
       transform: translateY(20px);
-    }
-
-    .target-header-reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
       transition: 
         opacity 0.5s ease-out,
         transform 0.5s ease-out;
     }
 
-    /* Section line - elegant grow */
-    .target-header-reveal.visible .section-line {
-      transform: scaleX(1);
-      transition: transform 0.6s ease-out 0.2s;
+    .target-header-reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
-    /* Cards - Clean fade up animation */
+    /* Section line */
+    .target-header-reveal.visible .section-line {
+      transform: scaleX(1);
+      transition: transform 0.5s ease-out 0.15s;
+    }
+
+    /* Cards - transition based (same as desktop but adjusted values) */
     .target-card-reveal {
       opacity: 0;
       transform: translateY(24px);
+      transition: 
+        opacity 0.5s ease-out,
+        transform 0.5s ease-out;
     }
 
     .target-card-reveal.visible {
-      animation: targetCardEnterMobile 0.5s ease-out forwards;
+      opacity: 1;
+      transform: translateY(0);
     }
 
-    /* Staggered delays - subtle and quick (60ms between cards) */
-    .target-card-reveal[data-index="0"].visible { animation-delay: 0ms; }
-    .target-card-reveal[data-index="1"].visible { animation-delay: 60ms; }
-    .target-card-reveal[data-index="2"].visible { animation-delay: 120ms; }
-    .target-card-reveal[data-index="3"].visible { animation-delay: 180ms; }
-    .target-card-reveal[data-index="4"].visible { animation-delay: 240ms; }
-    .target-card-reveal[data-index="5"].visible { animation-delay: 300ms; }
+    /* Staggered delays via transition-delay */
+    .target-card-reveal[data-index="0"].visible { transition-delay: 0ms; }
+    .target-card-reveal[data-index="1"].visible { transition-delay: 80ms; }
+    .target-card-reveal[data-index="2"].visible { transition-delay: 160ms; }
+    .target-card-reveal[data-index="3"].visible { transition-delay: 240ms; }
+    .target-card-reveal[data-index="4"].visible { transition-delay: 320ms; }
+    .target-card-reveal[data-index="5"].visible { transition-delay: 400ms; }
 
-    /* Icon - gentle scale with synchronized timing */
-    .target-card.visible .target-icon-wrapper {
-      animation: targetIconEnterMobile 0.4s ease-out forwards;
-    }
-
-    /* Icon delays - sync with card (slight offset) */
-    .target-card-reveal[data-index="0"].visible .target-icon-wrapper { animation-delay: 0.1s; }
-    .target-card-reveal[data-index="1"].visible .target-icon-wrapper { animation-delay: 0.16s; }
-    .target-card-reveal[data-index="2"].visible .target-icon-wrapper { animation-delay: 0.22s; }
-    .target-card-reveal[data-index="3"].visible .target-icon-wrapper { animation-delay: 0.28s; }
-    .target-card-reveal[data-index="4"].visible .target-icon-wrapper { animation-delay: 0.34s; }
-    .target-card-reveal[data-index="5"].visible .target-icon-wrapper { animation-delay: 0.4s; }
-
-    /* Text content - simple opacity fade, no transforms */
-    .target-card h3,
-    .target-card p {
+    /* Icon - transition based */
+    .target-icon-wrapper {
       opacity: 0;
+      transform: scale(0.9);
+      transition: 
+        opacity 0.4s ease-out,
+        transform 0.4s ease-out;
     }
 
-    .target-card.visible h3,
-    .target-card.visible p {
-      animation: targetContentFadeMobile 0.4s ease-out forwards;
+    .target-card.visible .target-icon-wrapper {
+      opacity: 1;
+      transform: scale(1);
     }
 
-    /* Text delays - unified, quick cascade */
-    .target-card-reveal[data-index="0"].visible h3 { animation-delay: 0.15s; }
-    .target-card-reveal[data-index="0"].visible p { animation-delay: 0.2s; }
-    .target-card-reveal[data-index="1"].visible h3 { animation-delay: 0.21s; }
-    .target-card-reveal[data-index="1"].visible p { animation-delay: 0.26s; }
-    .target-card-reveal[data-index="2"].visible h3 { animation-delay: 0.27s; }
-    .target-card-reveal[data-index="2"].visible p { animation-delay: 0.32s; }
-    .target-card-reveal[data-index="3"].visible h3 { animation-delay: 0.33s; }
-    .target-card-reveal[data-index="3"].visible p { animation-delay: 0.38s; }
-    .target-card-reveal[data-index="4"].visible h3 { animation-delay: 0.39s; }
-    .target-card-reveal[data-index="4"].visible p { animation-delay: 0.44s; }
-    .target-card-reveal[data-index="5"].visible h3 { animation-delay: 0.45s; }
-    .target-card-reveal[data-index="5"].visible p { animation-delay: 0.5s; }
+    /* Icon delays synced with cards */
+    .target-card-reveal[data-index="0"].visible .target-icon-wrapper { transition-delay: 0.1s; }
+    .target-card-reveal[data-index="1"].visible .target-icon-wrapper { transition-delay: 0.18s; }
+    .target-card-reveal[data-index="2"].visible .target-icon-wrapper { transition-delay: 0.26s; }
+    .target-card-reveal[data-index="3"].visible .target-icon-wrapper { transition-delay: 0.34s; }
+    .target-card-reveal[data-index="4"].visible .target-icon-wrapper { transition-delay: 0.42s; }
+    .target-card-reveal[data-index="5"].visible .target-icon-wrapper { transition-delay: 0.5s; }
 
     /* Card sizing adjustments for mobile */
     .target-card {
@@ -565,7 +515,7 @@ const { items } = Astro.props;
     }
 
     .target-card:hover .target-icon-wrapper {
-      transform: none;
+      transform: scale(1);
       background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
       box-shadow: 0 4px 12px rgba(59, 130, 246, 0.1);
     }
@@ -573,12 +523,6 @@ const { items } = Astro.props;
     .target-card:hover .target-icon {
       transform: none;
       filter: none;
-    }
-
-    /* Active state - subtle feedback */
-    .target-card:active {
-      transform: scale(0.99);
-      transition: transform 0.1s ease;
     }
   }
 
@@ -589,21 +533,10 @@ const { items } = Astro.props;
     /* Show all elements immediately */
     .target-header-reveal,
     .target-card-reveal,
-    .target-icon-wrapper,
-    .target-card h3,
-    .target-card p {
+    .target-icon-wrapper {
       opacity: 1;
       transform: none;
       transition: none;
-      animation: none;
-    }
-
-    .target-header-reveal.visible,
-    .target-card-reveal.visible,
-    .target-card.visible .target-icon-wrapper,
-    .target-card.visible h3,
-    .target-card.visible p {
-      animation: none;
     }
 
     .section-line {
@@ -621,10 +554,8 @@ const { items } = Astro.props;
       animation: none;
     }
 
-    /* Simple hover feedback */
-    .target-card:hover {
-      transform: translateY(-4px);
-      transition: transform 0.2s ease;
+    .target-card.visible .target-icon-wrapper {
+      animation: none;
     }
   }
 </style>
@@ -646,54 +577,29 @@ const { items } = Astro.props;
       return;
     }
 
-    // Detect mobile viewport
-    const isMobile = window.innerWidth <= 768;
-
-    if (isMobile) {
-      // ========================================
-      // MOBILE: Unified section reveal with synchronized animations
-      // ========================================
-      
-      const sectionObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            // Reveal header first
-            header?.classList.add('visible');
-            
-            // Then reveal all cards together (CSS handles stagger via animation-delay)
-            requestAnimationFrame(() => {
-              cards.forEach(card => card.classList.add('visible'));
-            });
-            
-            sectionObserver.disconnect();
-          }
-        });
-      }, { 
-        threshold: 0.1,
-        rootMargin: '0px 0px -40px 0px'
+    // Single observer for both mobile and desktop
+    // CSS media queries handle the visual differences
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // Reveal header
+          header?.classList.add('visible');
+          
+          // Reveal all cards (CSS transition-delay handles stagger)
+          cards.forEach(card => card.classList.add('visible'));
+          
+          observer.disconnect();
+        }
       });
+    }, { 
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    });
 
-      sectionObserver.observe(section);
+    observer.observe(section);
 
-    } else {
-      // ========================================
-      // DESKTOP: Section-based reveal with stagger
-      // ========================================
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            header?.classList.add('visible');
-            cards.forEach((card, i) => {
-              setTimeout(() => card.classList.add('visible'), 150 + i * 100);
-            });
-            observer.disconnect();
-          }
-        });
-      }, { threshold: 0.15 });
-
-      observer.observe(section);
-
-      // Spotlight effect (desktop only)
+    // Spotlight effect for desktop (mouse tracking)
+    if (window.matchMedia('(hover: hover)').matches) {
       cards.forEach(card => {
         card.addEventListener('mousemove', (e) => {
           const rect = card.getBoundingClientRect();

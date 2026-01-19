@@ -534,6 +534,134 @@ const parsedCommitments = commitments.map(parseCommitment);
   }
 
   /* ========================================
+     PREMIUM MOBILE KEYFRAMES
+     ======================================== */
+
+  /* Mobile slide up with blur - Premium entrance */
+  @keyframes mobileSlideUp {
+    0% {
+      opacity: 0;
+      transform: translateY(50px) scale(0.92);
+      filter: blur(4px);
+    }
+    60% {
+      filter: blur(0);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      filter: blur(0);
+    }
+  }
+
+  /* Mobile card reveal with glow pulse */
+  @keyframes mobileCardReveal {
+    0% {
+      opacity: 0;
+      transform: translateY(35px) scale(0.94);
+      box-shadow: 0 0 0 rgba(201, 162, 84, 0);
+    }
+    50% {
+      box-shadow: 0 8px 32px rgba(201, 162, 84, 0.12);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    }
+  }
+
+  /* Mobile icon spring effect - more playful */
+  @keyframes mobileIconSpring {
+    0% {
+      opacity: 0;
+      transform: scale(0.4) rotate(-25deg);
+    }
+    40% {
+      opacity: 1;
+      transform: scale(1.2) rotate(10deg);
+    }
+    60% {
+      transform: scale(0.9) rotate(-5deg);
+    }
+    80% {
+      transform: scale(1.05) rotate(2deg);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1) rotate(0);
+    }
+  }
+
+  /* Mobile title slide from left */
+  @keyframes mobileTitleSlide {
+    0% {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  /* Mobile description fade with slight rise */
+  @keyframes mobileDescFade {
+    0% {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Mobile quote box premium reveal */
+  @keyframes mobileQuoteReveal {
+    0% {
+      opacity: 0;
+      transform: translateY(40px) scale(0.94);
+      box-shadow: 0 0 0 rgba(201, 162, 84, 0);
+    }
+    60% {
+      box-shadow: 0 12px 40px rgba(201, 162, 84, 0.1);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  /* Mobile header badge float in */
+  @keyframes mobileBadgeFloat {
+    0% {
+      opacity: 0;
+      transform: translateY(-15px) scale(0.9);
+    }
+    60% {
+      transform: translateY(3px) scale(1.02);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  /* Section line expand animation */
+  @keyframes mobileLineExpand {
+    0% {
+      transform: scaleX(0);
+      opacity: 0;
+    }
+    100% {
+      transform: scaleX(1);
+      opacity: 0.8;
+    }
+  }
+
+  /* ========================================
      RESPONSIVE
      ======================================== */
   @media (max-width: 1024px) {
@@ -546,6 +674,9 @@ const parsedCommitments = commitments.map(parseCommitment);
     }
   }
 
+  /* ========================================
+     TABLET & MOBILE PREMIUM ANIMATIONS
+     ======================================== */
   @media (max-width: 768px) {
     .practice-objective {
       padding: 4rem 0;
@@ -606,33 +737,234 @@ const parsedCommitments = commitments.map(parseCommitment);
     .commitment-description {
       font-size: 0.8125rem;
     }
+
+    /* === MOBILE PREMIUM ANIMATIONS === */
+
+    /* Header badge with float animation */
+    .objective-header-reveal .section-badge {
+      opacity: 0;
+      transform: translateY(-15px) scale(0.9);
+    }
+
+    .objective-header-reveal.visible .section-badge {
+      animation: mobileBadgeFloat 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      animation-delay: 0.1s;
+    }
+
+    /* Section line with expand animation */
+    .objective-header-reveal .section-line {
+      transform: scaleX(0);
+      transform-origin: center;
+      opacity: 0;
+    }
+
+    .objective-header-reveal.visible .section-line {
+      animation: mobileLineExpand 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      animation-delay: 0.4s;
+    }
+
+    /* Quote box with premium reveal */
+    .objective-main-reveal {
+      opacity: 0;
+      transform: translateY(40px) scale(0.94);
+    }
+
+    .objective-main-reveal.visible {
+      animation: mobileQuoteReveal 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      animation-delay: 0.2s;
+    }
+
+    /* Cards with premium mobile animation */
+    .commitment-card-reveal {
+      opacity: 0;
+      transform: translateY(35px) scale(0.94);
+      will-change: opacity, transform;
+    }
+
+    .commitment-card-reveal.visible {
+      animation: mobileCardReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    /* Mobile-optimized stagger delays (tablet - 2 columns) */
+    .commitment-card-reveal[data-index="0"].visible { animation-delay: 0ms; }
+    .commitment-card-reveal[data-index="1"].visible { animation-delay: 80ms; }
+    .commitment-card-reveal[data-index="2"].visible { animation-delay: 160ms; }
+    .commitment-card-reveal[data-index="3"].visible { animation-delay: 240ms; }
+    .commitment-card-reveal[data-index="4"].visible { animation-delay: 320ms; }
+    .commitment-card-reveal[data-index="5"].visible { animation-delay: 400ms; }
+
+    /* Mobile icon spring animation */
+    .commitment-card-reveal:not(.visible) .commitment-icon {
+      opacity: 0;
+      transform: scale(0.4) rotate(-25deg);
+    }
+
+    .commitment-card-reveal.visible .commitment-icon {
+      animation: mobileIconSpring 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    /* Staggered icon delays for mobile */
+    .commitment-card-reveal[data-index="0"].visible .commitment-icon { animation-delay: 0.15s; }
+    .commitment-card-reveal[data-index="1"].visible .commitment-icon { animation-delay: 0.23s; }
+    .commitment-card-reveal[data-index="2"].visible .commitment-icon { animation-delay: 0.31s; }
+    .commitment-card-reveal[data-index="3"].visible .commitment-icon { animation-delay: 0.39s; }
+    .commitment-card-reveal[data-index="4"].visible .commitment-icon { animation-delay: 0.47s; }
+    .commitment-card-reveal[data-index="5"].visible .commitment-icon { animation-delay: 0.55s; }
+
+    /* Title and description inner animations */
+    .commitment-card-reveal:not(.visible) .commitment-title {
+      opacity: 0;
+      transform: translateX(-15px);
+    }
+
+    .commitment-card-reveal.visible .commitment-title {
+      animation: mobileTitleSlide 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .commitment-card-reveal:not(.visible) .commitment-description {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+
+    .commitment-card-reveal.visible .commitment-description {
+      animation: mobileDescFade 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    /* Staggered title delays */
+    .commitment-card-reveal[data-index="0"].visible .commitment-title { animation-delay: 0.2s; }
+    .commitment-card-reveal[data-index="1"].visible .commitment-title { animation-delay: 0.28s; }
+    .commitment-card-reveal[data-index="2"].visible .commitment-title { animation-delay: 0.36s; }
+    .commitment-card-reveal[data-index="3"].visible .commitment-title { animation-delay: 0.44s; }
+    .commitment-card-reveal[data-index="4"].visible .commitment-title { animation-delay: 0.52s; }
+    .commitment-card-reveal[data-index="5"].visible .commitment-title { animation-delay: 0.6s; }
+
+    /* Staggered description delays */
+    .commitment-card-reveal[data-index="0"].visible .commitment-description { animation-delay: 0.3s; }
+    .commitment-card-reveal[data-index="1"].visible .commitment-description { animation-delay: 0.38s; }
+    .commitment-card-reveal[data-index="2"].visible .commitment-description { animation-delay: 0.46s; }
+    .commitment-card-reveal[data-index="3"].visible .commitment-description { animation-delay: 0.54s; }
+    .commitment-card-reveal[data-index="4"].visible .commitment-description { animation-delay: 0.62s; }
+    .commitment-card-reveal[data-index="5"].visible .commitment-description { animation-delay: 0.7s; }
+
+    /* Reduce background orb sizes for mobile */
+    .objective-orb-1 {
+      width: 300px;
+      height: 300px;
+    }
+
+    .objective-orb-2 {
+      width: 250px;
+      height: 250px;
+    }
+
+    .objective-orb-3 {
+      width: 180px;
+      height: 180px;
+    }
   }
 
+  /* ========================================
+     SMALL MOBILE - SINGLE COLUMN PREMIUM
+     ======================================== */
   @media (max-width: 480px) {
     .commitment-grid {
       grid-template-columns: 1fr;
       gap: 1rem;
     }
+
+    /* Longer stagger delays for single column - creates cascade effect */
+    .commitment-card-reveal[data-index="0"].visible { animation-delay: 0ms; }
+    .commitment-card-reveal[data-index="1"].visible { animation-delay: 120ms; }
+    .commitment-card-reveal[data-index="2"].visible { animation-delay: 240ms; }
+    .commitment-card-reveal[data-index="3"].visible { animation-delay: 360ms; }
+    .commitment-card-reveal[data-index="4"].visible { animation-delay: 480ms; }
+    .commitment-card-reveal[data-index="5"].visible { animation-delay: 600ms; }
+
+    /* Adjusted icon delays for single column */
+    .commitment-card-reveal[data-index="0"].visible .commitment-icon { animation-delay: 0.18s; }
+    .commitment-card-reveal[data-index="1"].visible .commitment-icon { animation-delay: 0.30s; }
+    .commitment-card-reveal[data-index="2"].visible .commitment-icon { animation-delay: 0.42s; }
+    .commitment-card-reveal[data-index="3"].visible .commitment-icon { animation-delay: 0.54s; }
+    .commitment-card-reveal[data-index="4"].visible .commitment-icon { animation-delay: 0.66s; }
+    .commitment-card-reveal[data-index="5"].visible .commitment-icon { animation-delay: 0.78s; }
+
+    /* Adjusted title delays for single column */
+    .commitment-card-reveal[data-index="0"].visible .commitment-title { animation-delay: 0.25s; }
+    .commitment-card-reveal[data-index="1"].visible .commitment-title { animation-delay: 0.37s; }
+    .commitment-card-reveal[data-index="2"].visible .commitment-title { animation-delay: 0.49s; }
+    .commitment-card-reveal[data-index="3"].visible .commitment-title { animation-delay: 0.61s; }
+    .commitment-card-reveal[data-index="4"].visible .commitment-title { animation-delay: 0.73s; }
+    .commitment-card-reveal[data-index="5"].visible .commitment-title { animation-delay: 0.85s; }
+
+    /* Adjusted description delays for single column */
+    .commitment-card-reveal[data-index="0"].visible .commitment-description { animation-delay: 0.35s; }
+    .commitment-card-reveal[data-index="1"].visible .commitment-description { animation-delay: 0.47s; }
+    .commitment-card-reveal[data-index="2"].visible .commitment-description { animation-delay: 0.59s; }
+    .commitment-card-reveal[data-index="3"].visible .commitment-description { animation-delay: 0.71s; }
+    .commitment-card-reveal[data-index="4"].visible .commitment-description { animation-delay: 0.83s; }
+    .commitment-card-reveal[data-index="5"].visible .commitment-description { animation-delay: 0.95s; }
+
+    /* Smaller orbs for small mobile */
+    .objective-orb-1 {
+      width: 200px;
+      height: 200px;
+    }
+
+    .objective-orb-2 {
+      width: 180px;
+      height: 180px;
+    }
+
+    .objective-orb-3 {
+      width: 120px;
+      height: 120px;
+    }
   }
 
   /* ========================================
-     REDUCED MOTION
+     REDUCED MOTION - Accessibility First
      ======================================== */
   @media (prefers-reduced-motion: reduce) {
+    /* Disable all background orb animations */
     .objective-orb-1,
     .objective-orb-2,
     .objective-orb-3 {
       animation: none;
     }
 
+    /* Show all reveal elements immediately */
     .objective-header-reveal,
     .objective-main-reveal,
     .commitment-card-reveal {
       opacity: 1;
       transform: none;
       transition: none;
+      animation: none;
     }
 
+    /* Visible state should also have no animation */
+    .objective-header-reveal.visible,
+    .objective-main-reveal.visible,
+    .commitment-card-reveal.visible {
+      animation: none;
+    }
+
+    /* Badge and section line - show immediately */
+    .objective-header-reveal .section-badge,
+    .objective-header-reveal.visible .section-badge {
+      opacity: 1;
+      transform: none;
+      animation: none;
+    }
+
+    .objective-header-reveal .section-line,
+    .objective-header-reveal.visible .section-line {
+      opacity: 0.8;
+      transform: scaleX(1);
+      animation: none;
+    }
+
+    /* Icons - show immediately without animation */
     .commitment-card-reveal:not(.visible) .commitment-icon,
     .commitment-card-reveal.visible .commitment-icon {
       opacity: 1;
@@ -640,6 +972,23 @@ const parsedCommitments = commitments.map(parseCommitment);
       animation: none;
     }
 
+    /* Titles - show immediately without animation */
+    .commitment-card-reveal:not(.visible) .commitment-title,
+    .commitment-card-reveal.visible .commitment-title {
+      opacity: 1;
+      transform: none;
+      animation: none;
+    }
+
+    /* Descriptions - show immediately without animation */
+    .commitment-card-reveal:not(.visible) .commitment-description,
+    .commitment-card-reveal.visible .commitment-description {
+      opacity: 1;
+      transform: none;
+      animation: none;
+    }
+
+    /* Disable all hover transitions */
     .commitment-card,
     .commitment-icon,
     .commitment-icon-glow,
@@ -649,12 +998,22 @@ const parsedCommitments = commitments.map(parseCommitment);
     .objective-text-wrapper {
       transition: none;
     }
+
+    /* Keep hover states functional but without animation */
+    .commitment-card:hover {
+      transform: none;
+    }
+
+    .objective-text-wrapper:hover {
+      transform: none;
+    }
   }
 </style>
 
 <script>
   // ========================================
-  // Practice Objective - Scroll Reveal Animation
+  // Practice Objective - Premium Scroll Reveal Animation
+  // Optimized for Mobile Experience
   // ========================================
   const initObjectiveAnimation = () => {
     const section = document.getElementById('practice-objective');
@@ -675,36 +1034,82 @@ const parsedCommitments = commitments.map(parseCommitment);
       return;
     }
 
-    const observerOptions: IntersectionObserverInit = {
-      threshold: 0.15,
-      rootMargin: '0px 0px -50px 0px'
+    // Detect mobile for optimized thresholds
+    const isMobile = window.innerWidth < 768;
+    const isSmallMobile = window.innerWidth < 480;
+
+    // Mobile-optimized observer options - trigger earlier for smoother experience
+    const sectionObserverOptions: IntersectionObserverInit = {
+      threshold: isMobile ? 0.08 : 0.15,
+      rootMargin: isMobile ? '0px 0px -20px 0px' : '0px 0px -50px 0px'
     };
 
-    const revealObserver = new IntersectionObserver((entries) => {
+    // Observer for header and main quote
+    const headerObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          // Animate header first
+          // Animate header
           header?.classList.add('visible');
 
-          // Then animate main quote
+          // Animate main quote with slight delay
           setTimeout(() => {
             main?.classList.add('visible');
-          }, 100);
+          }, isMobile ? 150 : 100);
 
-          // Then animate cards with staggered delay
-          cards.forEach((card, index) => {
-            setTimeout(() => {
-              card.classList.add('visible');
-            }, 300 + (index * 100));
-          });
-
-          // Stop observing after animation triggered
-          revealObserver.disconnect();
+          headerObserver.disconnect();
         }
       });
-    }, observerOptions);
+    }, sectionObserverOptions);
 
-    revealObserver.observe(section);
+    if (header) {
+      headerObserver.observe(header);
+    }
+
+    // Individual card observers for smoother mobile scrolling
+    // Each card animates as it enters the viewport
+    if (isMobile) {
+      const cardObserverOptions: IntersectionObserverInit = {
+        threshold: isSmallMobile ? 0.15 : 0.2,
+        rootMargin: '0px 0px -10px 0px'
+      };
+
+      cards.forEach((card, index) => {
+        const cardObserver = new IntersectionObserver((entries) => {
+          if (entries[0].isIntersecting) {
+            // Small delay based on index for cascade effect when multiple cards visible
+            const baseDelay = isSmallMobile ? 50 : 30;
+            setTimeout(() => {
+              card.classList.add('visible');
+            }, index * baseDelay);
+            cardObserver.disconnect();
+          }
+        }, cardObserverOptions);
+
+        cardObserver.observe(card);
+      });
+    } else {
+      // Desktop behavior - reveal all cards together with stagger
+      const cardsObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            cards.forEach((card, index) => {
+              setTimeout(() => {
+                card.classList.add('visible');
+              }, 300 + (index * 100));
+            });
+            cardsObserver.disconnect();
+          }
+        });
+      }, {
+        threshold: 0.15,
+        rootMargin: '0px 0px -50px 0px'
+      });
+
+      const grid = section.querySelector('.commitment-grid');
+      if (grid) {
+        cardsObserver.observe(grid);
+      }
+    }
   };
 
   // Run on DOM ready
@@ -713,4 +1118,14 @@ const parsedCommitments = commitments.map(parseCommitment);
   } else {
     initObjectiveAnimation();
   }
+
+  // Re-initialize on resize if crossing mobile breakpoint
+  let lastIsMobile = window.innerWidth < 768;
+  window.addEventListener('resize', () => {
+    const currentIsMobile = window.innerWidth < 768;
+    if (currentIsMobile !== lastIsMobile) {
+      lastIsMobile = currentIsMobile;
+      // Cards already visible don't need re-animation
+    }
+  }, { passive: true });
 </script>

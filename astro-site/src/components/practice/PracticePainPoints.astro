@@ -241,6 +241,78 @@ const { points } = Astro.props;
     }
   }
 
+  /* ========================================
+     PREMIUM KEYFRAMES - Blur-in & Micro-animations
+     ======================================== */
+
+  /* Blur-in reveal effect - Premium feel */
+  @keyframes painItemBlurIn {
+    0% {
+      opacity: 0;
+      transform: translateX(-50px) scale(0.92);
+      filter: blur(10px);
+    }
+    40% {
+      opacity: 0.6;
+      filter: blur(4px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0) scale(1);
+      filter: blur(0);
+    }
+  }
+
+  /* Icon bounce reveal */
+  @keyframes painIconReveal {
+    0% {
+      opacity: 0;
+      transform: scale(0.6) rotate(-15deg);
+    }
+    60% {
+      opacity: 1;
+      transform: scale(1.15) rotate(5deg);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1) rotate(0deg);
+    }
+  }
+
+  /* Text slide up reveal */
+  @keyframes painTextReveal {
+    0% {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Glow accent reveal */
+  @keyframes painGlowReveal {
+    0% {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+    100% {
+      opacity: 0.6;
+      transform: translateX(0);
+    }
+  }
+
+  /* Border accent scale in */
+  @keyframes painBorderReveal {
+    0% {
+      transform: scaleY(0);
+    }
+    100% {
+      transform: scaleY(1);
+    }
+  }
+
   .pain-icon-wrapper i {
     color: #ef4444;
     font-size: 1.25rem;
@@ -268,39 +340,108 @@ const { points } = Astro.props;
   }
 
   /* ========================================
-     SCROLL REVEAL
+     SCROLL REVEAL - Enhanced Premium Animations
      ======================================== */
+
+  /* Header - fade down with scale */
   .pain-header-reveal {
     opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    transform: translateY(-20px) scale(0.98);
+    transition: 
+      opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .pain-header-reveal.visible {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
   }
 
+  /* Items - Premium blur-in with scale */
   .pain-item-reveal {
     opacity: 0;
-    transform: translateX(-30px);
-    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    transform: translateX(-40px) scale(0.95);
+    filter: blur(8px);
+    will-change: opacity, transform, filter;
   }
 
   .pain-item-reveal.visible {
     opacity: 1;
-    transform: translateX(0);
+    transform: translateX(0) scale(1);
+    filter: blur(0);
+    transition: 
+      opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1),
+      filter 0.6s ease-out;
   }
 
-  /* Stagger */
+  /* Desktop: Stagger delays via CSS */
   .pain-item-reveal[data-index="0"].visible { transition-delay: 0ms; }
-  .pain-item-reveal[data-index="1"].visible { transition-delay: 100ms; }
-  .pain-item-reveal[data-index="2"].visible { transition-delay: 200ms; }
-  .pain-item-reveal[data-index="3"].visible { transition-delay: 300ms; }
-  .pain-item-reveal[data-index="4"].visible { transition-delay: 400ms; }
+  .pain-item-reveal[data-index="1"].visible { transition-delay: 120ms; }
+  .pain-item-reveal[data-index="2"].visible { transition-delay: 240ms; }
+  .pain-item-reveal[data-index="3"].visible { transition-delay: 360ms; }
+  .pain-item-reveal[data-index="4"].visible { transition-delay: 480ms; }
+  .pain-item-reveal[data-index="5"].visible { transition-delay: 600ms; }
 
   /* ========================================
-     RESPONSIVE
+     MICRO-ANIMATIONS - Internal Elements
+     ======================================== */
+
+  /* Icon wrapper - hidden by default, animates on reveal */
+  .pain-item-reveal .pain-icon-wrapper {
+    opacity: 0;
+    transform: scale(0.6) rotate(-15deg);
+  }
+
+  .pain-item-reveal.visible .pain-icon-wrapper {
+    animation: painIconReveal 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  /* Icon animation delays matching card delays */
+  .pain-item-reveal[data-index="0"].visible .pain-icon-wrapper { animation-delay: 0.15s; }
+  .pain-item-reveal[data-index="1"].visible .pain-icon-wrapper { animation-delay: 0.27s; }
+  .pain-item-reveal[data-index="2"].visible .pain-icon-wrapper { animation-delay: 0.39s; }
+  .pain-item-reveal[data-index="3"].visible .pain-icon-wrapper { animation-delay: 0.51s; }
+  .pain-item-reveal[data-index="4"].visible .pain-icon-wrapper { animation-delay: 0.63s; }
+  .pain-item-reveal[data-index="5"].visible .pain-icon-wrapper { animation-delay: 0.75s; }
+
+  /* Text - hidden by default, slides up on reveal */
+  .pain-item-reveal p {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  .pain-item-reveal.visible p {
+    animation: painTextReveal 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  /* Text animation delays matching card delays */
+  .pain-item-reveal[data-index="0"].visible p { animation-delay: 0.25s; }
+  .pain-item-reveal[data-index="1"].visible p { animation-delay: 0.37s; }
+  .pain-item-reveal[data-index="2"].visible p { animation-delay: 0.49s; }
+  .pain-item-reveal[data-index="3"].visible p { animation-delay: 0.61s; }
+  .pain-item-reveal[data-index="4"].visible p { animation-delay: 0.73s; }
+  .pain-item-reveal[data-index="5"].visible p { animation-delay: 0.85s; }
+
+  /* Glow accent - reveals on card visible */
+  .pain-item-reveal .pain-glow {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+
+  .pain-item-reveal.visible .pain-glow {
+    animation: painGlowReveal 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .pain-item-reveal[data-index="0"].visible .pain-glow { animation-delay: 0.3s; }
+  .pain-item-reveal[data-index="1"].visible .pain-glow { animation-delay: 0.42s; }
+  .pain-item-reveal[data-index="2"].visible .pain-glow { animation-delay: 0.54s; }
+  .pain-item-reveal[data-index="3"].visible .pain-glow { animation-delay: 0.66s; }
+  .pain-item-reveal[data-index="4"].visible .pain-glow { animation-delay: 0.78s; }
+  .pain-item-reveal[data-index="5"].visible .pain-glow { animation-delay: 0.9s; }
+
+  /* ========================================
+     RESPONSIVE - Mobile Premium Animations
      ======================================== */
   @media (max-width: 768px) {
     .pain-points {
@@ -310,6 +451,8 @@ const { points } = Astro.props;
     .pain-item {
       padding: var(--space-5);
       gap: var(--space-4);
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
     }
 
     .pain-icon-wrapper {
@@ -324,60 +467,284 @@ const { points } = Astro.props;
     .pain-item p {
       font-size: 1rem;
     }
+
+    /* Mobile: Enhanced blur-in animation with elastic bounce */
+    .pain-item-reveal {
+      opacity: 0;
+      transform: translateX(-60px) scale(0.92);
+      filter: blur(12px);
+    }
+
+    .pain-item-reveal.visible {
+      opacity: 1;
+      transform: translateX(0) scale(1);
+      filter: blur(0);
+      transition: 
+        opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1),
+        filter 0.6s ease-out;
+    }
+
+    /* Mobile: Remove stagger delays - each item animates individually */
+    .pain-item-reveal[data-index="0"].visible,
+    .pain-item-reveal[data-index="1"].visible,
+    .pain-item-reveal[data-index="2"].visible,
+    .pain-item-reveal[data-index="3"].visible,
+    .pain-item-reveal[data-index="4"].visible,
+    .pain-item-reveal[data-index="5"].visible {
+      transition-delay: 0ms;
+    }
+
+    /* Mobile: Consistent internal animation delays */
+    .pain-item-reveal.visible .pain-icon-wrapper {
+      animation-delay: 0.15s;
+    }
+
+    .pain-item-reveal.visible p {
+      animation-delay: 0.25s;
+    }
+
+    .pain-item-reveal.visible .pain-glow {
+      animation-delay: 0.3s;
+    }
+
+    /* Mobile: Touch feedback */
+    .pain-item:active {
+      transform: scale(0.98) translateX(4px);
+      transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .pain-item:active .pain-icon-wrapper {
+      transform: scale(0.95);
+    }
+
+    /* Mobile: Softer glow on active */
+    .pain-item:active .pain-glow {
+      opacity: 0.4;
+    }
+  }
+
+  /* Small mobile devices - refined animations */
+  @media (max-width: 480px) {
+    .pain-item-reveal {
+      transform: translateX(-50px) scale(0.94);
+      filter: blur(10px);
+    }
+
+    .pain-icon-wrapper {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+    }
+
+    .pain-icon-wrapper i {
+      font-size: 1rem;
+    }
+
+    .pain-item {
+      padding: var(--space-4);
+      gap: var(--space-3);
+      border-radius: 14px;
+    }
+
+    .pain-item p {
+      font-size: 0.9375rem;
+    }
   }
 
   /* ========================================
-     REDUCED MOTION
+     REDUCED MOTION - Accessibility
      ======================================== */
   @media (prefers-reduced-motion: reduce) {
+    /* Header and items - instant visibility */
     .pain-header-reveal,
     .pain-item-reveal {
       opacity: 1;
       transform: none;
+      filter: none;
       transition: none;
     }
 
+    .pain-item-reveal.visible {
+      transition: none;
+    }
+
+    /* Section line - always visible */
     .section-line {
       transform: scaleX(1);
       transition: none;
     }
 
+    /* Icon - always visible, no animation */
+    .pain-icon-wrapper {
+      opacity: 1;
+      transform: none;
+    }
+
+    .pain-item-reveal .pain-icon-wrapper,
+    .pain-item-reveal.visible .pain-icon-wrapper {
+      animation: none;
+      opacity: 1;
+      transform: none;
+    }
+
+    /* Text - always visible, no animation */
+    .pain-item-reveal p,
+    .pain-item-reveal.visible p {
+      animation: none;
+      opacity: 1;
+      transform: none;
+    }
+
+    /* Glow - always visible, no animation */
+    .pain-item-reveal .pain-glow,
+    .pain-item-reveal.visible .pain-glow {
+      animation: none;
+      opacity: 0;
+      transform: none;
+    }
+
+    .pain-item:hover .pain-glow {
+      opacity: 1;
+    }
+
+    /* Pulse animation - disabled */
     .pain-icon-pulse {
       animation: none;
+    }
+
+    /* Hover effects - minimal movement */
+    .pain-item:hover {
+      transform: translateX(4px);
+      transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .pain-item:hover .pain-icon-wrapper {
+      transform: scale(1.05);
+    }
+
+    /* Touch feedback - minimal */
+    .pain-item:active {
+      transform: none;
+      transition: none;
+    }
+
+    /* General transitions - disabled for complex animations */
+    .pain-item {
+      transition: background 0.2s ease, border-color 0.2s ease;
     }
   }
 </style>
 
 <script is:inline>
-  document.addEventListener('DOMContentLoaded', () => {
+  // ========================================
+  // Pain Points Section - Premium Scroll Animations
+  // Individual observers for mobile, staggered for desktop
+  // ========================================
+  const initPainPointsAnimation = () => {
     const section = document.getElementById('practice-pain');
     if (!section) return;
 
     const header = section.querySelector('.pain-header-reveal');
     const items = section.querySelectorAll('.pain-item-reveal');
 
-    // Check for reduced motion
+    // Check for reduced motion preference
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     if (prefersReducedMotion) {
+      // Show everything immediately without animation
       header?.classList.add('visible');
       items.forEach(item => item.classList.add('visible'));
       return;
     }
 
-    // Scroll reveal
-    const observer = new IntersectionObserver((entries) => {
+    // Detect mobile device
+    const isMobile = window.innerWidth <= 768;
+
+    // Header observer - triggers first
+    const headerObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           header?.classList.add('visible');
-          items.forEach((item, i) => {
-            setTimeout(() => item.classList.add('visible'), 150 + i * 100);
-          });
-          observer.disconnect();
+          headerObserver.disconnect();
         }
       });
-    }, { threshold: 0.15 });
+    }, { 
+      threshold: 0.3,
+      rootMargin: '0px 0px -50px 0px'
+    });
 
-    observer.observe(section);
-  });
+    if (header) {
+      headerObserver.observe(header);
+    }
+
+    // Mobile: Individual observers for each item
+    // Each item animates when it enters the viewport
+    if (isMobile) {
+      items.forEach((item) => {
+        const itemObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              // Use requestAnimationFrame for smoother animation start
+              requestAnimationFrame(() => {
+                item.classList.add('visible');
+              });
+              itemObserver.disconnect();
+            }
+          });
+        }, { 
+          threshold: 0.2,
+          rootMargin: '0px 0px -10% 0px'
+        });
+        
+        itemObserver.observe(item);
+      });
+    } else {
+      // Desktop: Section observer with staggered reveal via JavaScript
+      const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            // Stagger item animations with controlled timing
+            items.forEach((item, index) => {
+              setTimeout(() => {
+                requestAnimationFrame(() => {
+                  item.classList.add('visible');
+                });
+              }, 100 + index * 120);
+            });
+            sectionObserver.disconnect();
+          }
+        });
+      }, { 
+        threshold: 0.15,
+        rootMargin: '0px 0px -80px 0px'
+      });
+
+      sectionObserver.observe(section);
+    }
+
+    // Handle resize - ensure visibility after orientation change
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(() => {
+        // Re-check if items need to be visible after resize
+        items.forEach(item => {
+          if (!item.classList.contains('visible')) {
+            const rect = item.getBoundingClientRect();
+            if (rect.top < window.innerHeight * 0.85) {
+              item.classList.add('visible');
+            }
+          }
+        });
+      }, 200);
+    });
+  };
+
+  // Run on DOM ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initPainPointsAnimation);
+  } else {
+    initPainPointsAnimation();
+  }
 </script>
