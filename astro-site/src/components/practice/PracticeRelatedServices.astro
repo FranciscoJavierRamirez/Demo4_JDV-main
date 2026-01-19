@@ -351,6 +351,14 @@ if (items && items.length > 0) {
      ======================================== */
   .view-all-wrapper {
     text-align: center;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .view-all-wrapper.visible {
+    opacity: 1;
+    transform: translateY(0);
   }
 
   .view-all-link {
@@ -414,7 +422,90 @@ if (items && items.length > 0) {
   .related-card-reveal[data-index="2"].visible { transition-delay: 300ms; }
 
   /* ========================================
-     RESPONSIVE
+     PREMIUM KEYFRAMES - Mobile Animations
+     ======================================== */
+  
+  /* Icon bounce reveal with rotation */
+  @keyframes relatedIconReveal {
+    0% {
+      opacity: 0;
+      transform: scale(0.7) rotate(-15deg);
+    }
+    60% {
+      opacity: 1;
+      transform: scale(1.15) rotate(5deg);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1) rotate(0deg);
+    }
+  }
+
+  /* Title slide-up reveal */
+  @keyframes relatedTitleReveal {
+    0% {
+      opacity: 0;
+      transform: translateY(15px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Description fade-in */
+  @keyframes relatedDescReveal {
+    0% {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Arrow slide-in from left */
+  @keyframes relatedArrowReveal {
+    0% {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  /* Glow line reveal from center */
+  @keyframes relatedGlowReveal {
+    0% {
+      transform: scaleX(0);
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      transform: scaleX(1);
+      opacity: 1;
+    }
+  }
+
+  /* Section line animated reveal */
+  @keyframes relatedLineReveal {
+    0% {
+      transform: scaleX(0);
+      opacity: 0;
+    }
+    100% {
+      transform: scaleX(1);
+      opacity: 0.8;
+    }
+  }
+
+  /* ========================================
+     RESPONSIVE - Mobile Premium Animations
      ======================================== */
   @media (max-width: 768px) {
     .practice-related {
@@ -423,63 +514,418 @@ if (items && items.length > 0) {
 
     .related-grid {
       grid-template-columns: 1fr;
+      gap: var(--space-5);
     }
 
     .related-card {
       padding: var(--space-6);
     }
 
-    .related-arrow {
+    /* Mobile: Enhanced blur-in animation for cards */
+    .related-card-reveal {
+      opacity: 0;
+      transform: translateY(60px) scale(0.92);
+      filter: blur(10px);
+      transition: 
+        opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1),
+        filter 0.6s ease-out;
+    }
+
+    .related-card-reveal.visible {
       opacity: 1;
-      transform: translateX(0);
+      transform: translateY(0) scale(1);
+      filter: blur(0);
+    }
+
+    /* Mobile: Remove stagger delays (cards animate individually) */
+    .related-card-reveal[data-index="0"].visible,
+    .related-card-reveal[data-index="1"].visible,
+    .related-card-reveal[data-index="2"].visible {
+      transition-delay: 0ms;
+    }
+
+    /* ========================================
+       INTERNAL CONTENT STAGGER - Mobile
+       ======================================== */
+    
+    /* Icon - starts hidden, animates on card visible */
+    .related-card .related-icon {
+      opacity: 0;
+      transform: scale(0.7) rotate(-15deg);
+    }
+
+    .related-card.visible .related-icon {
+      animation: relatedIconReveal 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      animation-delay: 0.15s;
+    }
+
+    /* Title - starts hidden, slides up */
+    .related-card h3 {
+      opacity: 0;
+      transform: translateY(15px);
+    }
+
+    .related-card.visible h3 {
+      animation: relatedTitleReveal 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      animation-delay: 0.25s;
+    }
+
+    /* Description - starts hidden, slides up */
+    .related-card p {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+
+    .related-card.visible p {
+      animation: relatedDescReveal 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      animation-delay: 0.35s;
+    }
+
+    /* Arrow - starts hidden, slides in from left */
+    .related-arrow {
+      opacity: 0;
+      transform: translateX(-15px);
+    }
+
+    .related-card.visible .related-arrow {
+      animation: relatedArrowReveal 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      animation-delay: 0.45s;
+    }
+
+    /* Glow line - reveals from center on card visible */
+    .card-glow {
+      transform: scaleX(0);
+      transform-origin: center;
+    }
+
+    .related-card.visible .card-glow {
+      animation: relatedGlowReveal 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      animation-delay: 0.5s;
+    }
+
+    /* ========================================
+       TOUCH FEEDBACK - Mobile
+       ======================================== */
+    
+    .related-card {
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
+    }
+
+    .related-card:active {
+      transform: scale(0.98);
+      transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* Softer active state for icon */
+    .related-card:active .related-icon {
+      transform: scale(0.95);
+      transition: transform 0.15s ease;
+    }
+
+    /* Mobile: Smaller icon */
+    .related-icon {
+      width: 56px;
+      height: 56px;
+    }
+
+    .related-icon span {
+      font-size: 1.75rem;
+    }
+
+    /* Mobile: Adjust typography */
+    .related-card h3 {
+      font-size: 1.125rem;
+    }
+
+    .related-card p {
+      font-size: 0.875rem;
+    }
+
+    /* Mobile: Section line animation */
+    .section-line {
+      transform: scaleX(0);
+      transform-origin: left center;
+    }
+
+    .related-header-reveal.visible .section-line {
+      animation: relatedLineReveal 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      animation-delay: 0.3s;
+    }
+  }
+
+  /* Small mobile devices */
+  @media (max-width: 480px) {
+    .related-card-reveal {
+      transform: translateY(50px) scale(0.94);
+      filter: blur(8px);
+    }
+
+    .related-icon {
+      width: 52px;
+      height: 52px;
+    }
+
+    .related-icon span {
+      font-size: 1.5rem;
+    }
+
+    .related-card {
+      padding: var(--space-5);
+      border-radius: 16px;
     }
   }
 
   /* ========================================
-     REDUCED MOTION
+     PERFORMANCE OPTIMIZATIONS
+     ======================================== */
+  .related-card-reveal,
+  .related-header-reveal {
+    will-change: opacity, transform, filter;
+  }
+
+  .related-card-reveal.visible,
+  .related-header-reveal.visible {
+    will-change: auto;
+  }
+
+  /* ========================================
+     REDUCED MOTION - Accessibility
      ======================================== */
   @media (prefers-reduced-motion: reduce) {
+    /* Header and cards - instant visibility */
     .related-header-reveal,
     .related-card-reveal {
       opacity: 1;
       transform: none;
+      filter: none;
       transition: none;
     }
 
+    .related-card-reveal.visible {
+      transition: none;
+    }
+
+    /* Section line - always visible */
+    .section-line {
+      transform: scaleX(1);
+      opacity: 0.8;
+    }
+
+    .related-header-reveal.visible .section-line {
+      animation: none;
+    }
+
+    /* Icon - always visible, no animation */
+    .related-card .related-icon {
+      opacity: 1;
+      transform: none;
+    }
+
+    .related-card.visible .related-icon {
+      animation: none;
+      opacity: 1;
+      transform: none;
+    }
+
+    /* Title and description - always visible */
+    .related-card h3,
+    .related-card p {
+      opacity: 1;
+      transform: none;
+    }
+
+    .related-card.visible h3,
+    .related-card.visible p {
+      animation: none;
+      opacity: 1;
+      transform: none;
+    }
+
+    /* Arrow - always visible */
+    .related-arrow {
+      opacity: 1;
+      transform: none;
+    }
+
+    .related-card.visible .related-arrow {
+      animation: none;
+      opacity: 1;
+      transform: none;
+    }
+
+    /* Glow line - always visible */
+    .card-glow {
+      transform: scaleX(1);
+    }
+
+    .related-card.visible .card-glow {
+      animation: none;
+      transform: scaleX(1);
+    }
+
+    /* View All wrapper - always visible */
+    .view-all-wrapper {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* Hover effects - minimal movement */
     .related-card:hover {
       transform: translateY(-4px);
+      transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    /* Touch feedback - minimal */
+    .related-card:active {
+      transform: none;
+      transition: none;
     }
   }
 </style>
 
 <script is:inline>
-  document.addEventListener('DOMContentLoaded', () => {
+  // ========================================
+  // PracticeRelatedServices - Premium Mobile Animations
+  // Individual card observers for smooth scroll reveal
+  // ========================================
+  const initRelatedAnimation = () => {
     const section = document.getElementById('related-services');
     if (!section) return;
 
     const header = section.querySelector('.related-header-reveal');
     const cards = section.querySelectorAll('.related-card-reveal');
+    const viewAllWrapper = section.querySelector('.view-all-wrapper');
 
+    // Check for reduced motion preference
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     if (prefersReducedMotion) {
+      // Show everything immediately without animation
       header?.classList.add('visible');
       cards.forEach(card => card.classList.add('visible'));
+      viewAllWrapper?.classList.add('visible');
       return;
     }
 
-    const observer = new IntersectionObserver((entries) => {
+    // Detect mobile device
+    const isMobile = window.innerWidth <= 768;
+
+    // Header observer - triggers first
+    const headerObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           header?.classList.add('visible');
-          cards.forEach((card, i) => {
-            setTimeout(() => card.classList.add('visible'), 150 + i * 150);
-          });
-          observer.disconnect();
+          headerObserver.disconnect();
         }
       });
-    }, { threshold: 0.15 });
+    }, { 
+      threshold: 0.3,
+      rootMargin: '0px 0px -50px 0px'
+    });
 
-    observer.observe(section);
-  });
+    if (header) {
+      headerObserver.observe(header);
+    }
+
+    // Individual card observers for mobile
+    // Each card animates when it enters the viewport
+    if (isMobile) {
+      cards.forEach((card) => {
+        const cardObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              // Small delay for smoother feel
+              requestAnimationFrame(() => {
+                card.classList.add('visible');
+              });
+              cardObserver.disconnect();
+            }
+          });
+        }, { 
+          threshold: 0.15,
+          rootMargin: '0px 0px -10% 0px'
+        });
+        
+        cardObserver.observe(card);
+      });
+
+      // View All link observer for mobile
+      if (viewAllWrapper) {
+        const linkObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              requestAnimationFrame(() => {
+                viewAllWrapper.classList.add('visible');
+              });
+              linkObserver.disconnect();
+            }
+          });
+        }, { 
+          threshold: 0.5,
+          rootMargin: '0px 0px -20px 0px'
+        });
+        linkObserver.observe(viewAllWrapper);
+      }
+    } else {
+      // Desktop: Use section observer with staggered reveal
+      const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            // Stagger card animations
+            cards.forEach((card, index) => {
+              setTimeout(() => {
+                card.classList.add('visible');
+              }, 150 + index * 150);
+            });
+
+            // View All link appears after cards
+            setTimeout(() => {
+              viewAllWrapper?.classList.add('visible');
+            }, 150 + cards.length * 150 + 100);
+
+            sectionObserver.disconnect();
+          }
+        });
+      }, { 
+        threshold: 0.15,
+        rootMargin: '0px 0px -80px 0px'
+      });
+
+      sectionObserver.observe(section);
+    }
+
+    // Handle resize - update visibility for cards that are already in viewport
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(() => {
+        // Re-check if cards need to be visible after resize
+        cards.forEach(card => {
+          if (!card.classList.contains('visible')) {
+            const rect = card.getBoundingClientRect();
+            if (rect.top < window.innerHeight * 0.85) {
+              card.classList.add('visible');
+            }
+          }
+        });
+
+        // Check view all wrapper
+        if (viewAllWrapper && !viewAllWrapper.classList.contains('visible')) {
+          const rect = viewAllWrapper.getBoundingClientRect();
+          if (rect.top < window.innerHeight * 0.9) {
+            viewAllWrapper.classList.add('visible');
+          }
+        }
+      }, 200);
+    });
+  };
+
+  // Run on DOM ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initRelatedAnimation);
+  } else {
+    initRelatedAnimation();
+  }
 </script>
