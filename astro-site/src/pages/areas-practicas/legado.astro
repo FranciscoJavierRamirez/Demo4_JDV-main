@@ -11,6 +11,7 @@ import PracticeObjective from '../../components/practice/PracticeObjective.astro
 import PracticeResults from '../../components/practice/PracticeResults.astro';
 import PracticeServicesIncluded from '../../components/practice/PracticeServicesIncluded.astro';
 import PracticeProcess from '../../components/practice/PracticeProcess.astro';
+import PracticeContent from '../../components/practice/PracticeContent.astro';
 import PracticeFAQ from '../../components/practice/PracticeFAQ.astro';
 import PracticeTestimonials from '../../components/practice/PracticeTestimonials.astro';
 import PracticeRelatedServices from '../../components/practice/PracticeRelatedServices.astro';
@@ -40,7 +41,7 @@ const { Content } = await render();
   <Header />
 
   <!-- Breadcrumbs -->
-  <PracticeBreadcrumbs areaName={data.hero.h1} />
+  <PracticeBreadcrumbs areaName={data.hero.h1 ?? ''} areaSlug={data.slug ?? ''} />
 
   <!-- Hero Section -->
   <PracticeHero
@@ -74,14 +75,10 @@ const { Content } = await render();
   <!-- Process -->
   <PracticeProcess steps={data.process} />
 
-  <!-- Markdown Content (optional extra content) -->
-  <section class="practice-content">
-    <div class="container">
-      <div class="content-wrapper">
-        <Content />
-      </div>
-    </div>
-  </section>
+  <!-- Markdown Content -->
+  <PracticeContent headerTitle="Información Detallada" headerBadge="Legado">
+    <Content />
+  </PracticeContent>
 
   <!-- FAQ -->
   <PracticeFAQ items={data.faq} areaName={data.hero.h1} />
@@ -112,105 +109,4 @@ const { Content } = await render();
   <BackToTop />
 </PracticeLayout>
 
-<style>
-  .practice-content {
-    padding: var(--space-16) 0;
-    background: white;
-  }
-
-  .container {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 0 var(--space-6);
-  }
-
-  .content-wrapper {
-    font-size: 1rem;
-    line-height: 1.8;
-    color: var(--gray-700);
-  }
-
-  /* Estilos para el contenido Markdown */
-  .content-wrapper :global(h2) {
-    font-family: var(--font-display);
-    font-size: clamp(1.75rem, 3vw, 2rem);
-    color: var(--gray-900);
-    margin-top: var(--space-12);
-    margin-bottom: var(--space-6);
-    font-weight: 700;
-  }
-
-  .content-wrapper :global(h3) {
-    font-family: var(--font-sans);
-    font-size: 1.5rem;
-    color: var(--gray-900);
-    margin-top: var(--space-10);
-    margin-bottom: var(--space-4);
-    font-weight: 600;
-  }
-
-  .content-wrapper :global(h4) {
-    font-family: var(--font-sans);
-    font-size: 1.25rem;
-    color: var(--gray-800);
-    margin-top: var(--space-8);
-    margin-bottom: var(--space-3);
-    font-weight: 600;
-  }
-
-  .content-wrapper :global(p) {
-    margin-bottom: var(--space-6);
-  }
-
-  .content-wrapper :global(ul),
-  .content-wrapper :global(ol) {
-    margin-bottom: var(--space-6);
-    padding-left: var(--space-8);
-  }
-
-  .content-wrapper :global(li) {
-    margin-bottom: var(--space-3);
-  }
-
-  .content-wrapper :global(strong) {
-    color: var(--gray-900);
-    font-weight: 600;
-  }
-
-  .content-wrapper :global(a) {
-    color: var(--blue-primary);
-    text-decoration: underline;
-    transition: color var(--transition-fast);
-  }
-
-  .content-wrapper :global(a:hover) {
-    color: var(--blue-dark);
-  }
-
-  .content-wrapper :global(hr) {
-    border: none;
-    border-top: 2px solid var(--gray-200);
-    margin: var(--space-12) 0;
-  }
-
-  .content-wrapper :global(blockquote) {
-    border-left: 4px solid var(--blue-primary);
-    padding-left: var(--space-6);
-    margin: var(--space-8) 0;
-    font-style: italic;
-    color: var(--gray-600);
-    background: var(--gray-50);
-    padding: var(--space-6);
-    border-radius: 8px;
-  }
-
-  @media (max-width: 768px) {
-    .practice-content {
-      padding: var(--space-12) 0;
-    }
-
-    .content-wrapper :global(h2) {
-      margin-top: var(--space-10);
-    }
-  }
-</style>
+<!-- Estilos encapsulados en PracticeContent.astro -->

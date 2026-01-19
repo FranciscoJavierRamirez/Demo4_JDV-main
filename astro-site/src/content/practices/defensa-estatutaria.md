@@ -118,131 +118,26 @@ finalCta:
   button: "Agendar Consulta Gratuita"
 ---
 
-## ¿Por qué necesitas un abogado especialista en Defensa Estatutaria?
+## ¿Por qué necesitas defensa especializada?
 
-Ser funcionario público te otorga **derechos estatutarios específicos**, pero también te expone a **procedimientos disciplinarios complejos** que pueden terminar en **destitución, multa o suspensión** si no te defiendes correctamente.
+Los procedimientos disciplinarios no son juicios civiles comunes. Requieren **conocimiento profundo** del Estatuto Administrativo, Ley Karin y **jurisprudencia de Contraloría**.
 
-Los sumarios administrativos, investigaciones sumarias, términos de contrata y casos de acoso laboral no son juicios civiles comunes. Requieren **conocimiento profundo** de:
-
-- **Estatuto Administrativo** (Ley 18.834)
-- **Estatuto Administrativo Municipal** (Ley 18.883)
-- **Estatuto Docente** (Ley 19.070)
-- **Ley Karin** (acoso laboral y sexual)
-- **Jurisprudencia de Contraloría General de la República**
-
-**No basta con ser abogado.** Necesitas alguien que **haya trabajado dentro del sistema**, que conozca los procesos internos, las trampas burocráticas y las estrategias que funcionan.
-
-**Esa soy yo.**
+**No basta con ser abogado.** Necesitas alguien que haya trabajado dentro del sistema.
 
 35 años en Contraloría General de la República, como **Abogada Jefe, Contralora Regional y Jefa de Responsabilidad Administrativa**, me dieron una perspectiva única: **sé cómo piensa la Administración, porque fui parte de ella.**
 
-Ahora defiendo a quienes enfrentan esa misma maquinaria.
+---
+
+## Mi experiencia
+
+> **Cientos de sumarios instruidos y resueltos.** Fiscalización de procedimientos en servicios públicos, municipios y universidades. Defensa judicial ante recursos de protección y tutelas laborales.
+
+He visto **todos los lados de la mesa**: desde fiscalizadora hasta defensora. Eso me permite anticipar los movimientos de la Administración y defender tus derechos con fundamento técnico irrefutable.
 
 ---
 
-## Mi experiencia en Defensa Estatutaria
+## Cobertura nacional
 
-Durante **más de tres décadas en Contraloría**, trabajé directamente en:
-
-- **Instrucción y resolución de sumarios administrativos e investigaciones sumarias** (cientos de casos)
-- **Fiscalización de procedimientos disciplinarios** en servicios públicos, municipios y universidades
-- **Defensa judicial de funcionarios** ante recursos de protección y tutelas laborales
-- **Asesoría en Ley Karin** (acoso laboral y sexual)
-- **Resolución de conflictos estatutarios** (remuneraciones, traslados, evaluaciones, licencias médicas)
-
-He visto **todos los lados de la mesa**: desde fiscalizadora hasta defensora.
-
-Esa experiencia me permite **anticipar los movimientos de la Administración**, diseñar estrategias sólidas y defender tus derechos con fundamento técnico irrefutable.
-
----
-
-## Casos que atiendo
-
-### 1. Sumarios Administrativos e Investigaciones Sumarias
-
-Si estás siendo investigado por:
-- Irregularidades administrativas
-- Incumplimiento de deberes funcionarios
-- Faltas a la probidad
-- Negligencia en el desempeño de funciones
-
-**Te ayudo a:**
-- Presentar descargos técnicamente fundamentados
-- Revisar legalidad del procedimiento (notificaciones, plazos, competencia)
-- Impugnar pruebas ilegales o irregulares
-- Negociar reducciones de sanciones
-- Interponer recursos de reposición y apelación
-
----
-
-### 2. Término Anticipado o No Renovación de Contrata
-
-Si tu contrato no fue renovado o fue terminado anticipadamente sin justificación:
-
-**Te ayudo a:**
-- Invocar el principio de **confianza legítima** (si has sido renovado sistemáticamente)
-- Impugnar la decisión ante Contraloría o tribunales
-- Presentar recursos de protección si hay vulneración de derechos fundamentales
-- Negociar indemnizaciones o reinstalación
-
----
-
-### 3. Ley Karin: Acoso Laboral y Acoso Sexual
-
-Si estás siendo víctima de hostigamiento, acoso laboral o sexual en tu lugar de trabajo:
-
-**Te ayudo a:**
-- Presentar denuncias formales ante la Administración
-- Activar protocolos de Ley Karin
-- Solicitar medidas de protección inmediatas
-- Interponer acciones judiciales (tutela laboral, recurso de protección)
-- Buscar reparación y sanciones para los responsables
-
----
-
-### 4. Remuneraciones, Traslados y Destinaciones
-
-Si te redujeron el sueldo, te trasladaron arbitrariamente o te destinaron sin causa justificada:
-
-**Te ayudo a:**
-- Impugnar decisiones ilegales ante Contraloría
-- Exigir fundamentación de actos administrativos
-- Solicitar reintegro de remuneraciones impagadas
-- Anular traslados o destinaciones arbitrarias
-
----
-
-### 5. Evaluación Docente, Licencias Médicas y Liberaciones de Guardia
-
-Si te rechazaron licencias médicas, cuestionaron tu evaluación docente o negaron liberaciones:
-
-**Te ayudo a:**
-- Impugnar decisiones técnica y legalmente
-- Presentar recursos administrativos y judiciales
-- Defender tus derechos estatutarios ante autoridades
-
----
-
-## Cobertura Nacional
-
-Aunque resido en Santiago, **atiendo casos en todo Chile**.
-
-Mi experiencia como **Contralora Regional en Magallanes, Aysén y Arica** me permite:
-- Trabajar de forma **presencial o remota** según tus necesidades
-- Conocer dinámicas regionales de servicios públicos y municipios
-- Coordinar con tribunales y autoridades de cualquier región
+Atiendo casos en **todo Chile**. Mi experiencia como Contralora Regional en Magallanes, Aysén y Arica me permite trabajar de forma presencial o remota, conociendo las dinámicas regionales de cada zona.
 
 **No importa dónde estés. Puedo ayudarte.**
-
----
-
-## Próximos Pasos
-
-1. **Agenda tu consulta gratuita** (30 minutos, sin compromiso)
-2. Trae tus antecedentes (notificaciones, cargos, documentos relevantes)
-3. Analizamos tu caso, plazos y opciones
-4. Decides si quieres que te represente
-
-**No dejes que el miedo o la desinformación pongan en riesgo tu carrera.**
-
-Contáctame hoy.
