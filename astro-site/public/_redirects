@@ -4,14 +4,6 @@
 # Redirigir www a non-www (cuando tengas dominio personalizado)
 # https://www.tudominio.com/* https://tudominio.com/:splat 301
 
-# Páginas de áreas prácticas que aún no existen - redirigir a índice
-/areas-practicas/civil /areas-practicas/ 302
-/areas-practicas/inmobiliaria /areas-practicas/ 302
-/areas-practicas/animalista /areas-practicas/ 302
-/areas-practicas/cliente-senior /areas-practicas/ 302
-/areas-practicas/defensa-administrativa /areas-practicas/ 302
-/areas-practicas/capacitacion /areas-practicas/ 302
-
 # Alias comunes (sin acentos)
 /areas-practicas/defensa-estatutaria /areas-practicas/defensa-estatutaria/ 301
 /areas-practicas/legado /areas-practicas/legado/ 301
