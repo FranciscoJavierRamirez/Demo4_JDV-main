@@ -297,25 +297,134 @@ const { items } = Astro.props;
     50% { transform: scale(1.1); opacity: 1; }
   }
 
-  /* Icon reveal animation on scroll */
-  .target-card.visible .target-icon-wrapper {
-    animation: targetIconReveal 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  }
+  /* ========================================
+     PREMIUM KEYFRAMES - Micro-animations
+     ======================================== */
 
+  /* Icon bounce reveal with rotation */
   @keyframes targetIconReveal {
     0% {
       opacity: 0;
-      transform: scale(0.8) rotate(-10deg);
+      transform: scale(0.6) rotate(-15deg);
     }
     60% {
       opacity: 1;
-      transform: scale(1.1) rotate(5deg);
+      transform: scale(1.15) rotate(5deg);
     }
     100% {
       opacity: 1;
       transform: scale(1) rotate(0deg);
     }
   }
+
+  /* Title slide up reveal */
+  @keyframes targetTitleReveal {
+    0% {
+      opacity: 0;
+      transform: translateY(15px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Description fade in reveal */
+  @keyframes targetDescReveal {
+    0% {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Spotlight glow reveal */
+  @keyframes targetSpotlightReveal {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 0.5;
+    }
+  }
+
+  /* ========================================
+     INTERNAL ELEMENTS - Initial Hidden States
+     ======================================== */
+
+  /* Icon wrapper - hidden by default, animates on reveal */
+  .target-card-reveal .target-icon-wrapper {
+    opacity: 0;
+    transform: scale(0.6) rotate(-15deg);
+  }
+
+  /* Icon reveal animation on scroll */
+  .target-card-reveal.visible .target-icon-wrapper {
+    animation: targetIconReveal 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  /* Icon animation delays matching card delays */
+  .target-card-reveal[data-index="0"].visible .target-icon-wrapper { animation-delay: 0.15s; }
+  .target-card-reveal[data-index="1"].visible .target-icon-wrapper { animation-delay: 0.25s; }
+  .target-card-reveal[data-index="2"].visible .target-icon-wrapper { animation-delay: 0.35s; }
+  .target-card-reveal[data-index="3"].visible .target-icon-wrapper { animation-delay: 0.45s; }
+  .target-card-reveal[data-index="4"].visible .target-icon-wrapper { animation-delay: 0.55s; }
+  .target-card-reveal[data-index="5"].visible .target-icon-wrapper { animation-delay: 0.65s; }
+
+  /* Title - hidden by default, slides up on reveal */
+  .target-card-reveal h3 {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  .target-card-reveal.visible h3 {
+    animation: targetTitleReveal 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  /* Title animation delays */
+  .target-card-reveal[data-index="0"].visible h3 { animation-delay: 0.25s; }
+  .target-card-reveal[data-index="1"].visible h3 { animation-delay: 0.35s; }
+  .target-card-reveal[data-index="2"].visible h3 { animation-delay: 0.45s; }
+  .target-card-reveal[data-index="3"].visible h3 { animation-delay: 0.55s; }
+  .target-card-reveal[data-index="4"].visible h3 { animation-delay: 0.65s; }
+  .target-card-reveal[data-index="5"].visible h3 { animation-delay: 0.75s; }
+
+  /* Description - hidden by default, fades in on reveal */
+  .target-card-reveal p {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  .target-card-reveal.visible p {
+    animation: targetDescReveal 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  /* Description animation delays */
+  .target-card-reveal[data-index="0"].visible p { animation-delay: 0.35s; }
+  .target-card-reveal[data-index="1"].visible p { animation-delay: 0.45s; }
+  .target-card-reveal[data-index="2"].visible p { animation-delay: 0.55s; }
+  .target-card-reveal[data-index="3"].visible p { animation-delay: 0.65s; }
+  .target-card-reveal[data-index="4"].visible p { animation-delay: 0.75s; }
+  .target-card-reveal[data-index="5"].visible p { animation-delay: 0.85s; }
+
+  /* Spotlight glow on card visible */
+  .target-card-reveal .card-spotlight {
+    opacity: 0;
+  }
+
+  .target-card-reveal.visible .card-spotlight {
+    animation: targetSpotlightReveal 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .target-card-reveal[data-index="0"].visible .card-spotlight { animation-delay: 0.4s; }
+  .target-card-reveal[data-index="1"].visible .card-spotlight { animation-delay: 0.5s; }
+  .target-card-reveal[data-index="2"].visible .card-spotlight { animation-delay: 0.6s; }
+  .target-card-reveal[data-index="3"].visible .card-spotlight { animation-delay: 0.7s; }
+  .target-card-reveal[data-index="4"].visible .card-spotlight { animation-delay: 0.8s; }
+  .target-card-reveal[data-index="5"].visible .card-spotlight { animation-delay: 0.9s; }
 
   .target-card:hover .target-icon-wrapper {
     transform: scale(1.1) rotate(-3deg);
@@ -495,7 +604,7 @@ const { items } = Astro.props;
       font-size: 0.875rem;
     }
 
-    /* Disable hover effects on mobile (touch devices) */
+    /* Mobile: Reset hover to base state (prevent sticky hover on touch) */
     .target-card:hover {
       transform: none;
       background: rgba(255, 255, 255, 0.88);
@@ -524,6 +633,165 @@ const { items } = Astro.props;
       transform: none;
       filter: none;
     }
+
+    /* ========================================
+       MOBILE TOUCH FEEDBACK - Active States
+       ======================================== */
+    .target-card {
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
+    }
+
+    /* Active state: Transition to dark glass on touch */
+    .target-card:active {
+      transform: scale(0.98);
+      background: rgba(12, 35, 64, 0.75);
+      border-color: rgba(255, 255, 255, 0.2);
+      box-shadow:
+        0 8px 25px -5px rgba(59, 130, 246, 0.25),
+        0 0 0 1px rgba(59, 130, 246, 0.1);
+      transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .target-card:active h3 {
+      color: #ffffff;
+    }
+
+    .target-card:active p {
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    .target-card:active .target-icon-wrapper {
+      transform: scale(0.95);
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+      box-shadow: 0 4px 16px rgba(201, 169, 97, 0.35);
+    }
+
+    .target-card:active .target-icon {
+      filter: grayscale(1) brightness(10);
+    }
+
+    .target-card:active .card-spotlight {
+      opacity: 0.8;
+    }
+
+    /* Mobile: Remove stagger delays - each card animates individually */
+    .target-card-reveal[data-index="0"].visible,
+    .target-card-reveal[data-index="1"].visible,
+    .target-card-reveal[data-index="2"].visible,
+    .target-card-reveal[data-index="3"].visible,
+    .target-card-reveal[data-index="4"].visible,
+    .target-card-reveal[data-index="5"].visible {
+      transition-delay: 0ms;
+    }
+
+    /* Mobile: Internal element animation adjustments */
+    .target-card-reveal .target-icon-wrapper {
+      opacity: 0;
+      transform: scale(0.6) rotate(-10deg);
+    }
+
+    .target-card-reveal.visible .target-icon-wrapper {
+      animation: targetIconReveal 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      animation-delay: 0.1s;
+    }
+
+    .target-card-reveal h3 {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+
+    .target-card-reveal.visible h3 {
+      animation: targetTitleReveal 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      animation-delay: 0.18s;
+    }
+
+    .target-card-reveal p {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+
+    .target-card-reveal.visible p {
+      animation: targetDescReveal 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      animation-delay: 0.26s;
+    }
+
+    .target-card-reveal .card-spotlight {
+      opacity: 0;
+    }
+
+    .target-card-reveal.visible .card-spotlight {
+      animation: targetSpotlightReveal 0.5s ease-out forwards;
+      animation-delay: 0.3s;
+    }
+
+    /* Mobile: Consistent internal animation delays (override desktop stagger) */
+    .target-card-reveal[data-index="0"].visible .target-icon-wrapper,
+    .target-card-reveal[data-index="1"].visible .target-icon-wrapper,
+    .target-card-reveal[data-index="2"].visible .target-icon-wrapper,
+    .target-card-reveal[data-index="3"].visible .target-icon-wrapper,
+    .target-card-reveal[data-index="4"].visible .target-icon-wrapper,
+    .target-card-reveal[data-index="5"].visible .target-icon-wrapper {
+      animation-delay: 0.1s;
+    }
+
+    .target-card-reveal[data-index="0"].visible h3,
+    .target-card-reveal[data-index="1"].visible h3,
+    .target-card-reveal[data-index="2"].visible h3,
+    .target-card-reveal[data-index="3"].visible h3,
+    .target-card-reveal[data-index="4"].visible h3,
+    .target-card-reveal[data-index="5"].visible h3 {
+      animation-delay: 0.18s;
+    }
+
+    .target-card-reveal[data-index="0"].visible p,
+    .target-card-reveal[data-index="1"].visible p,
+    .target-card-reveal[data-index="2"].visible p,
+    .target-card-reveal[data-index="3"].visible p,
+    .target-card-reveal[data-index="4"].visible p,
+    .target-card-reveal[data-index="5"].visible p {
+      animation-delay: 0.26s;
+    }
+
+    .target-card-reveal[data-index="0"].visible .card-spotlight,
+    .target-card-reveal[data-index="1"].visible .card-spotlight,
+    .target-card-reveal[data-index="2"].visible .card-spotlight,
+    .target-card-reveal[data-index="3"].visible .card-spotlight,
+    .target-card-reveal[data-index="4"].visible .card-spotlight,
+    .target-card-reveal[data-index="5"].visible .card-spotlight {
+      animation-delay: 0.3s;
+    }
+  }
+
+  /* Small mobile devices - refined animations */
+  @media (max-width: 480px) {
+    .target-card-reveal {
+      transform: translateY(20px);
+    }
+
+    .target-icon-wrapper {
+      width: 56px;
+      height: 56px;
+      border-radius: 14px;
+    }
+
+    .target-icon {
+      font-size: 1.75rem;
+    }
+
+    .target-card {
+      padding: var(--space-5);
+      gap: var(--space-3);
+      border-radius: 16px;
+    }
+
+    .target-card h3 {
+      font-size: 1rem;
+    }
+
+    .target-card p {
+      font-size: 0.8125rem;
+    }
   }
 
   /* ========================================
@@ -532,8 +800,7 @@ const { items } = Astro.props;
   @media (prefers-reduced-motion: reduce) {
     /* Show all elements immediately */
     .target-header-reveal,
-    .target-card-reveal,
-    .target-icon-wrapper {
+    .target-card-reveal {
       opacity: 1;
       transform: none;
       transition: none;
@@ -554,14 +821,67 @@ const { items } = Astro.props;
       animation: none;
     }
 
-    .target-card.visible .target-icon-wrapper {
+    /* Internal elements - always visible, no animation */
+    .target-icon-wrapper {
+      opacity: 1;
+      transform: none;
+    }
+
+    .target-card-reveal .target-icon-wrapper,
+    .target-card-reveal.visible .target-icon-wrapper {
       animation: none;
+      opacity: 1;
+      transform: none;
+    }
+
+    .target-card-reveal h3,
+    .target-card-reveal.visible h3 {
+      animation: none;
+      opacity: 1;
+      transform: none;
+    }
+
+    .target-card-reveal p,
+    .target-card-reveal.visible p {
+      animation: none;
+      opacity: 1;
+      transform: none;
+    }
+
+    .target-card-reveal .card-spotlight,
+    .target-card-reveal.visible .card-spotlight {
+      animation: none;
+      opacity: 0;
+    }
+
+    .target-card:hover .card-spotlight {
+      opacity: 1;
+    }
+
+    /* Hover effects - minimal movement */
+    .target-card:hover {
+      transform: translateY(-4px);
+      transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .target-card:hover .target-icon-wrapper {
+      transform: scale(1.05);
+    }
+
+    /* Touch feedback - minimal */
+    .target-card:active {
+      transform: none;
+      transition: none;
     }
   }
 </style>
 
 <script is:inline>
-  document.addEventListener('DOMContentLoaded', () => {
+  // ========================================
+  // Target Section - Premium Scroll Animations
+  // Individual observers for mobile, staggered for desktop
+  // ========================================
+  const initTargetAnimation = () => {
     const section = document.getElementById('practice-target');
     if (!section) return;
 
@@ -572,31 +892,93 @@ const { items } = Astro.props;
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     if (prefersReducedMotion) {
+      // Show everything immediately without animation
       header?.classList.add('visible');
       cards.forEach(card => card.classList.add('visible'));
       return;
     }
 
-    // Single observer for both mobile and desktop
-    // CSS media queries handle the visual differences
-    const observer = new IntersectionObserver((entries) => {
+    // Detect mobile device
+    const isMobile = window.innerWidth <= 768;
+
+    // Header observer - triggers first
+    const headerObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          // Reveal header
           header?.classList.add('visible');
-          
-          // Reveal all cards (CSS transition-delay handles stagger)
-          cards.forEach(card => card.classList.add('visible'));
-          
-          observer.disconnect();
+          headerObserver.disconnect();
         }
       });
     }, { 
-      threshold: 0.1,
+      threshold: 0.3,
       rootMargin: '0px 0px -50px 0px'
     });
 
-    observer.observe(section);
+    if (header) {
+      headerObserver.observe(header);
+    }
+
+    // Mobile: Individual observers for each card
+    // Each card animates when it enters the viewport
+    if (isMobile) {
+      cards.forEach((card) => {
+        const cardObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              // Use requestAnimationFrame for smoother animation start
+              requestAnimationFrame(() => {
+                card.classList.add('visible');
+              });
+              cardObserver.disconnect();
+            }
+          });
+        }, { 
+          threshold: 0.2,
+          rootMargin: '0px 0px -10% 0px'
+        });
+        
+        cardObserver.observe(card);
+      });
+    } else {
+      // Desktop: Section observer with staggered reveal via JavaScript
+      const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            // Stagger card animations with controlled timing
+            cards.forEach((card, index) => {
+              setTimeout(() => {
+                requestAnimationFrame(() => {
+                  card.classList.add('visible');
+                });
+              }, 100 + index * 120);
+            });
+            sectionObserver.disconnect();
+          }
+        });
+      }, { 
+        threshold: 0.15,
+        rootMargin: '0px 0px -80px 0px'
+      });
+
+      sectionObserver.observe(section);
+    }
+
+    // Handle resize - ensure visibility after orientation change
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(() => {
+        // Re-check if cards need to be visible after resize
+        cards.forEach(card => {
+          if (!card.classList.contains('visible')) {
+            const rect = card.getBoundingClientRect();
+            if (rect.top < window.innerHeight * 0.85) {
+              card.classList.add('visible');
+            }
+          }
+        });
+      }, 200);
+    });
 
     // Spotlight effect for desktop (mouse tracking)
     if (window.matchMedia('(hover: hover)').matches) {
@@ -608,5 +990,12 @@ const { items } = Astro.props;
         });
       });
     }
-  });
+  };
+
+  // Run on DOM ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initTargetAnimation);
+  } else {
+    initTargetAnimation();
+  }
 </script>
