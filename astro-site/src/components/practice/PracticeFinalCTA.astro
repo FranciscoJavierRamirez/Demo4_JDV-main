@@ -56,7 +56,7 @@ const { headline, text, button } = Astro.props;
         </div>
         <div class="cta-feature">
           <i class="fas fa-video"></i>
-          <span>Consulta gratuita 30 min</span>
+          <span>Videollamada de Orientación</span>
         </div>
         <div class="cta-feature">
           <i class="fas fa-lock"></i>
@@ -260,10 +260,16 @@ const { headline, text, button } = Astro.props;
 
   .btn-primary {
     background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
-    color: var(--gray-900);
+    color: #ffffff;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
     box-shadow: 
       0 4px 20px rgba(201, 169, 97, 0.4),
-      0 0 40px rgba(201, 169, 97, 0.15);
+      0 0 40px rgba(201, 169, 97, 0.15),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  }
+
+  .btn-primary i {
+    filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.2));
   }
 
   .btn-shimmer {
@@ -278,21 +284,42 @@ const { headline, text, button } = Astro.props;
 
   .btn-primary:hover {
     transform: translateY(-3px) scale(1.02);
+    background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 100%);
     box-shadow: 
       0 8px 35px rgba(201, 169, 97, 0.5),
-      0 0 60px rgba(201, 169, 97, 0.25);
+      0 0 60px rgba(201, 169, 97, 0.25),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3);
   }
 
   .btn-whatsapp {
-    background: #25D366;
+    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
     color: white;
-    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.35);
+    box-shadow: 
+      0 4px 20px rgba(37, 211, 102, 0.35),
+      inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .btn-whatsapp i {
+    font-size: 1.25rem;
+    transition: transform 0.3s ease;
   }
 
   .btn-whatsapp:hover {
-    background: #1fba57;
-    transform: translateY(-3px);
-    box-shadow: 0 8px 30px rgba(37, 211, 102, 0.45);
+    background: linear-gradient(135deg, #2ee373 0%, #25D366 100%);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 
+      0 8px 30px rgba(37, 211, 102, 0.5),
+      0 0 40px rgba(37, 211, 102, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  }
+
+  .btn-whatsapp:hover i {
+    transform: scale(1.15) rotate(-5deg);
+  }
+
+  .btn-whatsapp:active {
+    transform: translateY(-1px) scale(0.98);
   }
 
   /* ========================================

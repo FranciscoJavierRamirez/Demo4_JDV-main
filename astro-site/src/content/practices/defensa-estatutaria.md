@@ -115,7 +115,7 @@ faq:
 finalCta:
   headline: "Protege tu carrera hoy. No enfrentes esto solo."
   text: "Un procedimiento disciplinario puede cambiar tu vida. No dejes tu estabilidad laboral y tu futuro en manos del azar. Agenda tu consulta gratuita y obtén claridad sobre tu caso."
-  button: "Agendar Consulta Gratuita"
+  button: "Agendar Consulta"
 ---
 
 ## ¿Por qué necesitas defensa especializada?

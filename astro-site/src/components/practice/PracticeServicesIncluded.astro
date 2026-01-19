@@ -353,6 +353,67 @@ const { items } = Astro.props;
     50% { transform: scale(1.15); opacity: 1; }
   }
 
+  /* ========================================
+     PREMIUM KEYFRAMES - Mobile Animations
+     ======================================== */
+  
+  /* Blur-in reveal effect - Premium feel */
+  @keyframes serviceCardBlurIn {
+    0% {
+      opacity: 0;
+      transform: translateY(50px) scale(0.92);
+      filter: blur(12px);
+    }
+    40% {
+      opacity: 0.6;
+      filter: blur(6px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      filter: blur(0);
+    }
+  }
+
+  /* Title slide-up reveal */
+  @keyframes serviceTitleReveal {
+    0% {
+      opacity: 0;
+      transform: translateY(15px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Description fade-in */
+  @keyframes serviceDescReveal {
+    0% {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Accent line reveal from top */
+  @keyframes serviceAccentReveal {
+    0% {
+      transform: scaleY(0);
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      transform: scaleY(1);
+      opacity: 1;
+    }
+  }
+
   .service-card:hover .service-icon-wrapper {
     transform: scale(1.1);
     border-color: rgba(201, 169, 97, 0.3);
@@ -451,7 +512,62 @@ const { items } = Astro.props;
   .service-card-reveal[data-index="7"].visible .service-icon-wrapper { animation-delay: 0.85s; }
 
   /* ========================================
-     RESPONSIVE
+     INTERNAL CONTENT STAGGER - Premium Feel
+     ======================================== */
+  
+  /* Title stagger animation */
+  .service-card h3 {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  .service-card.visible h3 {
+    animation: serviceTitleReveal 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: 0.25s;
+  }
+
+  /* Description stagger animation */
+  .service-card p {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  .service-card.visible p {
+    animation: serviceDescReveal 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: 0.35s;
+  }
+
+  /* Accent line reveal on card visible */
+  .service-card.visible .card-accent {
+    animation: serviceAccentReveal 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: 0.4s;
+    transform-origin: top;
+  }
+
+  /* Desktop: Staggered content delays based on card index */
+  .service-card-reveal[data-index="0"].visible h3 { animation-delay: 0.25s; }
+  .service-card-reveal[data-index="1"].visible h3 { animation-delay: 0.35s; }
+  .service-card-reveal[data-index="2"].visible h3 { animation-delay: 0.45s; }
+  .service-card-reveal[data-index="3"].visible h3 { animation-delay: 0.55s; }
+  .service-card-reveal[data-index="4"].visible h3 { animation-delay: 0.65s; }
+  .service-card-reveal[data-index="5"].visible h3 { animation-delay: 0.75s; }
+
+  .service-card-reveal[data-index="0"].visible p { animation-delay: 0.35s; }
+  .service-card-reveal[data-index="1"].visible p { animation-delay: 0.45s; }
+  .service-card-reveal[data-index="2"].visible p { animation-delay: 0.55s; }
+  .service-card-reveal[data-index="3"].visible p { animation-delay: 0.65s; }
+  .service-card-reveal[data-index="4"].visible p { animation-delay: 0.75s; }
+  .service-card-reveal[data-index="5"].visible p { animation-delay: 0.85s; }
+
+  .service-card-reveal[data-index="0"].visible .card-accent { animation-delay: 0.4s; }
+  .service-card-reveal[data-index="1"].visible .card-accent { animation-delay: 0.5s; }
+  .service-card-reveal[data-index="2"].visible .card-accent { animation-delay: 0.6s; }
+  .service-card-reveal[data-index="3"].visible .card-accent { animation-delay: 0.7s; }
+  .service-card-reveal[data-index="4"].visible .card-accent { animation-delay: 0.8s; }
+  .service-card-reveal[data-index="5"].visible .card-accent { animation-delay: 0.9s; }
+
+  /* ========================================
+     RESPONSIVE - Mobile Premium Animations
      ======================================== */
   @media (max-width: 768px) {
     .services-included {
@@ -460,6 +576,131 @@ const { items } = Astro.props;
 
     .services-grid {
       grid-template-columns: 1fr;
+      gap: var(--space-5);
+    }
+
+    /* Mobile: Enhanced blur-in animation with elastic bounce */
+    .service-card-reveal {
+      opacity: 0;
+      transform: translateY(60px) scale(0.92);
+      filter: blur(10px);
+      transition: 
+        opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1),
+        filter 0.6s ease-out;
+    }
+
+    .service-card-reveal.visible {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      filter: blur(0);
+    }
+
+    /* Mobile: Remove stagger delays (cards appear individually) */
+    .service-card-reveal[data-index="0"].visible,
+    .service-card-reveal[data-index="1"].visible,
+    .service-card-reveal[data-index="2"].visible,
+    .service-card-reveal[data-index="3"].visible,
+    .service-card-reveal[data-index="4"].visible,
+    .service-card-reveal[data-index="5"].visible,
+    .service-card-reveal[data-index="6"].visible,
+    .service-card-reveal[data-index="7"].visible {
+      transition-delay: 0ms;
+    }
+
+    /* Mobile: Adjust icon animation delay */
+    .service-card-reveal.visible .service-icon-wrapper {
+      animation-delay: 0.15s;
+    }
+
+    /* Mobile: Adjust content stagger timing */
+    .service-card.visible h3 {
+      animation-delay: 0.3s;
+    }
+
+    .service-card.visible p {
+      animation-delay: 0.4s;
+    }
+
+    .service-card.visible .card-accent {
+      animation-delay: 0.45s;
+    }
+
+    /* Mobile: Touch feedback */
+    .service-card {
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
+    }
+
+    .service-card:active {
+      transform: scale(0.98);
+      transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* Mobile: Softer active state glow */
+    .service-card:active .service-icon-wrapper::before {
+      opacity: 0.5;
+    }
+
+    /* Mobile: Reduce card padding slightly */
+    .service-card {
+      padding: var(--space-5);
+    }
+
+    /* Mobile: Smaller icon wrapper */
+    .service-icon-wrapper {
+      width: 48px;
+      height: 48px;
+    }
+
+    .service-icon {
+      font-size: 1.375rem;
+    }
+
+    /* Mobile: Adjust typography */
+    .service-card h3 {
+      font-size: 1rem;
+    }
+
+    .service-card p {
+      font-size: 0.875rem;
+    }
+
+    /* Mobile: Reduce background orb sizes for performance */
+    .services-bg::before {
+      width: 350px;
+      height: 350px;
+    }
+
+    .services-bg::after {
+      width: 300px;
+      height: 300px;
+    }
+  }
+
+  /* Small mobile devices */
+  @media (max-width: 480px) {
+    .service-card-reveal {
+      transform: translateY(50px) scale(0.94);
+      filter: blur(8px);
+    }
+
+    .service-icon-wrapper {
+      width: 44px;
+      height: 44px;
+    }
+
+    .service-icon {
+      font-size: 1.25rem;
+    }
+
+    .service-card {
+      padding: var(--space-4);
+      border-radius: 20px;
+    }
+
+    .service-header {
+      gap: var(--space-3);
     }
   }
 
@@ -467,10 +708,12 @@ const { items } = Astro.props;
      REDUCED MOTION - Accessibility
      ======================================== */
   @media (prefers-reduced-motion: reduce) {
+    /* Header and cards - instant visibility */
     .services-header-reveal,
     .service-card-reveal {
       opacity: 1;
       transform: none;
+      filter: none;
       transition: none;
     }
 
@@ -478,11 +721,13 @@ const { items } = Astro.props;
       transition: none;
     }
 
+    /* Section line - always visible */
     .section-line {
       transform: scaleX(1);
       transition: none;
     }
 
+    /* Icon - always visible, no animation */
     .service-icon-wrapper {
       opacity: 1;
       transform: none;
@@ -499,20 +744,50 @@ const { items } = Astro.props;
       animation: none;
     }
 
+    /* Title and description - always visible */
+    .service-card h3,
+    .service-card p {
+      opacity: 1;
+      transform: none;
+    }
+
+    .service-card.visible h3,
+    .service-card.visible p {
+      animation: none;
+      opacity: 1;
+      transform: none;
+    }
+
+    /* Accent line - always visible */
+    .card-accent {
+      transform: scaleY(1);
+    }
+
+    .service-card.visible .card-accent {
+      animation: none;
+      transform: scaleY(1);
+    }
+
+    /* Background orbs - no floating animation */
     .services-bg::before,
     .services-bg::after {
       animation: none;
     }
 
-    .card-accent,
-    .card-top-line {
-      transform: scaleY(1);
+    /* Hover effects - minimal movement */
+    .service-card:hover {
+      transform: translateY(-4px);
+      transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    /* Touch feedback - minimal */
+    .service-card:active {
+      transform: none;
       transition: none;
     }
 
-    .service-card,
-    .service-card:hover {
-      transform: none;
+    /* Card general - no complex transitions */
+    .service-card {
       transition: background 0.2s ease, border-color 0.2s ease;
     }
   }
@@ -520,7 +795,8 @@ const { items } = Astro.props;
 
 <script is:inline>
   // ========================================
-  // Services Section - Enhanced Scroll Reveal
+  // Services Section - Premium Mobile Animations
+  // Individual card observers for smooth scroll reveal
   // ========================================
   const initServicesAnimation = () => {
     const section = document.getElementById('practice-services');
@@ -539,39 +815,95 @@ const { items } = Astro.props;
       return;
     }
 
-    const observerOptions = {
-      threshold: 0.15,
-      rootMargin: '0px 0px -50px 0px'
-    };
+    // Detect mobile device
+    const isMobile = window.innerWidth <= 768;
 
-    const revealObserver = new IntersectionObserver((entries) => {
+    // Header observer - triggers first
+    const headerObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          // Animate header first
           header?.classList.add('visible');
-
-          // Then animate cards with staggered delay
-          cards.forEach((card, index) => {
-            setTimeout(() => {
-              card.classList.add('visible');
-            }, 100 + (index * 100));
-          });
-
-          // Stop observing after animation triggered
-          revealObserver.disconnect();
+          headerObserver.disconnect();
         }
       });
-    }, observerOptions);
+    }, { 
+      threshold: 0.3,
+      rootMargin: '0px 0px -50px 0px'
+    });
 
-    revealObserver.observe(section);
+    if (header) {
+      headerObserver.observe(header);
+    }
 
-    // Spotlight effect on cards
-    cards.forEach(card => {
-      card.addEventListener('mousemove', (e) => {
-        const rect = card.getBoundingClientRect();
-        card.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
-        card.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
+    // Individual card observers for mobile
+    // Each card animates when it enters the viewport
+    if (isMobile) {
+      cards.forEach((card) => {
+        const cardObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              // Small delay for smoother feel
+              requestAnimationFrame(() => {
+                card.classList.add('visible');
+              });
+              cardObserver.disconnect();
+            }
+          });
+        }, { 
+          threshold: 0.15,
+          rootMargin: '0px 0px -10% 0px'
+        });
+        
+        cardObserver.observe(card);
       });
+    } else {
+      // Desktop: Use section observer with staggered reveal
+      const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            // Stagger card animations
+            cards.forEach((card, index) => {
+              setTimeout(() => {
+                card.classList.add('visible');
+              }, 100 + index * 120);
+            });
+            sectionObserver.disconnect();
+          }
+        });
+      }, { 
+        threshold: 0.2,
+        rootMargin: '0px 0px -80px 0px'
+      });
+
+      sectionObserver.observe(section);
+    }
+
+    // Spotlight effect (desktop only - better performance)
+    if (!isMobile) {
+      cards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+          const rect = card.getBoundingClientRect();
+          card.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
+          card.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
+        });
+      });
+    }
+
+    // Handle resize - update mobile detection and ensure visibility
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(() => {
+        // Re-check if cards need to be visible after resize
+        cards.forEach(card => {
+          if (!card.classList.contains('visible')) {
+            const rect = card.getBoundingClientRect();
+            if (rect.top < window.innerHeight * 0.85) {
+              card.classList.add('visible');
+            }
+          }
+        });
+      }, 200);
     });
   };
 

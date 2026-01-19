@@ -115,7 +115,7 @@ faq:
 finalCta:
   headline: "Tu mascota merece justicia"
   text: "El maltrato, la negligencia y la injusticia contra los animales no pueden quedar impunes. Si tu mascota o tu fundación necesita defensa legal, estoy aquí para ayudarte."
-  button: "Agendar Consulta Gratuita"
+  button: "Agendar Consulta"
 ---
 
 ## El amor por los animales merece protección legal

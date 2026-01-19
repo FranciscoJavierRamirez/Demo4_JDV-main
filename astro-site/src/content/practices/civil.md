@@ -115,7 +115,7 @@ faq:
 finalCta:
   headline: "¿Tienes un conflicto civil sin resolver?"
   text: "No dejes que tus derechos se pierdan por inacción o desconocimiento. Cada día que pasa puede acercarte a la prescripción. Agenda una consulta y evaluemos juntos la mejor estrategia para tu caso."
-  button: "Agendar Consulta Gratuita"
+  button: "Agendar Consulta"
 ---
 
 ## Experiencia en litigio civil
