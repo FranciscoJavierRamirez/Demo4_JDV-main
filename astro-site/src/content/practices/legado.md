@@ -17,7 +17,7 @@ trust:
     label: "Años Experiencia"
   - value: "100%"
     label: "Confidencialidad"
-  - value: "Notarial"
+  - value: "100%"
     label: "Respaldo Legal"
 
 target:

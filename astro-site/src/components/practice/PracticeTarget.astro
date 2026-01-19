@@ -46,8 +46,6 @@ const { items } = Astro.props;
             <p>{item.description}</p>
           </div>
 
-          <!-- Hover Border Glow -->
-          <div class="card-border-glow"></div>
         </div>
       ))}
     </div>
@@ -58,25 +56,61 @@ const { items } = Astro.props;
   .practice-target {
     position: relative;
     padding: var(--space-20) 0;
-    background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+    /* Premium gradient background */
+    background: linear-gradient(180deg, #dbeafe 0%, #eff6ff 50%, #f8fafc 100%);
     overflow: hidden;
   }
 
   /* ========================================
-     BACKGROUND
+     BACKGROUND - Premium Mesh
      ======================================== */
   .target-bg {
     position: absolute;
     inset: 0;
     pointer-events: none;
+    overflow: hidden;
   }
 
   .target-mesh {
     position: absolute;
     inset: 0;
-    background: 
-      radial-gradient(ellipse 60% 40% at 10% 20%, rgba(59, 130, 246, 0.06) 0%, transparent 50%),
-      radial-gradient(ellipse 50% 30% at 90% 80%, rgba(201, 169, 97, 0.04) 0%, transparent 50%);
+    background:
+      radial-gradient(ellipse 60% 40% at 10% 20%, rgba(59, 130, 246, 0.08) 0%, transparent 50%),
+      radial-gradient(ellipse 50% 30% at 90% 80%, rgba(201, 169, 97, 0.06) 0%, transparent 50%);
+  }
+
+  /* Mesh orbs */
+  .target-bg::before {
+    content: '';
+    position: absolute;
+    top: 20%;
+    left: 15%;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.10) 0%, transparent 70%);
+    filter: blur(100px);
+    animation: targetOrbFloat 22s ease-in-out infinite;
+  }
+
+  .target-bg::after {
+    content: '';
+    position: absolute;
+    bottom: 10%;
+    right: 10%;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(201, 169, 97, 0.08) 0%, transparent 70%);
+    filter: blur(80px);
+    animation: targetOrbFloat 25s ease-in-out infinite reverse;
+  }
+
+  @keyframes targetOrbFloat {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    25% { transform: translate(30px, -40px) scale(1.05); }
+    50% { transform: translate(-20px, 30px) scale(0.95); }
+    75% { transform: translate(40px, 20px) scale(1.02); }
   }
 
   /* ========================================
@@ -143,27 +177,37 @@ const { items } = Astro.props;
   }
 
   /* ========================================
-     CARDS
+     CARDS - Premium Glass Design
      ======================================== */
   .target-card {
     position: relative;
-    background: white;
+    /* Light glass base state */
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     padding: var(--space-8);
     border-radius: 20px;
-    border: 1px solid rgba(0, 0, 0, 0.06);
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     overflow: hidden;
-    box-shadow: 
-      0 1px 3px rgba(0, 0, 0, 0.04),
-      0 4px 12px rgba(0, 0, 0, 0.03);
+    box-shadow:
+      0 4px 6px -1px rgba(0, 0, 0, 0.05),
+      0 2px 4px -1px rgba(0, 0, 0, 0.03),
+      inset 0 1px 0 rgba(255, 255, 255, 0.6);
   }
 
+  /* Hover: Transition to dark navy glass */
   .target-card:hover {
-    transform: translateY(-8px);
-    border-color: var(--blue-primary);
-    box-shadow: 
-      0 20px 40px -10px rgba(59, 130, 246, 0.2),
-      0 0 0 1px rgba(59, 130, 246, 0.1);
+    transform: translateY(-8px) scale(1.01);
+    /* Dark glass hover state */
+    background: rgba(12, 35, 64, 0.88);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow:
+      0 25px 50px -12px rgba(59, 130, 246, 0.30),
+      0 0 0 1px rgba(59, 130, 246, 0.15),
+      0 0 50px rgba(201, 169, 97, 0.10);
   }
 
   /* Spotlight Effect */
@@ -184,29 +228,15 @@ const { items } = Astro.props;
     opacity: 1;
   }
 
-  /* Border Glow */
-  .card-border-glow {
-    position: absolute;
-    inset: 0;
-    border-radius: 20px;
-    background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), transparent 50%);
-    opacity: 0;
-    transition: opacity 0.4s ease;
-    pointer-events: none;
-  }
-
-  .target-card:hover .card-border-glow {
-    opacity: 1;
-  }
-
   /* Card Content */
   .card-content {
     position: relative;
     z-index: 5;
   }
 
-  /* Icon */
+  /* Icon with Reveal Animation */
   .target-icon-wrapper {
+    position: relative;
     width: 72px;
     height: 72px;
     display: flex;
@@ -217,12 +247,56 @@ const { items } = Astro.props;
     margin-bottom: var(--space-5);
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     box-shadow: 0 4px 12px rgba(59, 130, 246, 0.1);
+    opacity: 0;
+    transform: scale(0.8) rotate(-10deg);
+  }
+
+  /* Icon pulse glow */
+  .target-icon-wrapper::before {
+    content: '';
+    position: absolute;
+    inset: -8px;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.2) 0%, transparent 70%);
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+
+  .target-card:hover .target-icon-wrapper::before {
+    opacity: 1;
+    animation: iconPulseGlow 2s ease-in-out infinite;
+  }
+
+  @keyframes iconPulseGlow {
+    0%, 100% { transform: scale(1); opacity: 0.6; }
+    50% { transform: scale(1.1); opacity: 1; }
+  }
+
+  /* Icon reveal animation on scroll */
+  .target-card.visible .target-icon-wrapper {
+    animation: targetIconReveal 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  @keyframes targetIconReveal {
+    0% {
+      opacity: 0;
+      transform: scale(0.8) rotate(-10deg);
+    }
+    60% {
+      opacity: 1;
+      transform: scale(1.1) rotate(5deg);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1) rotate(0deg);
+    }
   }
 
   .target-card:hover .target-icon-wrapper {
     transform: scale(1.1) rotate(-3deg);
-    background: linear-gradient(135deg, var(--blue-primary) 0%, var(--blue-dark) 100%);
-    box-shadow: 0 8px 24px rgba(59, 130, 246, 0.3);
+    /* Gold gradient on dark glass hover */
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+    box-shadow: 0 8px 24px rgba(201, 169, 97, 0.40);
   }
 
   .target-icon {
@@ -242,11 +316,12 @@ const { items } = Astro.props;
     color: var(--gray-900);
     margin-bottom: var(--space-3);
     font-weight: 600;
-    transition: color 0.3s ease;
+    transition: color 0.4s ease;
   }
 
+  /* Hover: White title on dark glass */
   .target-card:hover h3 {
-    color: var(--blue-primary);
+    color: #ffffff;
   }
 
   /* Description */
@@ -255,6 +330,12 @@ const { items } = Astro.props;
     color: var(--gray-600);
     line-height: 1.7;
     margin: 0;
+    transition: color 0.4s ease;
+  }
+
+  /* Hover: Light text on dark glass */
+  .target-card:hover p {
+    color: rgba(255, 255, 255, 0.9);
   }
 
   /* ========================================
@@ -310,6 +391,28 @@ const { items } = Astro.props;
       opacity: 1;
       transform: none;
       transition: none;
+    }
+
+    .target-icon-wrapper {
+      opacity: 1;
+      transform: none;
+    }
+
+    .target-card.visible .target-icon-wrapper {
+      animation: none;
+    }
+
+    .target-card:hover .target-icon-wrapper::before {
+      animation: none;
+    }
+
+    .target-bg::before,
+    .target-bg::after {
+      animation: none;
+    }
+
+    .target-card:hover {
+      transform: translateY(-4px);
     }
   }
 </style>
