@@ -3,27 +3,27 @@ slug: "defensa-estatutaria"
 
 seo:
   title: "Defensa Estatutaria para Funcionarios Públicos | JDV & Abogados"
-  description: "Defensa especializada en sumarios administrativos, término de contrata y procedimientos disciplinarios. 35 años de experiencia en Contraloría General."
+  description: "Ex Contralora Regional defiende funcionarios en sumarios, Ley Karin, término de contrata. 35 años en CGR. Consulta gratuita."
   canonical: "/areas-practicas/defensa-estatutaria"
 
 hero:
-  badge: "Especialización CGR · 35 Años"
+  badge: "Ex Contralora Regional · 35 Años"
   h1: "Defensa Estatutaria para Funcionarios Públicos"
-  tagline: "Protegemos tu estabilidad laboral ante procedimientos disciplinarios"
+  tagline: "Defensa ante sumarios y Ley Karin con quien conoce el sistema desde adentro"
   image: "/areas/defensa-estatutaria.jpg"
 
 trust:
   - value: "35+"
     label: "Años en CGR"
   - value: "500+"
-    label: "Casos Resueltos"
-  - value: "98%"
-    label: "Satisfacción"
+    label: "Sumarios Resueltos"
+  - value: "16"
+    label: "Regiones Cubiertas"
 
 target:
   - icon: "🛡️"
     title: "Funcionario Investigado"
-    description: "Estás en un sumario administrativo o investigación sumaria y necesitas defensa técnica especializada."
+    description: "Funcionario de planta, contrata u honorarios en sumario administrativo o investigación sumaria que necesita defensa técnica."
   - icon: "🚨"
     title: "Término de Contrata"
     description: "No renovación injustificada de tu contrato o término anticipado sin fundamento legal."
@@ -32,15 +32,15 @@ target:
     description: "Hostigamiento, acoso laboral o sexual, o vulneración de derechos estatutarios."
   - icon: "📋"
     title: "Vulneración de Derechos"
-    description: "Traslados arbitrarios, remuneraciones impugnadas, evaluaciones injustas o licencias rechazadas."
+    description: "Traslados arbitrarios, remuneraciones, evaluación docente, licencias médicas o liberaciones de guardia rechazadas."
 
 painPoints:
   - "Desconocimiento de tus derechos estatutarios y procedimientos disciplinarios"
   - "Plazos breves e improrrogables para presentar defensas y descargos"
-  - "Riesgo real de destitución, multa, suspensión o no renovación de contrata"
+  - "Riesgo real de destitución, multa, suspensión, no renovación de contrata o pérdida de la confianza legítima"
   - "Estrés e incertidumbre profesional que afecta tu vida personal y familiar"
   - "Enfrentarte solo ante la maquinaria administrativa del Estado"
-  - "Falta de asesoría experta que entienda los procesos internos de la Administración"
+  - "No encontrar un abogado que haya estado del otro lado de la mesa, que conozca cómo piensa la Administración"
 
 objective:
   text: "Mi objetivo es ponerte en igualdad de condiciones frente a la Administración del Estado, defendiendo tus derechos con estrategia jurídica sólida, rigor técnico y empatía humana. No estás solo en esto."
@@ -75,11 +75,11 @@ servicesIncluded:
     title: "Ley Karin (Acoso Laboral y Sexual)"
     description: "Defensa y acompañamiento en casos de acoso laboral, acoso sexual y vulneración de derechos."
   - icon: "💰"
-    title: "Remuneraciones y Asignaciones"
-    description: "Impugnación de decisiones sobre remuneraciones, asignaciones, traslados y destinaciones."
+    title: "Remuneraciones, Asignaciones y Honorarios"
+    description: "Impugnación de decisiones sobre remuneraciones, asignaciones, bono sala cuna, traslados y destinaciones."
   - icon: "🏥"
     title: "Licencias Médicas y Evaluaciones"
-    description: "Defensa ante rechazo de licencias, evaluación docente, liberaciones de guardia y más."
+    description: "Defensa ante rechazo de licencias médicas, evaluación docente negativa, liberaciones de guardia denegadas."
   - icon: "⚖️"
     title: "Recursos Administrativos y Judiciales"
     description: "Reclamos ante Contraloría, recursos de protección, demandas laborales y tutelas."
@@ -106,7 +106,7 @@ faq:
   - question: "¿Cuánto tiempo toma resolver un sumario administrativo?"
     answer: "Depende del tipo de procedimiento. Una investigación sumaria puede tardar 20-30 días hábiles, mientras que un sumario administrativo puede extenderse entre 60-90 días o más, según la complejidad del caso."
   - question: "¿Atiendes casos en regiones o solo en Santiago?"
-    answer: "Atiendo casos a nivel nacional. Puedo trabajar de forma remota (videollamadas, email) o presencial según las necesidades del caso. La experiencia en Contraloría Regional me permite conocer dinámicas de todo Chile."
+    answer: "Atiendo casos a nivel nacional. Mi experiencia como Contralora Regional en Magallanes (1994-2009), Aysén (2012-2017) y Arica (2018-2020) me permite conocer las dinámicas de cada zona del país. Trabajo presencial o remoto según tu necesidad."
   - question: "¿Qué pasa si ya me notificaron cargos o una medida disciplinaria?"
     answer: "No es tarde. Podemos presentar descargos, recursos de reposición o apelaciones. Lo importante es actuar rápido porque los plazos son breves e improrrogables. Contáctame de inmediato."
   - question: "¿Cuánto cuesta tu asesoría?"
@@ -130,7 +130,7 @@ Los procedimientos disciplinarios no son juicios civiles comunes. Requieren **co
 
 ## Mi experiencia
 
-> **Cientos de sumarios instruidos y resueltos.** Fiscalización de procedimientos en servicios públicos, municipios y universidades. Defensa judicial ante recursos de protección y tutelas laborales.
+> **Cientos de sumarios instruidos y resueltos como fiscalizadora en CGR. Cientos más defendidos como abogada particular.** He visto ambos lados de la mesa: fiscalización y defensa.
 
 He visto **todos los lados de la mesa**: desde fiscalizadora hasta defensora. Eso me permite anticipar los movimientos de la Administración y defender tus derechos con fundamento técnico irrefutable.
 
@@ -138,6 +138,6 @@ He visto **todos los lados de la mesa**: desde fiscalizadora hasta defensora. Es
 
 ## Cobertura nacional
 
-Atiendo casos en **todo Chile**. Mi experiencia como Contralora Regional en Magallanes, Aysén y Arica me permite trabajar de forma presencial o remota, conociendo las dinámicas regionales de cada zona.
+Atiendo casos en **todo Chile**. Como **Contralora Regional en Magallanes (1994-2009), Aysén (2012-2017) y Arica y Parinacota (2018-2020)**, conozco las dinámicas de cada región. Trabajo presencial o remoto en todo Chile.
 
 **No importa dónde estés. Puedo ayudarte.**

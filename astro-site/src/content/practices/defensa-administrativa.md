@@ -3,13 +3,13 @@ slug: "defensa-administrativa"
 
 seo:
   title: "Defensa Administrativa y Compras Públicas | JDV & Abogados"
-  description: "Representación experta ante la Administración del Estado. Licitaciones, ChileCompra, contratos públicos y recursos administrativos. 35 años de experiencia."
+  description: "Ex Contralora defiende empresas en licitaciones ChileCompra, contratos públicos y recursos ante la Administración. 35 años en CGR."
   canonical: "/areas-practicas/defensa-administrativa"
 
 hero:
-  badge: "Compras Públicas · Contraloría"
+  badge: "Ex Contralora Regional · Compras Públicas"
   h1: "Defensa Administrativa ante el Estado"
-  tagline: "Protegemos tus intereses en licitaciones, contratos públicos y gestiones ante la Administración"
+  tagline: "Defensa en licitaciones y contratos públicos con quien fiscalizó estos procesos durante 35 años"
   image: "/areas/defensa-administrativa.jpg"
 
 trust:
@@ -17,8 +17,8 @@ trust:
     label: "Años en CGR"
   - value: "100%"
     label: "Dedicación"
-  - value: "100%"
-    label: "Cobertura Nacional"
+  - value: "16"
+    label: "Regiones Cubiertas"
 
 target:
   - icon: "🏢"
@@ -38,9 +38,9 @@ painPoints:
   - "Descalificación injusta de ofertas en licitaciones públicas sin fundamento"
   - "Demoras excesivas en trámites, permisos o autorizaciones sectoriales"
   - "Incumplimiento de contratos administrativos por parte de organismos públicos"
-  - "Desconocimiento de los recursos legales disponibles ante la Administración"
+  - "Desconocimiento de recursos ante silencio administrativo o incumplimiento de la Ley 19.880"
   - "Falta de transparencia en procesos de compras públicas"
-  - "Arbitrariedades y discriminación en el trato a oferentes y ciudadanos"
+  - "Vulneración del principio de igualdad de los oferentes y respeto irrestricto de las bases"
 
 objective:
   text: "Mi objetivo es equilibrar la relación entre particulares y el Estado, exigiendo el cumplimiento estricto del principio de legalidad, transparencia y probidad que debe regir toda actuación administrativa. Con 35 años de experiencia en Contraloría, conozco los procesos internos y sé cómo defender tus derechos de manera efectiva."
@@ -67,7 +67,7 @@ results:
 servicesIncluded:
   - icon: "📋"
     title: "Licitaciones Públicas y Privadas"
-    description: "Asesoría completa en preparación de ofertas, análisis de bases y defensa ante descalificaciones o adjudicaciones irregulares."
+    description: "Asesoría en preparación de ofertas, análisis de bases administrativas y defensa ante descalificaciones, exigiendo respeto irrestricto de las bases."
   - icon: "🏛️"
     title: "Contratos Administrativos"
     description: "Redacción, revisión y defensa en contratos con el Estado, convenios de transferencia y sus modificaciones."
@@ -82,7 +82,7 @@ servicesIncluded:
     description: "Presentación de denuncias por colusión, corrupción o vulneraciones al principio de probidad."
   - icon: "📑"
     title: "Permisos y Autorizaciones"
-    description: "Gestión y defensa en trámites ante servicios públicos, municipios y autorizaciones sectoriales."
+    description: "Gestión ante servicios públicos y municipios, incluyendo nueva Ley Marco de Autorizaciones Sectoriales y transformación digital del Estado."
 
 process:
   - step: 1
@@ -136,6 +136,6 @@ Mi experiencia abarca todo el espectro de la relación entre particulares y la A
 
 ## Principios que defiendo
 
-**Legalidad, transparencia y probidad** no son solo conceptos abstractos. Son derechos que puedes exigir. Cuando la Administración no los respeta, hay herramientas legales para actuar.
+**Legalidad, transparencia y probidad** no son solo conceptos abstractos. Mi formación en la CGR, con marcado énfasis en ética y probidad, me permite exigirlos efectivamente en tu representación. Cuando la Administración no los respeta, hay herramientas legales para actuar.
 
 Mi compromiso es que recibas un trato justo, conforme a derecho, sin importar el tamaño de tu empresa o la complejidad del trámite.

@@ -18,7 +18,7 @@ trust:
   - value: "100%"
     label: "Confidencialidad"
   - value: "100%"
-    label: "Respaldo Legal"
+    label: "Formalización Notarial"
 
 target:
   - icon: "👨‍👩‍👧"
@@ -35,9 +35,9 @@ target:
     description: "Quieres tomar control hoy de lo que pasará mañana, sin dejar nada al azar o a terceros."
 
 painPoints:
-  - "Miedo constante a qué pasará con tu hijo con necesidades especiales cuando ya no estés para cuidarlo"
+  - "La pregunta que no te deja dormir: '¿Quién cuidará a mi hijo cuando yo ya no esté?'"
   - "Preocupación por el futuro de tus mascotas: ¿quién las cuidará? ¿las abandonarán? ¿sufrirán?"
-  - "Desconocimiento de herramientas legales como fideicomisos, usufructos y mandatos especiales"
+  - "Desconocimiento de herramientas como fideicomisos, usufructos, asignaciones modales y la cuarta de libre disposición"
   - "Temor a que familiares mal intencionados se apropien del patrimonio destinado al cuidado de tus dependientes"
   - "Incertidumbre sobre cómo asegurar recursos económicos permanentes para cuidados médicos, terapias o alimentación"
   - "No saber cómo designar tutores, albaceas o cuidadores de confianza con respaldo legal"
@@ -76,10 +76,10 @@ servicesIncluded:
     description: "Selección y formalización legal de personas de confianza como albaceas fiduciarios y tutores."
   - icon: "📋"
     title: "Mandatos Especiales y Poderes"
-    description: "Redacción de mandatos con instrucciones detalladas sobre cuidados, tratamientos médicos y necesidades específicas."
+    description: "Redacción de mandatos con cometidos o comisiones de confianza: instrucciones detalladas sobre cuidados, tratamientos y necesidades específicas."
   - icon: "🏠"
     title: "Usufructos y Asignaciones Modales"
-    description: "Derechos de uso de bienes (vivienda, rentas) condicionados al cumplimiento de cuidados."
+    description: "Usufructos y asignaciones modales: derechos de uso de bienes condicionados legalmente al cumplimiento de cuidados."
   - icon: "🐕"
     title: "Legados para Mascotas"
     description: "Asignaciones específicas en testamento para garantizar bienestar animal (alimento, veterinario, cuidador remunerado)."
@@ -104,7 +104,7 @@ faq:
   - question: "¿Qué es un fideicomiso y cómo protege a mi hijo con discapacidad?"
     answer: "Un fideicomiso es un patrimonio separado que administra un tercero (fiduciario) para beneficio exclusivo de tu hijo. El dinero NO puede ser tocado por nadie más, y se destina solo a sus necesidades (salud, terapias, alimentación, vivienda). Es la protección más sólida que existe."
   - question: "¿Qué pasa si no hago nada y muero sin testamento?"
-    answer: "Tu patrimonio se reparte según la ley (herencia intestada), sin considerar necesidades especiales. Tus hijos heredan en partes iguales, sin protección especial para el que tiene discapacidad. Y tu mascota queda a la suerte de quien la recoja. No dejes esto al azar."
+    answer: "Tu patrimonio se reparte según la ley (sucesión intestada), sin considerar necesidades especiales. No podrás usar la cuarta de libre disposición para proteger a tu dependiente. Tus mascotas quedan a la suerte de quien las recoja. No dejes esto al azar."
   - question: "¿Cuánto cuesta hacer un testamento con estas cláusulas especiales?"
     answer: "Depende de la complejidad (número de beneficiarios, bienes, fideicomisos). En la consulta gratuita te entrego un presupuesto claro y transparente. La inversión es menor comparada con la paz mental que obtienes."
   - question: "¿Puedo cambiar el testamento después si cambia mi situación?"
@@ -136,7 +136,7 @@ Un testamento estándar dice: *"Dejo mis bienes a mis herederos en partes iguale
 
 **Eso NO protege a tu hijo con discapacidad ni a tus mascotas.** Porque:
 
-1. **No asegura recursos permanentes** para cuidados especiales
+1. **No asegura recursos permanentes** usando la cuarta de libre disposición para cuidados especiales
 2. **No impide que terceros desvíen el dinero** destinado a tu dependiente
 3. **No obliga legalmente a nadie** a cuidar de tus mascotas
 4. **No contempla necesidades médicas/terapéuticas** de por vida

@@ -15,10 +15,10 @@ hero:
 trust:
   - value: "35+"
     label: "Años Experiencia"
-  - value: "200+"
-    label: "Casos Civiles"
-  - value: "95%"
-    label: "Éxito en Cobranzas"
+  - value: "100%"
+    label: "Compromiso"
+  - value: "16"
+    label: "Regiones Cubiertas"
 
 target:
   - icon: "💰"
@@ -43,7 +43,7 @@ painPoints:
   - "Daños sufridos sin compensación ni reconocimiento del responsable"
 
 objective:
-  text: "Mi compromiso es defender tus derechos patrimoniales con estrategia jurídica sólida, buscando siempre la solución más eficiente para tu caso. Evalúo cada situación para determinar si conviene negociar, mediar o litigar, priorizando tus intereses y la recuperación efectiva de lo que te corresponde."
+  text: "Defiendo tus derechos patrimoniales con la rigurosidad técnica de 35 años en la Contraloría. Evalúo cada situación para determinar si conviene negociar, mediar o litigar, priorizando siempre la recuperación efectiva de lo que te corresponde."
   commitments:
     - "Evaluación clara de viabilidad y estrategia antes de actuar"
     - "Gestión prejudicial eficiente para evitar costos innecesarios"
@@ -100,7 +100,7 @@ process:
 
 faq:
   - question: "¿Cuánto tiempo tengo para cobrar una deuda antes de que prescriba?"
-    answer: "Depende del tipo de documento. Los pagarés y cheques prescriben en 1 año desde el vencimiento, las facturas en 1 año, y las deudas por contrato simple en 5 años. Es fundamental actuar rápido para no perder tus derechos."
+    answer: "Depende del tipo de documento. Los pagarés y cheques prescriben en 1 año, las facturas en 1 año, y las deudas por contrato simple en 5 años. Pasado el plazo, se convierten en obligaciones naturales (no exigibles judicialmente). Es fundamental actuar rápido."
   - question: "¿Qué necesito para iniciar un juicio ejecutivo?"
     answer: "Necesitas un título ejecutivo: pagaré, cheque protestado, factura con acuse de recibo, escritura pública o sentencia firme. Con estos documentos podemos embargar bienes del deudor directamente."
   - question: "¿Cuánto demora un juicio de arrendamiento?"

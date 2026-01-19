@@ -3,11 +3,11 @@ slug: "capacitacion"
 
 seo:
   title: "Capacitación Legal para Organizaciones | JDV & Abogados"
-  description: "Talleres, cursos y charlas especializadas en derecho administrativo, Ley Karin, copropiedad y más. Formación jurídica práctica para empresas y organizaciones."
+  description: "Capacitación en Ley Karin, Estatuto Administrativo y Copropiedad. Relatora ex Contralora Regional con 35 años CGR. Presencial y remoto."
   canonical: "/areas-practicas/capacitacion"
 
 hero:
-  badge: "Formación Jurídica · Organizaciones"
+  badge: "Ex Contralora Regional · Relatora"
   h1: "Capacitación Legal para Organizaciones"
   tagline: "Conocimiento jurídico práctico que transforma y empodera a tu equipo"
   image: "/areas/capacitacion.jpg"
@@ -15,18 +15,18 @@ hero:
 trust:
   - value: "35+"
     label: "Años de Experiencia"
-  - value: "100+"
-    label: "Capacitaciones Realizadas"
-  - value: "98%"
-    label: "Satisfacción"
+  - value: "2"
+    label: "Modalidades (Presencial/Remoto)"
+  - value: "100%"
+    label: "Con Certificado"
 
 target:
   - icon: "🏢"
     title: "Empresas y Corporaciones"
     description: "Organizaciones que requieren formar a su personal en cumplimiento normativo, Ley Karin o gestión pública."
   - icon: "👥"
-    title: "Asociaciones de Funcionarios"
-    description: "Agrupaciones gremiales que necesitan capacitar a sus miembros en derechos estatutarios y procedimientos."
+    title: "Asociaciones de Funcionarios Públicos"
+    description: "Agrupaciones gremiales del sector público que necesitan formar a sus miembros en derechos estatutarios, Ley Karin y procedimientos disciplinarios."
   - icon: "🏠"
     title: "Administraciones de Edificios"
     description: "Comités y administradores que buscan dominar la normativa de copropiedad y gestión de comunidades."
@@ -76,7 +76,7 @@ servicesIncluded:
     description: "Sesiones interactivas con casos prácticos, ejercicios grupales y resolución de dudas en tiempo real."
   - icon: "📋"
     title: "Material Didáctico"
-    description: "Folletos, guías y documentación de apoyo para consulta posterior a la capacitación."
+    description: "Elaboración de folletos informativos, guías y documentación de apoyo para consulta y distribución interna."
   - icon: "🔄"
     title: "Actualización Normativa"
     description: "Sesiones sobre cambios legislativos recientes y su impacto en tu sector (Ley Karin, reformas, etc.)."
@@ -132,7 +132,7 @@ El desconocimiento de la normativa no exime de su cumplimiento. Organizaciones, 
 
 ## Experiencia que marca la diferencia
 
-> **35 años en la Contraloría General de la República** me permiten transferir conocimiento práctico, basado en casos reales y con pleno dominio de la jurisprudencia administrativa.
+> **35 años en la Contraloría General de la República**, incluyendo cargos como **Contralora Regional y Jefa de Responsabilidad Administrativa**, me permiten transferir conocimiento práctico basado en casos reales y jurisprudencia administrativa vigente.
 
 No se trata solo de exponer teoría. Mis capacitaciones combinan **rigor técnico con aplicabilidad inmediata**, usando ejemplos concretos y respondiendo las dudas reales de los participantes.
 

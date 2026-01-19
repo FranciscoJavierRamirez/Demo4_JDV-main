@@ -2,7 +2,7 @@
 slug: "animalista"
 
 seo:
-  title: "Derecho Animalista: Defensa Legal de Mascotas y Tutores | JDV & Abogados"
+  title: "Negligencia Veterinaria y Maltrato Animal | JDV & Abogados"
   description: "Protección legal para tutores de mascotas. Negligencia veterinaria, maltrato animal, Ley Cholito, conflictos vecinales. Representación judicial y extrajudicial."
   canonical: "/areas-practicas/animalista"
 
@@ -40,7 +40,7 @@ painPoints:
   - "Un vecino o tercero maltrata, envenena o daña a tus animales y sientes impotencia ante la situación"
   - "Tu fundación enfrenta problemas legales o necesita formalizar su operación para proteger animales"
   - "Desconoces tus derechos bajo la Ley de Tenencia Responsable (Ley Cholito) y cómo hacerlos valer"
-  - "No encuentras abogados que tomen en serio casos de protección animal y defensa de mascotas"
+  - "Has consultado abogados que te dicen 'es solo un perro' o 'no vale la pena demandar por una mascota'"
 
 objective:
   text: "Mi objetivo es dar voz legal a quienes no pueden defenderse por sí mismos. Como tutora de mascotas, entiendo el dolor de ver sufrir a un ser querido. Cada caso de maltrato, negligencia o injusticia contra un animal merece una defensa comprometida y profesional."
@@ -67,10 +67,10 @@ results:
 servicesIncluded:
   - icon: "🏥"
     title: "Negligencia Veterinaria"
-    description: "Demandas por errores médicos, diagnósticos errados, procedimientos deficientes o muerte de mascotas por mala praxis."
+    description: "Demandas por errores médicos, diagnósticos errados o muerte de mascotas por mala praxis. Representación ante Juzgados de Policía Local y tribunales superiores."
   - icon: "🚨"
     title: "Querellas por Maltrato Animal"
-    description: "Acciones penales contra responsables de maltrato, abandono, malos tratos o crueldad animal según Ley 21.020."
+    description: "Querellas criminales por maltrato, abandono o crueldad animal según Ley Cholito (21.020). Efectividad de responsabilidad profesional."
   - icon: "💳"
     title: "Cobros Indebidos Veterinarios"
     description: "Reclamos por sobrecobros, servicios no prestados o facturación fraudulenta en clínicas veterinarias."
@@ -162,4 +162,4 @@ Constitución legal, contratos de adopción, convenios con municipios, defensa a
 
 Como tutora de mascotas, conozco el vínculo que nos une a ellos. Sé lo que se siente ver sufrir a un ser querido por negligencia o maldad de otros.
 
-Por eso cada caso que tomo es **personal**. No se trata solo de ganar: se trata de hacer justicia para quienes no pueden hablar por sí mismos.
+Por eso cada caso que tomo es **personal**. No se trata solo de ganar: se trata de hacer justicia para quienes no pueden hablar por sí mismos. Como tutora de mascotas rescatadas, conozco el dolor de ver sufrir a un ser querido por negligencia de otros.

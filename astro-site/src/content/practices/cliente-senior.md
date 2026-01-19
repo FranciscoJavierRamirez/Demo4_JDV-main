@@ -9,7 +9,7 @@ seo:
 hero:
   badge: "Atención Domiciliaria · Adultos Mayores"
   h1: "Cliente Senior: Servicios Legales en la Comodidad de tu Hogar"
-  tagline: "Atención jurídica personalizada para adultos mayores y personas con movilidad reducida"
+  tagline: "Testamentos, poderes y asesoría legal en tu hogar para adultos mayores que merecen atención digna"
   image: "/areas/cliente-senior.jpg"
 
 trust:
@@ -17,8 +17,8 @@ trust:
     label: "Años Experiencia"
   - value: "100%"
     label: "Atención Personalizada"
-  - value: "RM"
-    label: "Cobertura Santiago"
+  - value: "100%"
+    label: "Atención Domiciliaria"
 
 target:
   - icon: "👴"
@@ -26,7 +26,7 @@ target:
     description: "Persona mayor que prefiere la comodidad de recibir atención profesional en su propio hogar, sin traslados innecesarios."
   - icon: "🏠"
     title: "Persona con Movilidad Reducida"
-    description: "Dificultades físicas para desplazarse a oficinas, notarías o instituciones financieras."
+    description: "Dificultades físicas o de comunicación para desplazarse a oficinas, notarías o instituciones financieras."
   - icon: "👨‍👩‍👧"
     title: "Familia que Acompaña"
     description: "Hijos o familiares que buscan soluciones dignas y seguras para sus padres o abuelos."
@@ -81,8 +81,8 @@ servicesIncluded:
     title: "Escrituras y Contratos"
     description: "Redacción y revisión de escrituras públicas, contratos de arrendamiento y otros documentos legales."
   - icon: "🤝"
-    title: "Asesoría Integral"
-    description: "Orientación jurídica en cualquier asunto personal: herencias, propiedades, conflictos familiares y más."
+    title: "Asesoría Integral y Fideicomisos"
+    description: "Orientación jurídica en herencias, fideicomisos, usufructos, propiedades y conflictos familiares."
 
 process:
   - step: 1
@@ -145,4 +145,4 @@ Llevo a tu hogar los mismos servicios que ofrecería en una oficina tradicional:
 - **Gestiones con instituciones**: Bancos, AFP, Isapres, aseguradoras
 - **Asesoría general**: Cualquier duda legal que tengas sobre tu patrimonio o situación personal
 
-**35 años de experiencia en el sector público** me enseñaron que los trámites pueden ser simples cuando alguien te guía con claridad y paciencia.
+**35 años en la Contraloría General de la República**, incluyendo cargos como Contralora Regional, me enseñaron que los trámites pueden ser simples cuando alguien te guía con claridad, paciencia y conocimiento del sistema.

@@ -17,8 +17,8 @@ trust:
     label: "Años Experiencia"
   - value: "100%"
     label: "Títulos Saneados"
-  - value: "Nacional"
-    label: "Cobertura"
+  - value: "16"
+    label: "Regiones Cubiertas"
 
 target:
   - icon: "🏠"
@@ -79,10 +79,10 @@ servicesIncluded:
     description: "Redacción, modificación y actualización de reglamentos internos adaptados a cada comunidad."
   - icon: "👥"
     title: "Apoyo en Asambleas"
-    description: "Asesoría legal durante asambleas de copropietarios, asegurando validez de los acuerdos."
+    description: "Asesoría legal durante asambleas de copropietarios, asegurando validez de acuerdos y cumplimiento de Ley Karin en temas laborales del edificio."
   - icon: "💼"
     title: "Cobranza de Gastos Comunes"
-    description: "Gestión prejudicial y judicial para recuperar deudas de propietarios morosos."
+    description: "Gestión prejudicial y judicial para cobro de gastos comunes a propietarios morosos, incluyendo redacción de contratos de personal del edificio."
 
 process:
   - step: 1
@@ -128,7 +128,7 @@ Un problema de títulos puede significar la **imposibilidad de vender, hipotecar
 
 ## Especialización en copropiedad inmobiliaria
 
-> **Más de tres décadas de experiencia** en el sector público me han dado una perspectiva única sobre la importancia de los procedimientos correctos y la documentación en orden.
+> **Más de tres décadas en la Contraloría General de la República**, fiscalizando servicios públicos y municipios, me dieron una perspectiva única sobre la importancia de los procedimientos correctos, la documentación en orden y el cumplimiento de la Ley Karin.
 
 La administración de edificios y condominios presenta desafíos legales específicos: desde la convocatoria válida a asambleas hasta el cobro efectivo de gastos comunes, pasando por la resolución de conflictos entre vecinos.
 
