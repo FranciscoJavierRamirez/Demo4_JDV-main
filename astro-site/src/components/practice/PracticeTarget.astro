@@ -22,10 +22,10 @@ const { items } = Astro.props;
     <div class="section-header target-header-reveal">
       <span class="section-badge">
         <i class="fas fa-bullseye"></i>
-        ¿Es para ti?
+        <span>¿Es para ti?</span>
       </span>
       <h2>¿Estás en alguna de estas situaciones?</h2>
-      <p>Esta área de práctica es para ti si:</p>
+      <div class="section-line"></div>
     </div>
 
     <div class="target-grid">
@@ -125,7 +125,7 @@ const { items } = Astro.props;
   }
 
   /* ========================================
-     SECTION HEADER
+     SECTION HEADER - Premium Style
      ======================================== */
   .section-header {
     text-align: center;
@@ -135,29 +135,53 @@ const { items } = Astro.props;
   .section-badge {
     display: inline-flex;
     align-items: center;
-    gap: var(--space-2);
-    padding: var(--space-2) var(--space-4);
+    gap: 0.5rem;
+    padding: 0.5rem 1.25rem;
     background: linear-gradient(135deg, var(--blue-primary) 0%, var(--blue-dark) 100%);
     color: white;
     font-size: 0.8125rem;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
-    border-radius: 50px;
-    margin-bottom: var(--space-5);
+    letter-spacing: 0.08em;
+    border-radius: 9999px;
+    margin-bottom: 1.25rem;
+    box-shadow:
+      0 4px 12px rgba(59, 130, 246, 0.25),
+      0 1px 3px rgba(0, 0, 0, 0.1);
   }
 
   .section-badge i {
-    font-size: 0.75rem;
+    font-size: 0.875rem;
   }
 
   .section-header h2 {
     font-family: var(--font-display);
-    font-size: clamp(2rem, 4vw, 2.75rem);
-    color: var(--gray-900);
-    margin-bottom: var(--space-4);
-    font-weight: 700;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
     letter-spacing: -0.02em;
+    background: linear-gradient(135deg, var(--blue-dark, #1a4d7a) 0%, var(--blue-primary, #2563eb) 50%, var(--blue-deeper, #0c2340) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+
+  .section-line {
+    width: 5rem;
+    height: 3px;
+    background: linear-gradient(to right, var(--blue-primary, #2563eb), var(--blue-light, #60a5fa), transparent);
+    margin: 0 auto 1.5rem;
+    border-radius: 9999px;
+    opacity: 0.9;
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.3s;
+  }
+
+  .target-header-reveal.visible .section-line {
+    transform: scaleX(1);
   }
 
   .section-header p {
@@ -165,6 +189,7 @@ const { items } = Astro.props;
     color: var(--gray-600);
     max-width: 600px;
     margin: 0 auto;
+    line-height: 1.7;
   }
 
   /* ========================================
@@ -390,6 +415,11 @@ const { items } = Astro.props;
     .target-card-reveal {
       opacity: 1;
       transform: none;
+      transition: none;
+    }
+
+    .section-line {
+      transform: scaleX(1);
       transition: none;
     }
 

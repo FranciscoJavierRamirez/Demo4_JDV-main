@@ -22,10 +22,10 @@ const { items } = Astro.props;
     <div class="section-header results-header-reveal">
       <span class="section-badge">
         <i class="fas fa-trophy"></i>
-        Resultados
+        <span>Resultados</span>
       </span>
       <h2>Resultados que obtendrás</h2>
-      <p>Al trabajar conmigo, conseguirás:</p>
+      <div class="section-line"></div>
     </div>
 
     <div class="results-grid">
@@ -59,8 +59,8 @@ const { items } = Astro.props;
   .practice-results {
     position: relative;
     padding: var(--space-20) 0;
-    /* Warm gold-tinted gradient */
-    background: linear-gradient(180deg, #fef3c7 0%, #fffbeb 40%, #ffffff 100%);
+    /* Premium blue-to-white gradient (consistent with home) */
+    background: linear-gradient(180deg, #dbeafe 0%, #eff6ff 40%, #ffffff 100%);
     overflow: hidden;
   }
 
@@ -77,12 +77,13 @@ const { items } = Astro.props;
   .results-gradient {
     position: absolute;
     inset: 0;
+    /* Premium blue mesh gradient */
     background:
-      radial-gradient(ellipse 80% 50% at 80% 20%, rgba(201, 169, 97, 0.08) 0%, transparent 50%),
-      radial-gradient(ellipse 60% 40% at 20% 80%, rgba(59, 130, 246, 0.06) 0%, transparent 50%);
+      radial-gradient(ellipse 80% 50% at 80% 20%, rgba(59, 130, 246, 0.08) 0%, transparent 50%),
+      radial-gradient(ellipse 60% 40% at 20% 80%, rgba(30, 64, 175, 0.06) 0%, transparent 50%);
   }
 
-  /* Mesh orbs */
+  /* Mesh orbs - unified blue theme */
   .results-bg::before {
     content: '';
     position: absolute;
@@ -91,7 +92,7 @@ const { items } = Astro.props;
     width: 450px;
     height: 450px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(201, 169, 97, 0.12) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.12) 0%, transparent 70%);
     filter: blur(100px);
     animation: resultsOrbFloat 22s ease-in-out infinite;
   }
@@ -104,7 +105,8 @@ const { items } = Astro.props;
     width: 350px;
     height: 350px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(59, 130, 246, 0.08) 0%, transparent 70%);
+    /* Subtle gold accent for warmth */
+    background: radial-gradient(circle, rgba(201, 169, 97, 0.06) 0%, transparent 70%);
     filter: blur(80px);
     animation: resultsOrbFloat 25s ease-in-out infinite reverse;
   }
@@ -128,7 +130,7 @@ const { items } = Astro.props;
   }
 
   /* ========================================
-     SECTION HEADER
+     SECTION HEADER - Premium Style
      ======================================== */
   .section-header {
     text-align: center;
@@ -138,30 +140,60 @@ const { items } = Astro.props;
   .section-badge {
     display: inline-flex;
     align-items: center;
-    gap: var(--space-2);
-    padding: var(--space-2) var(--space-4);
-    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
-    color: var(--gray-900);
+    gap: 0.5rem;
+    padding: 0.5rem 1.25rem;
+    /* Premium navy with gold accent - like home Stats badge */
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: var(--gray-700, #374151);
     font-size: 0.8125rem;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
-    border-radius: 50px;
-    margin-bottom: var(--space-5);
-    box-shadow: 0 4px 12px rgba(201, 169, 97, 0.25);
+    letter-spacing: 0.08em;
+    border-radius: 9999px;
+    margin-bottom: 1.25rem;
+    border: 1px solid var(--gray-200, #e5e7eb);
+    box-shadow:
+      0 2px 8px rgba(0, 0, 0, 0.06),
+      0 1px 3px rgba(0, 0, 0, 0.04);
   }
 
   .section-badge i {
-    font-size: 0.75rem;
+    color: var(--gold, #C9A961);
+    font-size: 0.875rem;
   }
 
   .section-header h2 {
     font-family: var(--font-display);
-    font-size: clamp(2rem, 4vw, 2.75rem);
-    color: var(--gray-900);
-    margin-bottom: var(--space-4);
-    font-weight: 700;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
     letter-spacing: -0.02em;
+    /* Premium blue gradient for high contrast on light backgrounds */
+    background: linear-gradient(135deg, #1e3a5f 0%, #2563eb 50%, #3b82f6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 2px 4px rgba(30, 58, 95, 0.15));
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+
+  .section-line {
+    width: 6rem;
+    height: 3px;
+    /* Blue-to-gold gradient line - premium transition */
+    background: linear-gradient(to right, var(--blue-primary, #3B82F6), var(--gold, #C9A961), transparent);
+    margin: 0 auto 1.5rem;
+    border-radius: 9999px;
+    opacity: 0.85;
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.3s;
+  }
+
+  .results-header-reveal.visible .section-line {
+    transform: scaleX(1);
   }
 
   .section-header p {
@@ -169,6 +201,7 @@ const { items } = Astro.props;
     color: var(--gray-600);
     max-width: 600px;
     margin: 0 auto;
+    line-height: 1.7;
   }
 
   /* ========================================
@@ -205,23 +238,24 @@ const { items } = Astro.props;
   .result-card:hover {
     transform: translateY(-8px) scale(1.01);
     /* Dark glass hover state */
-    background: rgba(12, 35, 64, 0.88);
+    background: rgba(12, 35, 64, 0.90);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     border-color: rgba(255, 255, 255, 0.2);
+    /* Premium blue glow shadow - consistent with design system */
     box-shadow:
-      0 25px 50px -12px rgba(201, 169, 97, 0.30),
-      0 0 0 1px rgba(201, 169, 97, 0.15),
-      0 0 50px rgba(201, 169, 97, 0.12);
+      0 25px 50px -12px rgba(59, 130, 246, 0.30),
+      0 0 0 1px rgba(59, 130, 246, 0.15),
+      0 0 50px rgba(59, 130, 246, 0.12);
   }
 
-  /* Spotlight */
+  /* Spotlight - subtle blue glow following cursor */
   .card-spotlight {
     position: absolute;
     inset: 0;
     background: radial-gradient(
       400px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-      rgba(201, 169, 97, 0.1),
+      rgba(59, 130, 246, 0.12),
       transparent 40%
     );
     opacity: 0;
@@ -286,12 +320,12 @@ const { items } = Astro.props;
     }
   }
 
-  /* Icon pulse glow */
+  /* Icon pulse glow - blue for consistency */
   .result-icon-wrapper::before {
     content: '';
     position: absolute;
     inset: -10px;
-    background: radial-gradient(circle, rgba(201, 169, 97, 0.25) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.25) 0%, transparent 70%);
     border-radius: 50%;
     opacity: 0;
     transition: opacity 0.4s ease;
@@ -311,16 +345,18 @@ const { items } = Astro.props;
   .result-icon-bg {
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+    /* Light blue gradient base - premium feel */
+    background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
     border-radius: 20px;
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    box-shadow: 0 4px 12px rgba(201, 169, 97, 0.15);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.12);
     z-index: 1;
   }
 
   .result-card:hover .result-icon-bg {
     transform: scale(1.1) rotate(5deg);
-    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+    /* Gold accent on hover - premium touch */
+    background: linear-gradient(135deg, var(--gold, #C9A961) 0%, var(--gold-dark, #B89350) 100%);
     box-shadow: 0 8px 24px rgba(201, 169, 97, 0.35);
   }
 
@@ -421,6 +457,11 @@ const { items } = Astro.props;
     .result-card-reveal {
       opacity: 1;
       transform: none;
+      transition: none;
+    }
+
+    .section-line {
+      transform: scaleX(1);
       transition: none;
     }
 
