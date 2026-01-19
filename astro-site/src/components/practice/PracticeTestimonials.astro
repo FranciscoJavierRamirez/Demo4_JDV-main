@@ -1,0 +1,442 @@
+---
+interface Testimonial {
+  quote: string;
+  initials: string;
+  role: string;
+  result: string;
+}
+
+interface Props {
+  items?: Testimonial[];
+  areaName?: string;
+}
+
+const { items, areaName = "esta área" } = Astro.props;
+
+// Default testimonials if none provided
+const defaultTestimonials: Testimonial[] = [
+  {
+    quote: "La experiencia y conocimiento de Jacqueline fueron fundamentales para resolver mi caso. Me explicó cada paso del proceso con claridad y empatía.",
+    initials: "M.P.",
+    role: "Cliente Particular",
+    result: "Caso resuelto satisfactoriamente"
+  },
+  {
+    quote: "Profesionalismo y cercanía. Me sentí acompañado en todo momento. Recomiendo sus servicios sin dudarlo.",
+    initials: "R.S.",
+    role: "Cliente Particular",
+    result: "Asesoría legal integral"
+  }
+];
+
+const testimonials = items && items.length > 0 ? items : defaultTestimonials;
+---
+
+<section class="practice-testimonials" id="testimonials">
+  <!-- Background Elements -->
+  <div class="testimonials-bg">
+    <div class="testimonial-orb testimonial-orb-1"></div>
+    <div class="testimonial-orb testimonial-orb-2"></div>
+  </div>
+
+  <div class="container">
+    <div class="section-header testimonials-header-reveal">
+      <span class="section-badge">
+        <i class="fas fa-quote-left"></i>
+        <span>Testimonios</span>
+      </span>
+      <h2>Lo que dicen nuestros clientes</h2>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="testimonials-grid">
+      {testimonials.map((item, index) => (
+        <div class="testimonial-card testimonial-card-reveal" data-index={index}>
+          <!-- Quote Icon -->
+          <div class="quote-icon">
+            <i class="fas fa-quote-left"></i>
+          </div>
+
+          <!-- Stars -->
+          <div class="testimonial-stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+
+          <!-- Quote -->
+          <blockquote>{item.quote}</blockquote>
+
+          <!-- Author -->
+          <div class="testimonial-author">
+            <div class="author-avatar">
+              <span>{item.initials}</span>
+            </div>
+            <div class="author-info">
+              <span class="author-name">{item.initials}</span>
+              <span class="author-role">{item.role}</span>
+            </div>
+          </div>
+
+          <!-- Result Badge -->
+          <div class="testimonial-result">
+            <i class="fas fa-check-circle"></i>
+            <span>{item.result}</span>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Confidentiality Note -->
+    <p class="testimonials-note">
+      <i class="fas fa-lock"></i>
+      Por razones de confidencialidad, usamos iniciales. Testimonios verificables con autorización.
+    </p>
+  </div>
+</section>
+
+<style>
+  .practice-testimonials {
+    position: relative;
+    padding: var(--space-20) 0;
+    background: linear-gradient(135deg, #0c2340 0%, #1a4d7a 50%, #0c2340 100%);
+    color: white;
+    overflow: hidden;
+  }
+
+  /* ========================================
+     BACKGROUND
+     ======================================== */
+  .testimonials-bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  .testimonial-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    mix-blend-mode: screen;
+  }
+
+  .testimonial-orb-1 {
+    top: -50px;
+    right: 10%;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(201, 169, 97, 0.2) 0%, transparent 70%);
+    animation: testimonialOrbFloat 20s ease-in-out infinite;
+  }
+
+  .testimonial-orb-2 {
+    bottom: -50px;
+    left: 5%;
+    width: 250px;
+    height: 250px;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, transparent 70%);
+    animation: testimonialOrbFloat 25s ease-in-out infinite reverse;
+  }
+
+  @keyframes testimonialOrbFloat {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(30px, -30px) scale(1.1); }
+  }
+
+  /* ========================================
+     CONTAINER
+     ======================================== */
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 var(--space-6);
+    position: relative;
+    z-index: 10;
+  }
+
+  /* ========================================
+     HEADER
+     ======================================== */
+  .section-header {
+    text-align: center;
+    margin-bottom: var(--space-12);
+  }
+
+  .section-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1.25rem;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    border-radius: 9999px;
+    margin-bottom: 1.25rem;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+  }
+
+  .section-badge i {
+    color: var(--gold);
+    font-size: 0.875rem;
+  }
+
+  .section-header h2 {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    background: linear-gradient(135deg, #ffffff 0%, var(--gold-light) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+
+  .section-line {
+    width: 5rem;
+    height: 3px;
+    background: linear-gradient(to right, var(--gold), var(--gold-light), transparent);
+    margin: 0 auto;
+    border-radius: 9999px;
+    opacity: 0.8;
+  }
+
+  /* ========================================
+     GRID
+     ======================================== */
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-6);
+  }
+
+  /* ========================================
+     CARDS
+     ======================================== */
+  .testimonial-card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 20px;
+    padding: var(--space-8);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .testimonial-card:hover {
+    transform: translateY(-6px);
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(201, 169, 97, 0.3);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Quote Icon */
+  .quote-icon {
+    position: absolute;
+    top: var(--space-6);
+    right: var(--space-6);
+    font-size: 2rem;
+    color: rgba(201, 169, 97, 0.2);
+  }
+
+  /* Stars */
+  .testimonial-stars {
+    display: flex;
+    gap: 0.25rem;
+    margin-bottom: var(--space-4);
+  }
+
+  .testimonial-stars i {
+    color: var(--gold);
+    font-size: 0.875rem;
+  }
+
+  /* Quote */
+  .testimonial-card blockquote {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0 0 var(--space-6) 0;
+    font-style: italic;
+  }
+
+  /* Author */
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    margin-bottom: var(--space-4);
+  }
+
+  .author-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--gray-900);
+  }
+
+  .author-info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .author-name {
+    font-weight: 600;
+    font-size: 1rem;
+    color: white;
+  }
+
+  .author-role {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  /* Result Badge */
+  .testimonial-result {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: rgba(34, 197, 94, 0.15);
+    border: 1px solid rgba(34, 197, 94, 0.3);
+    border-radius: 50px;
+    font-size: 0.8125rem;
+    color: #86efac;
+  }
+
+  .testimonial-result i {
+    color: #22c55e;
+  }
+
+  /* ========================================
+     NOTE
+     ======================================== */
+  .testimonials-note {
+    text-align: center;
+    margin-top: var(--space-10);
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .testimonials-note i {
+    color: var(--gold);
+  }
+
+  /* ========================================
+     REVEAL ANIMATIONS
+     ======================================== */
+  .testimonials-header-reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .testimonials-header-reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .testimonial-card-reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .testimonial-card-reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .testimonial-card-reveal[data-index="0"].visible { transition-delay: 0ms; }
+  .testimonial-card-reveal[data-index="1"].visible { transition-delay: 150ms; }
+  .testimonial-card-reveal[data-index="2"].visible { transition-delay: 300ms; }
+
+  /* ========================================
+     RESPONSIVE
+     ======================================== */
+  @media (max-width: 768px) {
+    .practice-testimonials {
+      padding: var(--space-16) 0;
+    }
+
+    .testimonials-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .testimonial-card {
+      padding: var(--space-6);
+    }
+  }
+
+  /* ========================================
+     REDUCED MOTION
+     ======================================== */
+  @media (prefers-reduced-motion: reduce) {
+    .testimonials-header-reveal,
+    .testimonial-card-reveal {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+
+    .testimonial-orb-1,
+    .testimonial-orb-2 {
+      animation: none;
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-3px);
+    }
+  }
+</style>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const section = document.getElementById('testimonials');
+    if (!section) return;
+
+    const header = section.querySelector('.testimonials-header-reveal');
+    const cards = section.querySelectorAll('.testimonial-card-reveal');
+
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (prefersReducedMotion) {
+      header?.classList.add('visible');
+      cards.forEach(card => card.classList.add('visible'));
+      return;
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          header?.classList.add('visible');
+          cards.forEach((card, i) => {
+            setTimeout(() => card.classList.add('visible'), 150 + i * 150);
+          });
+          observer.disconnect();
+        }
+      });
+    }, { threshold: 0.15 });
+
+    observer.observe(section);
+  });
+</script>

@@ -12,6 +12,8 @@ import PracticeResults from '../../components/practice/PracticeResults.astro';
 import PracticeServicesIncluded from '../../components/practice/PracticeServicesIncluded.astro';
 import PracticeProcess from '../../components/practice/PracticeProcess.astro';
 import PracticeFAQ from '../../components/practice/PracticeFAQ.astro';
+import PracticeTestimonials from '../../components/practice/PracticeTestimonials.astro';
+import PracticeRelatedServices from '../../components/practice/PracticeRelatedServices.astro';
 import PracticeFinalCTA from '../../components/practice/PracticeFinalCTA.astro';
 import Footer from '../../components/home/Footer.astro';
 import Modal from '../../components/home/Modal.astro';
@@ -72,9 +74,6 @@ const { Content } = await render();
   <!-- Process -->
   <PracticeProcess steps={data.process} />
 
-  <!-- FAQ -->
-  <PracticeFAQ items={data.faq} areaName={data.hero.h1} />
-
   <!-- Markdown Content (optional extra content) -->
   <section class="practice-content">
     <div class="container">
@@ -83,6 +82,15 @@ const { Content } = await render();
       </div>
     </div>
   </section>
+
+  <!-- FAQ -->
+  <PracticeFAQ items={data.faq} areaName={data.hero.h1} />
+
+  <!-- Testimonials -->
+  <PracticeTestimonials areaName={data.hero.h1} />
+
+  <!-- Related Services -->
+  <PracticeRelatedServices currentSlug={data.slug} />
 
   <!-- Final CTA -->
   <PracticeFinalCTA

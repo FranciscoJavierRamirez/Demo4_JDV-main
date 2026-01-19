@@ -235,15 +235,20 @@ const { steps } = Astro.props;
 
   .step-number-glow {
     position: absolute;
-    inset: -8px;
-    background: radial-gradient(circle, rgba(59, 130, 246, 0.3) 0%, transparent 70%);
+    inset: -10px;
+    background: radial-gradient(circle,
+      rgba(59, 130, 246, 0.25) 0%,
+      rgba(59, 130, 246, 0.1) 40%,
+      transparent 70%);
     border-radius: 50%;
     opacity: 0;
-    transition: opacity 0.4s ease;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    transform: scale(0.8);
   }
 
   .process-step:hover .step-number-glow {
     opacity: 1;
+    transform: scale(1.1);
   }
 
   .step-number {
@@ -283,10 +288,12 @@ const { steps } = Astro.props;
 
   .process-step:hover .step-number {
     animation: none;
-    transform: scale(1.1) rotate(-5deg);
+    transform: scale(1.08) rotate(-3deg);
+    background: linear-gradient(135deg, var(--blue-primary) 0%, #1d4ed8 100%);
     box-shadow:
-      0 8px 25px rgba(59, 130, 246, 0.4),
-      0 0 0 4px rgba(59, 130, 246, 0.12),
+      0 12px 28px rgba(59, 130, 246, 0.35),
+      0 0 0 3px rgba(59, 130, 246, 0.15),
+      0 0 0 6px rgba(59, 130, 246, 0.08),
       inset 0 1px 0 rgba(255, 255, 255, 0.3);
   }
 
@@ -305,8 +312,8 @@ const { steps } = Astro.props;
   .connector-line {
     position: absolute;
     inset: 0;
-    background: var(--gray-200);
-    border-radius: 1px;
+    background: linear-gradient(180deg, rgba(59, 130, 246, 0.15) 0%, rgba(59, 130, 246, 0.08) 100%);
+    border-radius: 2px;
   }
 
   .connector-progress {
@@ -315,9 +322,13 @@ const { steps } = Astro.props;
     left: 0;
     right: 0;
     height: 0;
-    background: linear-gradient(180deg, var(--blue-primary) 0%, var(--blue-light) 100%);
-    border-radius: 1px;
-    transition: height 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    background: linear-gradient(180deg,
+      var(--blue-primary) 0%,
+      rgba(59, 130, 246, 0.8) 50%,
+      var(--blue-light) 100%);
+    border-radius: 2px;
+    transition: height 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 0 8px rgba(59, 130, 246, 0.3);
   }
 
   .process-step.visible .connector-progress {
@@ -331,51 +342,97 @@ const { steps } = Astro.props;
     position: relative;
     padding-top: var(--space-3);
     /* Light glass base state */
-    background: rgba(255, 255, 255, 0.88);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.9) 100%);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.6);
-    border-radius: 16px;
+    border: 1px solid rgba(59, 130, 246, 0.08);
+    border-radius: 20px;
     padding: var(--space-6);
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow:
-      0 4px 6px -1px rgba(0, 0, 0, 0.05),
-      0 2px 4px -1px rgba(0, 0, 0, 0.03),
-      inset 0 1px 0 rgba(255, 255, 255, 0.6);
+      0 4px 6px -1px rgba(0, 0, 0, 0.04),
+      0 2px 4px -1px rgba(0, 0, 0, 0.02),
+      inset 0 1px 0 rgba(255, 255, 255, 0.8);
     overflow: hidden;
   }
 
-  /* Hover: Transition to dark navy glass */
+  /* Hover: Elegant elevation with luminous border */
   .process-step:hover .step-content {
-    /* Dark glass hover state */
-    background: rgba(12, 35, 64, 0.88);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border-color: rgba(255, 255, 255, 0.2);
+    /* Premium light glass with subtle blue tint */
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(239, 246, 255, 0.95) 50%, rgba(248, 250, 252, 0.98) 100%);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-color: rgba(59, 130, 246, 0.25);
     box-shadow:
-      0 25px 50px -12px rgba(59, 130, 246, 0.30),
-      0 0 0 1px rgba(59, 130, 246, 0.15),
-      0 0 50px rgba(201, 169, 97, 0.10);
-    transform: translateX(8px) translateY(-4px) scale(1.01);
+      0 20px 40px -12px rgba(59, 130, 246, 0.18),
+      0 8px 16px -8px rgba(0, 0, 0, 0.08),
+      0 0 0 1px rgba(59, 130, 246, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 1),
+      inset 0 -1px 0 rgba(59, 130, 246, 0.05);
+    transform: translateY(-6px) scale(1.02);
   }
 
-  /* Spotlight Effect */
+  /* Spotlight Effect - Enhanced with golden accent */
   .step-spotlight {
     position: absolute;
     inset: 0;
     background: radial-gradient(
-      350px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-      rgba(59, 130, 246, 0.1),
-      transparent 40%
+      400px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+      rgba(59, 130, 246, 0.08),
+      rgba(201, 169, 97, 0.03) 30%,
+      transparent 50%
     );
     opacity: 0;
-    transition: opacity 0.4s ease;
+    transition: opacity 0.5s ease;
     pointer-events: none;
     z-index: 1;
   }
 
   .process-step:hover .step-spotlight {
     opacity: 1;
+  }
+
+  /* Decorative corner accent on hover */
+  .step-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 80px;
+    height: 80px;
+    background: radial-gradient(circle at 100% 0%, rgba(59, 130, 246, 0.06) 0%, transparent 70%);
+    border-radius: 0 20px 0 0;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+  }
+
+  .process-step:hover .step-content::before {
+    opacity: 1;
+  }
+
+  /* Bottom accent line on hover */
+  .step-content::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: var(--space-6);
+    right: var(--space-6);
+    height: 2px;
+    background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(59, 130, 246, 0.4) 20%,
+      rgba(201, 169, 97, 0.3) 50%,
+      rgba(59, 130, 246, 0.4) 80%,
+      transparent 100%);
+    border-radius: 1px;
+    transform: scaleX(0);
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+  }
+
+  .process-step:hover .step-content::after {
+    transform: scaleX(1);
   }
 
   /* Inner content wrapper */
@@ -390,12 +447,15 @@ const { steps } = Astro.props;
     color: var(--gray-900);
     margin-bottom: var(--space-3);
     font-weight: 600;
-    transition: color 0.4s ease;
+    transition: all 0.4s ease;
   }
 
-  /* Hover: White title on dark glass */
+  /* Hover: Blue gradient title */
   .process-step:hover .step-content-inner h3 {
-    color: #ffffff;
+    background: linear-gradient(135deg, var(--blue-dark, #1a4d7a) 0%, var(--blue-primary, #2563eb) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
   .step-content-inner p {
@@ -406,9 +466,9 @@ const { steps } = Astro.props;
     transition: color 0.4s ease;
   }
 
-  /* Hover: Light text on dark glass */
+  /* Hover: Darker text for better readability */
   .process-step:hover .step-content-inner p {
-    color: rgba(255, 255, 255, 0.9);
+    color: var(--gray-700, #374151);
   }
 
   /* ========================================
@@ -471,14 +531,24 @@ const { steps } = Astro.props;
 
     .step-content {
       padding: var(--space-5);
+      border-radius: 16px;
     }
 
-    .step-content h3 {
+    .step-content::after {
+      left: var(--space-5);
+      right: var(--space-5);
+    }
+
+    .step-content-inner h3 {
       font-size: 1.125rem;
     }
 
-    .step-content p {
+    .step-content-inner p {
       font-size: 0.9375rem;
+    }
+
+    .process-step:hover .step-content {
+      transform: translateY(-4px) scale(1.01);
     }
   }
 
@@ -505,6 +575,21 @@ const { steps } = Astro.props;
 
     .step-number {
       animation: none;
+    }
+
+    .step-number-glow {
+      transition: none;
+    }
+
+    .step-content,
+    .step-content::before,
+    .step-content::after,
+    .step-spotlight {
+      transition: none;
+    }
+
+    .step-content::after {
+      transform: scaleX(1);
     }
 
     .process-bg::before,
