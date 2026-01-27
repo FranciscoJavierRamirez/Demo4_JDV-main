@@ -44,26 +44,26 @@ painPoints:
   - "Información legal dispersa y difícil de comprender sin formación técnica"
 
 objective:
-  text: "Mi objetivo es transferir conocimiento jurídico de manera clara, práctica y aplicable, empoderando a tu equipo para prevenir conflictos y tomar mejores decisiones. La formación legal no debe ser un privilegio, sino una herramienta accesible para todas las organizaciones."
+  text: "Nuestro objetivo es transferir conocimiento jurídico de manera clara, práctica y aplicable, empoderando a tu equipo para prevenir conflictos y tomar mejores decisiones. La formación legal no debe ser un privilegio, sino una herramienta accesible para todas las organizaciones."
   commitments:
     - "Contenido adaptado: cada capacitación se diseña según las necesidades específicas de tu organización"
     - "Enfoque práctico: casos reales, ejemplos concretos y aplicación inmediata"
     - "Claridad total: lenguaje accesible sin sacrificar rigor técnico"
-    - "Material de apoyo: documentación y recursos para consulta posterior"
+    - "Carga controlada de programas: atención personalizada para cada organización"
 
 results:
   - icon: "🛡️"
-    title: "Prevención de Conflictos"
-    description: "Equipos capacitados que identifican y evitan situaciones de riesgo legal antes de que escalen."
+    title: "Gestión Preventiva de Conflictos"
+    description: "Formación orientada a que los equipos identifiquen situaciones de riesgo legal antes de que escalen."
   - icon: "📈"
     title: "Mejora en la Gestión"
-    description: "Procesos internos más eficientes y alineados con el marco normativo vigente."
+    description: "Capacitación orientada a procesos internos más eficientes y alineados con el marco normativo vigente."
   - icon: "💪"
     title: "Empoderamiento del Equipo"
-    description: "Colaboradores seguros y confiados que conocen sus derechos y obligaciones."
+    description: "Formación que permite a los colaboradores conocer sus derechos y obligaciones con claridad."
   - icon: "✅"
-    title: "Cumplimiento Normativo"
-    description: "Organización alineada con la legislación, reduciendo exposición a sanciones."
+    title: "Gestión del Cumplimiento Normativo"
+    description: "Capacitación orientada a alinear la organización con la legislación aplicable."
 
 servicesIncluded:
   - icon: "🎓"
@@ -105,7 +105,7 @@ faq:
   - question: "¿Cuál es la duración típica de una capacitación?"
     answer: "Depende del formato: las charlas informativas duran 1-2 horas, los talleres prácticos entre 3-4 horas, y los cursos especializados pueden extenderse a jornadas completas o múltiples sesiones. El diseño se ajusta a tus objetivos y disponibilidad."
   - question: "¿Se realizan capacitaciones presenciales fuera de Santiago?"
-    answer: "Sí, atiendo organizaciones a nivel nacional. Las capacitaciones pueden realizarse de forma presencial en cualquier región o en modalidad remota (videoconferencia) según las preferencias y necesidades logísticas de tu organización."
+    answer: "Sí, atendemos organizaciones a nivel nacional. Las capacitaciones pueden realizarse de forma presencial en cualquier región o en modalidad remota (videoconferencia) según las preferencias y necesidades logísticas de tu organización."
   - question: "¿Cuántas personas pueden participar en una capacitación?"
     answer: "El número de participantes es flexible. Las charlas pueden dirigirse a grupos grandes (50-100 personas), mientras que los talleres prácticos son más efectivos con grupos reducidos (10-25 personas) para permitir interacción y resolución de dudas personalizadas."
   - question: "¿Ofrecen capacitaciones gratuitas para ciertas organizaciones?"
@@ -133,9 +133,9 @@ El desconocimiento de la normativa no exime de su cumplimiento. Organizaciones, 
 
 ## Experiencia que marca la diferencia
 
-> **35 años en la Contraloría General de la República**, incluyendo cargos como **Contralora Regional y Jefa de Responsabilidad Administrativa**, me permiten transferir conocimiento práctico basado en casos reales y jurisprudencia administrativa vigente.
+> **Nuestro equipo integra 35 años de experiencia en la Contraloría General de la República**, incluyendo cargos como Contralora Regional y Jefa de Responsabilidad Administrativa. Esta trayectoria permite transferir conocimiento práctico basado en casos reales y jurisprudencia administrativa vigente.
 
-No se trata solo de exponer teoría. Mis capacitaciones combinan **rigor técnico con aplicabilidad inmediata**, usando ejemplos concretos y respondiendo las dudas reales de los participantes.
+No se trata solo de exponer teoría. Nuestras capacitaciones combinan **rigor técnico con aplicabilidad inmediata**, usando ejemplos concretos y respondiendo las dudas reales de los participantes.
 
 ---
 

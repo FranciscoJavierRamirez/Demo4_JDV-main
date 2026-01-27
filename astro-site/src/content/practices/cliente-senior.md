@@ -44,26 +44,26 @@ painPoints:
   - "Temor a ser tratado sin la dignidad y paciencia que mereces"
 
 objective:
-  text: "Mi objetivo es acercar los servicios legales a quienes más lo necesitan, llevando atención profesional, cálida y respetuosa directamente a tu hogar. Porque la edad o la movilidad reducida no deben ser obstáculos para proteger tus derechos y formalizar tu voluntad."
+  text: "Nuestro objetivo es acercar los servicios legales a quienes más lo necesitan, llevando atención profesional, cálida y respetuosa directamente a tu hogar. Porque la edad o la movilidad reducida no deben ser obstáculos para proteger tus derechos y formalizar tu voluntad."
   commitments:
-    - "Atención domiciliaria: voy a tu hogar, sin que tengas que desplazarte"
+    - "Atención domiciliaria: nuestro equipo va a tu hogar, sin que tengas que desplazarte"
     - "Trato dignificante: paciencia, claridad y respeto en cada encuentro"
-    - "Coordinación integral: gestiono notarías, bancos y trámites por ti"
-    - "Confidencialidad absoluta: tus asuntos personales están protegidos"
+    - "Coordinación integral: gestionamos notarías, bancos y trámites por ti"
+    - "Carga controlada de casos: atención personalizada y tiempo dedicado exclusivamente a tu situación"
 
 results:
   - icon: "🏠"
     title: "Servicio en tu Hogar"
     description: "Atención profesional completa sin salir de casa, en el horario que más te acomode."
   - icon: "📜"
-    title: "Documentos Formalizados"
-    description: "Testamentos, poderes y mandatos otorgados correctamente, con validez legal plena."
+    title: "Gestión de Documentos"
+    description: "Representación orientada a la formalización correcta de testamentos, poderes y mandatos según la normativa vigente."
   - icon: "😌"
-    title: "Tranquilidad para Ti y tu Familia"
-    description: "La certeza de que tus asuntos están en orden y tu voluntad quedará protegida."
+    title: "Orientación hacia la Tranquilidad"
+    description: "Gestión orientada a que tus asuntos queden en orden y tu voluntad debidamente protegida."
   - icon: "🤝"
-    title: "Acompañamiento Humano"
-    description: "Un profesional que te escucha, te explica y te acompaña en cada paso del proceso."
+    title: "Acompañamiento Profesional"
+    description: "Un equipo que te escucha, te explica y te acompaña en cada paso del proceso."
 
 servicesIncluded:
   - icon: "📜"
@@ -91,30 +91,30 @@ process:
     description: "Nos comunicamos por teléfono o WhatsApp para conocer tu situación y agendar una visita."
   - step: 2
     title: "Visita Domiciliaria"
-    description: "Voy a tu hogar para conversar con calma, entender tus necesidades y explicarte las opciones."
+    description: "Nuestro equipo va a tu hogar para conversar con calma, entender tus necesidades y explicarte las opciones."
   - step: 3
     title: "Preparación de Documentos"
-    description: "Redacto los documentos necesarios y coordino con notarías u otras instituciones según corresponda."
+    description: "Redactamos los documentos necesarios y coordinamos con notarías u otras instituciones según corresponda."
   - step: 4
     title: "Formalización y Entrega"
-    description: "Acompañamos la firma de documentos (en domicilio si es posible) y te entrego copias de todo."
+    description: "Acompañamos la firma de documentos (en domicilio si es posible) y entregamos copias de todo."
 
 faq:
   - question: "¿Realmente puede venir un notario a mi casa?"
-    answer: "Sí. En casos justificados (edad avanzada, enfermedad, movilidad reducida), los notarios pueden constituirse en domicilio particular para autorizar testamentos y otros documentos. Yo me encargo de coordinar todo el proceso."
+    answer: "Sí. En casos justificados (edad avanzada, enfermedad, movilidad reducida), los notarios pueden constituirse en domicilio particular para autorizar testamentos y otros documentos. Nuestro equipo se encarga de coordinar todo el proceso."
   - question: "¿Qué zonas de Santiago atienden?"
-    answer: "Atiendo todas las comunas de la Región Metropolitana. Para zonas más alejadas, coordinamos según disponibilidad. El servicio domiciliario tiene un costo adicional que se informa previamente."
+    answer: "Atendemos todas las comunas de la Región Metropolitana. Para zonas más alejadas, coordinamos según disponibilidad. El servicio domiciliario tiene un costo adicional que se informa previamente."
   - question: "¿Es más caro el servicio a domicilio?"
     answer: "El servicio domiciliario tiene un valor adicional que cubre el traslado y el tiempo de visita. Sin embargo, los honorarios son transparentes y se informan antes de agendar. Muchas familias consideran que la comodidad y tranquilidad lo valen."
   - question: "¿Puedo incluir a mi familia en la reunión?"
     answer: "Por supuesto. De hecho, muchas veces es recomendable que familiares de confianza participen para que todos comprendan los documentos y decisiones. Siempre respetando tu voluntad como protagonista."
   - question: "¿Qué documentos necesito tener preparados?"
-    answer: "Generalmente: cédula de identidad vigente, información de bienes (propiedades, cuentas bancarias) y datos de las personas que deseas incluir en testamentos o poderes. En la primera conversación te indico exactamente qué necesitas según tu caso."
+    answer: "Generalmente: cédula de identidad vigente, información de bienes (propiedades, cuentas bancarias) y datos de las personas que deseas incluir en testamentos o poderes. En la primera conversación te indicamos exactamente qué necesitas según tu caso."
   - question: "¿Cuánto tiempo toma formalizar un testamento?"
     answer: "Una vez definido el contenido, la formalización ante notario puede realizarse en 1-2 semanas, dependiendo de la disponibilidad del notario para constituirse en domicilio. El proceso completo, desde la primera reunión, suele tomar 2-4 semanas."
 
 finalCta:
-  headline: "Tu tranquilidad no puede esperar. Yo voy a ti."
+  headline: "Tu tranquilidad no puede esperar. Nuestro equipo va a ti."
   text: "No dejes que la distancia o la movilidad sean obstáculos para proteger tu voluntad y tus derechos. Agenda una visita domiciliaria y conversemos con calma en tu hogar."
   button: "Agendar Visita Domiciliaria"
 ---
@@ -137,13 +137,13 @@ No se trata solo de comodidad. Se trata de **dignidad**. De que puedas tomar dec
 
 ---
 
-## ¿Qué puedo hacer por ti?
+## ¿Qué podemos hacer por ti?
 
-Llevo a tu hogar los mismos servicios que ofrecería en una oficina tradicional:
+Llevamos a tu hogar los mismos servicios que ofreceríamos en una oficina tradicional:
 
 - **Testamentos**: Para que tu voluntad quede clara y protegida
 - **Poderes y mandatos**: Para que personas de tu confianza puedan actuar en tu nombre
 - **Gestiones con instituciones**: Bancos, AFP, Isapres, aseguradoras
 - **Asesoría general**: Cualquier duda legal que tengas sobre tu patrimonio o situación personal
 
-**35 años en la Contraloría General de la República**, incluyendo cargos como Contralora Regional, me enseñaron que los trámites pueden ser simples cuando alguien te guía con claridad, paciencia y conocimiento del sistema.
+> **Nuestro equipo integra 35 años de experiencia en la Contraloría General de la República**, incluyendo cargos como Contralora Regional. Esta trayectoria nos enseñó que los trámites pueden ser simples cuando alguien te guía con claridad, paciencia y conocimiento del sistema.

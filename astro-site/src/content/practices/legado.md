@@ -44,26 +44,26 @@ painPoints:
   - "No saber cómo designar tutores, albaceas o cuidadores de confianza con respaldo legal"
 
 objective:
-  text: "Mi objetivo es darte paz mental absoluta: que sepas que, pase lo que pase, las personas y animales que dependen de ti estarán protegidos, cuidados y con recursos asegurados. Esto no es solo un testamento: es un acto de amor anticipado."
+  text: "Nuestro objetivo es darte tranquilidad: que sepas que, pase lo que pase, las personas y animales que dependen de ti contarán con protección legal y recursos destinados a su cuidado. Esto no es solo un testamento: es un acto de amor anticipado."
   commitments:
-    - "Escucha empática: entiendo el miedo y la vulnerabilidad que sientes"
+    - "Escucha empática: comprendemos el miedo y la vulnerabilidad que sientes"
     - "Soluciones a medida: cada familia es única, cada plan es personalizado"
     - "Herramientas legales sólidas: fideicomisos, testamentos, mandatos especiales"
-    - "Confidencialidad total: tu situación familiar y patrimonial están protegidas"
+    - "Carga controlada de casos: atención personalizada y confidencialidad total"
 
 results:
   - icon: "😌"
-    title: "Paz Mental Absoluta"
-    description: "Duermes tranquilo sabiendo que tus seres queridos estarán bien cuidados."
+    title: "Gestión Orientada a la Tranquilidad"
+    description: "Planificación orientada a que tus seres queridos cuenten con protección legal adecuada."
   - icon: "🛡️"
-    title: "Protección Legal Blindada"
-    description: "Documentos notariales que impiden que terceros desvíen recursos o abandonen a tus dependientes."
+    title: "Documentación Legal Formalizada"
+    description: "Instrumentos notariales diseñados para proteger recursos y establecer obligaciones de cuidado."
   - icon: "💰"
-    title: "Recursos Asegurados"
-    description: "Fideicomisos y asignaciones que garantizan dinero permanente para cuidados."
+    title: "Gestión de Recursos para Cuidados"
+    description: "Fideicomisos y asignaciones orientadas a destinar fondos permanentes para el cuidado de tus dependientes."
   - icon: "👥"
-    title: "Tutores y Albaceas Designados"
-    description: "Personas de confianza designadas legalmente para velar por tus seres queridos."
+    title: "Designación Formal de Responsables"
+    description: "Personas de confianza designadas legalmente como tutores y albaceas para velar por tus seres queridos."
 
 servicesIncluded:
   - icon: "📜"
@@ -94,10 +94,10 @@ process:
     description: "Diseñamos juntos la estrategia legal: testamento, fideicomiso, albaceas, tutores, asignaciones. Todo personalizado."
   - step: 3
     title: "Redacción y Formalización Notarial"
-    description: "Redacto los documentos legales (testamento, escrituras, mandatos) y coordinamos su firma ante notario."
+    description: "Redactamos los documentos legales (testamento, escrituras, mandatos) y coordinamos su firma ante notario."
   - step: 4
     title: "Actualización y Seguimiento"
-    description: "Tu vida cambia, tu plan también. Ofrezco actualizaciones periódicas del testamento según nuevas circunstancias."
+    description: "Tu vida cambia, tu plan también. Ofrecemos actualizaciones periódicas del testamento según nuevas circunstancias."
 
 faq:
   - question: "¿Puedo dejar herencia directamente a mi mascota?"
@@ -107,9 +107,9 @@ faq:
   - question: "¿Qué pasa si no hago nada y muero sin testamento?"
     answer: "Tu patrimonio se reparte según la ley (sucesión intestada), sin considerar necesidades especiales. No podrás usar la cuarta de libre disposición para proteger a tu dependiente. Tus mascotas quedan a la suerte de quien las recoja. No dejes esto al azar."
   - question: "¿Cuánto cuesta hacer un testamento con estas cláusulas especiales?"
-    answer: "Depende de la complejidad (número de beneficiarios, bienes, fideicomisos). En la consulta gratuita te entrego un presupuesto claro y transparente. La inversión es menor comparada con la paz mental que obtienes."
+    answer: "Depende de la complejidad (número de beneficiarios, bienes, fideicomisos). En la consulta gratuita entregamos un presupuesto claro y transparente. La inversión es menor comparada con la tranquilidad que obtienes."
   - question: "¿Puedo cambiar el testamento después si cambia mi situación?"
-    answer: "Sí, absolutamente. El testamento es revocable: puedes modificarlo o anularlo cuando quieras. Te ofrezco servicio de actualización periódica para adaptarlo a nuevas circunstancias (nacimientos, fallecimientos, cambios patrimoniales)."
+    answer: "Sí, absolutamente. El testamento es revocable: puedes modificarlo o anularlo cuando quieras. Ofrecemos servicio de actualización periódica para adaptarlo a nuevas circunstancias (nacimientos, fallecimientos, cambios patrimoniales)."
   - question: "¿Qué es un albacea fiduciario y por qué lo necesito?"
     answer: "Es la persona que ejecuta tu testamento y vela por el cumplimiento de tus instrucciones (especialmente el cuidado de tus dependientes). Lo eliges tú, debe ser de total confianza, y tiene obligación legal de rendir cuentas. Sin albacea, tu testamento es solo papel."
 
@@ -146,7 +146,7 @@ Un **testamento especializado + fideicomiso + albacea** SÍ lo hace.
 
 ---
 
-## Herramientas legales que utilizo
+## Herramientas legales que utilizamos
 
 ### Fideicomiso de Cuidado
 

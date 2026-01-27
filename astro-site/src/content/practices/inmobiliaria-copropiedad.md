@@ -44,26 +44,26 @@ painPoints:
   - "Desconocimiento de las obligaciones legales de administradores y comités"
 
 objective:
-  text: "Mi objetivo es brindarte seguridad jurídica en cada operación inmobiliaria y acompañar a las comunidades de propietarios con asesoría experta. Ya sea que estés comprando tu primera propiedad o administrando un edificio complejo, te ofrezco el respaldo profesional que necesitas para proteger tu patrimonio."
+  text: "Nuestro objetivo es brindarte seguridad jurídica en cada operación inmobiliaria y acompañar a las comunidades de propietarios con asesoría experta. Ya sea que estés comprando tu primera propiedad o administrando un edificio complejo, ofrecemos el respaldo profesional que necesitas para proteger tu patrimonio."
   commitments:
     - "Estudio de títulos exhaustivo antes de cualquier operación"
     - "Acompañamiento integral desde la negociación hasta la inscripción"
     - "Asesoría preventiva para evitar conflictos en comunidades"
-    - "Gestión eficiente de cobranza de gastos comunes"
+    - "Carga controlada de casos: atención personalizada para cada cliente y comunidad"
 
 results:
   - icon: "🔒"
-    title: "Seguridad Jurídica"
+    title: "Gestión de Seguridad Jurídica"
     description: "Operaciones inmobiliarias respaldadas por un estudio de títulos completo y profesional."
   - icon: "📜"
-    title: "Títulos Saneados"
-    description: "Regularización de propiedades para que puedas vender, hipotecar o heredar sin problemas."
+    title: "Gestión de Regularización"
+    description: "Representación orientada a sanear títulos de propiedades para facilitar su venta, hipoteca o transmisión hereditaria."
   - icon: "⚖️"
-    title: "Comunidades en Orden"
-    description: "Reglamentos actualizados, asambleas bien conducidas y conflictos resueltos."
+    title: "Asesoría a Comunidades"
+    description: "Orientación para mantener reglamentos actualizados, asambleas bien conducidas y gestión de conflictos."
   - icon: "💰"
-    title: "Gastos Comunes Recuperados"
-    description: "Cobranza efectiva que protege las finanzas de la comunidad sin dañar la convivencia."
+    title: "Gestión de Cobranza"
+    description: "Representación orientada a la recuperación de gastos comunes, protegiendo las finanzas de la comunidad."
 
 servicesIncluded:
   - icon: "🔍"
@@ -129,7 +129,7 @@ Un problema de títulos puede significar la **imposibilidad de vender, hipotecar
 
 ## Especialización en copropiedad inmobiliaria
 
-> **Más de tres décadas en la Contraloría General de la República**, fiscalizando servicios públicos y municipios, me dieron una perspectiva única sobre la importancia de los procedimientos correctos, la documentación en orden y el cumplimiento de la Ley Karin.
+> **Nuestro equipo integra más de tres décadas en la Contraloría General de la República**, fiscalizando servicios públicos y municipios. Esta experiencia otorga una perspectiva única sobre la importancia de los procedimientos correctos, la documentación en orden y el cumplimiento de la Ley Karin.
 
 La administración de edificios y condominios presenta desafíos legales específicos: desde la convocatoria válida a asambleas hasta el cobro efectivo de gastos comunes, pasando por la resolución de conflictos entre vecinos.
 

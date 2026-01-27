@@ -239,6 +239,45 @@ Edit the appropriate Markdown file in `src/content/`:
 1. Create content file: `src/content/practices/new-area.md`
 2. Create page file: `src/pages/areas-practicas/new-area.astro`
 3. Update navigation in `Header.astro`, `MegaMenu.astro`, `FullscreenMenu.astro`
+4. **IMPORTANT:** Follow the Editorial Guide in `docs/MANUAL_AREAS_PRACTICA.md`
+
+## Editorial Guidelines for Practice Areas
+
+**Reference Document:** `docs/MANUAL_AREAS_PRACTICA.md` (sections "Guía Editorial y Manual de Estilo" and "Frameworks de Comunicación Estratégica")
+
+### Key Writing Rules
+
+**Voice:**
+- Always use **first person plural institutional** ("nosotros", "nuestro equipo", "representamos")
+- Never use first person singular ("yo", "mi experiencia", "te acompaño")
+
+**Ethical Promises:**
+- **PROHIBITED:** Promise results ("garantizamos", "ganamos tu caso", "resultado asegurado")
+- **ALLOWED:** Promise process, methodology, rigor, transparency ("Gestión orientada a...", "Estrategia jurídicamente fundada...")
+
+**Legal Terminology (Chile):**
+- Use official Chilean terms: "Juzgado de Garantía", "Tribunal de Juicio Oral en lo Penal", "Ministerio Público"
+- Avoid anglicisms or generic terms
+
+**CTAs:**
+- Use: "Agendar consulta", "Solicitar evaluación", "Hablar con el equipo"
+- Avoid: "Contratar ahora", "Oferta", "Promo"
+
+**SEO 2026:**
+- Title: 50-60 characters with search intent + brand
+- Meta description: 140-160 characters with benefit + sober CTA
+
+### Pre-Publication Checklist
+- [ ] All text in institutional voice
+- [ ] No result promises
+- [ ] Correct Chilean legal terminology
+- [ ] SEO title < 60 characters
+- [ ] Meta description < 160 characters
+- [ ] PainPoints don't attack third parties
+- [ ] Sober CTA
+- [ ] Explicit competitive differentiator
+- [ ] FAQ includes prices, times, and deadlines
+- [ ] Markdown content < 80 lines
 
 ### Updating Contact Information
 - Footer: `src/components/home/Footer.astro`

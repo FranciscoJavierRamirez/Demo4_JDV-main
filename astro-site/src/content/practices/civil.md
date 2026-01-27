@@ -44,26 +44,26 @@ painPoints:
   - "Daños sufridos sin compensación ni reconocimiento del responsable"
 
 objective:
-  text: "Defiendo tus derechos patrimoniales con la rigurosidad técnica de 35 años en la Contraloría. Evalúo cada situación para determinar si conviene negociar, mediar o litigar, priorizando siempre la recuperación efectiva de lo que te corresponde."
+  text: "Nuestro objetivo es defender tus derechos patrimoniales con la rigurosidad técnica que otorgan 35 años de experiencia. Evaluamos cada situación para determinar si conviene negociar, mediar o litigar, priorizando siempre la estrategia más efectiva para tu caso."
   commitments:
     - "Evaluación clara de viabilidad y estrategia antes de actuar"
     - "Gestión prejudicial eficiente para evitar costos innecesarios"
     - "Representación judicial ante tribunales civiles y superiores"
-    - "Comunicación constante sobre el avance de tu caso"
+    - "Carga controlada de causas: comunicación periódica sobre hitos del caso"
 
 results:
   - icon: "💵"
-    title: "Recuperación de Deudas"
-    description: "Cobranza efectiva mediante gestión prejudicial, juicios ejecutivos y embargos."
+    title: "Gestión de Cobranzas"
+    description: "Intervención orientada a la recuperación de deudas mediante gestión prejudicial, juicios ejecutivos y embargos."
   - icon: "🏠"
-    title: "Restitución de Inmuebles"
-    description: "Procedimientos ágiles para recuperar propiedades arrendadas o en precario."
+    title: "Gestión de Restitución"
+    description: "Representación orientada a recuperar propiedades arrendadas o en precario mediante los procedimientos legales correspondientes."
   - icon: "📋"
-    title: "Cumplimiento de Contratos"
-    description: "Ejecución forzada de obligaciones contractuales y resolución de conflictos."
+    title: "Gestión de Cumplimiento Contractual"
+    description: "Representación orientada a la ejecución de obligaciones contractuales y resolución de conflictos."
   - icon: "⚖️"
-    title: "Indemnizaciones Justas"
-    description: "Reparación integral de daños materiales, lucro cesante y daño moral."
+    title: "Gestión de Indemnizaciones"
+    description: "Representación orientada a obtener reparación por daños materiales, lucro cesante y daño moral, según las particularidades del caso."
 
 servicesIncluded:
   - icon: "📋"
@@ -123,7 +123,7 @@ finalCta:
 
 El derecho civil abarca una amplia gama de conflictos patrimoniales que afectan directamente tu economía y tranquilidad. Desde deudas impagas hasta propiedades ocupadas ilegalmente, **cada situación requiere una estrategia específica**.
 
-Mi enfoque combina la **gestión prejudicial eficiente** con la **acción judicial decidida** cuando es necesario. No todos los casos deben llegar a tribunales, pero cuando toca litigar, lo hacemos con rigor y determinación.
+Nuestro enfoque combina la **gestión prejudicial eficiente** con la **acción judicial decidida** cuando es necesario. No todos los casos deben llegar a tribunales, pero cuando toca litigar, lo hacemos con rigor y determinación.
 
 ---
 
@@ -131,7 +131,7 @@ Mi enfoque combina la **gestión prejudicial eficiente** con la **acción judici
 
 > **Representación integral:** Actuación ante Juzgados de Letras en lo Civil, Cortes de Apelaciones y Corte Suprema. Gestiones prejudiciales, arbitrajes y resolución alternativa de conflictos.
 
-Atiendo casos en **todo Chile**, con especial experiencia en la Región Metropolitana y zonas extremas del país donde he ejercido por más de tres décadas.
+Nuestro equipo atiende casos en **todo Chile**, con especial experiencia en la Región Metropolitana y zonas extremas del país donde hemos ejercido por más de tres décadas.
 
 ---
 

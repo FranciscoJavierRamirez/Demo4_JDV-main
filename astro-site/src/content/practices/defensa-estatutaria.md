@@ -44,26 +44,26 @@ painPoints:
   - "No encontrar un abogado que haya estado del otro lado de la mesa, que conozca cómo piensa la Administración"
 
 objective:
-  text: "Mi objetivo es ponerte en igualdad de condiciones frente a la Administración del Estado, defendiendo tus derechos con estrategia jurídica sólida, rigor técnico y empatía humana. No estás solo en esto."
+  text: "Nuestro objetivo es ponerte en igualdad de condiciones frente a la Administración del Estado, defendiendo tus derechos con estrategia jurídica sólida, rigor técnico y empatía humana. No estás solo en esto."
   commitments:
-    - "Claridad total: te explico el proceso, plazos y estrategia en lenguaje claro"
-    - "Defensa técnica especializada: 35 años de experiencia en Contraloría me respaldan"
-    - "Acompañamiento humano: entiendo el estrés y te apoyo en cada etapa"
-    - "Estrategia personalizada: cada caso es único y merece un plan a medida"
+    - "Claridad total: te explicamos el proceso, plazos y estrategia en lenguaje claro"
+    - "Defensa técnica especializada: 35 años de experiencia en Contraloría nos respaldan"
+    - "Acompañamiento humano: comprendemos el estrés y te apoyamos en cada etapa"
+    - "Carga controlada de causas: atención personalizada para cada caso"
 
 results:
   - icon: "🛡️"
-    title: "Defensa Sólida y Documentada"
-    description: "Estrategia clara desde el primer día, con argumentos técnicos y jurídicos robustos."
+    title: "Defensa Técnicamente Fundada"
+    description: "Estrategia jurídica clara desde el primer día, con argumentos técnicos y jurídicos robustos."
   - icon: "⚖️"
-    title: "Absolución o Reducción de Sanciones"
-    description: "Buscamos el mejor resultado posible: absolución, archivo o reducción de medidas disciplinarias."
+    title: "Gestión Orientada a Resultados Favorables"
+    description: "Intervención orientada a absolución, archivo o reducción de medidas disciplinarias, según las particularidades del caso."
   - icon: "😌"
-    title: "Tranquilidad y Confianza"
-    description: "Acompañamiento continuo, respuestas rápidas y claridad en cada paso del proceso."
+    title: "Acompañamiento Continuo"
+    description: "Comunicación periódica sobre hitos del caso, respuestas oportunas y claridad en cada paso del proceso."
   - icon: "🎯"
-    title: "Estabilidad Laboral Protegida"
-    description: "Protección de tu carrera funcionaria y tus derechos estatutarios a largo plazo."
+    title: "Defensa de Estabilidad Laboral"
+    description: "Representación orientada a la protección de tu carrera funcionaria y tus derechos estatutarios."
 
 servicesIncluded:
   - icon: "📋"
@@ -106,12 +106,12 @@ faq:
     answer: "Técnicamente sí, pero es muy arriesgado. Los procedimientos disciplinarios tienen plazos breves, tecnicismos legales y consecuencias graves (destitución, multa). Un error puede costarte tu carrera."
   - question: "¿Cuánto tiempo toma resolver un sumario administrativo?"
     answer: "Depende del tipo de procedimiento. Una investigación sumaria puede tardar 20-30 días hábiles, mientras que un sumario administrativo puede extenderse entre 60-90 días o más, según la complejidad del caso."
-  - question: "¿Atiendes casos en regiones o solo en Santiago?"
-    answer: "Atiendo casos a nivel nacional. Mi experiencia como Contralora Regional en Magallanes (1994-2009), Aysén (2012-2017) y Arica (2018-2020) me permite conocer las dinámicas de cada zona del país. Trabajo presencial o remoto según tu necesidad."
+  - question: "¿Atienden casos en regiones o solo en Santiago?"
+    answer: "Atendemos casos a nivel nacional. Nuestra experiencia como Contralora Regional en Magallanes (1994-2009), Aysén (2012-2017) y Arica (2018-2020) nos permite conocer las dinámicas de cada zona del país. Trabajamos presencial o remoto según tu necesidad."
   - question: "¿Qué pasa si ya me notificaron cargos o una medida disciplinaria?"
-    answer: "No es tarde. Podemos presentar descargos, recursos de reposición o apelaciones. Lo importante es actuar rápido porque los plazos son breves e improrrogables. Contáctame de inmediato."
-  - question: "¿Cuánto cuesta tu asesoría?"
-    answer: "Los honorarios varían según la complejidad del caso y el tipo de procedimiento (investigación sumaria, sumario administrativo, recurso judicial). En la consulta gratuita te entrego un presupuesto claro y transparente."
+    answer: "No es tarde. Podemos presentar descargos, recursos de reposición o apelaciones. Lo importante es actuar rápido porque los plazos son breves e improrrogables. Contáctanos de inmediato."
+  - question: "¿Cuánto cuesta la asesoría?"
+    answer: "Los honorarios varían según la complejidad del caso y el tipo de procedimiento (investigación sumaria, sumario administrativo, recurso judicial). En la consulta gratuita entregamos un presupuesto claro y transparente."
 
 finalCta:
   headline: "Protege tu carrera hoy. No enfrentes esto solo."
@@ -123,22 +123,22 @@ finalCta:
 
 Los procedimientos disciplinarios no son juicios civiles comunes. Requieren **conocimiento profundo** del Estatuto Administrativo, Ley Karin y **jurisprudencia de Contraloría**.
 
-**No basta con ser abogado.** Necesitas alguien que haya trabajado dentro del sistema.
+**No basta con ser abogado.** Necesitas a alguien que haya trabajado dentro del sistema.
 
-35 años en Contraloría General de la República, como **Abogada Jefe, Contralora Regional y Jefa de Responsabilidad Administrativa**, me dieron una perspectiva única: **sé cómo piensa la Administración, porque fui parte de ella.**
+> **Nuestro equipo integra 35 años en la Contraloría General de la República**, como Abogada Jefe, Contralora Regional y Jefa de Responsabilidad Administrativa. Esta trayectoria otorga una perspectiva única: **sabemos cómo piensa la Administración, porque fuimos parte de ella.**
 
 ---
 
-## Mi experiencia
+## Nuestra experiencia
 
-> **Cientos de sumarios instruidos y resueltos como fiscalizadora en CGR. Cientos más defendidos como abogada particular.** He visto ambos lados de la mesa: fiscalización y defensa.
+**Cientos de sumarios instruidos y resueltos como fiscalizadores en CGR. Cientos más defendidos como abogados particulares.** Hemos visto ambos lados de la mesa: fiscalización y defensa.
 
-He visto **todos los lados de la mesa**: desde fiscalizadora hasta defensora. Eso me permite anticipar los movimientos de la Administración y defender tus derechos con fundamento técnico irrefutable.
+Esta experiencia nos permite anticipar los movimientos de la Administración y defender tus derechos con fundamento técnico irrefutable.
 
 ---
 
 ## Cobertura nacional
 
-Atiendo casos en **todo Chile**. Como **Contralora Regional en Magallanes (1994-2009), Aysén (2012-2017) y Arica y Parinacota (2018-2020)**, conozco las dinámicas de cada región. Trabajo presencial o remoto en todo Chile.
+Atendemos casos en **todo Chile**. Como **Contralora Regional en Magallanes (1994-2009), Aysén (2012-2017) y Arica y Parinacota (2018-2020)**, conocemos las dinámicas de cada región. Trabajamos presencial o remoto en todo el país.
 
-**No importa dónde estés. Puedo ayudarte.**
+**No importa dónde estés. Podemos ayudarte.**

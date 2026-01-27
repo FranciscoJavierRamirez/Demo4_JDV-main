@@ -44,26 +44,26 @@ painPoints:
   - "Has consultado abogados que te dicen 'es solo un perro' o 'no vale la pena demandar por una mascota'"
 
 objective:
-  text: "Mi objetivo es dar voz legal a quienes no pueden defenderse por sí mismos. Como tutora de mascotas, entiendo el dolor de ver sufrir a un ser querido. Cada caso de maltrato, negligencia o injusticia contra un animal merece una defensa comprometida y profesional."
+  text: "Nuestro objetivo es dar voz legal a quienes no pueden defenderse por sí mismos. Como equipo comprometido con el bienestar animal, comprendemos el dolor de ver sufrir a un ser querido. Cada caso de maltrato, negligencia o injusticia contra un animal merece una defensa rigurosa y éticamente comprometida."
   commitments:
-    - "Empatía genuina: entiendo el vínculo con tu mascota y el dolor de su sufrimiento"
+    - "Empatía genuina: comprendemos el vínculo con tu mascota y el dolor de su sufrimiento"
     - "Conocimiento especializado: dominio de la Ley Cholito y normativa de protección animal"
-    - "Acción efectiva: representación extrajudicial y judicial ante todas las instancias"
-    - "Compromiso ético: cada animal merece justicia, independiente de su especie o valor económico"
+    - "Representación diligente: gestión extrajudicial y judicial ante todas las instancias"
+    - "Carga controlada de causas: atención personalizada para cada caso, independiente de su especie o valor económico"
 
 results:
   - icon: "⚖️"
-    title: "Justicia para tu Mascota"
-    description: "Responsables de negligencia o maltrato enfrentan las consecuencias legales de sus actos."
+    title: "Gestión Procesal Rigurosa"
+    description: "Intervención orientada a que los responsables de negligencia o maltrato enfrenten las consecuencias legales correspondientes."
   - icon: "💰"
-    title: "Indemnización por Daños"
-    description: "Compensación económica por gastos médicos, daño moral y perjuicios sufridos."
+    title: "Gestión de Indemnizaciones"
+    description: "Representación orientada a obtener compensación por gastos médicos, daño moral y perjuicios, según las particularidades del caso."
   - icon: "🛡️"
     title: "Protección Legal Efectiva"
-    description: "Medidas cautelares y acciones legales que impiden nuevos daños a tus animales."
+    description: "Gestión de medidas cautelares y acciones legales orientadas a impedir nuevos daños a tus animales."
   - icon: "📋"
-    title: "Fundaciones Legalmente Protegidas"
-    description: "Organizaciones formalizadas con respaldo jurídico para su labor de rescate y protección."
+    title: "Respaldo Jurídico a Fundaciones"
+    description: "Asesoría para formalización de organizaciones con respaldo jurídico para su labor de rescate y protección."
 
 servicesIncluded:
   - icon: "🏥"
@@ -114,53 +114,41 @@ faq:
     answer: "Toda la posible: fotografías/videos del animal y sus lesiones, fichas veterinarias, testimonios de testigos, denuncias previas, informes de rescatistas o funcionarios municipales. Si el animal falleció, una necropsia veterinaria es fundamental. Te orientamos sobre cómo preservar y presentar la evidencia."
 
 finalCta:
-  headline: "Tu mascota merece justicia"
-  text: "El maltrato, la negligencia y la injusticia contra los animales no pueden quedar impunes. Si tu mascota o tu fundación necesita defensa legal, estoy aquí para ayudarte."
+  headline: "Tu mascota merece representación legal seria"
+  text: "El maltrato, la negligencia y la injusticia contra los animales requieren una respuesta jurídica profesional. Si tu mascota o tu fundación necesita defensa legal, nuestro equipo está preparado para ayudarte."
   button: "Agendar Consulta"
 ---
 
 ## El amor por los animales merece protección legal
 
-Nuestras mascotas son **familia**. No son objetos, no son cosas: son seres sintientes que dependen de nosotros y merecen protección.
+Nuestras mascotas son **familia**. No son objetos, no son cosas: son seres sintientes que dependen de nosotros y merecen protección legal seria.
 
-Cuando un veterinario actúa con negligencia, cuando un vecino maltrata a tu perro, cuando una clínica te cobra de más por servicios deficientes, **tienes derecho a actuar legalmente**.
+Cuando un veterinario actúa con negligencia, cuando un vecino maltrata a tu perro, cuando una clínica cobra de más por servicios deficientes, **tienes derecho a actuar legalmente**.
 
-Y ese derecho merece un abogado que lo tome tan en serio como tú.
+> **Nuestro equipo toma estos casos con la seriedad que merecen.** Carga controlada de causas para atención personalizada en cada caso.
 
 ---
 
-## ¿Por qué especializarse en Derecho Animalista?
+## ¿Por qué especializarnos en Derecho Animalista?
 
-Porque durante décadas, los casos de maltrato y negligencia contra animales fueron **ignorados por el sistema legal**. Porque muchos abogados consideran estos casos "menores" o "no rentables".
+Durante décadas, los casos de maltrato y negligencia contra animales fueron **ignorados por el sistema legal**. Muchos abogados consideran estos casos "menores" o "no rentables".
 
-> **Pero la ley ha cambiado.** La Ley Cholito (21.020) reconoce derechos a los animales y establece sanciones reales. Y alguien debe hacerla cumplir.
-
-Mi compromiso es ser ese alguien.
+> **Pero la ley ha cambiado.** La Ley Cholito (21.020) reconoce derechos a los animales y establece sanciones reales. Nuestro compromiso es hacerla cumplir.
 
 ---
 
 ## Tipos de casos que atendemos
 
-### Negligencia Veterinaria
+**Negligencia Veterinaria:** Errores de diagnóstico, cirugías mal realizadas, falta de seguimiento postoperatorio. Si tu mascota sufrió daños por atención veterinaria deficiente, representamos tu caso ante los tribunales competentes.
 
-Errores de diagnóstico, cirugías mal realizadas, falta de seguimiento postoperatorio, medicamentos incorrectos. Si tu mascota sufrió o murió por culpa de atención veterinaria deficiente, puedes exigir responsabilidad.
+**Maltrato Animal:** Crueldad física, abandono, privación de alimentos. La ley castiga estos actos con multas e incluso cárcel. Presentamos querellas conforme a la Ley 21.020.
 
-### Maltrato Animal
+**Conflictos Vecinales:** Ataques entre mascotas, envenenamientos, disputas por tenencia. Gestionamos mediación y, si es necesario, litigamos para proteger a tu animal.
 
-Crueldad física, abandono, privación de alimentos o agua, condiciones de hacinamiento. La ley castiga estos actos con multas e incluso cárcel. Te ayudamos a presentar querellas efectivas.
-
-### Conflictos entre Tutores y Vecinos
-
-Ataques de perros a otras mascotas, envenenamientos, ruidos molestos, disputas por tenencia. Mediamos y, si es necesario, litigamos para proteger a tu animal.
-
-### Fundaciones y Rescatistas
-
-Constitución legal, contratos de adopción, convenios con municipios, defensa ante acusaciones injustas. Tu labor de rescate merece respaldo jurídico.
+**Fundaciones y Rescatistas:** Constitución legal, contratos de adopción, convenios con municipios. Tu labor de rescate merece respaldo jurídico profesional.
 
 ---
 
-## Un compromiso personal
+## Nuestro compromiso institucional
 
-Como tutora de mascotas, conozco el vínculo que nos une a ellos. Sé lo que se siente ver sufrir a un ser querido por negligencia o maldad de otros.
-
-Por eso cada caso que tomo es **personal**. No se trata solo de ganar: se trata de hacer justicia para quienes no pueden hablar por sí mismos. Como tutora de mascotas rescatadas, conozco el dolor de ver sufrir a un ser querido por negligencia de otros.
+Nuestro equipo comprende el vínculo que une a los tutores con sus mascotas. Esta comprensión guía nuestra práctica: **representación diligente y oportuna** para quienes no pueden hablar por sí mismos.

@@ -44,26 +44,26 @@ painPoints:
   - "Vulneración del principio de igualdad de los oferentes y respeto irrestricto de las bases"
 
 objective:
-  text: "Mi objetivo es equilibrar la relación entre particulares y el Estado, exigiendo el cumplimiento estricto del principio de legalidad, transparencia y probidad que debe regir toda actuación administrativa. Con 35 años de experiencia en Contraloría, conozco los procesos internos y sé cómo defender tus derechos de manera efectiva."
+  text: "Nuestro objetivo es equilibrar la relación entre particulares y el Estado, exigiendo el cumplimiento estricto del principio de legalidad, transparencia y probidad que debe regir toda actuación administrativa. Con 35 años de experiencia en Contraloría, nuestro equipo conoce los procesos internos y cómo defender tus derechos de manera efectiva."
   commitments:
     - "Análisis exhaustivo de bases, contratos y actuaciones administrativas"
     - "Estrategia jurídica basada en jurisprudencia de Contraloría y tribunales"
     - "Representación directa ante organismos públicos y ChileCompra"
-    - "Seguimiento riguroso de plazos y recursos administrativos"
+    - "Carga controlada de causas: seguimiento riguroso de plazos y atención personalizada"
 
 results:
   - icon: "✅"
-    title: "Adjudicaciones Recuperadas"
-    description: "Impugnación exitosa de descalificaciones y reevaluación de ofertas conforme a las bases."
+    title: "Gestión de Impugnaciones"
+    description: "Representación orientada a impugnar descalificaciones y obtener reevaluación de ofertas conforme a las bases."
   - icon: "⚖️"
-    title: "Derechos Restablecidos"
-    description: "Recursos administrativos y judiciales para revertir decisiones arbitrarias del Estado."
+    title: "Gestión de Recursos Administrativos"
+    description: "Intervención orientada a revertir decisiones arbitrarias del Estado mediante recursos administrativos y judiciales."
   - icon: "💰"
-    title: "Pagos y Garantías Protegidas"
-    description: "Gestión efectiva de cobros, garantías y cumplimiento de contratos públicos."
+    title: "Gestión de Cobros y Garantías"
+    description: "Representación orientada a la protección de pagos, garantías y cumplimiento de contratos públicos."
   - icon: "🛡️"
-    title: "Prevención de Conflictos"
-    description: "Asesoría preventiva en elaboración de ofertas y revisión de bases administrativas."
+    title: "Asesoría Preventiva"
+    description: "Orientación en elaboración de ofertas y revisión de bases administrativas para prevenir conflictos."
 
 servicesIncluded:
   - icon: "📋"
@@ -109,7 +109,7 @@ faq:
   - question: "¿Qué es el recurso de protección y cuándo aplica?"
     answer: "Es una acción constitucional para proteger derechos fundamentales vulnerados por actos arbitrarios. Aplica cuando la Administración actúa fuera de la ley, discrimina o causa perjuicios injustificados."
   - question: "¿Trabajan con empresas de regiones?"
-    answer: "Sí. Atendemos casos a nivel nacional de forma presencial o remota. Mi experiencia como Contralora Regional en distintas zonas del país me permite conocer las dinámicas de cada región."
+    answer: "Sí. Atendemos casos a nivel nacional de forma presencial o remota. Nuestra experiencia como Contralora Regional en distintas zonas del país nos permite conocer las dinámicas de cada región."
   - question: "¿Cuánto cuesta la asesoría en licitaciones?"
     answer: "Los honorarios dependen de la complejidad del caso: si es asesoría preventiva, revisión de bases, o defensa ante descalificación. En la primera consulta evaluamos tu situación y entregamos un presupuesto claro."
 
@@ -121,22 +121,22 @@ finalCta:
 
 ## Conocimiento desde adentro del sistema
 
-Durante **35 años en la Contraloría General de la República**, participé en la fiscalización de cientos de procesos de compras públicas, contratos administrativos y actuaciones de servicios públicos.
+Durante **35 años en la Contraloría General de la República**, nuestro equipo participó en la fiscalización de cientos de procesos de compras públicas, contratos administrativos y actuaciones de servicios públicos.
 
-**Conozco el sistema porque fui parte de él.** Sé cómo piensan los organismos públicos, qué argumentos son efectivos y cómo estructurar una defensa sólida.
+> **Conocemos el sistema porque fuimos parte de él.** Sabemos cómo piensan los organismos públicos, qué argumentos son efectivos y cómo estructurar una defensa sólida.
 
 ---
 
 ## Áreas de actuación
 
-> **Compras públicas, licitaciones, contratos administrativos, permisos y autorizaciones.** Representación ante servicios públicos, municipios, universidades y la Contraloría General de la República.
+**Compras públicas, licitaciones, contratos administrativos, permisos y autorizaciones.** Representación ante servicios públicos, municipios, universidades y la Contraloría General de la República.
 
-Mi experiencia abarca todo el espectro de la relación entre particulares y la Administración del Estado: desde la preparación de ofertas hasta la defensa en recursos de protección.
+Nuestra experiencia abarca todo el espectro de la relación entre particulares y la Administración del Estado: desde la preparación de ofertas hasta la defensa en recursos de protección.
 
 ---
 
-## Principios que defiendo
+## Principios que defendemos
 
-**Legalidad, transparencia y probidad** no son solo conceptos abstractos. Mi formación en la CGR, con marcado énfasis en ética y probidad, me permite exigirlos efectivamente en tu representación. Cuando la Administración no los respeta, hay herramientas legales para actuar.
+**Legalidad, transparencia y probidad** no son solo conceptos abstractos. Nuestra formación en la CGR, con marcado énfasis en ética y probidad, nos permite exigirlos efectivamente en tu representación. Cuando la Administración no los respeta, hay herramientas legales para actuar.
 
-Mi compromiso es que recibas un trato justo, conforme a derecho, sin importar el tamaño de tu empresa o la complejidad del trámite.
+Nuestro compromiso es que recibas un trato justo, conforme a derecho, sin importar el tamaño de tu empresa o la complejidad del trámite.
