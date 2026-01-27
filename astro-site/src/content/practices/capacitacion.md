@@ -102,8 +102,8 @@ process:
 faq:
   - question: "¿Qué temas pueden cubrirse en las capacitaciones?"
     answer: "Las capacitaciones abarcan diversas áreas: Estatuto Administrativo, Ley Karin (acoso laboral y sexual), procedimientos disciplinarios, derechos funcionarios, Ley de Copropiedad Inmobiliaria, normativa animalista (Ley Cholito), compras públicas, probidad administrativa, y más. El contenido se adapta a las necesidades de cada organización."
-  - question: "¿Cuál es la duración típica de una capacitación?"
-    answer: "Depende del formato: las charlas informativas duran 1-2 horas, los talleres prácticos entre 3-4 horas, y los cursos especializados pueden extenderse a jornadas completas o múltiples sesiones. El diseño se ajusta a tus objetivos y disponibilidad."
+  - question: "¿Qué formatos de capacitación ofrecen?"
+    answer: "Ofrecemos diversos formatos adaptados a las necesidades de cada organización: charlas informativas breves, talleres prácticos con ejercicios y casos, y cursos especializados de mayor profundidad. El diseño se ajusta a tus objetivos y disponibilidad."
   - question: "¿Se realizan capacitaciones presenciales fuera de Santiago?"
     answer: "Sí, atendemos organizaciones a nivel nacional. Las capacitaciones pueden realizarse de forma presencial en cualquier región o en modalidad remota (videoconferencia) según las preferencias y necesidades logísticas de tu organización."
   - question: "¿Cuántas personas pueden participar en una capacitación?"

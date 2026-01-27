@@ -2,15 +2,15 @@
 slug: "cliente-senior"
 
 seo:
-  title: "Servicios Legales a Domicilio para Adultos Mayores | JDV & Abogados"
-  description: "Atención legal personalizada en tu hogar. Testamentos, poderes, mandatos y asesoría jurídica para personas mayores. Servicio dignificante y humano."
+  title: "Servicios Legales para Adultos Mayores | JDV & Abogados"
+  description: "Atención legal integral y personalizada para personas mayores. Testamentos, poderes, defensa estatutaria, asuntos civiles y todas las áreas del estudio."
   canonical: "/areas-practicas/cliente-senior"
 
 hero:
-  badge: "Atención Domiciliaria · Adultos Mayores"
-  h1: "Cliente Senior: Servicios Legales en la Comodidad de tu Hogar"
+  badge: "Atención Personalizada · Adultos Mayores"
+  h1: "Cliente Senior: Atención Legal Integral con Trato Personalizado"
   breadcrumbTitle: "Cliente Senior"
-  tagline: "Testamentos, poderes y asesoría legal en tu hogar para adultos mayores que merecen atención digna"
+  tagline: "Acceso a todas las áreas de práctica del estudio con la atención dedicada y el trato digno que mereces"
   image: "/areas/cliente-senior.jpg"
 
 trust:
@@ -18,43 +18,43 @@ trust:
     label: "Años Experiencia"
   - value: "100%"
     label: "Atención Personalizada"
-  - value: "100%"
-    label: "Atención Domiciliaria"
+  - value: "10"
+    label: "Áreas de Práctica"
 
 target:
   - icon: "👴"
     title: "Adulto Mayor Autónomo"
-    description: "Persona mayor que prefiere la comodidad de recibir atención profesional en su propio hogar, sin traslados innecesarios."
-  - icon: "🏠"
-    title: "Persona con Movilidad Reducida"
-    description: "Dificultades físicas o de comunicación para desplazarse a oficinas, notarías o instituciones financieras."
+    description: "Persona mayor que valora la atención personalizada, con tiempo dedicado y explicaciones claras en cada gestión legal."
+  - icon: "⚖️"
+    title: "Quien Necesita Asesoría Integral"
+    description: "Acceso a todas las áreas del estudio: defensa estatutaria, asuntos civiles, inmobiliarios, planificación sucesoria y más."
   - icon: "👨‍👩‍👧"
     title: "Familia que Acompaña"
     description: "Hijos o familiares que buscan soluciones dignas y seguras para sus padres o abuelos."
   - icon: "📋"
     title: "Quien Necesita Formalizar su Voluntad"
-    description: "Desea otorgar testamento, poderes o mandatos sin el estrés de trámites presenciales."
+    description: "Desea otorgar testamento, poderes o mandatos con un equipo que entiende sus necesidades."
 
 painPoints:
-  - "Dificultad o imposibilidad de trasladarse a oficinas de abogados o notarías"
   - "Trámites legales que parecen complicados, fríos e impersonales"
   - "Desconfianza ante abogados que no entienden las necesidades de personas mayores"
   - "Preocupación por formalizar la voluntad antes de que sea tarde"
-  - "Falta de tiempo o disponibilidad de familiares para acompañar en gestiones"
+  - "Necesidad de asesoría en múltiples áreas legales sin tener que buscar distintos abogados"
+  - "Falta de tiempo dedicado: consultas apresuradas que no resuelven dudas"
   - "Temor a ser tratado sin la dignidad y paciencia que mereces"
 
 objective:
-  text: "Nuestro objetivo es acercar los servicios legales a quienes más lo necesitan, llevando atención profesional, cálida y respetuosa directamente a tu hogar. Porque la edad o la movilidad reducida no deben ser obstáculos para proteger tus derechos y formalizar tu voluntad."
+  text: "Nuestro objetivo es brindar atención legal integral a adultos mayores, con el tiempo, la paciencia y el respeto que merecen. Acceso a todas las áreas de práctica del estudio con un equipo que entiende tus necesidades y te acompaña en cada gestión."
   commitments:
-    - "Atención domiciliaria: nuestro equipo va a tu hogar, sin que tengas que desplazarte"
+    - "Atención personalizada: tiempo dedicado exclusivamente a entender y resolver tu situación"
     - "Trato dignificante: paciencia, claridad y respeto en cada encuentro"
-    - "Coordinación integral: gestionamos notarías, bancos y trámites por ti"
-    - "Carga controlada de casos: atención personalizada y tiempo dedicado exclusivamente a tu situación"
+    - "Asesoría integral: acceso a todas las áreas del estudio sin necesidad de buscar otros abogados"
+    - "Carga controlada de casos: atención dedicada sin apuros ni consultas apresuradas"
 
 results:
-  - icon: "🏠"
-    title: "Servicio en tu Hogar"
-    description: "Atención profesional completa sin salir de casa, en el horario que más te acomode."
+  - icon: "⚖️"
+    title: "Asesoría Legal Integral"
+    description: "Acceso a todas las áreas del estudio: defensa estatutaria, civil, inmobiliario, sucesorio y más."
   - icon: "📜"
     title: "Gestión de Documentos"
     description: "Representación orientada a la formalización correcta de testamentos, poderes y mandatos según la normativa vigente."
@@ -62,88 +62,83 @@ results:
     title: "Orientación hacia la Tranquilidad"
     description: "Gestión orientada a que tus asuntos queden en orden y tu voluntad debidamente protegida."
   - icon: "🤝"
-    title: "Acompañamiento Profesional"
-    description: "Un equipo que te escucha, te explica y te acompaña en cada paso del proceso."
+    title: "Acompañamiento Personalizado"
+    description: "Un equipo que te escucha, te explica con paciencia y te acompaña en cada paso del proceso."
 
 servicesIncluded:
   - icon: "📜"
-    title: "Testamentos"
-    description: "Redacción y formalización de testamentos, incluyendo coordinación con notario a domicilio cuando sea necesario."
+    title: "Testamentos y Planificación Sucesoria"
+    description: "Redacción de testamentos, fideicomisos, legados y toda la planificación para proteger a tus seres queridos."
   - icon: "✍️"
     title: "Poderes y Mandatos"
     description: "Otorgamiento de poderes generales o especiales para que personas de tu confianza actúen en tu nombre."
-  - icon: "🏦"
-    title: "Gestiones Bancarias y Financieras"
-    description: "Acompañamiento y representación en trámites con bancos, AFP, aseguradoras y otras instituciones."
-  - icon: "🏥"
-    title: "Gestiones de Salud"
-    description: "Apoyo en trámites con Isapres, Fonasa, hospitales, clínicas y seguros de salud."
-  - icon: "📋"
-    title: "Escrituras y Contratos"
-    description: "Redacción y revisión de escrituras públicas, contratos de arrendamiento y otros documentos legales."
+  - icon: "🛡️"
+    title: "Defensa Estatutaria"
+    description: "Si eres funcionario público jubilado o activo, defensa en sumarios, Ley Karin y asuntos estatutarios."
+  - icon: "🏠"
+    title: "Asuntos Inmobiliarios"
+    description: "Compraventa de propiedades, estudio de títulos, regularización y asesoría en copropiedad."
+  - icon: "⚖️"
+    title: "Derecho Civil"
+    description: "Cobranza de deudas, contratos, arrendamientos, responsabilidad civil y conflictos patrimoniales."
   - icon: "🤝"
-    title: "Asesoría Integral y Fideicomisos"
-    description: "Orientación jurídica en herencias, fideicomisos, usufructos, propiedades y conflictos familiares."
+    title: "Gestiones Institucionales"
+    description: "Acompañamiento en trámites con bancos, AFP, Isapres, Fonasa, notarías y otras instituciones."
 
 process:
   - step: 1
     title: "Contacto Inicial"
-    description: "Nos comunicamos por teléfono o WhatsApp para conocer tu situación y agendar una visita."
+    description: "Nos comunicamos por teléfono o WhatsApp para conocer tu situación y agendar una consulta."
   - step: 2
-    title: "Visita Domiciliaria"
-    description: "Nuestro equipo va a tu hogar para conversar con calma, entender tus necesidades y explicarte las opciones."
+    title: "Consulta Personalizada"
+    description: "Conversamos con calma para entender tus necesidades, explicarte las opciones y definir la estrategia."
   - step: 3
-    title: "Preparación de Documentos"
-    description: "Redactamos los documentos necesarios y coordinamos con notarías u otras instituciones según corresponda."
+    title: "Gestión Integral"
+    description: "Ejecutamos las gestiones necesarias: redacción de documentos, coordinación con instituciones y seguimiento."
   - step: 4
-    title: "Formalización y Entrega"
-    description: "Acompañamos la firma de documentos (en domicilio si es posible) y entregamos copias de todo."
+    title: "Acompañamiento Continuo"
+    description: "Te mantenemos informado en cada etapa y estamos disponibles para resolver cualquier duda que surja."
 
 faq:
-  - question: "¿Realmente puede venir un notario a mi casa?"
-    answer: "Sí. En casos justificados (edad avanzada, enfermedad, movilidad reducida), los notarios pueden constituirse en domicilio particular para autorizar testamentos y otros documentos. Nuestro equipo se encarga de coordinar todo el proceso."
-  - question: "¿Qué zonas de Santiago atienden?"
-    answer: "Atendemos todas las comunas de la Región Metropolitana. Para zonas más alejadas, coordinamos según disponibilidad. El servicio domiciliario tiene un costo adicional que se informa previamente."
-  - question: "¿Es más caro el servicio a domicilio?"
-    answer: "El servicio domiciliario tiene un valor adicional que cubre el traslado y el tiempo de visita. Sin embargo, los honorarios son transparentes y se informan antes de agendar. Muchas familias consideran que la comodidad y tranquilidad lo valen."
-  - question: "¿Puedo incluir a mi familia en la reunión?"
+  - question: "¿Qué áreas legales pueden atender para adultos mayores?"
+    answer: "Todas las áreas del estudio: defensa estatutaria (si eres funcionario público), asuntos civiles, inmobiliarios, planificación sucesoria (testamentos, fideicomisos), poderes y mandatos, y gestiones institucionales. No necesitas buscar distintos abogados."
+  - question: "¿En qué se diferencia la atención Cliente Senior?"
+    answer: "En el tiempo y la dedicación. Las consultas no son apresuradas: nos tomamos el tiempo necesario para explicar, responder dudas y asegurar que comprendas cada paso. El trato es personalizado, con paciencia y respeto."
+  - question: "¿Puedo incluir a mi familia en las reuniones?"
     answer: "Por supuesto. De hecho, muchas veces es recomendable que familiares de confianza participen para que todos comprendan los documentos y decisiones. Siempre respetando tu voluntad como protagonista."
-  - question: "¿Qué documentos necesito tener preparados?"
-    answer: "Generalmente: cédula de identidad vigente, información de bienes (propiedades, cuentas bancarias) y datos de las personas que deseas incluir en testamentos o poderes. En la primera conversación te indicamos exactamente qué necesitas según tu caso."
-  - question: "¿Cuánto tiempo toma formalizar un testamento?"
-    answer: "Una vez definido el contenido, la formalización ante notario puede realizarse en 1-2 semanas, dependiendo de la disponibilidad del notario para constituirse en domicilio. El proceso completo, desde la primera reunión, suele tomar 2-4 semanas."
+  - question: "¿Qué documentos necesito para la primera consulta?"
+    answer: "Depende del tema a tratar. Generalmente: cédula de identidad vigente e información relacionada con tu consulta. En el contacto inicial te indicamos exactamente qué necesitas según tu caso específico."
+  - question: "¿Pueden ayudarme con trámites en instituciones?"
+    answer: "Sí. Coordinamos y acompañamos gestiones con bancos, AFP, Isapres, Fonasa, notarías, Conservador de Bienes Raíces y otras instituciones. Nuestro objetivo es simplificar los trámites para ti."
+  - question: "¿Atienden a nivel nacional?"
+    answer: "Sí, atendemos casos en todo Chile. Nuestra experiencia como Contralora Regional en distintas zonas del país nos permite conocer las dinámicas de cada región. Trabajamos de forma presencial o remota según tu necesidad."
 
 finalCta:
-  headline: "Tu tranquilidad no puede esperar. Nuestro equipo va a ti."
-  text: "No dejes que la distancia o la movilidad sean obstáculos para proteger tu voluntad y tus derechos. Agenda una visita domiciliaria y conversemos con calma en tu hogar."
-  button: "Agendar Visita Domiciliaria"
+  headline: "Tu tranquilidad no puede esperar. Mereces atención dedicada."
+  text: "No dejes tus asuntos legales en manos de abogados que no tienen tiempo para ti. Agenda una consulta y conversemos con calma sobre tu situación."
+  button: "Agendar Consulta"
 ---
 
-## ¿Por qué un servicio legal a domicilio?
+## ¿Por qué un servicio especializado para adultos mayores?
 
-Para muchos adultos mayores, ir a una oficina de abogados o a una notaría puede ser **difícil, incómodo o simplemente imposible**. Escaleras, distancias largas, tiempos de espera y trámites impersonales se convierten en barreras.
+Muchas personas mayores enfrentan **consultas apresuradas, explicaciones confusas y falta de tiempo dedicado** por parte de sus abogados. Además, cuando necesitan asesoría en distintas áreas, deben buscar múltiples profesionales.
 
-**Pero tus derechos no deberían depender de tu capacidad de desplazarte.**
+**Mereces algo mejor.**
 
-El servicio Cliente Senior nace de una convicción: la atención legal debe ser **accesible, digna y humana**, especialmente para quienes han dedicado toda una vida a construir un patrimonio y una familia.
-
----
-
-## Un servicio pensado para ti
-
-> **Atención en tu hogar, en tu horario, a tu ritmo.** Sin apuros, sin estrés, con la paciencia y el respeto que mereces.
-
-No se trata solo de comodidad. Se trata de **dignidad**. De que puedas tomar decisiones importantes sobre tu patrimonio, tu familia y tu futuro en un ambiente seguro y familiar.
+El servicio Cliente Senior nace de una convicción: la atención legal debe ser **personalizada, integral y dignificante**, especialmente para quienes han dedicado toda una vida a construir un patrimonio y una familia.
 
 ---
 
-## ¿Qué podemos hacer por ti?
+## Atención personalizada en todas las áreas del estudio
 
-Llevamos a tu hogar los mismos servicios que ofreceríamos en una oficina tradicional:
+> **Tu tiempo, tus necesidades, tu ritmo.** Sin apuros, sin estrés, con la paciencia y el respeto que mereces.
 
-- **Testamentos**: Para que tu voluntad quede clara y protegida
-- **Poderes y mandatos**: Para que personas de tu confianza puedan actuar en tu nombre
-- **Gestiones con instituciones**: Bancos, AFP, Isapres, aseguradoras
-- **Asesoría general**: Cualquier duda legal que tengas sobre tu patrimonio o situación personal
+No necesitas buscar distintos abogados para cada tema. Tienes acceso a **todas las áreas de práctica del estudio**:
+
+- **Planificación sucesoria**: Testamentos, fideicomisos, legados, protección de dependientes
+- **Defensa estatutaria**: Si eres funcionario público jubilado o activo
+- **Asuntos civiles**: Cobranzas, contratos, arrendamientos, conflictos patrimoniales
+- **Derecho inmobiliario**: Compraventa, regularización, copropiedad
+- **Gestiones institucionales**: Bancos, AFP, Isapres, notarías
 
 > **Nuestro equipo integra 35 años de experiencia en la Contraloría General de la República**, incluyendo cargos como Contralora Regional. Esta trayectoria nos enseñó que los trámites pueden ser simples cuando alguien te guía con claridad, paciencia y conocimiento del sistema.

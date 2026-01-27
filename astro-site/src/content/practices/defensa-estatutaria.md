@@ -104,14 +104,14 @@ faq:
     answer: "Sí, completamente. La primera consulta de 30 minutos no tiene costo ni compromiso. Es para conocernos, evaluar tu caso y explicarte tus opciones."
   - question: "¿Puedo defenderme solo en un sumario administrativo?"
     answer: "Técnicamente sí, pero es muy arriesgado. Los procedimientos disciplinarios tienen plazos breves, tecnicismos legales y consecuencias graves (destitución, multa). Un error puede costarte tu carrera."
-  - question: "¿Cuánto tiempo toma resolver un sumario administrativo?"
-    answer: "Depende del tipo de procedimiento. Una investigación sumaria puede tardar 20-30 días hábiles, mientras que un sumario administrativo puede extenderse entre 60-90 días o más, según la complejidad del caso."
+  - question: "¿Qué factores influyen en la duración de un sumario administrativo?"
+    answer: "La duración depende del tipo de procedimiento (investigación sumaria o sumario administrativo), la complejidad del caso, el número de funcionarios involucrados y las diligencias probatorias requeridas. En la consulta inicial te orientamos sobre qué esperar en tu situación específica."
   - question: "¿Atienden casos en regiones o solo en Santiago?"
     answer: "Atendemos casos a nivel nacional. Nuestra experiencia como Contralora Regional en Magallanes (1994-2009), Aysén (2012-2017) y Arica (2018-2020) nos permite conocer las dinámicas de cada zona del país. Trabajamos presencial o remoto según tu necesidad."
   - question: "¿Qué pasa si ya me notificaron cargos o una medida disciplinaria?"
     answer: "No es tarde. Podemos presentar descargos, recursos de reposición o apelaciones. Lo importante es actuar rápido porque los plazos son breves e improrrogables. Contáctanos de inmediato."
-  - question: "¿Cuánto cuesta la asesoría?"
-    answer: "Los honorarios varían según la complejidad del caso y el tipo de procedimiento (investigación sumaria, sumario administrativo, recurso judicial). En la consulta gratuita entregamos un presupuesto claro y transparente."
+  - question: "¿Cómo funciona la consulta inicial gratuita?"
+    answer: "La consulta inicial de 30 minutos es sin costo ni compromiso. Evaluamos tu caso, analizamos los antecedentes disponibles, explicamos tus opciones y definimos si podemos ayudarte. Es el primer paso para entender tu situación y las estrategias disponibles."
 
 finalCta:
   headline: "Protege tu carrera hoy. No enfrentes esto solo."

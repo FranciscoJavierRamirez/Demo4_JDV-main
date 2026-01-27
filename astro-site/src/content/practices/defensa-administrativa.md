@@ -102,16 +102,16 @@ process:
 faq:
   - question: "¿Qué puedo hacer si me descalificaron injustamente de una licitación?"
     answer: "Puedes presentar un reclamo ante el organismo licitante y, si no prospera, recurrir ante la Contraloría General de la República o interponer un recurso de protección. Es fundamental actuar rápido porque los plazos son breves."
-  - question: "¿Cuánto tiempo tengo para reclamar una decisión de ChileCompra?"
-    answer: "Los plazos varían según el tipo de reclamo. Generalmente son de 5 a 10 días hábiles desde la notificación. Por eso es crucial contactar a un abogado especializado de inmediato para no perder oportunidades de defensa."
+  - question: "¿Es urgente reclamar una decisión de ChileCompra?"
+    answer: "Sí, los plazos para impugnar decisiones en compras públicas son breves según la normativa vigente. Es crucial contactar a un abogado especializado de inmediato para no perder oportunidades de defensa. Cada día cuenta."
   - question: "¿Pueden ayudarme si un servicio público no responde mis solicitudes?"
     answer: "Sí. La Ley de Procedimiento Administrativo establece plazos máximos para responder. Podemos presentar reclamos por silencio administrativo y, si persiste, recurrir judicialmente."
   - question: "¿Qué es el recurso de protección y cuándo aplica?"
     answer: "Es una acción constitucional para proteger derechos fundamentales vulnerados por actos arbitrarios. Aplica cuando la Administración actúa fuera de la ley, discrimina o causa perjuicios injustificados."
   - question: "¿Trabajan con empresas de regiones?"
     answer: "Sí. Atendemos casos a nivel nacional de forma presencial o remota. Nuestra experiencia como Contralora Regional en distintas zonas del país nos permite conocer las dinámicas de cada región."
-  - question: "¿Cuánto cuesta la asesoría en licitaciones?"
-    answer: "Los honorarios dependen de la complejidad del caso: si es asesoría preventiva, revisión de bases, o defensa ante descalificación. En la primera consulta evaluamos tu situación y entregamos un presupuesto claro."
+  - question: "¿Qué tipos de asesoría en licitaciones ofrecen?"
+    answer: "Ofrecemos asesoría preventiva (revisión de bases, preparación de ofertas), defensa ante descalificación, impugnación de adjudicaciones, y representación ante Contraloría. En la primera consulta evaluamos tu situación y definimos la estrategia adecuada."
 
 finalCta:
   headline: "No dejes que la burocracia te detenga"

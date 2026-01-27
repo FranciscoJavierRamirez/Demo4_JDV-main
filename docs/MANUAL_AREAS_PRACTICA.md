@@ -1109,7 +1109,7 @@ Antes de aprobar un nuevo archivo `.md`, verificar:
 * [ ] PainPoints no atacan a terceros
 * [ ] CTA sobrio
 * [ ] Hay diferencial competitivo explícito
-* [ ] FAQ incluye precios, tiempos y plazos
+* [ ] FAQ no debe incluir precios, tiempos y ni plazos
 * [ ] No hay comparaciones agresivas
 * [ ] Contenido Markdown < 80 líneas
 

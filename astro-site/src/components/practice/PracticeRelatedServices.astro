@@ -28,9 +28,15 @@ const allServices: RelatedService[] = [
     icon: "🏛️"
   },
   {
+    slug: "defensa-penal",
+    title: "Defensa Penal",
+    description: "Representación de víctimas e imputados ante el sistema de justicia penal.",
+    icon: "⚖️"
+  },
+  {
     slug: "cliente-senior",
     title: "Cliente Senior",
-    description: "Servicios legales a domicilio para adultos mayores.",
+    description: "Atención legal integral y personalizada para adultos mayores.",
     icon: "👴"
   },
   {
@@ -62,19 +68,27 @@ const allServices: RelatedService[] = [
     title: "Capacitación",
     description: "Talleres y charlas para asociaciones y organizaciones.",
     icon: "🎓"
+  },
+  {
+    slug: "familia-menores",
+    title: "Familia y Menores",
+    description: "Divorcios, tuiciones, pensiones de alimentos y protección de menores.",
+    icon: "👨‍👩‍👧"
   }
 ];
 
 // Cross-selling matrix: which services relate to which
 const relatedMatrix: Record<string, string[]> = {
-  "defensa-estatutaria": ["defensa-administrativa", "civil", "capacitacion"],
-  "defensa-administrativa": ["defensa-estatutaria", "civil", "capacitacion"],
-  "cliente-senior": ["legado", "civil", "inmobiliaria-copropiedad"],
-  "legado": ["cliente-senior", "civil", "animalista"],
-  "civil": ["defensa-estatutaria", "inmobiliaria-copropiedad", "legado"],
+  "defensa-estatutaria": ["defensa-administrativa", "defensa-penal", "capacitacion"],
+  "defensa-administrativa": ["defensa-estatutaria", "defensa-penal", "capacitacion"],
+  "defensa-penal": ["defensa-administrativa", "civil", "familia-menores"],
+  "cliente-senior": ["legado", "familia-menores", "inmobiliaria-copropiedad"],
+  "legado": ["cliente-senior", "familia-menores", "animalista"],
+  "civil": ["defensa-penal", "inmobiliaria-copropiedad", "familia-menores"],
   "inmobiliaria-copropiedad": ["civil", "cliente-senior", "legado"],
   "animalista": ["civil", "legado", "capacitacion"],
-  "capacitacion": ["defensa-estatutaria", "defensa-administrativa", "civil"]
+  "capacitacion": ["defensa-estatutaria", "defensa-administrativa", "defensa-penal"],
+  "familia-menores": ["legado", "civil", "cliente-senior"]
 };
 
 // Determine which services to show

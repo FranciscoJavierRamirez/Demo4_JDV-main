@@ -106,8 +106,8 @@ faq:
     answer: "Un fideicomiso es un patrimonio separado que administra un tercero (fiduciario) para beneficio exclusivo de tu hijo. El dinero NO puede ser tocado por nadie más, y se destina solo a sus necesidades (salud, terapias, alimentación, vivienda). Es la protección más sólida que existe."
   - question: "¿Qué pasa si no hago nada y muero sin testamento?"
     answer: "Tu patrimonio se reparte según la ley (sucesión intestada), sin considerar necesidades especiales. No podrás usar la cuarta de libre disposición para proteger a tu dependiente. Tus mascotas quedan a la suerte de quien las recoja. No dejes esto al azar."
-  - question: "¿Cuánto cuesta hacer un testamento con estas cláusulas especiales?"
-    answer: "Depende de la complejidad (número de beneficiarios, bienes, fideicomisos). En la consulta gratuita entregamos un presupuesto claro y transparente. La inversión es menor comparada con la tranquilidad que obtienes."
+  - question: "¿Qué factores influyen en la planificación de un legado?"
+    answer: "La estrategia depende de varios factores: número de beneficiarios, tipo de bienes, necesidades especiales de tus dependientes, y las herramientas legales más adecuadas (testamento, fideicomiso, legado modal). En la consulta gratuita evaluamos tu situación y diseñamos un plan personalizado."
   - question: "¿Puedo cambiar el testamento después si cambia mi situación?"
     answer: "Sí, absolutamente. El testamento es revocable: puedes modificarlo o anularlo cuando quieras. Ofrecemos servicio de actualización periódica para adaptarlo a nuevas circunstancias (nacimientos, fallecimientos, cambios patrimoniales)."
   - question: "¿Qué es un albacea fiduciario y por qué lo necesito?"
@@ -168,7 +168,7 @@ El derecho de uso de una propiedad **solo si cumple con cuidar a tu dependiente*
 
 ## Casos reales
 
-> **Padre de hijo con síndrome de Down:** Fideicomiso de $80 millones exclusivo + albacea fiduciario + testamento con cláusula condicional. **Resultado:** Hijo protegido de por vida.
+> **Padre de hijo con síndrome de Down:** Fideicomiso exclusivo + albacea fiduciario + testamento con cláusula condicional. **Resultado:** Hijo protegido de por vida.
 
 > **Tutora de 5 gatos rescatados:** Legado modal + instrucciones detalladas + fundación animalista como fiscalizador. **Resultado:** Gatos protegidos legalmente con fondos permanentes.
 

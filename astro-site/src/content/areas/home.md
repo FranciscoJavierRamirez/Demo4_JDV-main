@@ -15,9 +15,15 @@ areas:
     link: "/areas-practicas/defensa-administrativa"
     image: "/areas/defensa-administrativa.jpg"
 
+  - icon: "fas fa-gavel"
+    title: "Defensa Penal"
+    description: "Representación de víctimas e imputados ante el sistema de justicia penal chileno."
+    link: "/areas-practicas/defensa-penal"
+    image: "/areas/defensa-penal.jpg"
+
   - icon: "fas fa-heart"
     title: "Cliente Senior"
-    description: "Atención personalizada a domicilio para adultos mayores y personas con movilidad reducida."
+    description: "Atención legal integral y personalizada para adultos mayores con acceso a todas las áreas del estudio."
     link: "/areas-practicas/cliente-senior"
     image: "/areas/cliente-senior.jpg"
 
@@ -26,6 +32,12 @@ areas:
     description: "Planificación sucesoria para asegurar el futuro de personas dependientes y mascotas."
     link: "/areas-practicas/legado"
     image: "/areas/legado.jpg"
+
+  - icon: "fas fa-users"
+    title: "Familia y Menores"
+    description: "Divorcios, tuiciones, pensiones de alimentos y protección de niños, niñas y adolescentes."
+    link: "/areas-practicas/familia-menores"
+    image: "/areas/familia-menores.jpg"
 
   - icon: "fas fa-balance-scale"
     title: "Civil"

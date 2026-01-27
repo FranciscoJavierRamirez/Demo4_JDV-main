@@ -102,8 +102,8 @@ process:
 faq:
   - question: "¿Qué incluye un estudio de títulos?"
     answer: "El estudio de títulos incluye la revisión completa del historial de dominio de la propiedad (al menos 10 años), verificación de gravámenes, hipotecas, prohibiciones, embargos, servidumbres y cualquier limitación al dominio. También se revisan los planos, deslindes y la situación tributaria. El resultado es un informe escrito con las conclusiones y recomendaciones."
-  - question: "¿Cuánto tiempo toma regularizar una propiedad?"
-    answer: "El tiempo varía según la complejidad del caso. Una regularización simple puede tomar 2-3 meses, mientras que casos más complejos (como posesiones efectivas pendientes o problemas de cabida) pueden extenderse a 6 meses o más. En la primera consulta podemos darte una estimación más precisa."
+  - question: "¿Qué factores influyen en la regularización de una propiedad?"
+    answer: "La complejidad del proceso depende de varios factores: el tipo de problema (títulos incompletos, posesiones efectivas pendientes, problemas de cabida), la documentación disponible, y los trámites requeridos ante notarías, Conservador y otras instituciones. En la primera consulta evaluamos tu caso específico."
   - question: "¿Pueden ayudar a cobrar gastos comunes atrasados?"
     answer: "Sí. Ofrecemos un servicio completo de cobranza que incluye: gestión prejudicial (cartas de cobro, negociación de convenios de pago), y en caso necesario, cobranza judicial mediante juicio ejecutivo. Trabajamos para recuperar la deuda protegiendo al mismo tiempo la convivencia comunitaria."
   - question: "¿Qué debe contener un reglamento de copropiedad actualizado?"

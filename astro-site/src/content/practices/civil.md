@@ -100,12 +100,12 @@ process:
     description: "Ejecutamos sentencias, gestionamos embargos y aseguramos el cumplimiento efectivo."
 
 faq:
-  - question: "¿Cuánto tiempo tengo para cobrar una deuda antes de que prescriba?"
-    answer: "Depende del tipo de documento. Los pagarés y cheques prescriben en 1 año, las facturas en 1 año, y las deudas por contrato simple en 5 años. Pasado el plazo, se convierten en obligaciones naturales (no exigibles judicialmente). Es fundamental actuar rápido."
+  - question: "¿Qué es la prescripción de una deuda y por qué es importante actuar rápido?"
+    answer: "La prescripción extingue la posibilidad de cobrar judicialmente una deuda. Cada tipo de documento tiene plazos legales específicos según la normativa civil chilena. Pasado el plazo, la deuda se convierte en obligación natural (no exigible judicialmente). Es fundamental evaluar tu caso cuanto antes."
   - question: "¿Qué necesito para iniciar un juicio ejecutivo?"
     answer: "Necesitas un título ejecutivo: pagaré, cheque protestado, factura con acuse de recibo, escritura pública o sentencia firme. Con estos documentos podemos embargar bienes del deudor directamente."
-  - question: "¿Cuánto demora un juicio de arrendamiento?"
-    answer: "Un juicio de término de arrendamiento puede tomar entre 3 a 6 meses dependiendo del tribunal y la contestación del demandado. El procedimiento 'Devuélveme mi casa' es más rápido para casos de no pago."
+  - question: "¿Qué opciones legales tengo para recuperar una propiedad arrendada?"
+    answer: "Existen distintos procedimientos según la causa: juicio de término de arrendamiento por incumplimiento, procedimiento 'Devuélveme mi casa' para casos de no pago, y acciones posesorias. En la consulta evaluamos cuál es la vía más adecuada para tu situación específica."
   - question: "¿Es mejor negociar o demandar directamente?"
     answer: "Siempre evaluamos primero la gestión prejudicial porque es más rápida y económica. Si el deudor no responde o incumple acuerdos, procedemos judicialmente. La estrategia depende de cada caso."
   - question: "¿Puedo cobrar los gastos del juicio al deudor?"
