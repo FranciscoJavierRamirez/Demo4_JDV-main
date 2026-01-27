@@ -808,6 +808,506 @@ npm run dev
 
 ---
 
+## Guía Editorial y Manual de Estilo (Obligatorio para Nuevas Áreas de Práctica)
+
+Esta sección define los **estándares de redacción profesional** que deben cumplirse en todo nuevo archivo `.md` de Área de Práctica. Su objetivo es asegurar coherencia institucional, posicionamiento premium, cumplimiento ético y máximo rendimiento en SEO y UX/CX para el mercado legal chileno 2026.
+
+---
+
+### 1. Voz Institucional y Persona Gramatical
+
+**Regla absoluta:**
+Todas las áreas de práctica deben redactarse en **primera persona plural institucional**.
+
+Usar:
+
+* “nosotros”
+* “nuestro estudio”
+* “nuestro equipo”
+* “representamos”
+* “intervenimos”
+* “litigamos”
+
+Evitar:
+
+* “yo”
+* “mi experiencia”
+* “te acompaño”
+* “yo garantizo”
+
+**Ejemplo correcto**
+
+> “Nuestro equipo representa a víctimas e imputados con una estrategia penal técnicamente fundada.”
+
+---
+
+### 2. Promesa de Marca Permitida (Ética + Legal)
+
+Está **prohibido** prometer resultados.
+
+Usar siempre promesas de:
+
+* proceso
+* metodología
+* rigor técnico
+* control de riesgos
+* transparencia
+
+**Plantillas permitidas**
+
+* “Gestión orientada a…”
+* “Estrategia jurídicamente fundada…”
+* “Representación diligente y oportuna…”
+* “Intervención definida según antecedentes del caso…”
+
+**Prohibido**
+
+* “garantizamos”
+* “ganamos tu caso”
+* “resultado asegurado”
+* “somos los mejores”
+
+---
+
+### 3. Terminología Legal Oficial (Chile)
+
+Siempre usar denominaciones formales chilenas:
+
+Usar:
+
+* Sistema de Justicia Penal
+* Juzgado de Garantía
+* Tribunal de Juicio Oral en lo Penal
+* Ministerio Público (Fiscalía)
+* Audiencia de control de detención
+* Medidas cautelares
+* Recurso de nulidad
+* Apelación (cuando proceda)
+* Revisión (excepcional)
+
+Evitar:
+
+* “Sistema de justicia criminal”
+* “Corte criminal”
+* “criminal defense”
+* Anglicismos o latinismos innecesarios
+
+---
+
+### 4. Framework de Redacción por Componente
+
+#### 4.1 Hero (hero.h1 + tagline)
+
+Estructura recomendada:
+
+* H1 = servicio + sistema legal chileno
+* Tagline = valor diferencial + enfoque ético
+
+**Ejemplo**
+
+```text
+h1: "Defensa Penal: Representación ante el Sistema de Justicia Penal"
+tagline: "Estrategia jurídica rigurosa para víctimas e imputados en Chile"
+```
+
+---
+
+#### 4.2 Objective.text
+
+Debe:
+
+* Enfatizar transformación jurídica
+* Incluir ética + técnica
+* No sonar publicitario
+
+**Plantilla**
+
+```text
+Nuestro objetivo es garantizar que cada cliente reciba una representación legal rigurosa, ética y estratégicamente fundada. Actuamos con estándares de probidad, transparencia y control institucional, definiendo una hoja de ruta procesal clara desde la primera etapa del procedimiento.
+```
+
+---
+
+#### 4.3 PainPoints
+
+Reglas:
+
+* Deben reflejar miedos reales del cliente
+* Nunca atacar directamente a terceros
+* No usar tono alarmista
+
+**Ejemplo permitido**
+
+```yaml
+- "Dudas sobre la capacidad de atención personalizada en la Defensoría Penal Pública por alta carga de casos"
+```
+
+---
+
+#### 4.4 Results
+
+Regla:
+
+* Describir **tipos de resultado**, no promesas.
+
+**Plantilla segura**
+
+```yaml
+results:
+  - icon: "⚖️"
+    title: "Gestión Procesal Eficiente"
+    description: "Intervención orientada a sobreseimientos, salidas alternativas, absoluciones o reparaciones, según las particularidades del caso."
+```
+
+---
+
+#### 4.5 ServicesIncluded
+
+Reglas:
+
+* Verbos técnicos
+* No marketing
+* No duplicar resultados
+
+**Ejemplo**
+
+```yaml
+title: "Interposición de Querellas"
+description: "Redacción, presentación y tramitación de querellas conforme al Código Procesal Penal."
+```
+
+---
+
+#### 4.6 Process
+
+Siempre 4 pasos.
+Cada paso debe:
+
+* Tener verbo activo
+* Indicar acción jurídica concreta
+
+**Plantilla**
+
+```yaml
+process:
+  - step: 1
+    title: "Evaluación Jurídica Inicial"
+    description: "Análisis de antecedentes, calificación legal y definición de escenarios procesales."
+```
+
+---
+
+#### 4.7 FAQ
+
+Reglas:
+
+* Incluir siempre:
+
+  * confidencialidad
+  * riesgos
+* Respuestas sobrias, sin venta.
+
+---
+
+### 5. UX Writing Legal (Textos de Interfaz)
+
+#### 5.1 CTAs Permitidos
+
+Usar:
+
+* "Agendar consulta"
+* "Solicitar evaluación"
+* "Hablar con el equipo"
+
+Evitar:
+
+* "Contratar ahora"
+* "Oferta"
+* "Promo"
+
+---
+
+### 6. SEO 2026 para Áreas de Práctica
+
+#### 6.1 Título SEO
+
+* 50–60 caracteres
+* Intención de búsqueda + marca
+
+**Ejemplo**
+
+```text
+Defensa Penal en Santiago | JDV & Abogados
+```
+
+---
+
+#### 6.2 Meta Description
+
+* 140–160 caracteres
+* Beneficio + CTA sobrio
+
+**Ejemplo**
+
+```text
+Defensa penal para víctimas e imputados. Estrategia jurídica fundada, intervención temprana y representación ética en Chile. Agenda una consulta confidencial.
+```
+
+---
+
+#### 6.3 Estructura SEO mínima
+
+Cada Área debe contener:
+
+* 1 H1
+* 3–5 H2
+* 1 bloque de etapas
+* 1 bloque de FAQ
+* 1 CTA final
+* 3–8 enlaces internos (cuando corresponda)
+
+---
+
+### 7. Marca Personal Integrada (sin romper voz institucional)
+
+Se permite mencionar trayectoria individual solo en forma institucional:
+
+Usar:
+
+* “Nuestro equipo integra experiencia de más de X años en el sector público…”
+* “Nuestros abogados han ejercido en…”
+
+Evitar:
+
+* Relatos en primera persona dentro del área
+* Biografías extensas fuera de la página Equipo
+
+---
+
+### 8. Diferencial Competitivo (obligatorio en cada área)
+
+Cada nueva Área debe incluir al menos **una frase diferencial**:
+
+**Plantillas**
+
+* “Carga controlada de causas para atención personalizada.”
+* “Hoja de ruta procesal desde la primera consulta.”
+* “Preparación estratégica de cada audiencia.”
+* “Estándares de probidad y transparencia institucional.”
+
+---
+
+### 9. Checklist Editorial Pre-Publicación
+
+Antes de aprobar un nuevo archivo `.md`, verificar:
+
+* [ ] Todo el texto está en voz institucional
+* [ ] No hay promesas de resultado
+* [ ] Terminología legal chilena correcta
+* [ ] SEO title < 60 caracteres
+* [ ] Meta description < 160 caracteres
+* [ ] PainPoints no atacan a terceros
+* [ ] CTA sobrio
+* [ ] Hay diferencial competitivo explícito
+* [ ] FAQ incluye precios, tiempos y plazos
+* [ ] No hay comparaciones agresivas
+* [ ] Contenido Markdown < 80 líneas
+
+---
+
+### 10. Biblioteca de Frases Aprobadas (Reutilizables)
+
+**Autoridad**
+
+* “Estrategia jurídicamente fundada”
+* “Representación diligente y oportuna”
+* “Preparación estratégica de audiencias”
+
+**Transparencia**
+
+* “Presupuesto claro según etapa y complejidad”
+* “Comunicación periódica sobre hitos del caso”
+
+**Ética**
+
+* “Estándares de probidad y transparencia”
+* “Resguardo estricto de confidencialidad”
+
+**Urgencia procesal**
+
+* “En materia penal, los plazos son decisivos”
+* “Una intervención temprana puede cambiar el curso del procedimiento”
+
+---
+
+
+## Frameworks de Comunicación Estratégica Oficiales (Uso Obligatorio)
+
+Todas las Áreas de Práctica deben construirse utilizando de forma controlada los siguientes frameworks. Esto garantiza coherencia de marca, ética publicitaria, UX consistente y rendimiento SEO 2026.
+
+---
+
+### 1. AIDA Sobrio (para estructura general de cada área)
+
+**A – Atención**
+Hero.h1 + Hero.tagline
+Debe:
+
+* Nombrar el servicio
+* Ubicarlo en el sistema legal chileno
+* Introducir el diferencial
+
+**I – Interés**
+Target + PainPoints
+Debe:
+
+* Identificar al visitante
+* Reflejar su problema real
+* Validar su emoción sin dramatizar
+
+**D – Deseo**
+Objective + Results
+Debe:
+
+* Mostrar transformación procesal
+* Beneficios verificables
+* Nunca promesas de resultado
+
+**A – Acción**
+FinalCTA
+Debe:
+
+* Crear urgencia jurídica
+* No vender
+* No presionar
+* No prometer resultados
+
+---
+
+### 2. PAS (Problem–Agitation–Solution) Controlado
+
+Se permite PAS en:
+
+* Hero.tagline
+* PainPoints
+* Primer bloque de PracticeContent
+
+**Reglas:**
+
+* Problema: factual
+* Agitación: consecuencias reales
+* Solución: técnica, no emocional
+
+**Prohibido:**
+
+* Lenguaje catastrofista
+* Miedo artificial
+* Culpabilización
+
+---
+
+### 3. JTBD (Jobs To Be Done) para UX/CX
+
+Cada sección debe responder a uno de estos “trabajos” del usuario:
+
+| Sección    | Job principal                  |
+| ---------- | ------------------------------ |
+| Hero       | “Estoy en el lugar correcto”   |
+| Target     | “Este servicio es para mí”     |
+| PainPoints | “Entienden mi problema”        |
+| Objective  | “Tienen un método serio”       |
+| Results    | “Esto me conviene”             |
+| Process    | “Sé qué pasará después”        |
+| FAQ        | “No me llevaré sorpresas”      |
+| CTA        | “Sé cuál es el siguiente paso” |
+
+---
+
+### 4. E-E-A-T (SEO y confianza institucional)
+
+Cada Área debe contener explícitamente:
+
+* **Experience:**
+  Casos típicos, etapas, procedimientos
+
+* **Expertise:**
+  Menciones técnicas (leyes, tribunales, recursos)
+
+* **Authoritativeness:**
+  Trayectoria institucional (Contraloría, litigación, docencia)
+
+* **Trust:**
+  Confidencialidad, ética, transparencia de honorarios
+
+---
+
+### 5. StoryBrand (solo para áreas emocionales)
+
+Aplicable SOLO a:
+
+* Legado
+* Animalista
+* Cliente Senior
+
+**Reglas:**
+
+* Cliente = héroe
+* Estudio = guía
+* Problema = jurídico
+* Plan = proceso legal
+* Éxito = seguridad jurídica
+* Evitar tono motivacional exagerado
+
+---
+
+### 6. UX Writing Legal
+
+Todas las áreas deben cumplir:
+
+* Frases ≤ 20 palabras promedio
+* 1 idea por párrafo
+* Listas para pasos, requisitos y beneficios
+* CTA sobrio
+* Lenguaje claro, no infantil
+
+---
+
+### 7. SEO 2026 Framework
+
+Cada Área debe optimizar:
+
+* 1 intención principal
+* 3–5 intenciones secundarias
+* 1 cluster de contenido relacionado
+* FAQ alineado a búsquedas reales
+* Enlaces internos estratégicos
+
+---
+
+## Política de Migración Editorial (Áreas Existentes)
+
+Antes de publicar nuevas áreas, debe refactorizarse:
+
+* animalista
+* cliente-senior
+* defensa-estatutaria
+* legado
+* capacitación
+* inmobiliaria-copropiedad
+* civil
+* defensa-administrativa
+
+**Reglas de refactor:**
+
+* [ ] Convertir todo a voz institucional
+* [ ] Eliminar promesas implícitas
+* [ ] Sustituir “yo / mi” → “nuestro equipo”
+* [ ] Introducir 1 diferencial competitivo explícito
+* [ ] Alinear Results a promesas de proceso
+* [ ] Balancear emoción (máx. 30%)
+
+---
+
 ## Contacto para Soporte
 
 Si encuentras problemas no documentados aquí, contactar al desarrollador principal o abrir un issue en el repositorio.
