@@ -41,7 +41,7 @@ const { Content } = await render();
   <Header />
 
   <!-- Breadcrumbs -->
-  <PracticeBreadcrumbs areaName={data.hero.h1} />
+  <PracticeBreadcrumbs areaName={data.hero.h1 ?? ''} areaSlug={data.slug ?? ''} breadcrumbTitle={data.hero.breadcrumbTitle} />
 
   <!-- Hero Section -->
   <PracticeHero

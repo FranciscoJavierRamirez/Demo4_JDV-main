@@ -528,6 +528,13 @@ const { items } = Astro.props;
       border-radius: 18px;
       -webkit-tap-highlight-color: transparent;
       touch-action: manipulation;
+      /* Prevent text selection on long press */
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      /* Improve touch responsiveness */
+      cursor: pointer;
     }
 
     /* Disable backdrop-filter during animations for performance */
@@ -811,37 +818,109 @@ const { items } = Astro.props;
     }
 
     /* ========================================
-       MOBILE: Touched State (for JS-controlled feedback)
+       MOBILE: Selected State (Persistent - Premium)
+       Permanece activo hasta seleccionar otra tarjeta
        ======================================== */
-    .target-card.touched {
-      transform: scale(0.98);
-      background: rgba(12, 35, 64, 0.80);
-      border-color: rgba(255, 255, 255, 0.25);
+    .target-card.selected {
+      transform: translateY(-4px) scale(1.02);
+      background: rgba(12, 35, 64, 0.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-color: rgba(201, 169, 97, 0.4);
       box-shadow:
-        0 8px 25px -5px rgba(59, 130, 246, 0.30),
-        0 0 0 1px rgba(59, 130, 246, 0.15);
+        0 12px 35px -8px rgba(59, 130, 246, 0.35),
+        0 0 0 1px rgba(201, 169, 97, 0.25),
+        0 0 40px rgba(201, 169, 97, 0.12);
+      transition:
+        transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+        background 0.3s ease-out,
+        border-color 0.3s ease-out,
+        box-shadow 0.4s ease-out;
     }
 
-    .target-card.touched h3 {
+    .target-card.selected h3 {
       color: #ffffff;
+      transition: color 0.25s ease-out;
     }
 
-    .target-card.touched p {
-      color: rgba(255, 255, 255, 0.9);
+    .target-card.selected p {
+      color: rgba(255, 255, 255, 0.92);
+      transition: color 0.25s ease-out;
     }
 
-    .target-card.touched .target-icon-wrapper {
-      transform: scale(0.92);
+    .target-card.selected .target-icon-wrapper {
+      transform: scale(1.08) rotate(-3deg);
       background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
-      box-shadow: 0 4px 16px rgba(201, 169, 97, 0.40);
+      box-shadow:
+        0 8px 24px rgba(201, 169, 97, 0.45),
+        0 0 0 3px rgba(201, 169, 97, 0.15);
+      transition:
+        transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+        background 0.3s ease-out,
+        box-shadow 0.3s ease-out;
     }
 
-    .target-card.touched .target-icon {
+    .target-card.selected .target-icon {
       filter: grayscale(1) brightness(10);
+      transform: scale(1.1);
+      transition:
+        filter 0.25s ease-out,
+        transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
 
-    .target-card.touched .card-spotlight {
-      opacity: 0.6;
+    .target-card.selected .card-spotlight {
+      opacity: 0.7;
+      background: radial-gradient(
+        300px circle at 50% 30%,
+        rgba(201, 169, 97, 0.15),
+        transparent 60%
+      );
+    }
+
+    /* Premium: Pulse glow animation for selected card */
+    .target-card.selected .target-icon-wrapper::before {
+      opacity: 1;
+      animation: selectedIconPulse 2.5s ease-in-out infinite;
+    }
+
+    @keyframes selectedIconPulse {
+      0%, 100% {
+        transform: scale(1);
+        opacity: 0.5;
+        box-shadow: 0 0 0 0 rgba(201, 169, 97, 0.4);
+      }
+      50% {
+        transform: scale(1.15);
+        opacity: 0.8;
+        box-shadow: 0 0 20px 5px rgba(201, 169, 97, 0.2);
+      }
+    }
+
+    /* Deselection transition (when losing selected state) */
+    .target-card:not(.selected) {
+      transition:
+        transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+        background 0.3s ease-out,
+        border-color 0.3s ease-out,
+        box-shadow 0.35s ease-out;
+    }
+
+    .target-card:not(.selected) h3,
+    .target-card:not(.selected) p {
+      transition: color 0.25s ease-out;
+    }
+
+    .target-card:not(.selected) .target-icon-wrapper {
+      transition:
+        transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+        background 0.3s ease-out,
+        box-shadow 0.3s ease-out;
+    }
+
+    .target-card:not(.selected) .target-icon {
+      transition:
+        filter 0.25s ease-out,
+        transform 0.3s ease-out;
     }
   }
 
@@ -951,18 +1030,35 @@ const { items } = Astro.props;
       transform: none !important;
     }
 
-    /* Touch/Active feedback - color changes only */
+    /* Touch/Active/Selected feedback - color changes only */
     .target-card:active,
-    .target-card.touched {
+    .target-card.selected {
       transform: none !important;
-      background: rgba(12, 35, 64, 0.80) !important;
-      transition: background 0.1s ease !important;
+      background: rgba(12, 35, 64, 0.85) !important;
+      border-color: rgba(201, 169, 97, 0.4) !important;
+      transition: background 0.2s ease, border-color 0.2s ease !important;
     }
 
     .target-card:active .target-icon-wrapper,
-    .target-card.touched .target-icon-wrapper {
+    .target-card.selected .target-icon-wrapper {
       transform: none !important;
       background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%) !important;
+    }
+
+    .target-card.selected .target-icon-wrapper::before {
+      animation: none !important;
+    }
+
+    .target-card.selected h3 {
+      color: #ffffff !important;
+    }
+
+    .target-card.selected p {
+      color: rgba(255, 255, 255, 0.9) !important;
+    }
+
+    .target-card.selected .target-icon {
+      filter: grayscale(1) brightness(10) !important;
     }
   }
 </style>
@@ -1039,35 +1135,64 @@ const { items } = Astro.props;
       });
 
       // ========================================
-      // MOBILE: Touch feedback for iOS Safari
-      // iOS requires touchstart listener for :active to work
+      // MOBILE: Persistent Selection State
+      // Card stays selected until another is tapped
+      // Premium radio-button style interaction
       // ========================================
+
+      // Track touch state for scroll detection
+      let touchStartY = 0;
+      let touchMoved = false;
+
       cards.forEach(card => {
-        // Empty touchstart enables :active on iOS
+        // Empty touchstart enables :active on iOS Safari
         card.addEventListener('touchstart', function() {}, { passive: true });
-        
-        // Enhanced touch feedback with .touched class
+
+        // Track touch start position for scroll detection
         card.addEventListener('touchstart', function(e) {
-          // Don't interfere with scrolling
-          this.classList.add('touched');
+          touchStartY = e.touches[0].clientY;
+          touchMoved = false;
         }, { passive: true });
 
-        card.addEventListener('touchend', function(e) {
-          // Small delay before removing to ensure visual feedback is seen
-          setTimeout(() => {
-            this.classList.remove('touched');
-          }, 100);
-        }, { passive: true });
-
-        card.addEventListener('touchcancel', function(e) {
-          this.classList.remove('touched');
-        }, { passive: true });
-
-        // Handle touch move (scrolling) - remove touched state
+        // Detect if user is scrolling
         card.addEventListener('touchmove', function(e) {
-          this.classList.remove('touched');
+          const touchCurrentY = e.touches[0].clientY;
+          const deltaY = Math.abs(touchCurrentY - touchStartY);
+          // If moved more than 10px, consider it a scroll
+          if (deltaY > 10) {
+            touchMoved = true;
+          }
+        }, { passive: true });
+
+        // Handle tap (touchend without significant scroll)
+        card.addEventListener('touchend', function(e) {
+          // Only trigger selection if not scrolling
+          if (!touchMoved) {
+            // Remove 'selected' from all cards in this section
+            cards.forEach(c => c.classList.remove('selected'));
+
+            // Add 'selected' to the tapped card with slight delay for tactile feel
+            requestAnimationFrame(() => {
+              this.classList.add('selected');
+            });
+          }
+          touchMoved = false;
+        }, { passive: true });
+
+        // Cancel on touchcancel
+        card.addEventListener('touchcancel', function() {
+          touchMoved = false;
         }, { passive: true });
       });
+
+      // Optional: Clear selection when clicking outside the section
+      document.addEventListener('touchstart', function(e) {
+        const isInsideSection = section.contains(e.target);
+        if (!isInsideSection) {
+          // Don't clear immediately - only if touching another interactive area
+          // This prevents accidental deselection during scroll
+        }
+      }, { passive: true });
 
     } else {
       // Desktop: Section observer with staggered reveal via JavaScript

@@ -306,6 +306,7 @@ const practicesCollection = defineCollection({
     hero: z.object({
       badge: z.string(),
       h1: z.string(),
+      breadcrumbTitle: z.string().optional(),
       tagline: z.string(),
       image: z.string().optional(),
     }),

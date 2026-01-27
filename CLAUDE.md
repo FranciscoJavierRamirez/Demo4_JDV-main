@@ -6,7 +6,12 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 **JDV & Abogados** - Professional law firm website for Jacqueline del Valle Inostroza, featuring a premium design inspired by Apple/Stripe with modern animations and exceptional user experience.
 
-**Tech Stack:** Astro + Pure CSS3 + Vanilla JavaScript (ES6 modules)
+**Tech Stack:**
+- **Astro 5.16** - Static site generator with component islands
+- **Tailwind CSS 4.1** - Utility-first CSS framework
+- **React 19** - UI components (via @astrojs/react integration)
+- **Framer Motion 12** - Animation library for React components
+- **Phosphor Icons** - Icon library (@phosphor-icons/react)
 
 **Project Structure:**
 ```
@@ -119,43 +124,48 @@ The site uses Astro's component-based architecture:
 - Components fetch content via `getEntry()` from Content Collections
 - This makes content updates easy without touching component code
 
-### CSS Architecture
+### CSS Architecture (Tailwind CSS 4)
 
-CSS is loaded from `/public/home/style.css` via `BaseLayout.astro`. All styling uses CSS custom properties:
+The project uses **Tailwind CSS 4** with utility-first approach:
 
-- Colors: `--blue-primary`, `--gold`, `--gray-*` series
-- Typography: `--font-display` (Fraunces), `--font-sans` (Inter)
-- Spacing: 8pt grid system (`--space-4` through `--space-24`)
-- Transitions: Material Design 3 curves (`--transition-fast/base/slow`)
+- **Configuration**: Via `tailwind.config.js` and `@tailwindcss/vite` plugin
+- **CSS Variables**: Custom properties for brand colors (`--blue-primary`, `--gold`, `--gray-*`)
+- **Typography**: `font-[var(--font-display)]` (Fraunces), default sans (Inter)
+- **Glassmorphism**: `backdrop-blur-*`, `bg-white/20`, `border-white/30` patterns
 
 **Responsive Strategy:**
-- Mobile-first approach with progressive enhancement
-- Breakpoints: 768px (tablet), 1024px (desktop), 1200px (large desktop)
+- Mobile-first with Tailwind breakpoints: `sm:`, `md:`, `lg:`, `xl:`
+- Common breakpoints: 640px (sm), 768px (md), 1024px (lg), 1280px (xl)
 
-### JavaScript Architecture
+**Styling Patterns:**
+- Inline Tailwind classes in components
+- CSS custom properties for brand consistency
+- `<style>` blocks in Astro components for complex animations
 
-JavaScript is loaded from `/public/home/assets/js/main.js` via `BaseLayout.astro`:
+### JavaScript/React Architecture
 
-**Module System:**
-- Entry point: `main.js` - Initializes all modules
-- Configuration: `config.js` - Centralized constants
-- Feature modules in `modules/` - One module per feature:
-  - `nav.js` - Navigation & sticky behavior
-  - `megaMenu.js` - Desktop mega menu
-  - `modal.js` - Consultation modal
-  - `animations.js` - Scroll animations
-  - `stats.js` - Stats counter
-  - `faq.js` - FAQ accordion
-  - `backToTop.js` - Back to top button
-  - `smoothScroll.js` - Smooth anchor scrolling
-  - `newsletter.js` - Newsletter form
-  - `utils.js` - Utility functions
+The project uses a hybrid approach:
+
+**React Components (via @astrojs/react):**
+- Interactive UI components using React 19
+- Animations powered by Framer Motion 12
+- Icons from @phosphor-icons/react
+
+**Vanilla JavaScript:**
+- Navigation interactions in `<script>` tags within Astro components
+- Legacy modules in `/public/home/assets/js/` (if still used)
+
+**Framer Motion Patterns:**
+- `motion.div` for animated containers
+- `variants` for orchestrated animations
+- `whileInView` for scroll-triggered animations
+- `AnimatePresence` for enter/exit transitions
 
 **Core Patterns:**
-1. **Event-Driven** - All interactions via event listeners in DOMContentLoaded
-2. **IntersectionObserver** - Stats counter, scroll animations
-3. **RequestAnimationFrame** - Smooth 60fps animations
-4. **Performance** - Throttled handlers, passive listeners, GPU-accelerated transforms
+1. **Component Islands** - React components hydrate independently
+2. **Client Directives** - `client:load`, `client:visible`, `client:idle`
+3. **IntersectionObserver** - Stats counter, scroll animations
+4. **Performance** - Partial hydration, lazy loading
 
 ### Key Interactive Features
 
@@ -204,16 +214,17 @@ JavaScript is loaded from `/public/home/assets/js/main.js` via `BaseLayout.astro
 - Keep components focused and single-purpose
 - Use TypeScript interfaces for props
 
-### CSS
-- Never use hardcoded values - always use CSS variables
-- Use `clamp()` for fluid typography
-- Animations use Material Design easing curves
-- Touch targets minimum 44x44px on mobile
+### Tailwind CSS
+- Use Tailwind utility classes for styling
+- CSS variables for brand colors: `var(--blue-primary)`, `var(--gold)`
+- Use `clamp()` for fluid typography when needed
+- Touch targets minimum 44x44px on mobile (`min-h-11 min-w-11`)
 
-### JavaScript
-- All functionality wrapped in DOMContentLoaded
+### React/JavaScript
+- Use Framer Motion for animations
 - Null checks before accessing DOM elements
-- Use ES6 modules with import/export
+- Use `client:visible` for below-fold interactive components
+- Prefer `client:idle` for non-critical interactivity
 
 ## Common Modifications
 
@@ -235,10 +246,14 @@ Edit the appropriate Markdown file in `src/content/`:
 - WhatsApp: `src/components/WhatsAppFloat.astro`
 
 ### Styling Changes
-Edit `/public/home/style.css` - all CSS is centralized there
+- Use Tailwind classes directly in components
+- Global CSS variables in `BaseLayout.astro` or imported CSS files
+- Component-specific styles in `<style>` blocks
 
-### JavaScript Changes
-Edit modules in `/public/home/assets/js/modules/`
+### Adding React Components
+1. Create `.tsx` file in appropriate `components/` folder
+2. Import in Astro component with client directive: `client:visible`
+3. Use Framer Motion for animations
 
 ## Performance Targets
 
@@ -268,6 +283,21 @@ Modern browsers (ES6+ features):
 - Firefox 88+
 - Safari 14+
 - Edge 90+
+
+## Pages Status
+
+### Implemented
+- **Home** (`/`) - Complete
+- **Áreas de Práctica Index** (`/areas-practicas/`) - Complete
+- **8 Practice Area Pages** - All complete (defensa-estatutaria, defensa-administrativa, cliente-senior, legado, civil, inmobiliaria-copropiedad, animalista, capacitacion)
+- **Design System** (`/design-system/`) - Reference page
+
+### Pending Implementation
+- **Quiénes Somos** (`/nosotros/`) - About page
+- **Blog** (`/blog/`) - Blog listing and posts
+- **Contacto** (`/contacto/`) - Contact page with form
+
+Note: Navigation links in `Header.astro` currently point to `/` for pending pages.
 
 ## Production Checklist
 

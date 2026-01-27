@@ -2,9 +2,13 @@
 interface Props {
   areaName: string;
   areaSlug: string;
+  breadcrumbTitle?: string;
 }
 
-const { areaName, areaSlug } = Astro.props;
+const { areaName, areaSlug, breadcrumbTitle } = Astro.props;
+
+// Usa breadcrumbTitle si está definido, de lo contrario usa areaName
+const displayTitle = breadcrumbTitle || areaName;
 ---
 
 <nav class="breadcrumbs" aria-label="Breadcrumb">
@@ -30,7 +34,7 @@ const { areaName, areaSlug } = Astro.props;
         <i class="fas fa-chevron-right"></i>
       </li>
       <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" class="current">
-        <span itemprop="name" aria-current="page">{areaName}</span>
+        <span itemprop="name" aria-current="page">{displayTitle}</span>
         <meta itemprop="position" content="3" />
       </li>
     </ol>
@@ -40,6 +44,7 @@ const { areaName, areaSlug } = Astro.props;
 <style>
   .breadcrumbs {
     position: relative;
+    margin-top: 72px; /* Altura del header fijo */
     padding: var(--space-4) 0;
     background: linear-gradient(180deg, #0c2340 0%, #122c4d 100%);
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);

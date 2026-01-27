@@ -9,6 +9,7 @@ seo:
 hero:
   badge: "Protección Animal · Ley Cholito"
   h1: "Derecho Animalista: Defendemos a quienes no tienen voz"
+  breadcrumbTitle: "Derecho Animalista"
   tagline: "Asesoría legal especializada para tutores de mascotas y fundaciones animalistas"
   image: "/areas/animalista.jpg"
 

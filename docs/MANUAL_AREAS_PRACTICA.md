@@ -99,8 +99,18 @@ seo:
 hero:
   badge: "Especialización · Diferenciador"
   h1: "Título Principal del Área de Práctica"
+  breadcrumbTitle: "Título Corto"  # Título corto para el breadcrumb (2-3 palabras)
   tagline: "Subtítulo que explica el valor principal del servicio"
   image: "/areas/nombre-del-area.jpg"
+
+# NOTA sobre breadcrumbTitle:
+# Este campo es OPCIONAL pero RECOMENDADO cuando el h1 es largo.
+# Aparece en la barra de navegación breadcrumb (Inicio > Áreas > [breadcrumbTitle])
+# Si no se define, se usará el h1 completo.
+# Ejemplos:
+#   h1: "Cliente Senior: Servicios Legales en la Comodidad de tu Hogar" → breadcrumbTitle: "Cliente Senior"
+#   h1: "Defensa Estatutaria para Funcionarios Públicos" → breadcrumbTitle: "Defensa Estatutaria"
+#   h1: "Derecho Animalista: Defendemos a quienes no tienen voz" → breadcrumbTitle: "Derecho Animalista"
 
 trust:
   - value: "35+"
@@ -317,7 +327,7 @@ const { Content } = await render();
   <Header />
 
   <!-- Breadcrumbs -->
-  <PracticeBreadcrumbs areaName={data.hero.h1} areaSlug={data.slug} />
+  <PracticeBreadcrumbs areaName={data.hero.h1 ?? ''} areaSlug={data.slug ?? ''} breadcrumbTitle={data.hero.breadcrumbTitle} />
 
   <!-- Hero Section -->
   <PracticeHero
@@ -527,6 +537,7 @@ Editar `src/components/practice/PracticeRelatedServices.astro`:
 **Datos requeridos:**
 - `badge`: Texto corto de especialización
 - `h1`: Título principal (H1 para SEO)
+- `breadcrumbTitle`: Título corto para mostrar en el breadcrumb (opcional, si no se define usa h1)
 - `tagline`: Subtítulo explicativo
 - `image`: Ruta a imagen (opcional)
 
@@ -644,7 +655,7 @@ Servicios relacionados recomendados por área:
 ### Archivo .md
 - [ ] Slug coincide con nombre del archivo
 - [ ] SEO completo (title, description, canonical)
-- [ ] Hero completo (badge, h1, tagline, image)
+- [ ] Hero completo (badge, h1, breadcrumbTitle, tagline, image)
 - [ ] Trust: exactamente 3 items
 - [ ] Target: exactamente 4 items
 - [ ] PainPoints: 6 items
@@ -741,6 +752,7 @@ seo:
 hero:
   badge: "Atención Domiciliaria · Adultos Mayores"
   h1: "Cliente Senior: Servicios Legales en la Comodidad de tu Hogar"
+  breadcrumbTitle: "Cliente Senior"
   tagline: "Atención legal personalizada para adultos mayores"
   image: "/areas/cliente-senior.jpg"
 

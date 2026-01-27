@@ -9,6 +9,7 @@ seo:
 hero:
   badge: "Atención Domiciliaria · Adultos Mayores"
   h1: "Cliente Senior: Servicios Legales en la Comodidad de tu Hogar"
+  breadcrumbTitle: "Cliente Senior"
   tagline: "Testamentos, poderes y asesoría legal en tu hogar para adultos mayores que merecen atención digna"
   image: "/areas/cliente-senior.jpg"
 

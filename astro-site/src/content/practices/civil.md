@@ -9,6 +9,7 @@ seo:
 hero:
   badge: "Litigio Civil · Experiencia Comprobada"
   h1: "Derecho Civil: Protección de tus Derechos Patrimoniales"
+  breadcrumbTitle: "Derecho Civil"
   tagline: "Soluciones efectivas para conflictos civiles, cobranzas y obligaciones"
   image: "/areas/civil.jpg"
 

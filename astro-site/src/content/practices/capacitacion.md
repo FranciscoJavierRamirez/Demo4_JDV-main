@@ -9,6 +9,7 @@ seo:
 hero:
   badge: "Ex Contralora Regional · Relatora"
   h1: "Capacitación Legal para Organizaciones"
+  breadcrumbTitle: "Capacitación Legal"
   tagline: "Conocimiento jurídico práctico que transforma y empodera a tu equipo"
   image: "/areas/capacitacion.jpg"
 

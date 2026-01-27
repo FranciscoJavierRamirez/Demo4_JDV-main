@@ -9,6 +9,7 @@ seo:
 hero:
   badge: "Protección Familiar · Planificación Sucesoria"
   h1: "Legado: Protege a quienes más amas cuando ya no estés"
+  breadcrumbTitle: "Legado"
   tagline: "Planificación legal para asegurar el cuidado de hijos con necesidades especiales y mascotas más allá de tu vida"
   image: "/areas/legado.jpg"
 
