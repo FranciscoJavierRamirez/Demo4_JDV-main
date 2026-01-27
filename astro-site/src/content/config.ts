@@ -372,6 +372,97 @@ const practicesCollection = defineCollection({
   }),
 });
 
+// ============================================
+// COLECCIONES PARA "QUIÉNES SOMOS"
+// ============================================
+
+// Colección: aboutPreview (para componente Home)
+const aboutPreviewCollection = defineCollection({
+  type: 'content',
+  schema: z.object({
+    badge: z.object({
+      icon: z.string(),
+      text: z.string(),
+    }),
+    title: z.string(),
+    subtitle: z.string(),
+    description: z.string(),
+    teamPreview: z.array(z.object({
+      name: z.string(),
+      role: z.string(),
+      image: z.string(),
+      featured: z.boolean().optional(),
+    })),
+    cta: z.object({
+      text: z.string(),
+      href: z.string(),
+      icon: z.string(),
+    }),
+  }),
+});
+
+// Colección: about (contenido página principal /nosotros)
+const aboutCollection = defineCollection({
+  type: 'content',
+  schema: z.object({
+    seo: z.object({
+      title: z.string(),
+      description: z.string(),
+    }),
+    hero: z.object({
+      badge: z.object({
+        icon: z.string(),
+        text: z.string(),
+      }),
+      title: z.string(),
+      subtitle: z.string(),
+      image: z.string().optional(),
+    }),
+    mission: z.object({
+      title: z.string(),
+      text: z.string(),
+      values: z.array(z.object({
+        icon: z.string(),
+        title: z.string(),
+        description: z.string(),
+      })),
+    }),
+    team: z.object({
+      title: z.string(),
+      subtitle: z.string(),
+    }),
+    cta: z.object({
+      title: z.string(),
+      text: z.string(),
+      button: z.object({
+        text: z.string(),
+        icon: z.string(),
+      }),
+    }),
+  }),
+});
+
+// Colección: team (miembros individuales)
+const teamCollection = defineCollection({
+  type: 'content',
+  schema: z.object({
+    order: z.number(),
+    name: z.string(),
+    role: z.string(),
+    description: z.string(),
+    shortDescription: z.string().optional(),
+    image: z.string(),
+    featured: z.boolean().optional(),
+    experienceNote: z.string().optional(),
+    specialties: z.array(z.string()).optional(),
+    credentials: z.array(z.string()).optional(),
+    social: z.object({
+      linkedin: z.string().optional(),
+      email: z.string().optional(),
+    }).optional(),
+  }),
+});
+
 export const collections = {
   home: homeCollection,
   stats: statsCollection,
@@ -385,4 +476,8 @@ export const collections = {
   footer: footerCollection,
   modal: modalCollection,
   practices: practicesCollection,
+  // Colecciones para "Quiénes Somos"
+  aboutPreview: aboutPreviewCollection,
+  about: aboutCollection,
+  team: teamCollection,
 };

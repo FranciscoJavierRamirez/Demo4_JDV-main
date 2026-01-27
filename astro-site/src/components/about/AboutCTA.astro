@@ -1,0 +1,115 @@
+---
+interface Props {
+  title: string;
+  text: string;
+  button: {
+    text: string;
+    icon: string;
+  };
+}
+
+const { title, text, button } = Astro.props;
+
+const whatsappUrl = "https://wa.me/56965870256?text=Necesito%20m%C3%A1s%20informaci%C3%B3n%20porque%20estoy%20interesado%20en%20recibir%20asesor%C3%ADa%20legal";
+---
+
+<section id="about-cta" class="relative py-20 bg-gradient-to-br from-[var(--blue-primary)] via-[var(--blue-dark)] to-[var(--blue-deeper)] overflow-hidden">
+  <!-- Background Effects -->
+  <div class="absolute inset-0 pointer-events-none">
+    <div class="absolute top-0 left-1/4 w-[600px] h-[600px] bg-[radial-gradient(circle,rgba(201,162,84,0.15)_0%,transparent_70%)] blur-[100px] rounded-full animate-[float_15s_ease-in-out_infinite]"></div>
+  </div>
+
+  <div class="container relative z-10 text-center">
+    <div class="cta-content max-w-2xl mx-auto">
+      <h2 class="text-[clamp(1.75rem,3.5vw,2.5rem)] font-bold text-white mb-4" style="font-family: var(--font-display);">
+        {title}
+      </h2>
+
+      <p class="text-lg text-white/85 mb-8">
+        {text}
+      </p>
+
+      <a
+        href={whatsappUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="group inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-br from-[#1a365d] via-[#1e3a5f] to-[#0f172a] border-2 border-[rgba(201,169,97,0.4)] rounded-xl font-bold shadow-[0_4px_20px_rgba(0,0,0,0.3),0_0_30px_rgba(201,169,97,0.15)] transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02] hover:border-[rgba(201,169,97,0.6)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.4),0_0_40px_rgba(201,169,97,0.25)]"
+      >
+        <span class="bg-gradient-to-r from-[#C9A961] via-[#E5D5AA] to-[#D4AF37] bg-clip-text text-transparent text-lg">
+          {button.text}
+        </span>
+        <i class={`${button.icon} text-xl text-[#C9A961] transition-transform group-hover:scale-110`}></i>
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0) translateX(0);
+    }
+    50% {
+      transform: translateY(-20px) translateX(10px);
+    }
+  }
+
+  .cta-content {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .cta-content.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .cta-content {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+
+    .animate-\[float_15s_ease-in-out_infinite\] {
+      animation: none;
+    }
+  }
+</style>
+
+<script is:inline>
+  (function() {
+    const initAboutCTAAnimation = () => {
+      const section = document.querySelector('#about-cta');
+      const content = section?.querySelector('.cta-content');
+
+      if (!section || !content) return;
+
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      if (prefersReducedMotion) {
+        content.classList.add('visible');
+        return;
+      }
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            content.classList.add('visible');
+            observer.disconnect();
+          }
+        });
+      }, { threshold: 0.2 });
+
+      observer.observe(section);
+    };
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initAboutCTAAnimation);
+    } else {
+      initAboutCTAAnimation();
+    }
+  })();
+</script>

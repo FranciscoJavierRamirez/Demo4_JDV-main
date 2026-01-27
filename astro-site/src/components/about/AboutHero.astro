@@ -1,0 +1,133 @@
+---
+interface Props {
+  badge: {
+    icon: string;
+    text: string;
+  };
+  title: string;
+  subtitle: string;
+  image?: string;
+}
+
+const { badge, title, subtitle, image } = Astro.props;
+---
+
+<section class="relative min-h-[50vh] flex items-center pt-32 pb-16 overflow-hidden bg-[var(--blue-deeper)]">
+  <!-- Complex Mesh Gradient Background - IGUAL QUE Hero.astro -->
+  <div class="absolute inset-0 z-0">
+    <!-- Orb 1: Azul principal -->
+    <div class="absolute top-[-20%] left-[-10%] w-[70%] h-[70%] rounded-full bg-[radial-gradient(circle,rgba(59,130,246,0.4)_0%,transparent_70%)] blur-[120px] animate-[float_20s_ease-in-out_infinite]"></div>
+
+    <!-- Orb 2: Azul secundario -->
+    <div class="absolute bottom-[-10%] right-[-5%] w-[60%] h-[60%] rounded-full bg-[radial-gradient(circle,rgba(29,78,216,0.4)_0%,transparent_70%)] blur-[100px] animate-[float_25s_ease-in-out_infinite_reverse]"></div>
+
+    <!-- Orb 3: Dorado (CRÍTICO - mantiene coherencia con Hero.astro) -->
+    <div class="absolute top-[40%] left-[30%] w-[40%] h-[40%] rounded-full bg-[radial-gradient(circle,rgba(201,162,84,0.15)_0%,transparent_70%)] blur-[80px] animate-[float_15s_ease-in-out_infinite_5s]"></div>
+  </div>
+
+  <!-- Noise Texture Overlay -->
+  <div class="absolute inset-0 z-[2] opacity-[0.03] pointer-events-none mix-blend-overlay" style="background-image: url('data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noise\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.65\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noise)\'/%3E%3C/svg%3E');"></div>
+
+  <!-- Background Image with Overlay (si hay imagen) -->
+  {image && (
+    <img
+      src={image}
+      alt=""
+      class="absolute inset-0 w-full h-full object-cover z-0 opacity-40 mix-blend-overlay blur-[2px] scale-105"
+      loading="eager"
+    />
+  )}
+
+  <!-- Gradient Overlay for Legibility -->
+  <div class="absolute inset-0 z-[3] bg-gradient-to-br from-[rgba(12,35,64,0.98)] via-[rgba(12,35,64,0.94)] to-[rgba(26,77,122,0.88)]"></div>
+
+  <!-- Content -->
+  <div class="container relative z-10 text-center text-white">
+    <!-- Badge -->
+    <div class="about-hero-badge inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-lg rounded-full border border-white/20 text-sm font-semibold mb-6">
+      <i class={`${badge.icon} text-[var(--gold)]`}></i>
+      <span>{badge.text}</span>
+    </div>
+
+    <!-- Title con gradient dorado (igual que Hero.astro) -->
+    <h1 class="about-hero-title text-[clamp(2.5rem,5vw,4rem)] font-black leading-tight mb-6" style="font-family: var(--font-display);">
+      <span class="inline-block bg-gradient-to-br from-[#FDFBF7] via-[#E5D5AA] to-[#C9A254] bg-clip-text text-transparent drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)]">
+        {title}
+      </span>
+    </h1>
+
+    <!-- Subtitle -->
+    <p class="about-hero-subtitle text-xl text-white/90 max-w-2xl mx-auto">
+      {subtitle}
+    </p>
+  </div>
+</section>
+
+<style>
+  /* Animations */
+  .about-hero-badge {
+    opacity: 0;
+    transform: translateY(-15px);
+    animation: slideInDown 0.6s ease-out forwards;
+  }
+
+  .about-hero-title {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease-out 0.1s forwards;
+  }
+
+  .about-hero-subtitle {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease-out 0.25s forwards;
+  }
+
+  @keyframes slideInDown {
+    from {
+      opacity: 0;
+      transform: translateY(-15px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0) translateX(0);
+    }
+    50% {
+      transform: translateY(-20px) translateX(10px);
+    }
+  }
+
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    .about-hero-badge,
+    .about-hero-title,
+    .about-hero-subtitle {
+      opacity: 1;
+      transform: none;
+      animation: none;
+    }
+
+    .animate-\[float_20s_ease-in-out_infinite\],
+    .animate-\[float_25s_ease-in-out_infinite_reverse\],
+    .animate-\[float_15s_ease-in-out_infinite_5s\] {
+      animation: none;
+    }
+  }
+</style>

@@ -1,0 +1,6 @@
+<svg viewBox="0 0 400 533" xmlns="http://www.w3.org/2000/svg">
+  <rect fill="#1e3a5f" width="400" height="533"/>
+  <circle cx="200" cy="200" r="80" fill="rgba(255,255,255,0.1)"/>
+  <text x="200" y="220" fill="rgba(255,255,255,0.3)" font-size="60" font-family="system-ui" text-anchor="middle" dominant-baseline="middle">JDV</text>
+  <text x="200" y="420" fill="rgba(255,255,255,0.5)" font-size="24" font-family="system-ui" text-anchor="middle">Foto no disponible</text>
+</svg>

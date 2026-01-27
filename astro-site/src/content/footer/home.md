@@ -44,7 +44,7 @@ columns:
     title: "Empresa"
     links:
       - text: "Quiénes Somos"
-        href: "../quienes-somos/"
+        href: "/nosotros"
       - text: "Blog Jurídico"
         href: "../blog/"
       - text: "Casos de Éxito"

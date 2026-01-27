@@ -1,0 +1,302 @@
+---
+import { getEntry } from 'astro:content';
+
+const aboutPreviewData = await getEntry('aboutPreview', 'home');
+
+if (!aboutPreviewData?.data) {
+  throw new Error("AboutPreview data not found from content collection");
+}
+
+const { badge, title, subtitle, description, teamPreview, cta } = aboutPreviewData.data;
+---
+
+<section id="about-preview" class="relative py-20 md:py-28 lg:py-32 overflow-hidden bg-[var(--blue-deeper)]">
+  <!-- Complex Mesh Gradient Background (Hero-Style) -->
+  <div class="absolute inset-0 z-0">
+    <div class="absolute top-[-20%] left-[-10%] w-[70%] h-[70%] rounded-full bg-[radial-gradient(circle,rgba(59,130,246,0.4)_0%,transparent_70%)] blur-[120px] animate-[float_20s_ease-in-out_infinite]"></div>
+    <div class="absolute bottom-[-10%] right-[-5%] w-[60%] h-[60%] rounded-full bg-[radial-gradient(circle,rgba(29,78,216,0.4)_0%,transparent_70%)] blur-[100px] animate-[float_25s_ease-in-out_infinite_reverse]"></div>
+    <div class="absolute top-[40%] left-[30%] w-[40%] h-[40%] rounded-full bg-[radial-gradient(circle,rgba(201,162,84,0.15)_0%,transparent_70%)] blur-[80px] animate-[float_15s_ease-in-out_infinite_5s]"></div>
+  </div>
+
+  <!-- Noise Texture Overlay -->
+  <div class="absolute inset-0 z-1 opacity-[0.03] pointer-events-none mix-blend-overlay" style="background-image: url('data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noise\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.65\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noise)\'/%3E%3C/svg%3E');"></div>
+
+  <!-- Gradient Overlay for Depth -->
+  <div class="absolute inset-0 z-2 bg-gradient-to-br from-[rgba(12,35,64,0.98)] via-[rgba(12,35,64,0.94)] to-[rgba(26,77,122,0.88)]"></div>
+
+  <div class="container relative z-10">
+    <!-- Section Header -->
+    <div class="about-header text-center mb-10 md:mb-12 lg:mb-16">
+      <!-- Badge with Glassmorphism -->
+      <span class="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 bg-white/10 backdrop-blur-lg rounded-full border border-white/20 text-xs sm:text-sm font-semibold text-white mb-3 sm:mb-4 shadow-lg">
+        <i class={`${badge.icon} text-[var(--gold)] text-sm`}></i>
+        {badge.text}
+      </span>
+
+      <!-- Title - White -->
+      <h2 class="text-[clamp(1.75rem,5vw,3rem)] font-bold text-white mb-3 sm:mb-4 drop-shadow-[0_2px_8px_rgba(0,0,0,0.3)] px-4" style="font-family: var(--font-display);">
+        {title}
+      </h2>
+
+      <!-- Subtitle - Light Gray -->
+      <p class="text-base sm:text-lg text-white/90 max-w-2xl mx-auto px-4">
+        {subtitle}
+      </p>
+    </div>
+
+    <!-- Content Grid: Description + Team Preview -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-12 lg:gap-16 items-center">
+
+      <!-- Left: Description -->
+      <div class="about-content">
+        <p class="text-base sm:text-lg leading-relaxed text-white/80 mb-6 sm:mb-8">
+          {description}
+        </p>
+
+        <!-- CTA Button - Premium Gold Style (Hero-Style) -->
+        <a
+          href={cta.href}
+          class="group relative inline-flex items-center justify-center gap-2 sm:gap-3 px-5 py-3 sm:px-6 sm:py-4 text-sm sm:text-base bg-gradient-to-br from-[#1a365d] via-[#1e3a5f] to-[#0f172a] border-2 border-[rgba(201,169,97,0.4)] rounded-xl font-bold shadow-[0_4px_20px_rgba(0,0,0,0.3),0_0_30px_rgba(201,169,97,0.15)] overflow-hidden transition-all duration-200 hover:translate-y-[-2px] hover:scale-[1.02] hover:border-[rgba(201,169,97,0.6)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.4),0_0_40px_rgba(201,169,97,0.25)] active:scale-[0.98] no-underline w-full sm:w-auto"
+        >
+          <span class="absolute top-0 -left-full w-full h-full bg-gradient-to-r from-transparent via-[rgba(201,169,97,0.3)] to-transparent animate-[shimmer_3s_infinite] z-1"></span>
+          <span class="relative z-2 bg-gradient-to-r from-[#C9A961] via-[#E5D5AA] to-[#D4AF37] bg-clip-text text-transparent">{cta.text}</span>
+          <i class={`${cta.icon} relative z-2 text-[#C9A961] transition-transform duration-300 group-hover:translate-x-1`}></i>
+        </a>
+      </div>
+
+      <!-- Right: Jacqueline Portrait with Premium Effects -->
+      <div class="jacqueline-portrait-container relative max-w-md mx-auto lg:mx-0">
+        <!-- Decorative glow behind image -->
+        <div class="absolute inset-0 bg-gradient-to-br from-[var(--gold)]/25 to-[var(--blue-primary)]/25 rounded-3xl blur-[80px] scale-110"></div>
+        
+        <!-- Image Frame with Glassmorphism -->
+        <div class="relative bg-white/10 backdrop-blur-lg border-2 border-white/20 ring-2 ring-[var(--gold)]/60 rounded-3xl p-2 sm:p-3 shadow-premium-gold transition-all duration-500 hover:ring-[var(--gold)]/80">
+          <!-- Image Container -->
+          <div class="relative aspect-[4/5] rounded-2xl overflow-hidden">
+            <img 
+              src="/JDV_quienes_somos.png"
+              alt="Jacqueline Del Valle - Abogada Fundadora"
+              class="w-full h-full object-cover object-center transition-transform duration-500 hover:scale-105"
+              loading="lazy"
+            />
+            <!-- Subtle gradient overlay -->
+            <div class="absolute inset-0 bg-gradient-to-t from-[rgba(12,35,64,0.2)] via-transparent to-transparent pointer-events-none"></div>
+          </div>
+        </div>
+
+        <!-- Name Badge at Bottom -->
+        <div class="absolute -bottom-5 sm:-bottom-6 left-1/2 -translate-x-1/2 bg-white/95 backdrop-blur-md rounded-2xl px-6 py-3 sm:px-8 sm:py-4 shadow-premium border border-[var(--gold)]/30 opacity-0 animate-fadeInUp w-[90%] sm:w-auto">
+          <p class="text-base sm:text-lg font-bold text-[var(--gray-900)] text-center leading-tight">Jacqueline Del Valle</p>
+          <p class="text-xs sm:text-sm text-[var(--gray-600)] text-center">Abogada Fundadora</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* ========================================
+     AboutPreview Premium Animations
+     ======================================== */
+
+  /* Float animations for background orbs */
+  @keyframes float {
+    0%, 100% {
+      transform: translate(0, 0) scale(1);
+    }
+    33% {
+      transform: translate(60px, -80px) scale(1.1);
+    }
+    66% {
+      transform: translate(-60px, 60px) scale(0.9);
+    }
+  }
+
+  /* Shimmer effect for CTA button */
+  @keyframes shimmer {
+    0% { left: -100%; }
+    100% { left: 100%; }
+  }
+
+  /* Pulse glow for featured card star */
+  @keyframes pulseGlow {
+    0%, 100% {
+      opacity: 1;
+      transform: scale(1);
+      box-shadow: 0 4px 12px rgba(201, 169, 97, 0.4);
+    }
+    50% {
+      opacity: 0.9;
+      transform: scale(1.05);
+      box-shadow: 0 4px 20px rgba(201, 169, 97, 0.6);
+    }
+  }
+
+  /* Header entrance - Slide down with bounce */
+  .about-header {
+    opacity: 0;
+    transform: translateY(-30px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .about-header.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Content entrance - Fade in from left */
+  .about-content {
+    opacity: 0;
+    transform: translateX(-40px);
+    transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .about-content.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  /* Jacqueline portrait container entrance - Scale + translateY with spring */
+  .jacqueline-portrait-container {
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+  }
+
+  .jacqueline-portrait-container.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* Premium shadow for image frame */
+  .shadow-premium-gold {
+    box-shadow: 
+      0 1px 2px 0 rgba(0, 0, 0, 0.05),
+      0 4px 12px 0 rgba(0, 0, 0, 0.08),
+      0 16px 32px 0 rgba(0, 0, 0, 0.12),
+      0 0 40px rgba(201, 169, 97, 0.2);
+  }
+
+  .shadow-premium-gold:hover {
+    box-shadow: 
+      0 2px 4px 0 rgba(0, 0, 0, 0.05),
+      0 8px 16px 0 rgba(0, 0, 0, 0.1),
+      0 20px 40px 0 rgba(0, 0, 0, 0.15),
+      0 0 60px rgba(201, 169, 97, 0.3);
+  }
+
+  /* Shadow for name badge */
+  .shadow-premium {
+    box-shadow: 
+      0 4px 6px -1px rgba(0, 0, 0, 0.1),
+      0 2px 4px -1px rgba(0, 0, 0, 0.06),
+      0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Fade in up animation for badge */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fadeInUp {
+    animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.8s forwards;
+  }
+
+  /* Respect reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .about-header,
+    .about-content,
+    .jacqueline-portrait-container {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+
+    .animate-fadeInUp {
+      opacity: 1;
+      transform: none;
+      animation: none !important;
+    }
+
+    .animate-\[float_20s_ease-in-out_infinite\],
+    .animate-\[float_25s_ease-in-out_infinite_reverse\],
+    .animate-\[float_15s_ease-in-out_infinite_5s\],
+    .animate-\[shimmer_3s_infinite\],
+    .animate-\[pulseGlow_3s_ease-in-out_infinite\] {
+      animation: none !important;
+    }
+  }
+</style>
+
+<script is:inline>
+  // ========================================
+  // AboutPreview - Premium Scroll Reveal
+  // ========================================
+  (function() {
+    const initAboutPreviewAnimation = () => {
+      const section = document.querySelector('#about-preview');
+      const header = section?.querySelector('.about-header');
+      const content = section?.querySelector('.about-content');
+      const portraitContainer = section?.querySelector('.jacqueline-portrait-container');
+
+      if (!section) return;
+
+      // Check for reduced motion preference
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      if (prefersReducedMotion) {
+        header?.classList.add('visible');
+        content?.classList.add('visible');
+        portraitContainer?.classList.add('visible');
+        return;
+      }
+
+      const observerOptions = {
+        threshold: 0.2,
+        rootMargin: '0px 0px -80px 0px'
+      };
+
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            // Animate header first with bounce
+            setTimeout(() => {
+              header?.classList.add('visible');
+            }, 100);
+
+            // Animate content after header
+            setTimeout(() => {
+              content?.classList.add('visible');
+            }, 300);
+
+            // Animate portrait container
+            setTimeout(() => {
+              portraitContainer?.classList.add('visible');
+            }, 500);
+
+            revealObserver.disconnect();
+          }
+        });
+      }, observerOptions);
+
+      revealObserver.observe(section);
+    };
+
+    // Run on DOM ready
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initAboutPreviewAnimation);
+    } else {
+      initAboutPreviewAnimation();
+    }
+  })();
+</script>
