@@ -213,6 +213,33 @@ const { stats } = statsData.data;
 
     if (statsSection) {
       observer.observe(statsSection);
+
+      // Fallback con delay para Chrome (si el observer no dispara en 500ms)
+      setTimeout(() => {
+        if (!hasAnimated) {
+          const rect = statsSection.getBoundingClientRect();
+          if (rect.top < window.innerHeight && rect.bottom >= 0) {
+            hasAnimated = true;
+            statsHeader?.classList.add('visible');
+            statItems.forEach((item, index) => {
+              const statItem = item as HTMLElement;
+              const delay = 200 + (index * 150);
+              setTimeout(() => {
+                statItem.classList.add('visible');
+                setTimeout(() => {
+                  const numberEl = statItem.querySelector('.stat-number') as HTMLElement;
+                  if (numberEl && numberEl.dataset.target) {
+                    const target = parseInt(numberEl.dataset.target, 10);
+                    animateCounter(numberEl, target, 2000);
+                  }
+                }, 300);
+              }, delay);
+            });
+            setTimeout(() => startCyclicAnimation(statItems), 4000);
+            observer.disconnect();
+          }
+        }
+      }, 500);
     }
   };
 

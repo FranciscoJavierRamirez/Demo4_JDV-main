@@ -206,6 +206,21 @@ const { sectionTitle, sectionSubtitle, intro, criteriaTitle, criteria, cta, visu
 
     // Observe all animated elements
     animatedElements.forEach(el => observer.observe(el));
+
+    // Fallback con delay para Chrome (si el observer no dispara en 500ms)
+    setTimeout(() => {
+      animatedElements.forEach(el => {
+        if (!el.classList.contains('visible')) {
+          const rect = el.getBoundingClientRect();
+          if (rect.top < window.innerHeight && rect.bottom >= 0) {
+            const element = el as HTMLElement;
+            const delay = parseInt(element.dataset.animateDelay || '0', 10);
+            setTimeout(() => element.classList.add('visible'), delay);
+            observer.unobserve(el);
+          }
+        }
+      });
+    }, 500);
   }
 
   // Initialize on DOM ready and on Astro page transitions

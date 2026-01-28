@@ -397,31 +397,31 @@ const { title, subtitle, badge, bio, positions, education, expertise, values } =
 
       cards?.forEach(card => cardObserver.observe(card));
 
-      // Check inmediato para elementos ya en viewport (fix Chrome)
-      const checkAndTrigger = (element) => {
-        if (!element) return false;
-        const rect = element.getBoundingClientRect();
-        if (rect.top < window.innerHeight && rect.bottom >= 0) {
-          element.classList.add('visible');
-          // Trigger items inside cards
-          const items = element.querySelectorAll('.position-item, .education-item, .expertise-item');
-          items.forEach((item, index) => {
-            setTimeout(() => item.classList.add('visible'), index * 80);
-          });
-          return true;
-        }
-        return false;
-      };
+      // Fallback con delay para Chrome (si el observer no dispara en 500ms)
+      setTimeout(() => {
+        const checkAndTrigger = (element) => {
+          if (!element || element.classList.contains('visible')) return false;
+          const rect = element.getBoundingClientRect();
+          if (rect.top < window.innerHeight && rect.bottom >= 0) {
+            element.classList.add('visible');
+            const items = element.querySelectorAll('.position-item, .education-item, .expertise-item');
+            items.forEach((item, index) => {
+              setTimeout(() => item.classList.add('visible'), index * 80);
+            });
+            return true;
+          }
+          return false;
+        };
 
-      // Verificar elementos ya visibles
-      if (checkAndTrigger(header)) observer.unobserve(header);
-      cards?.forEach(card => {
-        if (checkAndTrigger(card)) {
-          observer.unobserve(card);
-          cardObserver.unobserve(card);
-        }
-      });
-      if (checkAndTrigger(values)) observer.unobserve(values);
+        if (checkAndTrigger(header)) observer.unobserve(header);
+        cards?.forEach(card => {
+          if (checkAndTrigger(card)) {
+            observer.unobserve(card);
+            cardObserver.unobserve(card);
+          }
+        });
+        if (checkAndTrigger(values)) observer.unobserve(values);
+      }, 500);
 
       // Mouse tracking for spotlight effect
       cards?.forEach(card => {

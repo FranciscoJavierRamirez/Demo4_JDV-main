@@ -542,6 +542,24 @@ const { sectionTitle, sectionSubtitle, areas } = areasData.data;
         
         cardObserver.observe(card);
       });
+
+      // Fallback con delay para Chrome mobile (si el observer no dispara en 500ms)
+      setTimeout(() => {
+        if (header && !header.classList.contains('visible')) {
+          const headerRect = header.getBoundingClientRect();
+          if (headerRect.top < window.innerHeight && headerRect.bottom >= 0) {
+            header.classList.add('visible');
+          }
+        }
+        cards?.forEach(card => {
+          if (!card.classList.contains('visible')) {
+            const cardRect = card.getBoundingClientRect();
+            if (cardRect.top < window.innerHeight && cardRect.bottom >= 0) {
+              requestAnimationFrame(() => card.classList.add('visible'));
+            }
+          }
+        });
+      }, 500);
       
     } else {
       // ========================================
@@ -574,6 +592,20 @@ const { sectionTitle, sectionSubtitle, areas } = areasData.data;
       }, observerOptions);
 
       revealObserver.observe(section);
+
+      // Fallback con delay para Chrome desktop (si el observer no dispara en 500ms)
+      setTimeout(() => {
+        if (!header?.classList.contains('visible')) {
+          const rect = section.getBoundingClientRect();
+          if (rect.top < window.innerHeight && rect.bottom >= 0) {
+            if (header) header.classList.add('visible');
+            cards?.forEach((card, index) => {
+              setTimeout(() => card.classList.add('visible'), 150 + (index * 100));
+            });
+            revealObserver.disconnect();
+          }
+        }
+      }, 500);
     }
   } else if (prefersReducedMotion) {
     // Immediately show all elements for users who prefer reduced motion

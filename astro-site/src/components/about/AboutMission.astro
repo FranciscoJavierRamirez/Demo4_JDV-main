@@ -342,17 +342,21 @@ const paragraphs = text.split('\n\n').filter(p => p.trim());
 
       observer.observe(section);
 
-      // Check inmediato para elementos ya en viewport (fix Chrome)
-      const rect = section.getBoundingClientRect();
-      if (rect.top < window.innerHeight && rect.bottom >= 0) {
-        missionBlock?.classList.add('visible');
-        setTimeout(() => visionBlock?.classList.add('visible'), 150);
-        setTimeout(() => grid?.classList.add('visible'), 300);
-        cards?.forEach((card, index) => {
-          setTimeout(() => card.classList.add('visible'), 500 + (index * 100));
-        });
-        observer.disconnect();
-      }
+      // Fallback con delay para Chrome (si el observer no dispara en 500ms)
+      setTimeout(() => {
+        if (!missionBlock?.classList.contains('visible')) {
+          const rect = section.getBoundingClientRect();
+          if (rect.top < window.innerHeight && rect.bottom >= 0) {
+            missionBlock?.classList.add('visible');
+            setTimeout(() => visionBlock?.classList.add('visible'), 150);
+            setTimeout(() => grid?.classList.add('visible'), 300);
+            cards?.forEach((card, index) => {
+              setTimeout(() => card.classList.add('visible'), 500 + (index * 100));
+            });
+            observer.disconnect();
+          }
+        }
+      }, 500);
 
       // Mouse tracking for spotlight effect on value cards
       cards?.forEach(card => {

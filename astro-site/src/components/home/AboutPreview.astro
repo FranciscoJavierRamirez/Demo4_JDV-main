@@ -290,6 +290,19 @@ const { badge, title, subtitle, description, teamPreview, cta } = aboutPreviewDa
       }, observerOptions);
 
       revealObserver.observe(section);
+
+      // Fallback con delay para Chrome (si el observer no dispara en 500ms)
+      setTimeout(() => {
+        if (!header?.classList.contains('visible')) {
+          const rect = section.getBoundingClientRect();
+          if (rect.top < window.innerHeight && rect.bottom >= 0) {
+            setTimeout(() => header?.classList.add('visible'), 100);
+            setTimeout(() => content?.classList.add('visible'), 300);
+            setTimeout(() => portraitContainer?.classList.add('visible'), 500);
+            revealObserver.disconnect();
+          }
+        }
+      }, 500);
     };
 
     // Run on DOM ready
