@@ -1,11 +1,11 @@
 ---
 icon: "fas fa-balance-scale"
-title: "¿Necesitas Asesoría Legal?"
-subtitle: "Conversemos sobre tu caso. Primera consulta sin compromiso."
+title: "¿Necesita Asesoría Legal?"
+subtitle: "Conversemos sobre su caso. Primera consulta sin compromiso."
 actions:
   primary:
     icon: "fas fa-calendar-check"
-    text: "Reserva tu Cita"
+    text: "Agendar Consulta"
     action: "openModal()"
   phone:
     icon: "fas fa-phone-alt"
@@ -15,7 +15,7 @@ features:
   - icon: "fas fa-clock"
     text: "Respuesta en menos de 24 horas"
   - icon: "fas fa-shield-alt"
-    text: "Confidencialidad garantizada"
+    text: "Resguardo estricto de confidencialidad"
   - icon: "fas fa-check-circle"
     text: "Sin compromiso"
 ---

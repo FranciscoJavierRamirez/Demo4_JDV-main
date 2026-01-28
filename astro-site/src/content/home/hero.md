@@ -1,17 +1,17 @@
 ---
 badge:
-  icon: "fas fa-award"
-  text: "35 Años de Experiencia en Contraloría General de la República"
+  icon: "fas fa-balance-scale"
+  text: "Especialistas en Derecho Administrativo Chileno"
 
 title:
-  line1: "Defendemos Tus Derechos"
+  line1: "Defendemos Sus Derechos"
   line2: "con Experiencia y Conocimiento Especializado"
 
 subtitle: "Estudio fundado por **Jacqueline Del Valle Inostroza**, abogada de la Universidad de Valparaíso con **35 años en la Contraloría General de la República**. Nuestra misión: **asumir la defensa de quienes enfrentan la vulneración de sus derechos**."
 
 cta:
   primary:
-    text: "Agenda tu Consulta"
+    text: "Agende su Consulta"
     action: "openModal()"
   secondary:
     text: "Ver Áreas de Práctica"

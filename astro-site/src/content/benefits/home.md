@@ -4,15 +4,15 @@ sectionTitle: "¿Por Qué Elegir JDV Abogados?"
 benefits:
   - icon: "fas fa-medal"
     title: "Experiencia Comprobada"
-    text: "Más de 15 años defendiendo exitosamente los derechos de nuestros clientes en diversas materias legales."
+    text: "Más de 35 años de trayectoria en el sector público, defendiendo los derechos de nuestros clientes con rigor y dedicación."
 
   - icon: "fas fa-user-friends"
     title: "Atención Personalizada"
-    text: "Cada caso recibe atención dedicada y estrategias diseñadas específicamente para tus necesidades."
+    text: "Comunicación directa con el equipo legal y seguimiento periódico del estado de su caso."
 
   - icon: "fas fa-chart-line"
-    title: "Resultados Tangibles"
-    text: "98% de satisfacción de nuestros clientes gracias a nuestro compromiso con resultados efectivos."
+    title: "Compromiso con el Cliente"
+    text: "Transparencia en honorarios, informes periódicos de avance y disponibilidad para resolver sus consultas."
 
   - icon: "fas fa-map-marked-alt"
     title: "Accesibilidad"
