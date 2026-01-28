@@ -1,12 +1,19 @@
 ---
 import AboutTimelineClient from './AboutTimelineClient';
 
+interface TimelineItem {
+  period: string;
+  title: string;
+  location: string;
+}
+
 interface Props {
   title: string;
   subtitle: string;
+  milestones: TimelineItem[];
 }
 
-const { title, subtitle } = Astro.props;
+const { title, subtitle, milestones } = Astro.props;
 ---
 
 <section id="timeline" class="relative py-20 md:py-28 lg:py-32 overflow-hidden bg-[var(--blue-deeper)]">
@@ -60,7 +67,7 @@ const { title, subtitle } = Astro.props;
     </div>
 
     <!-- Timeline Component -->
-    <AboutTimelineClient client:visible />
+    <AboutTimelineClient client:visible milestones={milestones} />
   </div>
 </section>
 

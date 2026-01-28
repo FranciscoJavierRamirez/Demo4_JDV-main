@@ -45,15 +45,13 @@ const { seo, hero, mission, vision, values, founderProfile, timeline, team, cta 
     vision={vision}
   />
 
-  <!-- Founder Profile Section (New) -->
+  <!-- Founder Profile Section -->
   {founderProfile && (
     <AboutFounderProfile
       title={founderProfile.title}
       subtitle={founderProfile.subtitle}
       badge={founderProfile.badge}
       bio={founderProfile.bio}
-      positions={founderProfile.positions}
-      education={founderProfile.education}
       expertise={founderProfile.expertise}
       values={founderProfile.values}
     />
@@ -63,6 +61,7 @@ const { seo, hero, mission, vision, values, founderProfile, timeline, team, cta 
   <AboutTimeline
     title={timeline.title}
     subtitle={timeline.subtitle}
+    milestones={timeline.milestones}
   />
 
   <!-- Team Section -->

@@ -7,40 +7,11 @@ interface TimelineItem {
   location: string;
 }
 
-const timelineData: TimelineItem[] = [
-  {
-    period: "1994-2009",
-    title: "Abogada Jefe",
-    location: "Contraloría Regional de Magallanes y la Antártica Chilena"
-  },
-  {
-    period: "2010-2012",
-    title: "Abogada Jefe",
-    location: "Comité II División de Toma de Razón y Registro, Santiago"
-  },
-  {
-    period: "2012-2017",
-    title: "Contralora Regional",
-    location: "Región de Aysén del General Carlos Ibáñez del Campo"
-  },
-  {
-    period: "2018-2020",
-    title: "Contralora Regional",
-    location: "Región de Arica y Parinacota"
-  },
-  {
-    period: "2020-2024",
-    title: "Jefe de Unidad",
-    location: "Personal y Responsabilidad Administrativa, I Contraloría Regional Metropolitana"
-  },
-  {
-    period: "2024-2025",
-    title: "Abogada Senior",
-    location: "Unidad Jurídica, II Contraloría Regional Metropolitana"
-  }
-];
+interface Props {
+  milestones: TimelineItem[];
+}
 
-export const AboutTimelineClient = () => {
+export const AboutTimelineClient = ({ milestones }: Props) => {
   return (
     <div className="relative max-w-5xl mx-auto">
       {/* Timeline Line (dorada) - Desktop only */}
@@ -51,7 +22,7 @@ export const AboutTimelineClient = () => {
 
       {/* Timeline Items */}
       <div className="space-y-8 md:space-y-12">
-        {timelineData.map((item, index) => (
+        {milestones.map((item, index) => (
           <motion.div
             key={index}
             initial={{ opacity: 0, y: 40 }}

@@ -4,14 +4,6 @@ interface Props {
   subtitle: string;
   badge: string;
   bio: string;
-  positions: {
-    title: string;
-    items: string[];
-  };
-  education: {
-    title: string;
-    items: string[];
-  };
   expertise: {
     title: string;
     items: string[];
@@ -21,7 +13,7 @@ interface Props {
   };
 }
 
-const { title, subtitle, badge, bio, positions, education, expertise, values } = Astro.props;
+const { title, subtitle, badge, bio, expertise, values } = Astro.props;
 ---
 
 <section id="founder-profile" class="relative py-20 md:py-28 lg:py-32 overflow-hidden bg-[var(--blue-deeper)]">
@@ -79,87 +71,8 @@ const { title, subtitle, badge, bio, positions, education, expertise, values } =
                   mx-auto mt-6 rounded-full opacity-80"></div>
     </div>
 
-    <!-- Grid Layout: 3 columns -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-12">
-      <!-- Positions Card -->
-      <div class="founder-card group relative bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl p-6 md:p-8
-                  shadow-[0_8px_30px_rgba(0,0,0,0.3)]
-                  hover:shadow-[0_12px_40px_rgba(201,169,97,0.25),0_0_60px_rgba(201,169,97,0.15)]
-                  hover:border-white/30 transition-all duration-500">
-        <!-- Spotlight Effect on Hover -->
-        <div class="absolute inset-0 opacity-0 group-hover:opacity-100
-                    transition-opacity duration-500 pointer-events-none z-[1]
-                    bg-[radial-gradient(600px_circle_at_var(--mouse-x)_var(--mouse-y),rgba(201,169,97,0.12),transparent_40%)]">
-        </div>
-
-        <!-- Icon -->
-        <div class="relative z-10 w-14 h-14 flex items-center justify-center
-                    bg-gradient-to-br from-[var(--gold)]/20 to-[var(--gold)]/10
-                    rounded-xl mb-5 group-hover:scale-110 transition-transform duration-300
-                    border border-[var(--gold)]/30 shadow-[0_4px_12px_rgba(201,169,97,0.2)]">
-          <i class="fas fa-briefcase text-2xl text-[var(--gold)]"></i>
-        </div>
-
-        <!-- Title -->
-        <h3 class="relative z-10 text-lg font-bold text-white mb-5"
-            style="font-family: var(--font-display);">
-          {positions.title}
-        </h3>
-
-        <!-- Items -->
-        <ul class="relative z-10 space-y-3">
-          {positions.items.map((item, i) => (
-            <li
-              class="position-item flex items-start gap-2.5 text-sm text-white/70 leading-relaxed"
-              data-index={i}
-            >
-              <i class="fas fa-check-circle text-[var(--gold)] mt-0.5 shrink-0 text-xs"></i>
-              <span>{item}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      <!-- Education Card -->
-      <div class="founder-card group relative bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl p-6 md:p-8
-                  shadow-[0_8px_30px_rgba(0,0,0,0.3)]
-                  hover:shadow-[0_12px_40px_rgba(201,169,97,0.25),0_0_60px_rgba(201,169,97,0.15)]
-                  hover:border-white/30 transition-all duration-500">
-        <!-- Spotlight Effect on Hover -->
-        <div class="absolute inset-0 opacity-0 group-hover:opacity-100
-                    transition-opacity duration-500 pointer-events-none z-[1]
-                    bg-[radial-gradient(600px_circle_at_var(--mouse-x)_var(--mouse-y),rgba(201,169,97,0.12),transparent_40%)]">
-        </div>
-
-        <!-- Icon -->
-        <div class="relative z-10 w-14 h-14 flex items-center justify-center
-                    bg-gradient-to-br from-[var(--gold)]/20 to-[var(--gold)]/10
-                    rounded-xl mb-5 group-hover:scale-110 transition-transform duration-300
-                    border border-[var(--gold)]/30 shadow-[0_4px_12px_rgba(201,169,97,0.2)]">
-          <i class="fas fa-graduation-cap text-2xl text-[var(--gold)]"></i>
-        </div>
-
-        <!-- Title -->
-        <h3 class="relative z-10 text-lg font-bold text-white mb-5"
-            style="font-family: var(--font-display);">
-          {education.title}
-        </h3>
-
-        <!-- Items -->
-        <ul class="relative z-10 space-y-3">
-          {education.items.map((item, i) => (
-            <li
-              class="education-item flex items-start gap-2.5 text-sm text-white/70 leading-relaxed"
-              data-index={i}
-            >
-              <i class="fas fa-check-circle text-[var(--gold)] mt-0.5 shrink-0 text-xs"></i>
-              <span>{item}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      <!-- Expertise Card -->
+    <!-- Expertise Card - Centered -->
+    <div class="max-w-xl mx-auto mb-12">
       <div class="founder-card group relative bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl p-6 md:p-8
                   shadow-[0_8px_30px_rgba(0,0,0,0.3)]
                   hover:shadow-[0_12px_40px_rgba(201,169,97,0.25),0_0_60px_rgba(201,169,97,0.15)]

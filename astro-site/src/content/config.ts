@@ -455,14 +455,6 @@ const aboutCollection = defineCollection({
       subtitle: z.string(),
       badge: z.string(),
       bio: z.string(),
-      positions: z.object({
-        title: z.string(),
-        items: z.array(z.string()),
-      }),
-      education: z.object({
-        title: z.string(),
-        items: z.array(z.string()),
-      }),
       expertise: z.object({
         title: z.string(),
         items: z.array(z.string()),
@@ -475,11 +467,10 @@ const aboutCollection = defineCollection({
       title: z.string(),
       subtitle: z.string(),
       milestones: z.array(z.object({
-        year: z.string(),
+        period: z.string(),
         title: z.string(),
-        description: z.string(),
-        icon: z.string(),
-      })).optional(),
+        location: z.string(),
+      })),
     }),
     team: z.object({
       title: z.string(),
