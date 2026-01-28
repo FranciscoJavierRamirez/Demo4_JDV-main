@@ -166,10 +166,10 @@ El derecho de uso de una propiedad **solo si cumple con cuidar a tu dependiente*
 
 ---
 
-## Casos reales
+## Ejemplos de planificación
 
-> **Padre de hijo con síndrome de Down:** Fideicomiso exclusivo + albacea fiduciario + testamento con cláusula condicional. **Resultado:** Hijo protegido de por vida.
+> **Padre de hijo con síndrome de Down:** Fideicomiso exclusivo + albacea fiduciario + testamento con cláusula condicional. Estrategia orientada a protección patrimonial permanente.
 
-> **Tutora de 5 gatos rescatados:** Legado modal + instrucciones detalladas + fundación animalista como fiscalizador. **Resultado:** Gatos protegidos legalmente con fondos permanentes.
+> **Tutora de 5 gatos rescatados:** Legado modal + instrucciones detalladas + fundación animalista como fiscalizador. Planificación orientada a asegurar cuidados y recursos.
 
-> **Madre de hija con autismo severo:** Fideicomiso pequeño para terapias + tutora legal designada + mandato especial con protocolo de crisis. **Resultado:** Plan de cuidados de por vida.
+> **Madre de hija con autismo severo:** Fideicomiso para terapias + tutora legal designada + mandato especial con protocolo de crisis. Diseño orientado a continuidad de cuidados.

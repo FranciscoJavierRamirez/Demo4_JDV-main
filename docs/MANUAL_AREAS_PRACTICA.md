@@ -816,28 +816,70 @@ Esta sección define los **estándares de redacción profesional** que deben cum
 
 ### 1. Voz Institucional y Persona Gramatical
 
-**Regla absoluta:**
+**Regla general:**
 Todas las áreas de práctica deben redactarse en **primera persona plural institucional**.
 
 Usar:
 
-* “nosotros”
-* “nuestro estudio”
-* “nuestro equipo”
-* “representamos”
-* “intervenimos”
-* “litigamos”
+* "nosotros"
+* "nuestro estudio"
+* "nuestro equipo"
+* "representamos"
+* "intervenimos"
+* "litigamos"
 
 Evitar:
 
-* “yo”
-* “mi experiencia”
-* “te acompaño”
-* “yo garantizo”
+* "yo"
+* "mi experiencia"
+* "te acompaño"
+* "yo garantizo"
 
 **Ejemplo correcto**
 
-> “Nuestro equipo representa a víctimas e imputados con una estrategia penal técnicamente fundada.”
+> "Nuestro equipo representa a víctimas e imputados con una estrategia penal técnicamente fundada."
+
+---
+
+### 1.1 Política de Tratamiento al Cliente (Tú vs. Usted)
+
+**Enfoque híbrido según tipo de área:**
+
+El sitio utiliza un enfoque diferenciado para maximizar la conversión sin sacrificar profesionalismo:
+
+| Tipo de Área | Tratamiento | Justificación |
+|--------------|-------------|---------------|
+| **Técnicas/Institucionales** | **Ustedeo formal** | El cliente espera formalidad al tratar con el Estado o temas legales técnicos |
+| **Emocionales** | **Tuteo cálido** | La conexión emocional es clave para la conversión en temas sensibles |
+| **Home y páginas generales** | **Ustedeo formal** | Primera impresión institucional |
+
+**Clasificación de áreas:**
+
+**Áreas Técnicas (Ustedeo obligatorio):**
+* Defensa Estatutaria
+* Defensa Administrativa
+* Defensa Penal
+* Civil
+* Inmobiliaria y Copropiedad
+* Capacitación
+
+**Áreas Emocionales (Tuteo permitido):**
+* Legado (hijos con necesidades especiales, mascotas)
+* Animalista (mascotas, vínculo emocional)
+* Cliente Senior (adultos mayores)
+* Familia y Menores (conflictos familiares, hijos)
+
+**Reglas para tuteo en áreas emocionales:**
+* Mantener tuteo coherente en TODO el archivo
+* No mezclar tuteo con ustedeo en el mismo documento
+* El tuteo debe ser cálido pero respetuoso, nunca coloquial
+* Evitar diminutivos o expresiones demasiado informales
+
+**Ejemplo tuteo correcto (área emocional):**
+> "Tu mascota merece protección legal seria. Te acompañamos en cada paso."
+
+**Ejemplo ustedeo correcto (área técnica):**
+> "Su caso requiere intervención especializada. Le acompañamos en cada etapa del procedimiento."
 
 ---
 
@@ -1101,17 +1143,21 @@ Cada nueva Área debe incluir al menos **una frase diferencial**:
 
 Antes de aprobar un nuevo archivo `.md`, verificar:
 
-* [ ] Todo el texto está en voz institucional
-* [ ] No hay promesas de resultado
+* [ ] Voz institucional ("nosotros", "nuestro equipo")
+* [ ] Tratamiento correcto según tipo de área (ver sección 1.1):
+  * Áreas técnicas: ustedeo formal ("usted", "su", "le")
+  * Áreas emocionales: tuteo cálido permitido ("tú", "tu", "te")
+* [ ] No hay promesas de resultado ("garantizamos", "exitosamente", "asegurado")
 * [ ] Terminología legal chilena correcta
 * [ ] SEO title < 60 caracteres
 * [ ] Meta description < 160 caracteres
 * [ ] PainPoints no atacan a terceros
-* [ ] CTA sobrio
+* [ ] CTA sobrio ("Agendar consulta", no "Contratar ahora")
 * [ ] Hay diferencial competitivo explícito
-* [ ] FAQ no debe incluir precios, tiempos y ni plazos
-* [ ] No hay comparaciones agresivas
+* [ ] FAQ no incluye plazos específicos ni promesas de tiempos
+* [ ] No hay comparaciones agresivas con competencia
 * [ ] Contenido Markdown < 80 líneas
+* [ ] Tratamiento coherente en todo el archivo (no mezclar tú/usted)
 
 ---
 
@@ -1286,25 +1332,32 @@ Cada Área debe optimizar:
 
 ## Política de Migración Editorial (Áreas Existentes)
 
-Antes de publicar nuevas áreas, debe refactorizarse:
+**Estado: COMPLETADO (Enero 2026)**
 
-* animalista
-* cliente-senior
-* defensa-estatutaria
-* legado
-* capacitación
-* inmobiliaria-copropiedad
-* civil
-* defensa-administrativa
+Las siguientes áreas han sido refactorizadas según las nuevas políticas:
 
-**Reglas de refactor:**
+**Áreas técnicas (ustedeo aplicado):**
+* ✅ defensa-estatutaria
+* ✅ defensa-administrativa
+* ✅ defensa-penal
+* ✅ civil
+* ✅ inmobiliaria-copropiedad
+* ✅ capacitación
 
-* [ ] Convertir todo a voz institucional
-* [ ] Eliminar promesas implícitas
-* [ ] Sustituir “yo / mi” → “nuestro equipo”
-* [ ] Introducir 1 diferencial competitivo explícito
-* [ ] Alinear Results a promesas de proceso
-* [ ] Balancear emoción (máx. 30%)
+**Áreas emocionales (tuteo mantenido):**
+* ✅ legado
+* ✅ animalista
+* ✅ cliente-senior
+* ✅ familia-menores
+
+**Cambios aplicados en todas las áreas:**
+
+* [x] Voz institucional ("nosotros", "nuestro equipo")
+* [x] Eliminadas promesas de resultado ("garantizamos", "exitosamente")
+* [x] Sustituido "yo / mi" → "nuestro equipo"
+* [x] Tratamiento correcto según tipo de área (tú/usted)
+* [x] Results alineados a promesas de proceso, no de resultado
+* [x] FAQ sin plazos específicos comprometedores
 
 ---
 
@@ -1314,4 +1367,4 @@ Si encuentras problemas no documentados aquí, contactar al desarrollador princi
 
 ---
 
-*Última actualización: Enero 2026*
+*Última actualización: Enero 2026 (v2.0 - Política de tratamiento híbrido)*

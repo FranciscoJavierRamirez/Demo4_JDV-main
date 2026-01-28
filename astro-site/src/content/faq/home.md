@@ -17,7 +17,7 @@ questions:
 
   - id: 4
     question: "¿Ofrecen servicios Pro Bono (gratuitos)?"
-    answer: 'Sí, ofrecemos **servicios Pro Bono** para personas que califiquen según criterios socioeconómicos. Esto incluye: funcionarios públicos con recursos limitados, adultos mayores en situación de vulnerabilidad, casos de relevancia social y organizaciones sin fines de lucro. <a href="#probono" style="color: #10b981; font-weight: 600;">Consulta si calificas aquí</a>.'
+    answer: 'Sí, ofrecemos **servicios Pro Bono** para personas que califiquen según criterios socioeconómicos. Esto incluye: funcionarios públicos con recursos limitados, adultos mayores en situación de vulnerabilidad, casos de relevancia social y organizaciones sin fines de lucro. <a href="#probono" style="color: #10b981; font-weight: 600;">Consulte si califica aquí</a>.'
 
   - id: 5
     question: "¿Cuánto tiempo toma resolver un caso legal?"

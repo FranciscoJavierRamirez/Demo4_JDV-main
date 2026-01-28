@@ -3,14 +3,14 @@ slug: "civil"
 
 seo:
   title: "Derecho Civil: Cobranzas, Contratos e Indemnizaciones | JDV Abogados"
-  description: "Asesoría y representación en demandas civiles, cobranzas, juicios ejecutivos, arrendamientos e indemnizaciones. Defensa efectiva de tus derechos patrimoniales."
+  description: "Asesoría y representación en demandas civiles, cobranzas, juicios ejecutivos, arrendamientos e indemnizaciones. Defensa rigurosa de sus derechos patrimoniales."
   canonical: "/areas-practicas/civil"
 
 hero:
   badge: "Litigio Civil · Experiencia Comprobada"
-  h1: "Derecho Civil: Protección de tus Derechos Patrimoniales"
+  h1: "Derecho Civil: Protección de sus Derechos Patrimoniales"
   breadcrumbTitle: "Derecho Civil"
-  tagline: "Soluciones efectivas para conflictos civiles, cobranzas y obligaciones"
+  tagline: "Representación rigurosa en conflictos civiles, cobranzas y obligaciones"
   image: "/areas/civil.jpg"
 
 trust:
@@ -24,27 +24,27 @@ trust:
 target:
   - icon: "💰"
     title: "Acreedor con Deudas Impagas"
-    description: "Tienes facturas, pagarés o cheques impagos y necesitas recuperar tu dinero de forma legal y efectiva."
+    description: "Tiene facturas, pagarés o cheques impagos y necesita recuperar su dinero de forma legal."
   - icon: "🏠"
     title: "Arrendador con Problemas"
-    description: "Tu arrendatario no paga o no desocupa la propiedad. Necesitas recuperar tu inmueble rápidamente."
+    description: "Su arrendatario no paga o no desocupa la propiedad. Necesita recuperar su inmueble."
   - icon: "📝"
     title: "Conflicto Contractual"
-    description: "Incumplimiento de contratos, garantías o acuerdos comerciales que afectan tu patrimonio."
+    description: "Incumplimiento de contratos, garantías o acuerdos comerciales que afectan su patrimonio."
   - icon: "⚖️"
     title: "Víctima de Daños"
-    description: "Has sufrido perjuicios económicos o morales y necesitas obtener una indemnización justa."
+    description: "Ha sufrido perjuicios económicos o morales y necesita representación para obtener indemnización."
 
 painPoints:
   - "Deudas que se acumulan sin saber cómo cobrarlas legalmente"
-  - "Arrendatarios que no pagan y se niegan a desocupar tu propiedad"
+  - "Arrendatarios que no pagan y se niegan a desocupar su propiedad"
   - "Contratos incumplidos sin respuesta ni solución del deudor"
-  - "Desconocimiento de plazos de prescripción que pueden extinguir tus derechos"
+  - "Desconocimiento de plazos de prescripción que pueden extinguir sus derechos"
   - "Frustración ante promesas de pago que nunca se cumplen"
   - "Daños sufridos sin compensación ni reconocimiento del responsable"
 
 objective:
-  text: "Nuestro objetivo es defender tus derechos patrimoniales con la rigurosidad técnica que otorgan 35 años de experiencia. Evaluamos cada situación para determinar si conviene negociar, mediar o litigar, priorizando siempre la estrategia más efectiva para tu caso."
+  text: "Nuestro objetivo es defender sus derechos patrimoniales con la rigurosidad técnica que otorgan 35 años de experiencia. Evaluamos cada situación para determinar si conviene negociar, mediar o litigar, priorizando siempre la estrategia más adecuada para su caso."
   commitments:
     - "Evaluación clara de viabilidad y estrategia antes de actuar"
     - "Gestión prejudicial eficiente para evitar costos innecesarios"
@@ -88,7 +88,7 @@ servicesIncluded:
 process:
   - step: 1
     title: "Consulta y Evaluación"
-    description: "Analizamos tu caso, documentación disponible y viabilidad jurídica. Te explicamos opciones y costos."
+    description: "Analizamos su caso, documentación disponible y viabilidad jurídica. Le explicamos opciones y costos."
   - step: 2
     title: "Gestión Prejudicial"
     description: "Intentamos solución extrajudicial: cartas de cobranza, negociación directa o acuerdos de pago."
@@ -101,11 +101,11 @@ process:
 
 faq:
   - question: "¿Qué es la prescripción de una deuda y por qué es importante actuar rápido?"
-    answer: "La prescripción extingue la posibilidad de cobrar judicialmente una deuda. Cada tipo de documento tiene plazos legales específicos según la normativa civil chilena. Pasado el plazo, la deuda se convierte en obligación natural (no exigible judicialmente). Es fundamental evaluar tu caso cuanto antes."
+    answer: "La prescripción extingue la posibilidad de cobrar judicialmente una deuda. Cada tipo de documento tiene plazos legales específicos según la normativa civil chilena. Pasado el plazo, la deuda se convierte en obligación natural (no exigible judicialmente). Es fundamental evaluar su caso cuanto antes."
   - question: "¿Qué necesito para iniciar un juicio ejecutivo?"
     answer: "Necesitas un título ejecutivo: pagaré, cheque protestado, factura con acuse de recibo, escritura pública o sentencia firme. Con estos documentos podemos embargar bienes del deudor directamente."
   - question: "¿Qué opciones legales tengo para recuperar una propiedad arrendada?"
-    answer: "Existen distintos procedimientos según la causa: juicio de término de arrendamiento por incumplimiento, procedimiento 'Devuélveme mi casa' para casos de no pago, y acciones posesorias. En la consulta evaluamos cuál es la vía más adecuada para tu situación específica."
+    answer: "Existen distintos procedimientos según la causa: juicio de término de arrendamiento por incumplimiento, procedimiento 'Devuélveme mi casa' para casos de no pago, y acciones posesorias. En la consulta evaluamos cuál es la vía más adecuada para su situación específica."
   - question: "¿Es mejor negociar o demandar directamente?"
     answer: "Siempre evaluamos primero la gestión prejudicial porque es más rápida y económica. Si el deudor no responde o incumple acuerdos, procedemos judicialmente. La estrategia depende de cada caso."
   - question: "¿Puedo cobrar los gastos del juicio al deudor?"
@@ -114,8 +114,8 @@ faq:
     answer: "Investigamos su patrimonio antes de demandar. Si no tiene bienes embargables, evaluamos alternativas como perseguir avalistas, esperar mejora patrimonial o negociar pagos parciales."
 
 finalCta:
-  headline: "¿Tienes un conflicto civil sin resolver?"
-  text: "No dejes que tus derechos se pierdan por inacción o desconocimiento. Cada día que pasa puede acercarte a la prescripción. Agenda una consulta y evaluemos juntos la mejor estrategia para tu caso."
+  headline: "¿Tiene un conflicto civil sin resolver?"
+  text: "No deje que sus derechos se pierdan por inacción o desconocimiento. Cada día que pasa puede acercarle a la prescripción. Agende una consulta y evaluemos juntos la mejor estrategia para su caso."
   button: "Agendar Consulta"
 ---
 

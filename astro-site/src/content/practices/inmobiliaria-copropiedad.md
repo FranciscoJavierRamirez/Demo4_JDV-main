@@ -33,7 +33,7 @@ target:
     description: "Integrantes de comités que buscan asesoría para tomar decisiones informadas y legalmente válidas."
   - icon: "📋"
     title: "Propietario con Títulos Irregulares"
-    description: "Dueño de propiedad que necesita regularizar o sanear la situación legal de su inmueble."
+    description: "Propietario que necesita regularizar o sanear la situación legal de su inmueble."
 
 painPoints:
   - "Inseguridad al comprar o vender una propiedad sin conocer el estado real de los títulos"
@@ -44,7 +44,7 @@ painPoints:
   - "Desconocimiento de las obligaciones legales de administradores y comités"
 
 objective:
-  text: "Nuestro objetivo es brindarte seguridad jurídica en cada operación inmobiliaria y acompañar a las comunidades de propietarios con asesoría experta. Ya sea que estés comprando tu primera propiedad o administrando un edificio complejo, ofrecemos el respaldo profesional que necesitas para proteger tu patrimonio."
+  text: "Nuestro objetivo es brindarle seguridad jurídica en cada operación inmobiliaria y acompañar a las comunidades de propietarios con asesoría experta. Ya sea que esté comprando su primera propiedad o administrando un edificio complejo, ofrecemos el respaldo profesional que necesita para proteger su patrimonio."
   commitments:
     - "Estudio de títulos exhaustivo antes de cualquier operación"
     - "Acompañamiento integral desde la negociación hasta la inscripción"
@@ -88,7 +88,7 @@ servicesIncluded:
 process:
   - step: 1
     title: "Consulta Inicial"
-    description: "Analizamos tu situación inmobiliaria o las necesidades de tu comunidad para definir la mejor estrategia."
+    description: "Analizamos su situación inmobiliaria o las necesidades de su comunidad para definir la mejor estrategia."
   - step: 2
     title: "Estudio y Diagnóstico"
     description: "Realizamos el estudio de títulos o evaluamos la situación legal de la copropiedad."
@@ -103,7 +103,7 @@ faq:
   - question: "¿Qué incluye un estudio de títulos?"
     answer: "El estudio de títulos incluye la revisión completa del historial de dominio de la propiedad (al menos 10 años), verificación de gravámenes, hipotecas, prohibiciones, embargos, servidumbres y cualquier limitación al dominio. También se revisan los planos, deslindes y la situación tributaria. El resultado es un informe escrito con las conclusiones y recomendaciones."
   - question: "¿Qué factores influyen en la regularización de una propiedad?"
-    answer: "La complejidad del proceso depende de varios factores: el tipo de problema (títulos incompletos, posesiones efectivas pendientes, problemas de cabida), la documentación disponible, y los trámites requeridos ante notarías, Conservador y otras instituciones. En la primera consulta evaluamos tu caso específico."
+    answer: "La complejidad del proceso depende de varios factores: el tipo de problema (títulos incompletos, posesiones efectivas pendientes, problemas de cabida), la documentación disponible, y los trámites requeridos ante notarías, Conservador y otras instituciones. En la primera consulta evaluamos su caso específico."
   - question: "¿Pueden ayudar a cobrar gastos comunes atrasados?"
     answer: "Sí. Ofrecemos un servicio completo de cobranza que incluye: gestión prejudicial (cartas de cobro, negociación de convenios de pago), y en caso necesario, cobranza judicial mediante juicio ejecutivo. Trabajamos para recuperar la deuda protegiendo al mismo tiempo la convivencia comunitaria."
   - question: "¿Qué debe contener un reglamento de copropiedad actualizado?"
@@ -111,11 +111,11 @@ faq:
   - question: "¿Atienden comunidades fuera de Santiago?"
     answer: "Sí, atendemos comunidades y operaciones inmobiliarias en todo el país. Para comunidades fuera de la Región Metropolitana, podemos participar en asambleas por videoconferencia y gestionar documentos a distancia. Los estudios de títulos se realizan consultando los registros correspondientes a cada región."
   - question: "¿Qué pasa si descubren problemas en el estudio de títulos?"
-    answer: "Si detectamos problemas, te informamos inmediatamente y te presentamos las opciones: renegociar el precio, exigir saneamiento al vendedor, o desistir de la operación. En muchos casos, los problemas son subsanables y podemos encargarnos de la regularización antes de concretar la compra."
+    answer: "Si detectamos problemas, le informamos inmediatamente y le presentamos las opciones: renegociar el precio, exigir saneamiento al vendedor, o desistir de la operación. En muchos casos, los problemas son subsanables y podemos encargarnos de la regularización antes de concretar la compra."
 
 finalCta:
-  headline: "Protege tu patrimonio con asesoría experta"
-  text: "Ya sea que estés por comprar, vender o administrar una propiedad, no dejes tu patrimonio al azar. Contáctanos para una evaluación profesional de tu situación."
+  headline: "Proteja su patrimonio con asesoría experta"
+  text: "Ya sea que esté por comprar, vender o administrar una propiedad, no deje su patrimonio al azar. Contáctenos para una evaluación profesional de su situación."
   button: "Solicitar Evaluación"
 ---
 

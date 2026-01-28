@@ -10,7 +10,7 @@ hero:
   badge: "Ex Contralora Regional · Relatora"
   h1: "Capacitación Legal para Organizaciones"
   breadcrumbTitle: "Capacitación Legal"
-  tagline: "Conocimiento jurídico práctico que transforma y empodera a tu equipo"
+  tagline: "Conocimiento jurídico práctico que transforma y empodera a su equipo"
   image: "/areas/capacitacion.jpg"
 
 trust:
@@ -33,20 +33,20 @@ target:
     description: "Comités y administradores que buscan dominar la normativa de copropiedad y gestión de comunidades."
   - icon: "🐾"
     title: "Fundaciones y ONGs"
-    description: "Organizaciones sin fines de lucro que requieren formación en sus áreas de interés legal específico."
+    description: "Organizaciones sin fines de lucro que requieren formación en áreas de interés legal específico."
 
 painPoints:
   - "Desconocimiento de normativas que generan riesgos y sanciones evitables"
   - "Personal no capacitado que comete errores costosos y reiterativos"
   - "Dificultad para encontrar formación jurídica práctica y aplicable"
-  - "Capacitaciones genéricas que no abordan las problemáticas específicas de tu sector"
+  - "Capacitaciones genéricas que no abordan las problemáticas específicas de su sector"
   - "Falta de actualización ante cambios legislativos relevantes (Ley Karin, etc.)"
   - "Información legal dispersa y difícil de comprender sin formación técnica"
 
 objective:
-  text: "Nuestro objetivo es transferir conocimiento jurídico de manera clara, práctica y aplicable, empoderando a tu equipo para prevenir conflictos y tomar mejores decisiones. La formación legal no debe ser un privilegio, sino una herramienta accesible para todas las organizaciones."
+  text: "Nuestro objetivo es transferir conocimiento jurídico de manera clara, práctica y aplicable, empoderando a su equipo para prevenir conflictos y tomar mejores decisiones. La formación legal no debe ser un privilegio, sino una herramienta accesible para todas las organizaciones."
   commitments:
-    - "Contenido adaptado: cada capacitación se diseña según las necesidades específicas de tu organización"
+    - "Contenido adaptado: cada capacitación se diseña según las necesidades específicas de su organización"
     - "Enfoque práctico: casos reales, ejemplos concretos y aplicación inmediata"
     - "Claridad total: lenguaje accesible sin sacrificar rigor técnico"
     - "Carga controlada de programas: atención personalizada para cada organización"
@@ -88,7 +88,7 @@ servicesIncluded:
 process:
   - step: 1
     title: "Diagnóstico de Necesidades"
-    description: "Reunión inicial para identificar las necesidades formativas específicas de tu organización y definir objetivos."
+    description: "Reunión inicial para identificar las necesidades formativas específicas de su organización y definir objetivos."
   - step: 2
     title: "Diseño del Programa"
     description: "Elaboración de contenidos a medida, selección de metodología y definición de recursos didácticos."
@@ -103,19 +103,19 @@ faq:
   - question: "¿Qué temas pueden cubrirse en las capacitaciones?"
     answer: "Las capacitaciones abarcan diversas áreas: Estatuto Administrativo, Ley Karin (acoso laboral y sexual), procedimientos disciplinarios, derechos funcionarios, Ley de Copropiedad Inmobiliaria, normativa animalista (Ley Cholito), compras públicas, probidad administrativa, y más. El contenido se adapta a las necesidades de cada organización."
   - question: "¿Qué formatos de capacitación ofrecen?"
-    answer: "Ofrecemos diversos formatos adaptados a las necesidades de cada organización: charlas informativas breves, talleres prácticos con ejercicios y casos, y cursos especializados de mayor profundidad. El diseño se ajusta a tus objetivos y disponibilidad."
+    answer: "Ofrecemos diversos formatos adaptados a las necesidades de cada organización: charlas informativas breves, talleres prácticos con ejercicios y casos, y cursos especializados de mayor profundidad. El diseño se ajusta a sus objetivos y disponibilidad."
   - question: "¿Se realizan capacitaciones presenciales fuera de Santiago?"
-    answer: "Sí, atendemos organizaciones a nivel nacional. Las capacitaciones pueden realizarse de forma presencial en cualquier región o en modalidad remota (videoconferencia) según las preferencias y necesidades logísticas de tu organización."
+    answer: "Sí, atendemos organizaciones a nivel nacional. Las capacitaciones pueden realizarse de forma presencial en cualquier región o en modalidad remota (videoconferencia) según las preferencias y necesidades logísticas de su organización."
   - question: "¿Cuántas personas pueden participar en una capacitación?"
     answer: "El número de participantes es flexible. Las charlas pueden dirigirse a grupos grandes (50-100 personas), mientras que los talleres prácticos son más efectivos con grupos reducidos (10-25 personas) para permitir interacción y resolución de dudas personalizadas."
   - question: "¿Ofrecen capacitaciones gratuitas para ciertas organizaciones?"
-    answer: "Sí, bajo coordinación previa, ofrecemos acuerdos especiales de formación gratuita para asociaciones de funcionarios, fundaciones sin fines de lucro y organizaciones sociales que cumplan ciertos criterios. Contáctanos para evaluar tu caso."
+    answer: "Sí, bajo coordinación previa, ofrecemos acuerdos especiales de formación gratuita para asociaciones de funcionarios, fundaciones sin fines de lucro y organizaciones sociales que cumplan ciertos criterios. Contáctenos para evaluar su caso."
   - question: "¿Se entrega certificado de participación?"
     answer: "Sí, todos los participantes reciben un certificado de asistencia emitido por JDV Abogados, válido para acreditar horas de capacitación ante empleadores y organizaciones."
 
 finalCta:
-  headline: "Invierte en conocimiento. Protege a tu organización."
-  text: "Una organización capacitada es una organización preparada. Prevenir es siempre más eficiente que remediar. Conversemos sobre las necesidades formativas de tu equipo."
+  headline: "Invierta en conocimiento. Proteja a su organización."
+  text: "Una organización capacitada es una organización preparada. Prevenir es siempre más eficiente que remediar. Conversemos sobre las necesidades formativas de su equipo."
   button: "Solicitar Información"
 ---
 
@@ -148,4 +148,4 @@ No se trata solo de exponer teoría. Nuestras capacitaciones combinan **rigor t�
 - **Probidad y Transparencia**: Estándares éticos en el sector público
 - **Normativa Animalista**: Ley Cholito y responsabilidades de tutores
 
-**¿Tu organización necesita otra temática?** Diseñamos contenidos a medida.
+**¿Su organización necesita otra temática?** Diseñamos contenidos a medida.

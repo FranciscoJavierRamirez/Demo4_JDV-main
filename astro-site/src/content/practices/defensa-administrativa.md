@@ -24,7 +24,7 @@ trust:
 target:
   - icon: "🏢"
     title: "Empresas Proveedoras del Estado"
-    description: "Participas en licitaciones públicas y necesitas asesoría en bases, ofertas o resolución de conflictos con organismos públicos."
+    description: "Participa en licitaciones públicas y necesita asesoría en bases, ofertas o resolución de conflictos con organismos públicos."
   - icon: "📋"
     title: "Oferentes en ChileCompra"
     description: "Presentaste una oferta y fuiste descalificado injustamente, o enfrentas demoras en pagos o adjudicaciones."
@@ -111,11 +111,11 @@ faq:
   - question: "¿Trabajan con empresas de regiones?"
     answer: "Sí. Atendemos casos a nivel nacional de forma presencial o remota. Nuestra experiencia como Contralora Regional en distintas zonas del país nos permite conocer las dinámicas de cada región."
   - question: "¿Qué tipos de asesoría en licitaciones ofrecen?"
-    answer: "Ofrecemos asesoría preventiva (revisión de bases, preparación de ofertas), defensa ante descalificación, impugnación de adjudicaciones, y representación ante Contraloría. En la primera consulta evaluamos tu situación y definimos la estrategia adecuada."
+    answer: "Ofrecemos asesoría preventiva (revisión de bases, preparación de ofertas), defensa ante descalificación, impugnación de adjudicaciones, y representación ante Contraloría. En la primera consulta evaluamos su situación y definimos la estrategia adecuada."
 
 finalCta:
-  headline: "No dejes que la burocracia te detenga"
-  text: "Si enfrentas trabas, arbitrariedades o injusticias en tus relaciones con el Estado, tienes derecho a defenderte. Agenda una consulta y analicemos juntos tu caso."
+  headline: "No deje que la burocracia le detenga"
+  text: "Si enfrenta trabas, arbitrariedades o injusticias en sus relaciones con el Estado, tiene derecho a defenderse. Agende una consulta y analicemos juntos su caso."
   button: "Agendar Consulta"
 ---
 

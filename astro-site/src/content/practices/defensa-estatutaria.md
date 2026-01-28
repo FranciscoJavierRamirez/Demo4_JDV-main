@@ -27,7 +27,7 @@ target:
     description: "Funcionario de planta, contrata u honorarios en sumario administrativo o investigación sumaria que necesita defensa técnica."
   - icon: "🚨"
     title: "Término de Contrata"
-    description: "No renovación injustificada de tu contrato o término anticipado sin fundamento legal."
+    description: "No renovación injustificada de su contrato o término anticipado sin fundamento legal."
   - icon: "⚖️"
     title: "Acoso Laboral (Ley Karin)"
     description: "Hostigamiento, acoso laboral o sexual, o vulneración de derechos estatutarios."
@@ -36,19 +36,19 @@ target:
     description: "Traslados arbitrarios, remuneraciones, evaluación docente, licencias médicas o liberaciones de guardia rechazadas."
 
 painPoints:
-  - "Desconocimiento de tus derechos estatutarios y procedimientos disciplinarios"
+  - "Desconocimiento de sus derechos estatutarios y procedimientos disciplinarios"
   - "Plazos breves e improrrogables para presentar defensas y descargos"
   - "Riesgo real de destitución, multa, suspensión, no renovación de contrata o pérdida de la confianza legítima"
-  - "Estrés e incertidumbre profesional que afecta tu vida personal y familiar"
-  - "Enfrentarte solo ante la maquinaria administrativa del Estado"
+  - "Estrés e incertidumbre profesional que afecta su vida personal y familiar"
+  - "Enfrentarse solo ante la maquinaria administrativa del Estado"
   - "No encontrar un abogado que haya estado del otro lado de la mesa, que conozca cómo piensa la Administración"
 
 objective:
-  text: "Nuestro objetivo es ponerte en igualdad de condiciones frente a la Administración del Estado, defendiendo tus derechos con estrategia jurídica sólida, rigor técnico y empatía humana. No estás solo en esto."
+  text: "Nuestro objetivo es ponerle en igualdad de condiciones frente a la Administración del Estado, defendiendo sus derechos con estrategia jurídica sólida, rigor técnico y empatía humana. No está solo en esto."
   commitments:
-    - "Claridad total: te explicamos el proceso, plazos y estrategia en lenguaje claro"
+    - "Claridad total: le explicamos el proceso, plazos y estrategia en lenguaje claro"
     - "Defensa técnica especializada: 35 años de experiencia en Contraloría nos respaldan"
-    - "Acompañamiento humano: comprendemos el estrés y te apoyamos en cada etapa"
+    - "Acompañamiento humano: comprendemos el estrés y le apoyamos en cada etapa"
     - "Carga controlada de causas: atención personalizada para cada caso"
 
 results:
@@ -63,7 +63,7 @@ results:
     description: "Comunicación periódica sobre hitos del caso, respuestas oportunas y claridad en cada paso del proceso."
   - icon: "🎯"
     title: "Defensa de Estabilidad Laboral"
-    description: "Representación orientada a la protección de tu carrera funcionaria y tus derechos estatutarios."
+    description: "Representación orientada a la protección de su carrera funcionaria y sus derechos estatutarios."
 
 servicesIncluded:
   - icon: "📋"
@@ -88,7 +88,7 @@ servicesIncluded:
 process:
   - step: 1
     title: "Consulta Gratuita (30 min)"
-    description: "Evaluamos tu caso sin compromiso. Analizamos antecedentes, plazos y estrategia inicial."
+    description: "Evaluamos su caso sin compromiso. Analizamos antecedentes, plazos y estrategia inicial."
   - step: 2
     title: "Estrategia Personalizada"
     description: "Diseñamos el plan de defensa a medida: argumentos técnicos, plazos y acciones concretas."
@@ -101,21 +101,21 @@ process:
 
 faq:
   - question: "¿La consulta inicial es realmente gratuita?"
-    answer: "Sí, completamente. La primera consulta de 30 minutos no tiene costo ni compromiso. Es para conocernos, evaluar tu caso y explicarte tus opciones."
+    answer: "Sí, completamente. La primera consulta de 30 minutos no tiene costo ni compromiso. Es para conocernos, evaluar su caso y explicarle sus opciones."
   - question: "¿Puedo defenderme solo en un sumario administrativo?"
-    answer: "Técnicamente sí, pero es muy arriesgado. Los procedimientos disciplinarios tienen plazos breves, tecnicismos legales y consecuencias graves (destitución, multa). Un error puede costarte tu carrera."
+    answer: "Técnicamente sí, pero es muy arriesgado. Los procedimientos disciplinarios tienen plazos breves, tecnicismos legales y consecuencias graves (destitución, multa). Un error puede costarle su carrera."
   - question: "¿Qué factores influyen en la duración de un sumario administrativo?"
-    answer: "La duración depende del tipo de procedimiento (investigación sumaria o sumario administrativo), la complejidad del caso, el número de funcionarios involucrados y las diligencias probatorias requeridas. En la consulta inicial te orientamos sobre qué esperar en tu situación específica."
+    answer: "La duración depende del tipo de procedimiento (investigación sumaria o sumario administrativo), la complejidad del caso, el número de funcionarios involucrados y las diligencias probatorias requeridas. En la consulta inicial le orientamos sobre qué esperar en su situación específica."
   - question: "¿Atienden casos en regiones o solo en Santiago?"
-    answer: "Atendemos casos a nivel nacional. Nuestra experiencia como Contralora Regional en Magallanes (1994-2009), Aysén (2012-2017) y Arica (2018-2020) nos permite conocer las dinámicas de cada zona del país. Trabajamos presencial o remoto según tu necesidad."
+    answer: "Atendemos casos a nivel nacional. Nuestra experiencia como Contralora Regional en Magallanes (1994-2009), Aysén (2012-2017) y Arica (2018-2020) nos permite conocer las dinámicas de cada zona del país. Trabajamos presencial o remoto según su necesidad."
   - question: "¿Qué pasa si ya me notificaron cargos o una medida disciplinaria?"
-    answer: "No es tarde. Podemos presentar descargos, recursos de reposición o apelaciones. Lo importante es actuar rápido porque los plazos son breves e improrrogables. Contáctanos de inmediato."
+    answer: "No es tarde. Podemos presentar descargos, recursos de reposición o apelaciones. Lo importante es actuar rápido porque los plazos son breves e improrrogables. Contáctenos de inmediato."
   - question: "¿Cómo funciona la consulta inicial gratuita?"
-    answer: "La consulta inicial de 30 minutos es sin costo ni compromiso. Evaluamos tu caso, analizamos los antecedentes disponibles, explicamos tus opciones y definimos si podemos ayudarte. Es el primer paso para entender tu situación y las estrategias disponibles."
+    answer: "La consulta inicial de 30 minutos es sin costo ni compromiso. Evaluamos su caso, analizamos los antecedentes disponibles, explicamos sus opciones y definimos si podemos ayudarle. Es el primer paso para entender su situación y las estrategias disponibles."
 
 finalCta:
-  headline: "Protege tu carrera hoy. No enfrentes esto solo."
-  text: "Un procedimiento disciplinario puede cambiar tu vida. No dejes tu estabilidad laboral y tu futuro en manos del azar. Agenda tu consulta gratuita y obtén claridad sobre tu caso."
+  headline: "Proteja su carrera hoy. No enfrente esto solo."
+  text: "Un procedimiento disciplinario puede cambiar su vida. No deje su estabilidad laboral y su futuro en manos del azar. Agende su consulta gratuita y obtenga claridad sobre su caso."
   button: "Agendar Consulta"
 ---
 
@@ -133,7 +133,7 @@ Los procedimientos disciplinarios no son juicios civiles comunes. Requieren **co
 
 **Cientos de sumarios instruidos y resueltos como fiscalizadores en CGR. Cientos más defendidos como abogados particulares.** Hemos visto ambos lados de la mesa: fiscalización y defensa.
 
-Esta experiencia nos permite anticipar los movimientos de la Administración y defender tus derechos con fundamento técnico irrefutable.
+Esta experiencia nos permite anticipar los movimientos de la Administración y defender sus derechos con fundamento técnico irrefutable.
 
 ---
 
@@ -141,4 +141,4 @@ Esta experiencia nos permite anticipar los movimientos de la Administración y d
 
 Atendemos casos en **todo Chile**. Como **Contralora Regional en Magallanes (1994-2009), Aysén (2012-2017) y Arica y Parinacota (2018-2020)**, conocemos las dinámicas de cada región. Trabajamos presencial o remoto en todo el país.
 
-**No importa dónde estés. Podemos ayudarte.**
+**No importa dónde esté. Podemos ayudarle.**
