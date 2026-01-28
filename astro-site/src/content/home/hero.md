@@ -46,10 +46,9 @@ floatingCards:
 
 scrollIndicator:
   text: "Descubre más"
-  target: "#stats"
+  target: "#about-preview"
 
 images:
-  background: "/home/fondo_hero.png"
   hero: "/Jaqueline_home_hero.png"
   heroAlt: "Jacqueline – Abogada Fundadora JDV Abogados"
 ---

@@ -131,12 +131,16 @@ const { badge, title, subtitle, foundationText, stats, cta, image } = Astro.prop
             
             <!-- Image Frame -->
             <div class="relative aspect-[3/4] rounded-3xl overflow-hidden shadow-[0_30px_60px_-15px_rgba(0,0,0,0.5)] bg-white/5 border border-white/10">
-              <img 
-                src={image}
-                alt="Jacqueline Del Valle Inostroza"
-                class="w-full h-full object-cover object-top"
-                loading="eager"
-              />
+              <picture>
+                <source srcset={image.replace('.png', '.webp')} type="image/webp">
+                <img
+                  src={image}
+                  alt="Jacqueline Del Valle Inostroza"
+                  class="w-full h-full object-cover object-top"
+                  loading="eager"
+                  decoding="async"
+                />
+              </picture>
               <!-- Subtle gradient overlay -->
               <div class="absolute inset-0 bg-gradient-to-t from-[rgba(12,35,64,0.4)] via-transparent to-transparent pointer-events-none"></div>
             </div>

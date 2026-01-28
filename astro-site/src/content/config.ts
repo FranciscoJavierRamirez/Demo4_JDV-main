@@ -54,7 +54,6 @@ const homeCollection = defineCollection({
 
     // Assets
     images: z.object({
-      background: z.string(),
       hero: z.string(),
       heroAlt: z.string(),
     }),
