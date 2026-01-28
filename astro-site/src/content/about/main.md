@@ -74,11 +74,11 @@ founderProfile:
       - "Juicios de Cuentas"
       - "Acciones de Fiscalización de Control Externo"
   values:
-    text: "Con un profundo sentido de servicio, un actuar probo, transparente, responsable y profundamente social y humano, los que conforman los sellos del Estudio Jurídico."
+    text: "Un profundo sentido de servicio, un actuar probo, transparente, responsable y profundamente social y humano conforman los sellos del Estudio Jurídico."
 
 timeline:
   title: "Trayectoria de la Fundadora"
-  subtitle: "35 años de carrera en la Contraloría General de la República"
+  subtitle: "35 años de carrera en la Contraloría General de la República (1990-2025)"
   milestones:
     - period: "1994-2009"
       title: "Abogada Jefe"
@@ -98,6 +98,9 @@ timeline:
     - period: "2024-2025"
       title: "Abogada Senior"
       location: "Unidad Jurídica, II Contraloría Regional Metropolitana"
+    - period: "2025"
+      title: "Abogada Coordinadora"
+      location: "Área Jurídica, Unidad de Personal de la Administración del Estado, Contraloría Regional Metropolitana"
 
 team:
   title: "Nuestro Equipo"
