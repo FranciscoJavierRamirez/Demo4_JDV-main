@@ -155,7 +155,7 @@ export const serviceLabels: Record<string, { name: string; href: string }> = {
  * Obtiene datos de un servicio
  */
 export function getServiceData(service: string) {
-  return serviceLabels[service] || { name: service, href: '/areas-practicas' };
+  return serviceLabels[service] || { name: service, href: '/#areas' };
 }
 
 /**
