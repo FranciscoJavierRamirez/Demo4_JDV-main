@@ -1,0 +1,634 @@
+---
+/**
+ * Blog Index - Listado principal de posts
+ */
+
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/nav/Header.astro';
+import Footer from '../../components/home/Footer.astro';
+import WhatsAppFloat from '../../components/WhatsAppFloat.astro';
+import BackToTop from '../../components/BackToTop.astro';
+import {
+  getPublishedPosts,
+  getFeaturedPosts,
+  formatDateShort,
+  getCategoryLabel,
+  calculateReadingTime,
+  getCategoriesWithCount
+} from '../../utils/blog';
+
+const POSTS_PER_PAGE = 12;
+
+const allPosts = await getCollection('blog');
+const publishedPosts = getPublishedPosts(allPosts);
+const featuredPosts = getFeaturedPosts(allPosts, 1);
+const categories = getCategoriesWithCount(allPosts);
+
+// Primera página
+const posts = publishedPosts.slice(0, POSTS_PER_PAGE);
+const totalPages = Math.ceil(publishedPosts.length / POSTS_PER_PAGE);
+
+const title = 'Blog | JDV Abogados';
+const description = 'Blog de JDV Abogados: análisis jurídico y actualidad legal en derecho civil, familia, inmobiliario, defensa estatutaria, animalista y más.';
+---
+
+<BaseLayout title={title} description={description}>
+  <Header />
+
+  <main class="blog-listing">
+    <!-- Hero Section -->
+    <section class="blog-listing__hero">
+      <div class="container">
+        <div class="blog-listing__hero-content">
+          <span class="blog-listing__badge">
+            <i class="fas fa-newspaper" aria-hidden="true"></i>
+            Blog Jurídico
+          </span>
+          <h1 class="blog-listing__title">Análisis Jurídico y Actualidad Legal</h1>
+          <p class="blog-listing__subtitle">
+            Reflexiones y análisis sobre las materias que abordamos: defensa estatutaria,
+            derecho civil, familia, inmobiliario, animalista y más.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Categories Filter -->
+    {categories.length > 0 && (
+      <section class="blog-listing__categories">
+        <div class="container">
+          <nav class="blog-listing__categories-nav" aria-label="Filtrar por categoría">
+            <a href="/blog" class="blog-listing__category-btn active">
+              Todos
+              <span class="blog-listing__category-count">{publishedPosts.length}</span>
+            </a>
+            {categories.map(cat => (
+              <a href={`/blog/categoria/${cat.category}`} class="blog-listing__category-btn">
+                {cat.label}
+                <span class="blog-listing__category-count">{cat.count}</span>
+              </a>
+            ))}
+          </nav>
+        </div>
+      </section>
+    )}
+
+    <!-- Featured Post -->
+    {featuredPosts.length > 0 && (
+      <section class="blog-listing__featured">
+        <div class="container">
+          <h2 class="sr-only">Artículo destacado</h2>
+          {featuredPosts.map(post => (
+            <a href={`/blog/${post.slug}`} class="blog-featured-card">
+              <div class="blog-featured-card__image">
+                <img
+                  src={post.data.heroImage}
+                  alt={post.data.heroAlt}
+                  loading="eager"
+                />
+                <span class="blog-featured-card__badge">Destacado</span>
+              </div>
+              <div class="blog-featured-card__content">
+                <span class="blog-featured-card__category">
+                  {getCategoryLabel(post.data.category)}
+                </span>
+                <h3 class="blog-featured-card__title">{post.data.title}</h3>
+                <p class="blog-featured-card__excerpt">{post.data.excerpt}</p>
+                <div class="blog-featured-card__meta">
+                  <span class="blog-featured-card__date">
+                    <i class="fas fa-calendar" aria-hidden="true"></i>
+                    {formatDateShort(post.data.publishDate)}
+                  </span>
+                  <span class="blog-featured-card__reading">
+                    <i class="fas fa-clock" aria-hidden="true"></i>
+                    {calculateReadingTime(post.body)} min
+                  </span>
+                </div>
+              </div>
+            </a>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <!-- Posts Grid -->
+    <section class="blog-listing__grid-section">
+      <div class="container">
+        <h2 class="blog-listing__section-title">
+          {featuredPosts.length > 0 ? 'Más Artículos' : 'Artículos'}
+        </h2>
+
+        {posts.length > 0 ? (
+          <div class="blog-listing__grid">
+            {posts.filter(p => !p.data.featured).map(post => (
+              <a href={`/blog/${post.slug}`} class="blog-card">
+                <div class="blog-card__image">
+                  <img
+                    src={post.data.heroImage}
+                    alt={post.data.heroAlt}
+                    loading="lazy"
+                  />
+                </div>
+                <div class="blog-card__content">
+                  <span class="blog-card__category">
+                    {getCategoryLabel(post.data.category)}
+                  </span>
+                  <h3 class="blog-card__title">{post.data.title}</h3>
+                  <p class="blog-card__excerpt">{post.data.excerpt}</p>
+                  <div class="blog-card__meta">
+                    <time>{formatDateShort(post.data.publishDate)}</time>
+                    <span>·</span>
+                    <span>{calculateReadingTime(post.body)} min lectura</span>
+                  </div>
+                </div>
+              </a>
+            ))}
+          </div>
+        ) : (
+          <div class="blog-listing__empty">
+            <i class="fas fa-newspaper" aria-hidden="true"></i>
+            <h3>Próximamente</h3>
+            <p>Estamos preparando contenido de calidad para usted. Vuelva pronto.</p>
+          </div>
+        )}
+
+        <!-- Pagination -->
+        {totalPages > 1 && (
+          <nav class="blog-listing__pagination" aria-label="Paginación">
+            <span class="blog-listing__pagination-info">
+              Página 1 de {totalPages}
+            </span>
+            <a href="/blog/pagina/2" class="blog-listing__pagination-btn">
+              Siguiente
+              <i class="fas fa-arrow-right" aria-hidden="true"></i>
+            </a>
+          </nav>
+        )}
+      </div>
+    </section>
+
+    <!-- Newsletter CTA -->
+    <section class="blog-listing__cta">
+      <div class="container">
+        <div class="blog-cta-box">
+          <div class="blog-cta-box__content">
+            <i class="fas fa-envelope-open-text" aria-hidden="true"></i>
+            <h2>¿Desea recibir nuestros análisis jurídicos?</h2>
+            <p>Suscríbase para recibir actualizaciones sobre derecho administrativo y funcionarios públicos.</p>
+          </div>
+          <a
+            href="https://wa.me/56965870256?text=Quisiera%20suscribirme%20a%20las%20actualizaciones%20del%20blog"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="blog-cta-box__btn"
+          >
+            <i class="fab fa-whatsapp" aria-hidden="true"></i>
+            Suscribirse por WhatsApp
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+  <WhatsAppFloat />
+  <BackToTop />
+</BaseLayout>
+
+<style>
+  /* Hero */
+  .blog-listing__hero {
+    padding: calc(72px + var(--space-12)) 0 var(--space-12);
+    background: linear-gradient(180deg, #0c2340 0%, #1a365d 100%);
+    color: white;
+    text-align: center;
+  }
+
+  .blog-listing__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-4);
+    background: rgba(201, 169, 97, 0.15);
+    border: 1px solid rgba(201, 169, 97, 0.3);
+    border-radius: 20px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--gold);
+    margin-bottom: var(--space-6);
+  }
+
+  .blog-listing__title {
+    font-family: var(--font-display);
+    font-size: var(--text-4xl);
+    font-weight: 700;
+    margin-bottom: var(--space-4);
+    letter-spacing: -0.02em;
+  }
+
+  .blog-listing__subtitle {
+    font-size: var(--text-lg);
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  /* Categories */
+  .blog-listing__categories {
+    padding: var(--space-6) 0;
+    background: var(--white);
+    border-bottom: 1px solid var(--gray-200);
+    position: sticky;
+    top: 72px;
+    z-index: 100;
+  }
+
+  .blog-listing__categories-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    justify-content: center;
+  }
+
+  .blog-listing__category-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-4);
+    background: var(--gray-100);
+    border-radius: 20px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--gray-700);
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .blog-listing__category-btn:hover,
+  .blog-listing__category-btn.active {
+    background: var(--blue-primary);
+    color: white;
+  }
+
+  .blog-listing__category-count {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0 var(--space-2);
+    border-radius: 10px;
+    font-size: 0.75rem;
+  }
+
+  .blog-listing__category-btn.active .blog-listing__category-count {
+    background: rgba(255, 255, 255, 0.25);
+  }
+
+  /* Featured */
+  .blog-listing__featured {
+    padding: var(--space-12) 0;
+  }
+
+  .blog-featured-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-8);
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    text-decoration: none;
+    box-shadow: var(--shadow-elevation-medium);
+    transition: all 0.4s ease;
+  }
+
+  .blog-featured-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-elevation-high);
+  }
+
+  .blog-featured-card__image {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+  }
+
+  .blog-featured-card__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+
+  .blog-featured-card:hover .blog-featured-card__image img {
+    transform: scale(1.05);
+  }
+
+  .blog-featured-card__badge {
+    position: absolute;
+    top: var(--space-4);
+    left: var(--space-4);
+    padding: var(--space-2) var(--space-3);
+    background: var(--gold);
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-radius: 6px;
+  }
+
+  .blog-featured-card__content {
+    padding: var(--space-8);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .blog-featured-card__category {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--blue-primary);
+    margin-bottom: var(--space-3);
+  }
+
+  .blog-featured-card__title {
+    font-family: var(--font-display);
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    color: var(--gray-900);
+    margin-bottom: var(--space-4);
+    line-height: 1.3;
+  }
+
+  .blog-featured-card__excerpt {
+    font-size: var(--text-base);
+    color: var(--gray-600);
+    line-height: 1.7;
+    margin-bottom: var(--space-6);
+  }
+
+  .blog-featured-card__meta {
+    display: flex;
+    gap: var(--space-4);
+    font-size: 0.875rem;
+    color: var(--gray-500);
+  }
+
+  .blog-featured-card__meta i {
+    margin-right: var(--space-1);
+    color: var(--gold);
+  }
+
+  /* Grid Section */
+  .blog-listing__grid-section {
+    padding: var(--space-12) 0;
+    background: var(--gray-50);
+  }
+
+  .blog-listing__section-title {
+    font-family: var(--font-display);
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    color: var(--gray-900);
+    margin-bottom: var(--space-8);
+  }
+
+  .blog-listing__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: var(--space-8);
+  }
+
+  /* Post Card */
+  .blog-card {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    text-decoration: none;
+    box-shadow: var(--shadow-elevation-low);
+    transition: all 0.3s ease;
+  }
+
+  .blog-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-elevation-medium);
+  }
+
+  .blog-card__image {
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+  }
+
+  .blog-card__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+
+  .blog-card:hover .blog-card__image img {
+    transform: scale(1.05);
+  }
+
+  .blog-card__content {
+    padding: var(--space-5);
+  }
+
+  .blog-card__category {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--blue-primary);
+    margin-bottom: var(--space-2);
+  }
+
+  .blog-card__title {
+    font-family: var(--font-display);
+    font-size: var(--text-lg);
+    font-weight: 600;
+    color: var(--gray-900);
+    margin-bottom: var(--space-3);
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .blog-card__excerpt {
+    font-size: 0.9375rem;
+    color: var(--gray-600);
+    line-height: 1.6;
+    margin-bottom: var(--space-4);
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .blog-card__meta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: 0.8125rem;
+    color: var(--gray-500);
+  }
+
+  /* Empty State */
+  .blog-listing__empty {
+    text-align: center;
+    padding: var(--space-16) var(--space-6);
+    color: var(--gray-500);
+  }
+
+  .blog-listing__empty i {
+    font-size: 4rem;
+    color: var(--gray-300);
+    margin-bottom: var(--space-6);
+  }
+
+  .blog-listing__empty h3 {
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    color: var(--gray-700);
+    margin-bottom: var(--space-3);
+  }
+
+  /* Pagination */
+  .blog-listing__pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-6);
+    margin-top: var(--space-12);
+    padding-top: var(--space-8);
+    border-top: 1px solid var(--gray-200);
+  }
+
+  .blog-listing__pagination-info {
+    font-size: 0.9375rem;
+    color: var(--gray-600);
+  }
+
+  .blog-listing__pagination-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-3) var(--space-5);
+    background: var(--blue-primary);
+    color: white;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+  }
+
+  .blog-listing__pagination-btn:hover {
+    background: var(--blue-dark);
+    transform: translateY(-2px);
+  }
+
+  /* CTA Section */
+  .blog-listing__cta {
+    padding: var(--space-16) 0;
+    background: linear-gradient(180deg, var(--gray-50) 0%, var(--white) 100%);
+  }
+
+  .blog-cta-box {
+    background: linear-gradient(135deg, #0c2340 0%, #1a365d 100%);
+    border-radius: 20px;
+    padding: var(--space-10);
+    text-align: center;
+    color: white;
+  }
+
+  .blog-cta-box__content {
+    margin-bottom: var(--space-8);
+  }
+
+  .blog-cta-box__content i {
+    font-size: 2.5rem;
+    color: var(--gold);
+    margin-bottom: var(--space-4);
+  }
+
+  .blog-cta-box h2 {
+    font-family: var(--font-display);
+    font-size: var(--text-2xl);
+    margin-bottom: var(--space-3);
+  }
+
+  .blog-cta-box p {
+    font-size: var(--text-base);
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .blog-cta-box__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-4) var(--space-8);
+    background: #25d366;
+    color: white;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+  }
+
+  .blog-cta-box__btn:hover {
+    background: #22c55e;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+  }
+
+  /* Screen reader only */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+  }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .blog-featured-card {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .blog-listing__hero {
+      padding: calc(72px + var(--space-8)) 0 var(--space-8);
+    }
+
+    .blog-listing__title {
+      font-size: var(--text-2xl);
+    }
+
+    .blog-listing__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .blog-listing__categories-nav {
+      justify-content: flex-start;
+      overflow-x: auto;
+      flex-wrap: nowrap;
+      padding-bottom: var(--space-2);
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .blog-listing__category-btn {
+      flex-shrink: 0;
+    }
+  }
+</style>

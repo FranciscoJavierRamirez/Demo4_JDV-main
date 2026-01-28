@@ -2,7 +2,7 @@
 slug: "defensa-penal"
 
 seo:
-  title: "Defensa Penal para Víctimas e Imputados | JDV & Abogados"
+  title: "Defensa Penal para Víctimas e Imputados | JDV Abogados"
   description: "Representación penal para víctimas de delitos e imputados. Estrategia jurídica fundada, intervención temprana y defensa ética ante el sistema penal chileno."
   canonical: "/areas-practicas/defensa-penal"
 

@@ -2,7 +2,7 @@
 slug: "civil"
 
 seo:
-  title: "Derecho Civil: Cobranzas, Contratos e Indemnizaciones | JDV & Abogados"
+  title: "Derecho Civil: Cobranzas, Contratos e Indemnizaciones | JDV Abogados"
   description: "Asesoría y representación en demandas civiles, cobranzas, juicios ejecutivos, arrendamientos e indemnizaciones. Defensa efectiva de tus derechos patrimoniales."
   canonical: "/areas-practicas/civil"
 

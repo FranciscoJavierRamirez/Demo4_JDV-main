@@ -1,5 +1,5 @@
 ---
-sectionTitle: "¿Por Qué Elegir JDV & Abogados?"
+sectionTitle: "¿Por Qué Elegir JDV Abogados?"
 
 benefits:
   - icon: "fas fa-medal"

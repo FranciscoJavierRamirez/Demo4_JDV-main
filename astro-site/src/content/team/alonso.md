@@ -2,13 +2,16 @@
 order: 4
 name: "Alonso Aguirre Del Valle"
 role: "Abogado Asociado"
-description: "Abogado integrante del equipo de JDV & Abogados, aporta su formación profesional y dedicación en la gestión de casos. Trabaja bajo la dirección y experiencia de Jacqueline Del Valle, reforzando el compromiso del estudio con la defensa de los derechos de nuestros clientes."
-shortDescription: "Abogado · Equipo JDV & Abogados"
+description: "Abogado integrante del equipo de JDV Abogados, dedicado al apoyo en materias de derecho estatutario y fiscalización. Colabora en la revisión documental, preparación de informes y coordinación de diligencias, fortaleciendo la capacidad operativa del estudio."
+shortDescription: "Derecho Estatutario · Apoyo en Fiscalización"
 image: "/team/alonso.svg"
 featured: false
 experienceNote: "Forma parte del equipo liderado por Jacqueline Del Valle"
 credentials:
   - "Abogado"
+  - "Apoyo en materias de derecho estatutario"
+  - "Revisión documental y preparación de informes"
 social:
+  linkedin: "https://www.linkedin.com/in/alonso-aguirre-del-valle"
   email: "contacto@jdvabogados.cl"
 ---

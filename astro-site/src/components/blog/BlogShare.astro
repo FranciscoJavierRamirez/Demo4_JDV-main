@@ -1,0 +1,233 @@
+---
+/**
+ * BlogShare - Botones de compartir
+ * LinkedIn, Twitter, Email, Copiar enlace
+ */
+
+interface Props {
+  url: string;
+  title: string;
+  postSlug?: string;
+}
+
+const { url, title, postSlug = '' } = Astro.props;
+
+const encodedUrl = encodeURIComponent(url);
+const encodedTitle = encodeURIComponent(title);
+
+const shareLinks = {
+  linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`,
+  twitter: `https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}`,
+  email: `mailto:?subject=${encodedTitle}&body=Te%20comparto%20este%20art%C3%ADculo%3A%20${encodedUrl}`
+};
+---
+
+<section class="blog-share" data-post-slug={postSlug}>
+  <div class="blog-share__container">
+    <span class="blog-share__label">
+      <i class="fas fa-share-alt" aria-hidden="true"></i>
+      Compartir artículo
+    </span>
+
+    <div class="blog-share__buttons">
+      <a
+        href={shareLinks.linkedin}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="blog-share__btn blog-share__btn--linkedin"
+        data-share-platform="linkedin"
+        aria-label="Compartir en LinkedIn"
+      >
+        <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+        <span class="blog-share__btn-text">LinkedIn</span>
+      </a>
+
+      <a
+        href={shareLinks.twitter}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="blog-share__btn blog-share__btn--twitter"
+        data-share-platform="twitter"
+        aria-label="Compartir en Twitter"
+      >
+        <i class="fab fa-x-twitter" aria-hidden="true"></i>
+        <span class="blog-share__btn-text">Twitter</span>
+      </a>
+
+      <a
+        href={shareLinks.email}
+        class="blog-share__btn blog-share__btn--email"
+        data-share-platform="email"
+        aria-label="Compartir por Email"
+      >
+        <i class="fas fa-envelope" aria-hidden="true"></i>
+        <span class="blog-share__btn-text">Email</span>
+      </a>
+
+      <button
+        class="blog-share__btn blog-share__btn--copy"
+        data-share-platform="copy"
+        data-url={url}
+        aria-label="Copiar enlace"
+      >
+        <i class="fas fa-link" aria-hidden="true"></i>
+        <span class="blog-share__btn-text">Copiar</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<style>
+  .blog-share {
+    padding: var(--space-6) 0;
+  }
+
+  .blog-share__container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-4);
+  }
+
+  .blog-share__label {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--gray-600);
+  }
+
+  .blog-share__label i {
+    color: var(--gold);
+  }
+
+  .blog-share__buttons {
+    display: flex;
+    gap: var(--space-3);
+  }
+
+  .blog-share__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-3) var(--space-4);
+    border-radius: 10px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: none;
+  }
+
+  .blog-share__btn:hover {
+    transform: translateY(-2px);
+  }
+
+  .blog-share__btn--linkedin {
+    background: #0A66C2;
+    color: white;
+  }
+
+  .blog-share__btn--linkedin:hover {
+    background: #004182;
+    box-shadow: 0 4px 12px rgba(10, 102, 194, 0.3);
+  }
+
+  .blog-share__btn--twitter {
+    background: #000;
+    color: white;
+  }
+
+  .blog-share__btn--twitter:hover {
+    background: #333;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+
+  .blog-share__btn--email {
+    background: var(--gray-700);
+    color: white;
+  }
+
+  .blog-share__btn--email:hover {
+    background: var(--gray-800);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  .blog-share__btn--copy {
+    background: var(--gray-100);
+    color: var(--gray-700);
+    font-family: inherit;
+  }
+
+  .blog-share__btn--copy:hover {
+    background: var(--gray-200);
+  }
+
+  .blog-share__btn--copy.copied {
+    background: #22c55e;
+    color: white;
+  }
+
+  /* Responsive */
+  @media (max-width: 640px) {
+    .blog-share__container {
+      flex-direction: column;
+    }
+
+    .blog-share__buttons {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .blog-share__btn-text {
+      display: none;
+    }
+
+    .blog-share__btn {
+      padding: var(--space-3);
+    }
+  }
+</style>
+
+<script>
+  // Copy link functionality
+  document.querySelectorAll('.blog-share__btn--copy').forEach(btn => {
+    btn.addEventListener('click', async function() {
+      const url = this.getAttribute('data-url') || window.location.href;
+
+      try {
+        await navigator.clipboard.writeText(url);
+        this.classList.add('copied');
+        const textSpan = this.querySelector('.blog-share__btn-text');
+        const originalText = textSpan?.textContent;
+        if (textSpan) textSpan.textContent = 'Copiado';
+
+        setTimeout(() => {
+          this.classList.remove('copied');
+          if (textSpan && originalText) textSpan.textContent = originalText;
+        }, 2000);
+      } catch (err) {
+        console.error('Error al copiar:', err);
+      }
+    });
+  });
+
+  // Share tracking
+  document.querySelectorAll('.blog-share [data-share-platform]').forEach(el => {
+    el.addEventListener('click', (e) => {
+      const container = (e.currentTarget as HTMLElement).closest('.blog-share');
+      const postSlug = container?.getAttribute('data-post-slug');
+      const platform = (e.currentTarget as HTMLElement).getAttribute('data-share-platform');
+
+      if (typeof (window as any).gtag !== 'undefined') {
+        (window as any).gtag('event', 'share', {
+          method: platform,
+          post_slug: postSlug
+        });
+      }
+    });
+  });
+</script>

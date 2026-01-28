@@ -1,6 +1,6 @@
 ---
 brand:
-  title: "JDV & Abogados"
+  title: "JDV Abogados"
   description: "Defendemos tus derechos con experiencia, dedicación y un enfoque humano."
   rating:
     stars: 4.9
@@ -9,15 +9,15 @@ brand:
     - platform: "facebook"
       url: "https://facebook.com/jdvabogados"
       icon: "fab fa-facebook-f"
-      label: "Visitar página de Facebook de JDV & Abogados"
+      label: "Visitar página de Facebook de JDV Abogados"
     - platform: "instagram"
       url: "https://instagram.com/jdvabogados"
       icon: "fab fa-instagram"
-      label: "Visitar perfil de Instagram de JDV & Abogados"
+      label: "Visitar perfil de Instagram de JDV Abogados"
     - platform: "linkedin"
       url: "https://linkedin.com/company/jdvabogados"
       icon: "fab fa-linkedin-in"
-      label: "Visitar página de LinkedIn de JDV & Abogados"
+      label: "Visitar página de LinkedIn de JDV Abogados"
 
 columns:
   areas:
@@ -84,7 +84,7 @@ trust:
       text: "Datos<br>Protegidos"
 
 bottom:
-  copyright: "© 2026 JDV & Abogados. Todos los derechos reservados."
+  copyright: "© 2026 JDV Abogados. Todos los derechos reservados."
 
 legal:
   links:
@@ -96,5 +96,5 @@ legal:
       href: "../cookies/"
     - text: "Aviso Legal"
       href: "../aviso-legal/"
-  disclaimer: "JDV & Abogados es un estudio jurídico inscrito en el Colegio de Abogados de Chile. La información en este sitio no constituye asesoría legal formal. Consulta profesional requerida para casos específicos."
+  disclaimer: "JDV Abogados es un estudio jurídico inscrito en el Colegio de Abogados de Chile. La información en este sitio no constituye asesoría legal formal. Consulta profesional requerida para casos específicos."
 ---

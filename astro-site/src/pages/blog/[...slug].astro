@@ -1,0 +1,230 @@
+---
+/**
+ * Blog Post - Página dinámica para posts individuales
+ */
+
+import { getCollection } from 'astro:content';
+import BlogLayout from '../../layouts/BlogLayout.astro';
+import Header from '../../components/nav/Header.astro';
+import Footer from '../../components/home/Footer.astro';
+import WhatsAppFloat from '../../components/WhatsAppFloat.astro';
+import BackToTop from '../../components/BackToTop.astro';
+
+import BlogProgress from '../../components/blog/BlogProgress.astro';
+import BlogBreadcrumbs from '../../components/blog/BlogBreadcrumbs.astro';
+import BlogHero from '../../components/blog/BlogHero.astro';
+import BlogToC from '../../components/blog/BlogToC.astro';
+import BlogContent from '../../components/blog/BlogContent.astro';
+import BlogCTA from '../../components/blog/BlogCTA.astro';
+import BlogAuthor from '../../components/blog/BlogAuthor.astro';
+import BlogShare from '../../components/blog/BlogShare.astro';
+import BlogRelated from '../../components/blog/BlogRelated.astro';
+
+import {
+  shouldPublish,
+  calculateReadingTime,
+  getRelatedPosts
+} from '../../utils/blog';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+
+  return posts
+    .filter(shouldPublish)
+    .map(post => ({
+      params: { slug: post.slug },
+      props: { post }
+    }));
+}
+
+const { post } = Astro.props;
+const { Content, headings } = await post.render();
+const readingTime = calculateReadingTime(post.body);
+
+// Posts relacionados
+const allPosts = await getCollection('blog');
+const relatedPosts = getRelatedPosts(post, allPosts, 3);
+
+const canonicalUrl = `https://jdvabogados.cl/blog/${post.slug}`;
+---
+
+<BlogLayout
+  title={post.data.title}
+  description={post.data.excerpt}
+  image={post.data.heroImage}
+  publishDate={post.data.publishDate}
+  author={post.data.author}
+  tags={post.data.tags}
+  slug={post.slug}
+>
+  <!-- Reading Progress Bar -->
+  <BlogProgress />
+
+  <!-- Header -->
+  <Header />
+
+  <!-- Breadcrumbs -->
+  <BlogBreadcrumbs
+    title={post.data.title}
+    category={post.data.category}
+  />
+
+  <!-- Hero -->
+  <BlogHero
+    title={post.data.title}
+    excerpt={post.data.excerpt}
+    category={post.data.category}
+    publishDate={post.data.publishDate}
+    author={post.data.author}
+    readingTime={readingTime}
+    heroImage={post.data.heroImage}
+    heroAlt={post.data.heroAlt}
+    tags={post.data.tags}
+  />
+
+  <!-- Article Content -->
+  <article class="blog-article">
+    <div class="blog-article__container">
+      <!-- ToC Sidebar (Desktop) -->
+      {headings.length > 2 && (
+        <aside class="blog-article__sidebar">
+          <BlogToC headings={headings} />
+        </aside>
+      )}
+
+      <!-- Main Content -->
+      <div class="blog-article__main">
+        <!-- ToC Mobile (dentro del contenido) -->
+        {headings.length > 2 && (
+          <div class="blog-article__toc-mobile">
+            <BlogToC headings={headings} />
+          </div>
+        )}
+
+        <!-- CTA Inicio -->
+        {post.data.showCtaInicio && (
+          <BlogCTA variant="inicio" postSlug={post.slug} />
+        )}
+
+        <!-- Content -->
+        <BlogContent>
+          <Content />
+        </BlogContent>
+
+        <!-- CTA Medio (después del contenido, antes de conclusión) -->
+        {post.data.showCtaMedio && (
+          <BlogCTA variant="medio" postSlug={post.slug} />
+        )}
+
+        <!-- Author -->
+        <BlogAuthor author={post.data.author} />
+
+        <!-- Share -->
+        <BlogShare
+          url={canonicalUrl}
+          title={post.data.title}
+          postSlug={post.slug}
+        />
+
+        <!-- CTA Final -->
+        {post.data.showCtaFinal && (
+          <BlogCTA variant="final" postSlug={post.slug} />
+        )}
+      </div>
+    </div>
+  </article>
+
+  <!-- Related Content -->
+  <BlogRelated
+    services={post.data.relatedServices}
+    posts={relatedPosts}
+  />
+
+  <!-- Footer -->
+  <Footer />
+
+  <!-- Floating Elements -->
+  <WhatsAppFloat />
+  <BackToTop />
+
+  <!-- Schema.org BlogPosting -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": post.data.title,
+    "description": post.data.excerpt,
+    "image": `https://jdvabogados.cl${post.data.heroImage}`,
+    "author": {
+      "@type": "Person",
+      "name": "Jacqueline del Valle Inostroza",
+      "jobTitle": "Abogada Especialista en Derecho Administrativo",
+      "affiliation": {
+        "@type": "LegalService",
+        "name": "JDV Abogados"
+      }
+    },
+    "publisher": {
+      "@type": "LegalService",
+      "name": "JDV Abogados",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://jdvabogados.cl/favicon.svg"
+      }
+    },
+    "datePublished": post.data.publishDate,
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": canonicalUrl
+    },
+    "articleSection": post.data.category,
+    "keywords": post.data.tags.join(", ")
+  })} />
+</BlogLayout>
+
+<style>
+  .blog-article {
+    padding: var(--space-8) 0 var(--space-16);
+    background: var(--white);
+  }
+
+  .blog-article__container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-6);
+  }
+
+  @media (min-width: 1024px) {
+    .blog-article__container {
+      grid-template-columns: 240px 1fr;
+      gap: var(--space-12);
+    }
+  }
+
+  .blog-article__sidebar {
+    display: none;
+  }
+
+  @media (min-width: 1024px) {
+    .blog-article__sidebar {
+      display: block;
+    }
+  }
+
+  .blog-article__main {
+    max-width: 720px;
+  }
+
+  .blog-article__toc-mobile {
+    display: block;
+    margin-bottom: var(--space-6);
+  }
+
+  @media (min-width: 1024px) {
+    .blog-article__toc-mobile {
+      display: none;
+    }
+  }
+</style>

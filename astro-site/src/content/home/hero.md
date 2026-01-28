@@ -7,7 +7,7 @@ title:
   line1: "Defendemos Tus Derechos"
   line2: "con Experiencia y Conocimiento Especializado"
 
-subtitle: "Jacqueline Del Valle Inostroza, con **35 años de experiencia** en la Contraloría General de la República. Especializada en **defensa estatutaria**, **defensa administrativa** y derechos de funcionarios públicos. Asesoría legal con cobertura nacional."
+subtitle: "Estudio fundado por **Jacqueline Del Valle Inostroza**, abogada de la Universidad de Valparaíso con **35 años en la Contraloría General de la República**. Nuestra misión: **asumir la defensa de quienes enfrentan la vulneración de sus derechos**."
 
 cta:
   primary:
@@ -50,6 +50,6 @@ scrollIndicator:
 
 images:
   background: "/home/fondo_hero.png"
-  hero: "/home/persona_hero.png"
-  heroAlt: "Jacqueline – Abogada Fundadora JDV & Abogados"
+  hero: "/Jaqueline_home_hero.png"
+  heroAlt: "Jacqueline – Abogada Fundadora JDV Abogados"
 ---

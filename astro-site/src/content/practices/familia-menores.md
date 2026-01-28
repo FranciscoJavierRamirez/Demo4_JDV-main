@@ -2,7 +2,7 @@
 slug: "familia-menores"
 
 seo:
-  title: "Derecho de Familia y Menores | JDV & Abogados"
+  title: "Derecho de Familia y Menores | JDV Abogados"
   description: "Representación en divorcios, tuiciones, pensiones de alimentos, adopciones y vulneración de derechos de niños. Asesoría ética y humana en Chile."
   canonical: "/areas-practicas/familia-menores"
 

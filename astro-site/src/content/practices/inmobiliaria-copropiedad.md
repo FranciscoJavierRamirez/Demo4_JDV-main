@@ -2,7 +2,7 @@
 slug: "inmobiliaria-copropiedad"
 
 seo:
-  title: "Asesoría Inmobiliaria y Copropiedad | JDV & Abogados"
+  title: "Asesoría Inmobiliaria y Copropiedad | JDV Abogados"
   description: "Expertos en compraventa, regularización de propiedades y asesoría a comunidades de edificios. Estudio de títulos, gestión notarial y cobro de gastos comunes."
   canonical: "/areas-practicas/inmobiliaria-copropiedad"
 

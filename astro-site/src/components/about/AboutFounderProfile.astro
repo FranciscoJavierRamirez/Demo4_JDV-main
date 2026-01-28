@@ -1,0 +1,418 @@
+---
+interface Props {
+  title: string;
+  subtitle: string;
+  badge: string;
+  bio: string;
+  positions: {
+    title: string;
+    items: string[];
+  };
+  education: {
+    title: string;
+    items: string[];
+  };
+  expertise: {
+    title: string;
+    items: string[];
+  };
+  values: {
+    text: string;
+  };
+}
+
+const { title, subtitle, badge, bio, positions, education, expertise, values } = Astro.props;
+---
+
+<section id="founder-profile" class="relative py-20 md:py-28 lg:py-32 overflow-hidden bg-[var(--blue-deeper)]">
+  <!-- Complex Mesh Gradient Background (Hero-style) -->
+  <div class="absolute inset-0 z-0">
+    <div class="absolute top-[-20%] left-[-10%] w-[70%] h-[70%] rounded-full
+         bg-[radial-gradient(circle,rgba(59,130,246,0.4)_0%,transparent_70%)]
+         blur-[120px] animate-[float_20s_ease-in-out_infinite]"></div>
+    <div class="absolute bottom-[-10%] right-[-5%] w-[60%] h-[60%] rounded-full
+         bg-[radial-gradient(circle,rgba(29,78,216,0.4)_0%,transparent_70%)]
+         blur-[100px] animate-[float_25s_ease-in-out_infinite_reverse]"></div>
+    <div class="absolute top-[40%] left-[30%] w-[40%] h-[40%] rounded-full
+         bg-[radial-gradient(circle,rgba(201,162,84,0.15)_0%,transparent_70%)]
+         blur-[80px] animate-[float_15s_ease-in-out_infinite_5s]"></div>
+  </div>
+
+  <!-- Noise Texture Overlay -->
+  <div class="absolute inset-0 z-1 opacity-[0.03] pointer-events-none mix-blend-overlay"
+       style="background-image: url('data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noise\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.65\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noise)\'/%3E%3C/svg%3E');"></div>
+
+  <!-- Gradient Overlay for Depth -->
+  <div class="absolute inset-0 z-2 bg-gradient-to-br from-[rgba(12,35,64,0.98)] via-[rgba(12,35,64,0.94)] to-[rgba(26,77,122,0.88)]"></div>
+
+  <div class="container relative z-10">
+    <!-- Section Header -->
+    <div class="founder-header text-center max-w-3xl mx-auto mb-16">
+      <!-- Badge glassmorphism -->
+      <span class="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2
+                   bg-white/10 backdrop-blur-lg rounded-full
+                   border border-white/20 text-xs sm:text-sm font-semibold text-white
+                   mb-3 sm:mb-4 shadow-lg">
+        <i class="fas fa-award text-[var(--gold)] text-sm"></i>
+        {badge}
+      </span>
+
+      <!-- Title -->
+      <h2 class="text-[clamp(2rem,4vw,3rem)] font-bold text-white mb-3
+                 drop-shadow-[0_2px_8px_rgba(0,0,0,0.3)]"
+          style="font-family: var(--font-display);">
+        {title}
+      </h2>
+
+      <!-- Subtitle -->
+      <p class="text-xl text-[var(--gold)] font-semibold mb-6">
+        {subtitle}
+      </p>
+
+      <!-- Bio -->
+      <p class="text-base text-white/80 leading-relaxed">
+        {bio}
+      </p>
+
+      <!-- Divider dorado -->
+      <div class="w-24 h-1 bg-gradient-to-r from-[var(--gold)] to-transparent
+                  mx-auto mt-6 rounded-full opacity-80"></div>
+    </div>
+
+    <!-- Grid Layout: 3 columns -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-12">
+      <!-- Positions Card -->
+      <div class="founder-card group relative bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl p-6 md:p-8
+                  shadow-[0_8px_30px_rgba(0,0,0,0.3)]
+                  hover:shadow-[0_12px_40px_rgba(201,169,97,0.25),0_0_60px_rgba(201,169,97,0.15)]
+                  hover:border-white/30 transition-all duration-500">
+        <!-- Spotlight Effect on Hover -->
+        <div class="absolute inset-0 opacity-0 group-hover:opacity-100
+                    transition-opacity duration-500 pointer-events-none z-[1]
+                    bg-[radial-gradient(600px_circle_at_var(--mouse-x)_var(--mouse-y),rgba(201,169,97,0.12),transparent_40%)]">
+        </div>
+
+        <!-- Icon -->
+        <div class="relative z-10 w-14 h-14 flex items-center justify-center
+                    bg-gradient-to-br from-[var(--gold)]/20 to-[var(--gold)]/10
+                    rounded-xl mb-5 group-hover:scale-110 transition-transform duration-300
+                    border border-[var(--gold)]/30 shadow-[0_4px_12px_rgba(201,169,97,0.2)]">
+          <i class="fas fa-briefcase text-2xl text-[var(--gold)]"></i>
+        </div>
+
+        <!-- Title -->
+        <h3 class="relative z-10 text-lg font-bold text-white mb-5"
+            style="font-family: var(--font-display);">
+          {positions.title}
+        </h3>
+
+        <!-- Items -->
+        <ul class="relative z-10 space-y-3">
+          {positions.items.map((item, i) => (
+            <li
+              class="position-item flex items-start gap-2.5 text-sm text-white/70 leading-relaxed"
+              data-index={i}
+            >
+              <i class="fas fa-check-circle text-[var(--gold)] mt-0.5 shrink-0 text-xs"></i>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Education Card -->
+      <div class="founder-card group relative bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl p-6 md:p-8
+                  shadow-[0_8px_30px_rgba(0,0,0,0.3)]
+                  hover:shadow-[0_12px_40px_rgba(201,169,97,0.25),0_0_60px_rgba(201,169,97,0.15)]
+                  hover:border-white/30 transition-all duration-500">
+        <!-- Spotlight Effect on Hover -->
+        <div class="absolute inset-0 opacity-0 group-hover:opacity-100
+                    transition-opacity duration-500 pointer-events-none z-[1]
+                    bg-[radial-gradient(600px_circle_at_var(--mouse-x)_var(--mouse-y),rgba(201,169,97,0.12),transparent_40%)]">
+        </div>
+
+        <!-- Icon -->
+        <div class="relative z-10 w-14 h-14 flex items-center justify-center
+                    bg-gradient-to-br from-[var(--gold)]/20 to-[var(--gold)]/10
+                    rounded-xl mb-5 group-hover:scale-110 transition-transform duration-300
+                    border border-[var(--gold)]/30 shadow-[0_4px_12px_rgba(201,169,97,0.2)]">
+          <i class="fas fa-graduation-cap text-2xl text-[var(--gold)]"></i>
+        </div>
+
+        <!-- Title -->
+        <h3 class="relative z-10 text-lg font-bold text-white mb-5"
+            style="font-family: var(--font-display);">
+          {education.title}
+        </h3>
+
+        <!-- Items -->
+        <ul class="relative z-10 space-y-3">
+          {education.items.map((item, i) => (
+            <li
+              class="education-item flex items-start gap-2.5 text-sm text-white/70 leading-relaxed"
+              data-index={i}
+            >
+              <i class="fas fa-check-circle text-[var(--gold)] mt-0.5 shrink-0 text-xs"></i>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Expertise Card -->
+      <div class="founder-card group relative bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl p-6 md:p-8
+                  shadow-[0_8px_30px_rgba(0,0,0,0.3)]
+                  hover:shadow-[0_12px_40px_rgba(201,169,97,0.25),0_0_60px_rgba(201,169,97,0.15)]
+                  hover:border-white/30 transition-all duration-500">
+        <!-- Spotlight Effect on Hover -->
+        <div class="absolute inset-0 opacity-0 group-hover:opacity-100
+                    transition-opacity duration-500 pointer-events-none z-[1]
+                    bg-[radial-gradient(600px_circle_at_var(--mouse-x)_var(--mouse-y),rgba(201,169,97,0.12),transparent_40%)]">
+        </div>
+
+        <!-- Icon -->
+        <div class="relative z-10 w-14 h-14 flex items-center justify-center
+                    bg-gradient-to-br from-[var(--gold)]/20 to-[var(--gold)]/10
+                    rounded-xl mb-5 group-hover:scale-110 transition-transform duration-300
+                    border border-[var(--gold)]/30 shadow-[0_4px_12px_rgba(201,169,97,0.2)]">
+          <i class="fas fa-balance-scale text-2xl text-[var(--gold)]"></i>
+        </div>
+
+        <!-- Title -->
+        <h3 class="relative z-10 text-lg font-bold text-white mb-5"
+            style="font-family: var(--font-display);">
+          {expertise.title}
+        </h3>
+
+        <!-- Items -->
+        <ul class="relative z-10 space-y-3">
+          {expertise.items.map((item, i) => (
+            <li
+              class="expertise-item flex items-start gap-2.5 text-sm text-white/70 leading-relaxed"
+              data-index={i}
+            >
+              <i class="fas fa-check-circle text-[var(--gold)] mt-0.5 shrink-0 text-xs"></i>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+
+    <!-- Values Statement - Full Width -->
+    <div class="founder-values max-w-4xl mx-auto">
+      <div class="relative bg-white/10 backdrop-blur-lg border border-white/20
+                  text-white p-8 md:p-12 rounded-3xl shadow-[0_8px_30px_rgba(0,0,0,0.3)] overflow-hidden">
+        <!-- Decorative Orbs -->
+        <div class="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] rounded-full
+                    bg-[radial-gradient(circle,rgba(201,162,84,0.15)_0%,transparent_70%)]
+                    blur-[60px] animate-[float_15s_ease-in-out_infinite]"></div>
+        <div class="absolute bottom-[-20%] right-[-10%] w-[40%] h-[40%] rounded-full
+                    bg-[radial-gradient(circle,rgba(59,130,246,0.2)_0%,transparent_70%)]
+                    blur-[60px] animate-[float_20s_ease-in-out_infinite_reverse]"></div>
+
+        <!-- Content -->
+        <div class="relative z-10">
+          <div class="flex items-start gap-4 mb-4">
+            <div class="w-12 h-12 flex items-center justify-center
+                        bg-[var(--gold)]/20 rounded-xl shrink-0 border border-[var(--gold)]/30">
+              <i class="fas fa-quote-left text-xl text-[var(--gold)]"></i>
+            </div>
+            <div>
+              <h3 class="text-2xl font-bold mb-4" style="font-family: var(--font-display);">
+                Nuestros Valores y Sellos
+              </h3>
+              <p class="text-lg leading-relaxed text-white/90">
+                {values.text}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* ========================================
+     Founder Profile Premium Animations
+     ======================================== */
+
+  /* Header entrance */
+  .founder-header {
+    opacity: 0;
+    transform: translateY(-30px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .founder-header.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Card entrance */
+  .founder-card {
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+  }
+
+  .founder-card.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* Staggered delays for cards */
+  .founder-card:nth-child(1).visible { transition-delay: 0ms; }
+  .founder-card:nth-child(2).visible { transition-delay: 150ms; }
+  .founder-card:nth-child(3).visible { transition-delay: 300ms; }
+
+  /* List items entrance */
+  .position-item,
+  .education-item,
+  .expertise-item {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+
+  .position-item.visible,
+  .education-item.visible,
+  .expertise-item.visible {
+    opacity: 1;
+    transform: translateX(0);
+    transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+  }
+
+  /* Staggered delays for list items */
+  [data-index="0"].visible { transition-delay: 0ms; }
+  [data-index="1"].visible { transition-delay: 80ms; }
+  [data-index="2"].visible { transition-delay: 160ms; }
+  [data-index="3"].visible { transition-delay: 240ms; }
+  [data-index="4"].visible { transition-delay: 320ms; }
+  [data-index="5"].visible { transition-delay: 400ms; }
+
+  /* Values statement entrance */
+  .founder-values {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  .founder-values.visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.3s,
+                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.3s;
+  }
+
+  /* Float animation for orbs */
+  @keyframes float {
+    0%, 100% {
+      transform: translate(0, 0) scale(1);
+    }
+    33% {
+      transform: translate(30px, -40px) scale(1.05);
+    }
+    66% {
+      transform: translate(-30px, 30px) scale(0.95);
+    }
+  }
+
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    .founder-header,
+    .founder-card,
+    .position-item,
+    .education-item,
+    .expertise-item,
+    .founder-values {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+
+    [class*="animate-[float"] {
+      animation: none !important;
+    }
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    #founder-profile {
+      padding-top: 3rem;
+      padding-bottom: 3rem;
+    }
+  }
+</style>
+
+<script is:inline>
+  (function() {
+    const initFounderProfileAnimation = () => {
+      const section = document.querySelector('#founder-profile');
+      if (!section) return;
+
+      const header = section.querySelector('.founder-header');
+      const cards = section.querySelectorAll('.founder-card');
+      const values = section.querySelector('.founder-values');
+      const allItems = section.querySelectorAll('.position-item, .education-item, .expertise-item');
+
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      if (prefersReducedMotion) {
+        header?.classList.add('visible');
+        cards?.forEach(card => card.classList.add('visible'));
+        values?.classList.add('visible');
+        allItems?.forEach(item => item.classList.add('visible'));
+        return;
+      }
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.1 });
+
+      // Observe all elements
+      if (header) observer.observe(header);
+      cards?.forEach(card => observer.observe(card));
+      if (values) observer.observe(values);
+
+      // Observe items inside visible cards
+      const cardObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const items = entry.target.querySelectorAll('.position-item, .education-item, .expertise-item');
+            items.forEach((item, index) => {
+              setTimeout(() => {
+                item.classList.add('visible');
+              }, index * 80);
+            });
+            cardObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.3 });
+
+      cards?.forEach(card => cardObserver.observe(card));
+
+      // Mouse tracking for spotlight effect
+      cards?.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          card.style.setProperty('--mouse-x', `${x}px`);
+          card.style.setProperty('--mouse-y', `${y}px`);
+        });
+      });
+    };
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initFounderProfileAnimation);
+    } else {
+      initFounderProfileAnimation();
+    }
+  })();
+</script>

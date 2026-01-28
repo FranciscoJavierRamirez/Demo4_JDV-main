@@ -2,7 +2,7 @@
 slug: "cliente-senior"
 
 seo:
-  title: "Servicios Legales para Adultos Mayores | JDV & Abogados"
+  title: "Servicios Legales para Adultos Mayores | JDV Abogados"
   description: "Atención legal integral y personalizada para personas mayores. Testamentos, poderes, defensa estatutaria, asuntos civiles y todas las áreas del estudio."
   canonical: "/areas-practicas/cliente-senior"
 

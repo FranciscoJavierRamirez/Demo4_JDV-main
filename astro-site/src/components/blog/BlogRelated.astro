@@ -1,0 +1,224 @@
+---
+/**
+ * BlogRelated - Posts relacionados + Servicios relacionados (unificado)
+ */
+
+import { getServiceData, formatDateShort, getCategoryLabel } from '../../utils/blog';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  services: string[];
+  posts: CollectionEntry<'blog'>[];
+}
+
+const { services, posts } = Astro.props;
+---
+
+<section class="blog-related">
+  <div class="blog-related__container">
+    <!-- Servicios relacionados -->
+    {services.length > 0 && (
+      <div class="blog-related__services">
+        <h3 class="blog-related__title">
+          <i class="fas fa-briefcase" aria-hidden="true"></i>
+          Servicios relacionados
+        </h3>
+        <div class="blog-related__services-grid">
+          {services.map(service => {
+            const serviceData = getServiceData(service);
+            return (
+              <a href={serviceData.href} class="blog-related__service-card">
+                <i class="fas fa-gavel" aria-hidden="true"></i>
+                <span>{serviceData.name}</span>
+                <i class="fas fa-arrow-right blog-related__arrow" aria-hidden="true"></i>
+              </a>
+            );
+          })}
+        </div>
+      </div>
+    )}
+
+    <!-- Posts relacionados -->
+    {posts.length > 0 && (
+      <div class="blog-related__posts">
+        <h3 class="blog-related__title">
+          <i class="fas fa-newspaper" aria-hidden="true"></i>
+          Artículos relacionados
+        </h3>
+        <div class="blog-related__posts-grid">
+          {posts.map(post => (
+            <a href={`/blog/${post.slug}`} class="blog-related__post-card">
+              <div class="blog-related__post-image">
+                <img
+                  src={post.data.heroImage}
+                  alt={post.data.heroAlt}
+                  loading="lazy"
+                />
+              </div>
+              <div class="blog-related__post-content">
+                <span class="blog-related__post-category">
+                  {getCategoryLabel(post.data.category)}
+                </span>
+                <h4 class="blog-related__post-title">{post.data.title}</h4>
+                <time class="blog-related__post-date">
+                  {formatDateShort(post.data.publishDate)}
+                </time>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    )}
+  </div>
+</section>
+
+<style>
+  .blog-related {
+    padding: var(--space-12) 0;
+    background: var(--gray-50);
+  }
+
+  .blog-related__container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 var(--space-6);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-12);
+  }
+
+  .blog-related__title {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    font-weight: 700;
+    color: var(--gray-900);
+    margin-bottom: var(--space-6);
+  }
+
+  .blog-related__title i {
+    color: var(--gold);
+  }
+
+  /* Services grid */
+  .blog-related__services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-4);
+  }
+
+  .blog-related__service-card {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-4) var(--space-5);
+    background: white;
+    border: 1px solid var(--gray-200);
+    border-radius: 12px;
+    text-decoration: none;
+    color: var(--gray-800);
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+
+  .blog-related__service-card:hover {
+    border-color: var(--blue-primary);
+    background: rgba(59, 130, 246, 0.03);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
+  }
+
+  .blog-related__service-card i:first-child {
+    color: var(--blue-primary);
+  }
+
+  .blog-related__arrow {
+    margin-left: auto;
+    font-size: 0.75rem;
+    color: var(--gray-400);
+    transition: transform 0.3s ease, color 0.3s ease;
+  }
+
+  .blog-related__service-card:hover .blog-related__arrow {
+    transform: translateX(4px);
+    color: var(--blue-primary);
+  }
+
+  /* Posts grid */
+  .blog-related__posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-6);
+  }
+
+  .blog-related__post-card {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    text-decoration: none;
+    box-shadow: var(--shadow-elevation-low);
+    transition: all 0.3s ease;
+  }
+
+  .blog-related__post-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-elevation-medium);
+  }
+
+  .blog-related__post-image {
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+  }
+
+  .blog-related__post-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+
+  .blog-related__post-card:hover .blog-related__post-image img {
+    transform: scale(1.05);
+  }
+
+  .blog-related__post-content {
+    padding: var(--space-5);
+  }
+
+  .blog-related__post-category {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--blue-primary);
+    margin-bottom: var(--space-2);
+  }
+
+  .blog-related__post-title {
+    font-family: var(--font-display);
+    font-size: var(--text-base);
+    font-weight: 600;
+    color: var(--gray-900);
+    line-height: 1.4;
+    margin-bottom: var(--space-3);
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .blog-related__post-date {
+    font-size: 0.8125rem;
+    color: var(--gray-500);
+  }
+
+  /* Responsive */
+  @media (max-width: 640px) {
+    .blog-related__posts-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

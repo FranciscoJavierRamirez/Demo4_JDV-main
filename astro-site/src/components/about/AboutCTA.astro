@@ -11,35 +11,75 @@ interface Props {
 const { title, text, button } = Astro.props;
 
 const whatsappUrl = "https://wa.me/56965870256?text=Necesito%20m%C3%A1s%20informaci%C3%B3n%20porque%20estoy%20interesado%20en%20recibir%20asesor%C3%ADa%20legal";
+
+// Trust features (mismo estilo que Home CTA)
+const features = [
+  { icon: "fas fa-shield-halved", text: "Consulta Confidencial" },
+  { icon: "fas fa-clock", text: "Respuesta en 24h" },
+  { icon: "fas fa-comments", text: "Primera Orientación Gratuita" },
+];
 ---
 
-<section id="about-cta" class="relative py-20 bg-gradient-to-br from-[var(--blue-primary)] via-[var(--blue-dark)] to-[var(--blue-deeper)] overflow-hidden">
-  <!-- Background Effects -->
-  <div class="absolute inset-0 pointer-events-none">
-    <div class="absolute top-0 left-1/4 w-[600px] h-[600px] bg-[radial-gradient(circle,rgba(201,162,84,0.15)_0%,transparent_70%)] blur-[100px] rounded-full animate-[float_15s_ease-in-out_infinite]"></div>
+<!-- CTA Section (consistente con Home CTA) -->
+<section id="about-cta" class="relative py-24 bg-gradient-to-br from-[var(--blue-primary)] via-[var(--blue-dark)] to-[var(--blue-deeper)] text-white overflow-hidden">
+  <!-- Animated Background Orbs (mismo estilo que Home) -->
+  <div class="absolute inset-0 z-[1] overflow-hidden pointer-events-none">
+    <div class="absolute w-[350px] h-[350px] rounded-full blur-[80px] opacity-25 -top-[100px] -right-[80px] bg-[radial-gradient(circle,var(--gold)_0%,transparent_70%)] animate-[float_20s_ease-in-out_infinite]"></div>
+    <div class="absolute w-[280px] h-[280px] rounded-full blur-[80px] opacity-25 -bottom-[80px] -left-[40px] bg-[radial-gradient(circle,var(--gold-light)_0%,transparent_70%)] animate-[float_20s_ease-in-out_infinite_10s]"></div>
+    <div class="absolute w-[200px] h-[200px] rounded-full blur-[60px] opacity-15 top-1/2 left-1/4 bg-[radial-gradient(circle,var(--blue-light)_0%,transparent_70%)] animate-[float_15s_ease-in-out_infinite_5s]"></div>
   </div>
 
-  <div class="container relative z-10 text-center">
-    <div class="cta-content max-w-2xl mx-auto">
-      <h2 class="text-[clamp(1.75rem,3.5vw,2.5rem)] font-bold text-white mb-4" style="font-family: var(--font-display);">
+  <div class="container relative z-[2]">
+    <div class="cta-content text-center max-w-[900px] mx-auto">
+      <!-- Icon -->
+      <div class="w-20 h-20 flex items-center justify-center bg-gradient-to-br from-[rgba(201,169,97,0.2)] to-[rgba(212,175,55,0.15)] backdrop-blur-lg border-2 border-[rgba(201,169,97,0.3)] rounded-[20px] mx-auto mb-8 animate-[pulseIcon_3s_ease-in-out_infinite]">
+        <i class="fas fa-scale-balanced text-4xl text-[var(--gold)]"></i>
+      </div>
+
+      <!-- Title -->
+      <h2 class="font-[var(--font-display)] text-[clamp(2rem,4vw,3rem)] font-extrabold mb-5 tracking-[-0.01em] bg-gradient-to-br from-white to-[var(--gold-light)] bg-clip-text text-transparent">
         {title}
       </h2>
 
-      <p class="text-lg text-white/85 mb-8">
+      <!-- Subtitle -->
+      <p class="text-[clamp(1.125rem,2vw,1.375rem)] opacity-95 mb-10 leading-relaxed max-w-2xl mx-auto">
         {text}
       </p>
 
-      <a
-        href={whatsappUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="group inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-br from-[#1a365d] via-[#1e3a5f] to-[#0f172a] border-2 border-[rgba(201,169,97,0.4)] rounded-xl font-bold shadow-[0_4px_20px_rgba(0,0,0,0.3),0_0_30px_rgba(201,169,97,0.15)] transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02] hover:border-[rgba(201,169,97,0.6)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.4),0_0_40px_rgba(201,169,97,0.25)]"
-      >
-        <span class="bg-gradient-to-r from-[#C9A961] via-[#E5D5AA] to-[#D4AF37] bg-clip-text text-transparent text-lg">
-          {button.text}
-        </span>
-        <i class={`${button.icon} text-xl text-[#C9A961] transition-transform group-hover:scale-110`}></i>
-      </a>
+      <!-- Actions -->
+      <div class="flex gap-6 justify-center items-center mb-10 flex-wrap">
+        <!-- WhatsApp Button (estilo Home) -->
+        <a
+          href={whatsappUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group relative px-12 py-5 text-xl bg-[var(--gold-gradient)] text-[var(--gold)] border-none rounded-[14px] font-bold shadow-[var(--shadow-gold)] overflow-hidden transition-all duration-200 hover:-translate-y-[3px] hover:scale-[1.02] hover:shadow-[0_2px_4px_0_rgba(0,0,0,0.05),0_8px_16px_0_rgba(0,0,0,0.1),0_20px_40px_0_rgba(201,162,84,0.5)] inline-flex items-center gap-3 no-underline"
+        >
+          <!-- Shimmer effect -->
+          <span class="absolute top-0 -left-full w-full h-full bg-gradient-to-r from-transparent via-white/40 to-transparent animate-[shimmer_3s_infinite] z-[1]"></span>
+          <i class={`${button.icon} relative z-[2]`}></i>
+          <span class="relative z-[2]">{button.text}</span>
+        </a>
+
+        <!-- Phone Button -->
+        <a
+          href="tel:+56965870256"
+          class="flex items-center gap-3 text-xl font-bold text-white no-underline px-8 py-4 bg-white/10 backdrop-blur-lg border-2 border-white/20 rounded-[14px] transition-all duration-200 hover:bg-white/15 hover:border-[var(--gold)] hover:text-[var(--gold-light)] hover:-translate-y-0.5 hover:shadow-[0_8px_20px_rgba(0,0,0,0.2)]"
+        >
+          <i class="fas fa-phone text-2xl"></i>
+          <span>+56 9 XXXX XXXX</span>
+        </a>
+      </div>
+
+      <!-- Features -->
+      <div class="flex justify-center gap-4 md:gap-6 flex-wrap">
+        {features.map(feature => (
+          <div class="flex items-center gap-2 text-[0.9375rem] opacity-90 px-4 py-3 bg-white/[0.08] rounded-lg backdrop-blur-sm transition-all duration-200 hover:bg-white/[0.12] hover:scale-[1.02] cursor-default">
+            <i class={`${feature.icon} text-[var(--gold)] text-lg`}></i>
+            <span class="hidden sm:inline">{feature.text}</span>
+          </div>
+        ))}
+      </div>
     </div>
   </div>
 </section>
@@ -51,6 +91,26 @@ const whatsappUrl = "https://wa.me/56965870256?text=Necesito%20m%C3%A1s%20inform
     }
     50% {
       transform: translateY(-20px) translateX(10px);
+    }
+  }
+
+  @keyframes pulseIcon {
+    0%, 100% {
+      transform: scale(1);
+      box-shadow: 0 0 0 0 rgba(201, 169, 97, 0.4);
+    }
+    50% {
+      transform: scale(1.05);
+      box-shadow: 0 0 30px 10px rgba(201, 169, 97, 0.2);
+    }
+  }
+
+  @keyframes shimmer {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(200%);
     }
   }
 
@@ -73,8 +133,8 @@ const whatsappUrl = "https://wa.me/56965870256?text=Necesito%20m%C3%A1s%20inform
       transition: none;
     }
 
-    .animate-\[float_15s_ease-in-out_infinite\] {
-      animation: none;
+    [class*="animate-["] {
+      animation: none !important;
     }
   }
 </style>

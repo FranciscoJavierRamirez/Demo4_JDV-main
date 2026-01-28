@@ -1,0 +1,160 @@
+---
+/**
+ * BlogAuthor - Caja de autor con foto y credenciales
+ */
+
+import { getAuthorData } from '../../utils/blog';
+
+interface Props {
+  author: string;
+}
+
+const { author } = Astro.props;
+const authorInfo = getAuthorData(author);
+---
+
+<section class="blog-author">
+  <div class="blog-author__container">
+    <div class="blog-author__image-wrapper">
+      <img
+        src={authorInfo.image}
+        alt={authorInfo.name}
+        class="blog-author__image"
+        loading="lazy"
+      />
+      <div class="blog-author__badge">
+        <i class="fas fa-check" aria-hidden="true"></i>
+      </div>
+    </div>
+
+    <div class="blog-author__info">
+      <span class="blog-author__label">Escrito por</span>
+      <h3 class="blog-author__name">{authorInfo.name}</h3>
+      <p class="blog-author__role">{authorInfo.role}</p>
+
+      {author === 'jacqueline-del-valle' && (
+        <div class="blog-author__credentials">
+          <span class="blog-author__credential">
+            <i class="fas fa-landmark" aria-hidden="true"></i>
+            Ex funcionaria Contraloría
+          </span>
+          <span class="blog-author__credential">
+            <i class="fas fa-award" aria-hidden="true"></i>
+            35 años de experiencia
+          </span>
+        </div>
+      )}
+    </div>
+  </div>
+</section>
+
+<style>
+  .blog-author {
+    padding: var(--space-8) 0;
+    border-top: 1px solid var(--gray-200);
+    border-bottom: 1px solid var(--gray-200);
+    margin: var(--space-10) 0;
+  }
+
+  .blog-author__container {
+    display: flex;
+    align-items: center;
+    gap: var(--space-6);
+  }
+
+  .blog-author__image-wrapper {
+    position: relative;
+    flex-shrink: 0;
+  }
+
+  .blog-author__image {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--gold);
+    box-shadow: 0 4px 20px rgba(201, 169, 97, 0.2);
+  }
+
+  .blog-author__badge {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 24px;
+    height: 24px;
+    background: var(--blue-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid white;
+  }
+
+  .blog-author__badge i {
+    color: white;
+    font-size: 0.625rem;
+  }
+
+  .blog-author__info {
+    flex: 1;
+  }
+
+  .blog-author__label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--gray-500);
+    margin-bottom: var(--space-1);
+  }
+
+  .blog-author__name {
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    font-weight: 700;
+    color: var(--gray-900);
+    margin-bottom: var(--space-1);
+  }
+
+  .blog-author__role {
+    font-size: 0.9375rem;
+    color: var(--gray-600);
+    line-height: 1.5;
+    margin-bottom: var(--space-4);
+  }
+
+  .blog-author__credentials {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+  }
+
+  .blog-author__credential {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: 0.8125rem;
+    color: var(--gray-700);
+    background: var(--gray-50);
+    padding: var(--space-2) var(--space-3);
+    border-radius: 6px;
+  }
+
+  .blog-author__credential i {
+    color: var(--gold);
+    font-size: 0.75rem;
+  }
+
+  /* Responsive */
+  @media (max-width: 640px) {
+    .blog-author__container {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .blog-author__credentials {
+      justify-content: center;
+    }
+  }
+</style>

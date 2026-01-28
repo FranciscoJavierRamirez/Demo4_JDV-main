@@ -4,6 +4,8 @@ import AboutLayout from '../layouts/AboutLayout.astro';
 import Header from '../components/nav/Header.astro';
 import AboutHero from '../components/about/AboutHero.astro';
 import AboutMission from '../components/about/AboutMission.astro';
+import AboutFounderProfile from '../components/about/AboutFounderProfile.astro';
+import AboutTimeline from '../components/about/AboutTimeline.astro';
 import AboutTeam from '../components/about/AboutTeam.astro';
 import AboutCTA from '../components/about/AboutCTA.astro';
 import Footer from '../components/home/Footer.astro';
@@ -17,7 +19,7 @@ if (!aboutData?.data) {
   throw new Error("About data not found from content collection");
 }
 
-const { seo, hero, mission, team, cta } = aboutData.data;
+const { seo, hero, mission, vision, values, founderProfile, timeline, team, cta } = aboutData.data;
 ---
 
 <AboutLayout title={seo.title} description={seo.description}>
@@ -29,13 +31,38 @@ const { seo, hero, mission, team, cta } = aboutData.data;
     badge={hero.badge}
     title={hero.title}
     subtitle={hero.subtitle}
+    foundationText={hero.foundationText}
+    stats={hero.stats}
+    cta={hero.cta}
+    image={hero.image}
   />
 
-  <!-- Mission Section -->
+  <!-- Mission & Vision Section -->
   <AboutMission
     title={mission.title}
     text={mission.text}
-    values={mission.values}
+    values={values}
+    vision={vision}
+  />
+
+  <!-- Founder Profile Section (New) -->
+  {founderProfile && (
+    <AboutFounderProfile
+      title={founderProfile.title}
+      subtitle={founderProfile.subtitle}
+      badge={founderProfile.badge}
+      bio={founderProfile.bio}
+      positions={founderProfile.positions}
+      education={founderProfile.education}
+      expertise={founderProfile.expertise}
+      values={founderProfile.values}
+    />
+  )}
+
+  <!-- Timeline Section -->
+  <AboutTimeline
+    title={timeline.title}
+    subtitle={timeline.subtitle}
   />
 
   <!-- Team Section -->

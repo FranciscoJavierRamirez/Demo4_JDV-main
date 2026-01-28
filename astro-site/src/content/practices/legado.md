@@ -2,7 +2,7 @@
 slug: "legado"
 
 seo:
-  title: "Planificación Sucesoria y Legado para Personas con Necesidades Especiales y Mascotas | JDV & Abogados"
+  title: "Planificación Sucesoria y Legado para Personas con Necesidades Especiales y Mascotas | JDV Abogados"
   description: "Asegura el futuro de tus hijos con necesidades especiales o tus mascotas. Testamentos, fideicomisos y planificación legal para que estén protegidos cuando ya no estés."
   canonical: "/areas-practicas/legado"
 

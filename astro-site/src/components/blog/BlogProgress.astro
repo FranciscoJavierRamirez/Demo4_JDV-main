@@ -1,0 +1,84 @@
+---
+/**
+ * BlogProgress - Barra de progreso de lectura
+ * Se muestra fija en la parte superior mientras se lee el artículo
+ */
+---
+
+<div class="blog-progress" id="blogProgress">
+  <div class="blog-progress__bar" id="blogProgressBar"></div>
+</div>
+
+<style>
+  .blog-progress {
+    position: fixed;
+    top: 72px; /* Debajo del header */
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: rgba(0, 0, 0, 0.05);
+    z-index: 999;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .blog-progress.visible {
+    opacity: 1;
+  }
+
+  .blog-progress__bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--gold) 0%, var(--gold-light) 100%);
+    border-radius: 0 2px 2px 0;
+    transition: width 0.1s linear;
+  }
+</style>
+
+<script>
+  const progressContainer = document.getElementById('blogProgress');
+  const progressBar = document.getElementById('blogProgressBar');
+
+  if (progressContainer && progressBar) {
+    let ticking = false;
+
+    function updateProgress() {
+      const article = document.querySelector('.blog-article') || document.body;
+      const articleRect = article.getBoundingClientRect();
+      const articleTop = window.scrollY + articleRect.top;
+      const articleHeight = articleRect.height;
+      const windowHeight = window.innerHeight;
+      const scrollY = window.scrollY;
+
+      // Calcular progreso
+      const start = articleTop;
+      const end = articleTop + articleHeight - windowHeight;
+      const current = scrollY;
+
+      let progress = 0;
+      if (current >= start) {
+        progress = Math.min(100, ((current - start) / (end - start)) * 100);
+      }
+
+      // Mostrar/ocultar barra
+      if (scrollY > 200) {
+        progressContainer.classList.add('visible');
+      } else {
+        progressContainer.classList.remove('visible');
+      }
+
+      progressBar.style.width = `${Math.max(0, progress)}%`;
+      ticking = false;
+    }
+
+    window.addEventListener('scroll', function() {
+      if (!ticking) {
+        window.requestAnimationFrame(updateProgress);
+        ticking = true;
+      }
+    }, { passive: true });
+
+    // Inicial
+    updateProgress();
+  }
+</script>

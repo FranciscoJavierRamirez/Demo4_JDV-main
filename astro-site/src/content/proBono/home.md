@@ -4,7 +4,7 @@ sectionSubtitle: "Comprometidos con el acceso a la justicia para todos"
 
 intro:
   icon: "fas fa-heart"
-  text: "En JDV & Abogados creemos en el acceso equitativo a la justicia. Por eso, ofrecemos servicios legales <strong>Pro Bono</strong> (gratuitos) para personas que califiquen según criterios socioeconómicos."
+  text: "En JDV Abogados creemos en el acceso equitativo a la justicia. Por eso, ofrecemos servicios legales <strong>Pro Bono</strong> (gratuitos) para personas que califiquen según criterios socioeconómicos."
 
 criteriaTitle: "¿Calificas para Servicios Pro Bono?"
 

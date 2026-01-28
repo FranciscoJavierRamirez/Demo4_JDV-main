@@ -1,0 +1,266 @@
+---
+/**
+ * BlogCTA - Componente único de CTA con 3 variantes
+ * inicio: Después del primer párrafo
+ * medio: A mitad del contenido
+ * final: Al final del artículo (incluye newsletter)
+ */
+
+import { ctaLinks, ctaContent } from '../../config/cta';
+
+interface Props {
+  variant: 'inicio' | 'medio' | 'final';
+  postSlug?: string;
+}
+
+const { variant, postSlug = '' } = Astro.props;
+
+const content = ctaContent[variant];
+---
+
+<aside
+  class={`blog-cta blog-cta--${variant}`}
+  data-cta-variant={variant}
+  data-post-slug={postSlug}
+>
+  <div class="blog-cta__content">
+    <div class="blog-cta__icon">
+      {variant === 'inicio' && <i class="fas fa-question-circle" aria-hidden="true"></i>}
+      {variant === 'medio' && <i class="fas fa-gavel" aria-hidden="true"></i>}
+      {variant === 'final' && <i class="fas fa-handshake" aria-hidden="true"></i>}
+    </div>
+    <div class="blog-cta__text">
+      <h3 class="blog-cta__title">{content.titulo}</h3>
+      <p class="blog-cta__description">{content.texto}</p>
+    </div>
+  </div>
+
+  <div class="blog-cta__buttons">
+    <a
+      href={ctaLinks.whatsapp.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="btn btn--whatsapp"
+      data-cta-action="whatsapp"
+    >
+      <i class="fab fa-whatsapp" aria-hidden="true"></i>
+      {ctaLinks.whatsapp.label}
+    </a>
+
+    <a
+      href={ctaLinks.calendly.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="btn btn--calendar"
+      data-cta-action="calendly"
+    >
+      <i class="fas fa-calendar-check" aria-hidden="true"></i>
+      {ctaLinks.calendly.label}
+    </a>
+
+    {content.showNewsletter && (
+      <a
+        href={ctaLinks.newsletter.url}
+        class="btn btn--newsletter"
+        data-cta-action="newsletter"
+      >
+        <i class="fas fa-envelope" aria-hidden="true"></i>
+        {ctaLinks.newsletter.label}
+      </a>
+    )}
+  </div>
+</aside>
+
+<style>
+  .blog-cta {
+    margin: var(--space-10) 0;
+    padding: var(--space-6) var(--space-8);
+    border-radius: 16px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Variant styles */
+  .blog-cta--inicio {
+    background: linear-gradient(135deg, rgba(201, 169, 97, 0.08) 0%, rgba(201, 169, 97, 0.03) 100%);
+    border: 1px solid rgba(201, 169, 97, 0.2);
+  }
+
+  .blog-cta--medio {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.08) 0%, rgba(59, 130, 246, 0.03) 100%);
+    border: 1px solid rgba(59, 130, 246, 0.2);
+  }
+
+  .blog-cta--final {
+    background: linear-gradient(135deg, #0c2340 0%, #1a365d 100%);
+    border: none;
+    color: white;
+  }
+
+  .blog-cta__content {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-5);
+    margin-bottom: var(--space-6);
+  }
+
+  .blog-cta__icon {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    font-size: 1.25rem;
+  }
+
+  .blog-cta--inicio .blog-cta__icon {
+    background: rgba(201, 169, 97, 0.15);
+    color: var(--gold);
+  }
+
+  .blog-cta--medio .blog-cta__icon {
+    background: rgba(59, 130, 246, 0.15);
+    color: var(--blue-primary);
+  }
+
+  .blog-cta--final .blog-cta__icon {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--gold);
+  }
+
+  .blog-cta__text {
+    flex: 1;
+  }
+
+  .blog-cta__title {
+    font-family: var(--font-display);
+    font-size: var(--text-lg);
+    font-weight: 700;
+    margin-bottom: var(--space-2);
+  }
+
+  .blog-cta--inicio .blog-cta__title,
+  .blog-cta--medio .blog-cta__title {
+    color: var(--gray-900);
+  }
+
+  .blog-cta--final .blog-cta__title {
+    color: white;
+  }
+
+  .blog-cta__description {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .blog-cta--inicio .blog-cta__description,
+  .blog-cta--medio .blog-cta__description {
+    color: var(--gray-600);
+  }
+
+  .blog-cta--final .blog-cta__description {
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .blog-cta__buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+  }
+
+  /* Button styles */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-3) var(--space-5);
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 0.9375rem;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    white-space: nowrap;
+  }
+
+  .btn:hover {
+    transform: translateY(-2px);
+  }
+
+  .btn--whatsapp {
+    background: #25d366;
+    color: white;
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+  }
+
+  .btn--whatsapp:hover {
+    background: #22c55e;
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+  }
+
+  .btn--calendar {
+    background: var(--blue-primary);
+    color: white;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+  }
+
+  .btn--calendar:hover {
+    background: var(--blue-dark);
+    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+  }
+
+  .btn--newsletter {
+    background: transparent;
+    border: 2px solid var(--gold);
+    color: var(--gold);
+  }
+
+  .btn--newsletter:hover {
+    background: var(--gold);
+    color: white;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .blog-cta {
+      padding: var(--space-5) var(--space-5);
+    }
+
+    .blog-cta__content {
+      flex-direction: column;
+      gap: var(--space-4);
+    }
+
+    .blog-cta__buttons {
+      flex-direction: column;
+    }
+
+    .btn {
+      justify-content: center;
+      width: 100%;
+    }
+  }
+</style>
+
+<script>
+  // CTA click tracking
+  document.querySelectorAll('.blog-cta a[data-cta-action]').forEach(link => {
+    link.addEventListener('click', (e) => {
+      const cta = (e.currentTarget as HTMLElement).closest('.blog-cta');
+      const variant = cta?.getAttribute('data-cta-variant');
+      const postSlug = cta?.getAttribute('data-post-slug');
+      const action = (e.currentTarget as HTMLElement).getAttribute('data-cta-action');
+
+      // Analytics tracking (if gtag exists)
+      if (typeof (window as any).gtag !== 'undefined') {
+        (window as any).gtag('event', 'cta_click', {
+          cta_variant: variant,
+          cta_action: action,
+          post_slug: postSlug
+        });
+      }
+    });
+  });
+</script>

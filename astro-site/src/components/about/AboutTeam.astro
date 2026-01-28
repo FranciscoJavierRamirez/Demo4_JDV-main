@@ -1,5 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
+import TeamCard from './TeamCard';
 
 interface Props {
   title: string;
@@ -13,187 +14,133 @@ const teamMembers = await getCollection('team');
 const sortedMembers = teamMembers.sort((a, b) => a.data.order - b.data.order);
 ---
 
-<section id="team" class="relative py-20 bg-[var(--blue-deeper)] overflow-hidden">
-  <!-- Background Effects -->
-  <div class="absolute inset-0 pointer-events-none">
-    <div class="absolute inset-0 opacity-[0.03]" style="background-image: linear-gradient(rgba(255,255,255,0.2) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.2) 1px, transparent 1px); background-size: 50px 50px;"></div>
-    <div class="absolute top-1/4 left-0 w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(59,130,246,0.12)_0%,transparent_70%)] blur-[100px] rounded-full"></div>
-    <div class="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-[radial-gradient(circle,rgba(201,162,84,0.08)_0%,transparent_70%)] blur-[100px] rounded-full"></div>
+<section id="team" class="relative py-20 md:py-28 lg:py-32 overflow-hidden bg-[var(--blue-deeper)]">
+  <!-- Complex Mesh Gradient Background (Hero-style) -->
+  <div class="absolute inset-0 z-0">
+    <div class="absolute top-[-20%] left-[-10%] w-[70%] h-[70%] rounded-full 
+         bg-[radial-gradient(circle,rgba(59,130,246,0.4)_0%,transparent_70%)] 
+         blur-[120px] animate-[float_20s_ease-in-out_infinite]"></div>
+    <div class="absolute bottom-[-10%] right-[-5%] w-[60%] h-[60%] rounded-full 
+         bg-[radial-gradient(circle,rgba(29,78,216,0.4)_0%,transparent_70%)] 
+         blur-[100px] animate-[float_25s_ease-in-out_infinite_reverse]"></div>
+    <div class="absolute top-[40%] left-[30%] w-[40%] h-[40%] rounded-full 
+         bg-[radial-gradient(circle,rgba(201,162,84,0.15)_0%,transparent_70%)] 
+         blur-[80px] animate-[float_15s_ease-in-out_infinite_5s]"></div>
   </div>
 
+  <!-- Noise Texture Overlay -->
+  <div class="absolute inset-0 z-1 opacity-[0.03] pointer-events-none mix-blend-overlay" 
+       style="background-image: url('data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noise\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.65\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noise)\'/%3E%3C/svg%3E');"></div>
+
+  <!-- Gradient Overlay for Depth -->
+  <div class="absolute inset-0 z-2 bg-gradient-to-br from-[rgba(12,35,64,0.98)] via-[rgba(12,35,64,0.94)] to-[rgba(26,77,122,0.88)]"></div>
+
   <div class="container relative z-10">
-    <!-- Section Header -->
-    <div class="team-header text-center mb-16">
-      <h2 class="text-[clamp(2rem,4vw,3rem)] font-bold text-white mb-4" style="font-family: var(--font-display);">
+    <!-- Section Header with Glassmorphism -->
+    <div class="team-header text-center mb-12 md:mb-16">
+      <!-- Badge glassmorphism (Hero-style) -->
+      <span class="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 
+                   bg-white/10 backdrop-blur-lg rounded-full 
+                   border border-white/20 text-xs sm:text-sm font-semibold text-white 
+                   mb-3 sm:mb-4 shadow-lg">
+        <i class="fas fa-users text-[var(--gold)] text-sm"></i>
+        Nuestro Equipo
+      </span>
+
+      <!-- Título blanco -->
+      <h2 class="text-[clamp(2rem,4vw,3rem)] font-bold text-white mb-3 sm:mb-4 
+                 drop-shadow-[0_2px_8px_rgba(0,0,0,0.3)] px-4" 
+          style="font-family: var(--font-display);">
         {title}
       </h2>
-      <p class="text-lg text-white/80 max-w-xl mx-auto">
+
+      <!-- Subtítulo -->
+      <p class="text-base sm:text-lg text-white/80 max-w-xl mx-auto px-4">
         {subtitle}
       </p>
-      <div class="w-24 h-1 bg-gradient-to-r from-[var(--gold)] to-transparent mx-auto mt-6 rounded-full opacity-80"></div>
+      
+      <!-- Divider dorado -->
+      <div class="w-24 h-1 bg-gradient-to-r from-[var(--gold)] to-transparent 
+                  mx-auto mt-6 rounded-full opacity-80"></div>
     </div>
 
-    <!-- Team Grid: 4 miembros -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+    <!-- Team Grid con React Components -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto">
       {sortedMembers.map((member, index) => (
-        <div
-          class={`team-card group relative rounded-3xl overflow-hidden transition-all duration-500 hover:-translate-y-3 ${member.data.featured ? 'shadow-[0_8px_40px_rgba(201,169,97,0.2)]' : 'shadow-xl'}`}
-          data-index={index}
-        >
-          <!-- Image -->
-          <div class="aspect-[3/4] overflow-hidden bg-[var(--gray-800)]">
-            <img
-              src={member.data.image}
-              alt={member.data.name}
-              class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-110"
-              loading="lazy"
-              onerror="this.onerror=null; this.src='/team/placeholder.svg'; this.dataset.fallback='true';"
-            />
-          </div>
-
-          <!-- Gradient Overlay -->
-          <div class="absolute inset-0 bg-gradient-to-t from-[rgba(12,35,64,0.98)] via-[rgba(12,35,64,0.4)] to-transparent"></div>
-
-          <!-- Content -->
-          <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
-            {member.data.featured && (
-              <span class="inline-flex items-center gap-1.5 px-3 py-1 bg-[var(--gold)]/20 backdrop-blur-sm rounded-full text-xs font-semibold text-[var(--gold-light)] mb-3 border border-[var(--gold)]/30">
-                <i class="fas fa-star text-[10px]"></i>
-                Fundadora
-              </span>
-            )}
-
-            <h3 class="text-xl font-bold mb-1" style="font-family: var(--font-display);">
-              {member.data.name}
-            </h3>
-
-            <p class="text-white/70 text-sm font-medium mb-3">
-              {member.data.role}
-            </p>
-
-            <p class="text-white/60 text-sm leading-relaxed line-clamp-3 group-hover:line-clamp-none transition-all duration-300">
-              {member.data.shortDescription || member.data.description}
-            </p>
-
-            {member.data.credentials && member.data.credentials.length > 0 && (
-              <div class="mt-4 pt-4 border-t border-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <ul class="space-y-1">
-                  {member.data.credentials.slice(0, 2).map(credential => (
-                    <li class="flex items-center gap-2 text-xs text-white/70">
-                      <i class="fas fa-check text-[var(--gold)] text-[10px]"></i>
-                      {credential}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
-          </div>
-
-          {/* Featured border glow */}
-          {member.data.featured && (
-            <div class="absolute inset-0 rounded-3xl border-2 border-[var(--gold)]/30 pointer-events-none"></div>
-          )}
-        </div>
+        <TeamCard 
+          member={member.data} 
+          index={index} 
+          client:visible 
+        />
       ))}
     </div>
   </div>
 </section>
 
 <style>
-  /* Team header entrance */
+  /* ========================================
+     Team Section Premium Animations
+     ======================================== */
+
+  /* Header entrance - Slide down with bounce */
   .team-header {
     opacity: 0;
-    transform: translateY(-20px);
-    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
-                transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    transform: translateY(-30px);
+    animation: slideInDown 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
   }
 
-  .team-header.visible {
-    opacity: 1;
-    transform: translateY(0);
+  @keyframes slideInDown {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
-  /* Team cards entrance */
-  .team-card {
-    opacity: 0;
-    transform: translateY(50px) scale(0.95);
+  /* Float animations para orbes */
+  @keyframes float {
+    0%, 100% { 
+      transform: translate(0, 0) scale(1); 
+    }
+    33% { 
+      transform: translate(60px, -80px) scale(1.1); 
+    }
+    66% { 
+      transform: translate(-60px, 60px) scale(0.9); 
+    }
   }
 
-  .team-card.visible {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  /* Shimmer effect para badge fundadora */
+  @keyframes shimmer {
+    0% { 
+      left: -100%; 
+    }
+    100% { 
+      left: 100%; 
+    }
   }
 
-  /* Staggered delays para 4 miembros */
-  .team-card[data-index="0"].visible { transition-delay: 0ms; }
-  .team-card[data-index="1"].visible { transition-delay: 150ms; }
-  .team-card[data-index="2"].visible { transition-delay: 300ms; }
-  .team-card[data-index="3"].visible { transition-delay: 450ms; }
-
-  /* Line clamp utility */
-  .line-clamp-3 {
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-
-  .group:hover .line-clamp-none {
-    -webkit-line-clamp: unset;
-  }
-
+  /* Reduced motion support */
   @media (prefers-reduced-motion: reduce) {
-    .team-header,
-    .team-card {
+    .team-header {
       opacity: 1;
       transform: none;
-      transition: none;
+      animation: none;
+    }
+    
+    [class*="animate-[float"] {
+      animation: none !important;
+    }
+
+    [class*="animate-[shimmer"] {
+      animation: none !important;
+    }
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    #team {
+      padding-top: 3rem;
+      padding-bottom: 3rem;
     }
   }
 </style>
-
-<script is:inline>
-  (function() {
-    const initTeamAnimation = () => {
-      const section = document.querySelector('#team');
-      const header = section?.querySelector('.team-header');
-      const cards = section?.querySelectorAll('.team-card');
-
-      if (!section) return;
-
-      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-      if (prefersReducedMotion) {
-        header?.classList.add('visible');
-        cards?.forEach(card => card.classList.add('visible'));
-        return;
-      }
-
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            header?.classList.add('visible');
-
-            cards?.forEach((card, index) => {
-              setTimeout(() => {
-                card.classList.add('visible');
-              }, 300 + (index * 150));
-            });
-
-            observer.disconnect();
-          }
-        });
-      }, { threshold: 0.1 });
-
-      observer.observe(section);
-    };
-
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', initTeamAnimation);
-    } else {
-      initTeamAnimation();
-    }
-  })();
-</script>

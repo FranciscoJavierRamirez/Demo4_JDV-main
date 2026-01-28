@@ -2,7 +2,7 @@
 slug: "animalista"
 
 seo:
-  title: "Negligencia Veterinaria y Maltrato Animal | JDV & Abogados"
+  title: "Negligencia Veterinaria y Maltrato Animal | JDV Abogados"
   description: "Protección legal para tutores de mascotas. Negligencia veterinaria, maltrato animal, Ley Cholito, conflictos vecinales. Representación judicial y extrajudicial."
   canonical: "/areas-practicas/animalista"
 

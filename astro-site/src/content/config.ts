@@ -416,16 +416,70 @@ const aboutCollection = defineCollection({
       }),
       title: z.string(),
       subtitle: z.string(),
+      foundationText: z.string().optional(),
+      stats: z.array(z.object({
+        icon: z.string(),
+        number: z.string(),
+        label: z.string(),
+        suffix: z.string().optional(),
+      })).optional(),
+      cta: z.object({
+        primary: z.object({
+          text: z.string(),
+          icon: z.string(),
+        }),
+        secondary: z.object({
+          text: z.string(),
+          icon: z.string(),
+          href: z.string(),
+        }),
+      }).optional(),
       image: z.string().optional(),
     }),
     mission: z.object({
       title: z.string(),
       text: z.string(),
-      values: z.array(z.object({
-        icon: z.string(),
+    }),
+    vision: z.object({
+      title: z.string(),
+      text: z.string(),
+    }).optional(),
+    values: z.array(z.object({
+      icon: z.string(),
+      title: z.string(),
+      description: z.string(),
+      detail: z.string().optional(),
+    })),
+    founderProfile: z.object({
+      title: z.string(),
+      subtitle: z.string(),
+      badge: z.string(),
+      bio: z.string(),
+      positions: z.object({
+        title: z.string(),
+        items: z.array(z.string()),
+      }),
+      education: z.object({
+        title: z.string(),
+        items: z.array(z.string()),
+      }),
+      expertise: z.object({
+        title: z.string(),
+        items: z.array(z.string()),
+      }),
+      values: z.object({
+        text: z.string(),
+      }),
+    }).optional(),
+    timeline: z.object({
+      title: z.string(),
+      subtitle: z.string(),
+      milestones: z.array(z.object({
+        year: z.string(),
         title: z.string(),
         description: z.string(),
-      })),
+        icon: z.string(),
+      })).optional(),
     }),
     team: z.object({
       title: z.string(),
@@ -463,6 +517,37 @@ const teamCollection = defineCollection({
   }),
 });
 
+// ============================================
+// COLECCIÓN PARA BLOG
+// ============================================
+
+const blogCollection = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string().max(70),
+    excerpt: z.string().max(200),
+    publishDate: z.string().datetime({ offset: true }),
+    category: z.enum([
+      'derecho-administrativo',
+      'funcionarios-publicos',
+      'contraloria',
+      'actualidad-legal',
+      'guias-practicas',
+      'casos-estudio'
+    ]),
+    tags: z.array(z.string()).min(1).max(10),
+    heroImage: z.string(),
+    heroAlt: z.string(),
+    relatedServices: z.array(z.string()).min(1).max(3),
+    author: z.enum(['jacqueline-del-valle', 'equipo-jdv']).default('jacqueline-del-valle'),
+    featured: z.boolean().default(false),
+    draft: z.boolean().default(false),
+    showCtaInicio: z.boolean().default(true),
+    showCtaMedio: z.boolean().default(true),
+    showCtaFinal: z.boolean().default(true),
+  })
+});
+
 export const collections = {
   home: homeCollection,
   stats: statsCollection,
@@ -480,4 +565,6 @@ export const collections = {
   aboutPreview: aboutPreviewCollection,
   about: aboutCollection,
   team: teamCollection,
+  // Colección para Blog
+  blog: blogCollection,
 };

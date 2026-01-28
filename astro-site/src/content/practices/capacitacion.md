@@ -2,7 +2,7 @@
 slug: "capacitacion"
 
 seo:
-  title: "Capacitación Legal para Organizaciones | JDV & Abogados"
+  title: "Capacitación Legal para Organizaciones | JDV Abogados"
   description: "Capacitación en Ley Karin, Estatuto Administrativo y Copropiedad. Relatora ex Contralora Regional con 35 años CGR. Presencial y remoto."
   canonical: "/areas-practicas/capacitacion"
 
@@ -111,7 +111,7 @@ faq:
   - question: "¿Ofrecen capacitaciones gratuitas para ciertas organizaciones?"
     answer: "Sí, bajo coordinación previa, ofrecemos acuerdos especiales de formación gratuita para asociaciones de funcionarios, fundaciones sin fines de lucro y organizaciones sociales que cumplan ciertos criterios. Contáctanos para evaluar tu caso."
   - question: "¿Se entrega certificado de participación?"
-    answer: "Sí, todos los participantes reciben un certificado de asistencia emitido por JDV & Abogados, válido para acreditar horas de capacitación ante empleadores y organizaciones."
+    answer: "Sí, todos los participantes reciben un certificado de asistencia emitido por JDV Abogados, válido para acreditar horas de capacitación ante empleadores y organizaciones."
 
 finalCta:
   headline: "Invierte en conocimiento. Protege a tu organización."

@@ -9,7 +9,7 @@ questions:
 
   - id: 2
     question: "¿Atienden casos en todo Chile?"
-    answer: "Sí, ofrecemos **cobertura nacional en las 16 regiones de Chile**. Gracias a 35 años de experiencia en la Contraloría General de la República, contamos con conocimiento profundo de los procedimientos administrativos en todo el país. Realizamos atención presencial, videollamadas y visitas a domicilio según el caso."
+    answer: "Sí, ofrecemos **cobertura nacional en las 16 regiones de Chile**. Gracias a 35 años de experiencia en la Contraloría General de la República, contamos con conocimiento profundo de los procedimientos administrativos en todo el país. La atención es remota, con posibilidad de atención presencial a nivel nacional dependiendo del servicio contratado."
 
   - id: 3
     question: "¿Qué es la defensa estatutaria y quién la necesita?"

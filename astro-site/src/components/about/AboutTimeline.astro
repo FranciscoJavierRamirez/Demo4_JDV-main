@@ -1,0 +1,119 @@
+---
+import AboutTimelineClient from './AboutTimelineClient';
+
+interface Props {
+  title: string;
+  subtitle: string;
+}
+
+const { title, subtitle } = Astro.props;
+---
+
+<section id="timeline" class="relative py-20 md:py-28 lg:py-32 overflow-hidden bg-[var(--blue-deeper)]">
+  <!-- Complex Mesh Gradient Background (Hero-style) -->
+  <div class="absolute inset-0 z-0">
+    <div class="absolute top-[-20%] left-[-10%] w-[70%] h-[70%] rounded-full 
+         bg-[radial-gradient(circle,rgba(59,130,246,0.4)_0%,transparent_70%)] 
+         blur-[120px] animate-[float_20s_ease-in-out_infinite]"></div>
+    <div class="absolute bottom-[-10%] right-[-5%] w-[60%] h-[60%] rounded-full 
+         bg-[radial-gradient(circle,rgba(29,78,216,0.4)_0%,transparent_70%)] 
+         blur-[100px] animate-[float_25s_ease-in-out_infinite_reverse]"></div>
+    <div class="absolute top-[40%] left-[30%] w-[40%] h-[40%] rounded-full 
+         bg-[radial-gradient(circle,rgba(201,162,84,0.15)_0%,transparent_70%)] 
+         blur-[80px] animate-[float_15s_ease-in-out_infinite_5s]"></div>
+  </div>
+
+  <!-- Noise Texture Overlay -->
+  <div class="absolute inset-0 z-1 opacity-[0.03] pointer-events-none mix-blend-overlay" 
+       style="background-image: url('data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noise\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.65\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noise)\'/%3E%3C/svg%3E');"></div>
+
+  <!-- Gradient Overlay for Depth -->
+  <div class="absolute inset-0 z-2 bg-gradient-to-br from-[rgba(12,35,64,0.98)] via-[rgba(12,35,64,0.94)] to-[rgba(26,77,122,0.88)]"></div>
+
+  <div class="container relative z-10">
+    <!-- Header with Glassmorphism -->
+    <div class="timeline-header text-center mb-12 md:mb-16">
+      <!-- Badge glassmorphism (Hero-style) -->
+      <span class="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 
+                   bg-white/10 backdrop-blur-lg rounded-full 
+                   border border-white/20 text-xs sm:text-sm font-semibold text-white 
+                   mb-3 sm:mb-4 shadow-lg">
+        <i class="fas fa-clock text-[var(--gold)] text-sm"></i>
+        Trayectoria
+      </span>
+
+      <!-- Título blanco -->
+      <h2 class="text-[clamp(2rem,4vw,3rem)] font-bold text-white mb-3 sm:mb-4 
+                 drop-shadow-[0_2px_8px_rgba(0,0,0,0.3)] px-4" 
+          style="font-family: var(--font-display);">
+        {title}
+      </h2>
+
+      <!-- Subtítulo -->
+      <p class="text-base sm:text-lg text-white/80 max-w-2xl mx-auto px-4">
+        {subtitle}
+      </p>
+      
+      <!-- Divider dorado -->
+      <div class="w-24 h-1 bg-gradient-to-r from-[var(--gold)] to-transparent 
+                  mx-auto mt-6 rounded-full opacity-80"></div>
+    </div>
+
+    <!-- Timeline Component -->
+    <AboutTimelineClient client:visible />
+  </div>
+</section>
+
+<style>
+  /* ========================================
+     Timeline Section Premium Animations
+     ======================================== */
+
+  /* Header entrance - Slide down with bounce */
+  .timeline-header {
+    opacity: 0;
+    transform: translateY(-30px);
+    animation: slideInDown 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+  }
+
+  @keyframes slideInDown {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Float animations para orbes */
+  @keyframes float {
+    0%, 100% { 
+      transform: translate(0, 0) scale(1); 
+    }
+    33% { 
+      transform: translate(60px, -80px) scale(1.1); 
+    }
+    66% { 
+      transform: translate(-60px, 60px) scale(0.9); 
+    }
+  }
+
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    .timeline-header {
+      opacity: 1;
+      transform: none;
+      animation: none;
+    }
+    
+    [class*="animate-[float"] {
+      animation: none !important;
+    }
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    #timeline {
+      padding-top: 3rem;
+      padding-bottom: 3rem;
+    }
+  }
+</style>

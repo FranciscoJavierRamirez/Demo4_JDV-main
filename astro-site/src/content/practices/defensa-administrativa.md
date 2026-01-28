@@ -2,7 +2,7 @@
 slug: "defensa-administrativa"
 
 seo:
-  title: "Defensa Administrativa y Compras Públicas | JDV & Abogados"
+  title: "Defensa Administrativa y Compras Públicas | JDV Abogados"
   description: "Ex Contralora defiende empresas en licitaciones ChileCompra, contratos públicos y recursos ante la Administración. 35 años en CGR."
   canonical: "/areas-practicas/defensa-administrativa"
 

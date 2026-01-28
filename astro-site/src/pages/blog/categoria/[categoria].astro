@@ -1,0 +1,382 @@
+---
+/**
+ * Blog Category - Listado de posts por categoría
+ */
+
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Header from '../../../components/nav/Header.astro';
+import Footer from '../../../components/home/Footer.astro';
+import WhatsAppFloat from '../../../components/WhatsAppFloat.astro';
+import BackToTop from '../../../components/BackToTop.astro';
+import {
+  getPostsByCategory,
+  getCategoriesWithCount,
+  formatDateShort,
+  getCategoryLabel,
+  calculateReadingTime,
+  categoryLabels
+} from '../../../utils/blog';
+
+export async function getStaticPaths() {
+  const categories = Object.keys(categoryLabels);
+
+  return categories.map(category => ({
+    params: { categoria: category },
+    props: { category }
+  }));
+}
+
+const { category } = Astro.props;
+const categoryLabel = getCategoryLabel(category);
+
+const allPosts = await getCollection('blog');
+const posts = getPostsByCategory(allPosts, category);
+const categories = getCategoriesWithCount(allPosts);
+
+const title = `${categoryLabel} | Blog JDV Abogados`;
+const description = `Artículos sobre ${categoryLabel.toLowerCase()} en el blog de JDV Abogados. Análisis jurídico y guías prácticas.`;
+---
+
+<BaseLayout title={title} description={description}>
+  <Header />
+
+  <main class="blog-category">
+    <!-- Hero -->
+    <section class="blog-category__hero">
+      <div class="container">
+        <nav class="blog-category__breadcrumb" aria-label="Breadcrumb">
+          <a href="/">Inicio</a>
+          <i class="fas fa-chevron-right" aria-hidden="true"></i>
+          <a href="/blog">Blog</a>
+          <i class="fas fa-chevron-right" aria-hidden="true"></i>
+          <span>{categoryLabel}</span>
+        </nav>
+        <h1 class="blog-category__title">{categoryLabel}</h1>
+        <p class="blog-category__count">
+          {posts.length} {posts.length === 1 ? 'artículo' : 'artículos'}
+        </p>
+      </div>
+    </section>
+
+    <!-- Categories Filter -->
+    <section class="blog-category__filter">
+      <div class="container">
+        <nav class="blog-category__filter-nav" aria-label="Filtrar por categoría">
+          <a href="/blog" class="blog-category__filter-btn">
+            Todos
+          </a>
+          {categories.map(cat => (
+            <a
+              href={`/blog/categoria/${cat.category}`}
+              class={`blog-category__filter-btn ${cat.category === category ? 'active' : ''}`}
+            >
+              {cat.label}
+              <span class="blog-category__filter-count">{cat.count}</span>
+            </a>
+          ))}
+        </nav>
+      </div>
+    </section>
+
+    <!-- Posts Grid -->
+    <section class="blog-category__grid-section">
+      <div class="container">
+        {posts.length > 0 ? (
+          <div class="blog-category__grid">
+            {posts.map(post => (
+              <a href={`/blog/${post.slug}`} class="blog-card">
+                <div class="blog-card__image">
+                  <img
+                    src={post.data.heroImage}
+                    alt={post.data.heroAlt}
+                    loading="lazy"
+                  />
+                </div>
+                <div class="blog-card__content">
+                  <span class="blog-card__category">
+                    {getCategoryLabel(post.data.category)}
+                  </span>
+                  <h2 class="blog-card__title">{post.data.title}</h2>
+                  <p class="blog-card__excerpt">{post.data.excerpt}</p>
+                  <div class="blog-card__meta">
+                    <time>{formatDateShort(post.data.publishDate)}</time>
+                    <span>·</span>
+                    <span>{calculateReadingTime(post.body)} min lectura</span>
+                  </div>
+                </div>
+              </a>
+            ))}
+          </div>
+        ) : (
+          <div class="blog-category__empty">
+            <i class="fas fa-folder-open" aria-hidden="true"></i>
+            <h3>Sin artículos</h3>
+            <p>Aún no hay artículos en esta categoría. Vuelva pronto.</p>
+            <a href="/blog" class="blog-category__back-btn">
+              <i class="fas fa-arrow-left" aria-hidden="true"></i>
+              Ver todos los artículos
+            </a>
+          </div>
+        )}
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+  <WhatsAppFloat />
+  <BackToTop />
+</BaseLayout>
+
+<style>
+  /* Hero */
+  .blog-category__hero {
+    padding: calc(72px + var(--space-10)) 0 var(--space-10);
+    background: linear-gradient(180deg, #0c2340 0%, #1a365d 100%);
+    color: white;
+    text-align: center;
+  }
+
+  .blog-category__breadcrumb {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    font-size: 0.875rem;
+    margin-bottom: var(--space-6);
+  }
+
+  .blog-category__breadcrumb a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .blog-category__breadcrumb a:hover {
+    color: var(--gold);
+  }
+
+  .blog-category__breadcrumb i {
+    font-size: 0.625rem;
+    color: rgba(255, 255, 255, 0.4);
+  }
+
+  .blog-category__breadcrumb span {
+    color: var(--gold);
+    font-weight: 600;
+  }
+
+  .blog-category__title {
+    font-family: var(--font-display);
+    font-size: var(--text-3xl);
+    font-weight: 700;
+    margin-bottom: var(--space-3);
+    letter-spacing: -0.02em;
+  }
+
+  .blog-category__count {
+    font-size: var(--text-base);
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  /* Filter */
+  .blog-category__filter {
+    padding: var(--space-6) 0;
+    background: var(--white);
+    border-bottom: 1px solid var(--gray-200);
+    position: sticky;
+    top: 72px;
+    z-index: 100;
+  }
+
+  .blog-category__filter-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    justify-content: center;
+  }
+
+  .blog-category__filter-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-4);
+    background: var(--gray-100);
+    border-radius: 20px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--gray-700);
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .blog-category__filter-btn:hover,
+  .blog-category__filter-btn.active {
+    background: var(--blue-primary);
+    color: white;
+  }
+
+  .blog-category__filter-count {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0 var(--space-2);
+    border-radius: 10px;
+    font-size: 0.75rem;
+  }
+
+  /* Grid */
+  .blog-category__grid-section {
+    padding: var(--space-12) 0;
+    background: var(--gray-50);
+    min-height: 50vh;
+  }
+
+  .blog-category__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: var(--space-8);
+  }
+
+  /* Card */
+  .blog-card {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    text-decoration: none;
+    box-shadow: var(--shadow-elevation-low);
+    transition: all 0.3s ease;
+  }
+
+  .blog-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-elevation-medium);
+  }
+
+  .blog-card__image {
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+  }
+
+  .blog-card__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+
+  .blog-card:hover .blog-card__image img {
+    transform: scale(1.05);
+  }
+
+  .blog-card__content {
+    padding: var(--space-5);
+  }
+
+  .blog-card__category {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--blue-primary);
+    margin-bottom: var(--space-2);
+  }
+
+  .blog-card__title {
+    font-family: var(--font-display);
+    font-size: var(--text-lg);
+    font-weight: 600;
+    color: var(--gray-900);
+    margin-bottom: var(--space-3);
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .blog-card__excerpt {
+    font-size: 0.9375rem;
+    color: var(--gray-600);
+    line-height: 1.6;
+    margin-bottom: var(--space-4);
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .blog-card__meta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: 0.8125rem;
+    color: var(--gray-500);
+  }
+
+  /* Empty State */
+  .blog-category__empty {
+    text-align: center;
+    padding: var(--space-16) var(--space-6);
+    color: var(--gray-500);
+  }
+
+  .blog-category__empty i {
+    font-size: 4rem;
+    color: var(--gray-300);
+    margin-bottom: var(--space-6);
+  }
+
+  .blog-category__empty h3 {
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    color: var(--gray-700);
+    margin-bottom: var(--space-3);
+  }
+
+  .blog-category__empty p {
+    margin-bottom: var(--space-6);
+  }
+
+  .blog-category__back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-3) var(--space-6);
+    background: var(--blue-primary);
+    color: white;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+  }
+
+  .blog-category__back-btn:hover {
+    background: var(--blue-dark);
+    transform: translateY(-2px);
+  }
+
+  /* Container */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-6);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .blog-category__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .blog-category__filter-nav {
+      justify-content: flex-start;
+      overflow-x: auto;
+      flex-wrap: nowrap;
+      padding-bottom: var(--space-2);
+    }
+
+    .blog-category__filter-btn {
+      flex-shrink: 0;
+    }
+  }
+</style>

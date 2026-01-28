@@ -2,7 +2,7 @@
 slug: "defensa-estatutaria"
 
 seo:
-  title: "Defensa Estatutaria para Funcionarios Públicos | JDV & Abogados"
+  title: "Defensa Estatutaria para Funcionarios Públicos | JDV Abogados"
   description: "Ex Contralora Regional defiende funcionarios en sumarios, Ley Karin, término de contrata. 35 años en CGR. Consulta gratuita."
   canonical: "/areas-practicas/defensa-estatutaria"
 

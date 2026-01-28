@@ -1,0 +1,252 @@
+---
+/**
+ * BlogHero - Hero section para posts del blog
+ * Incluye: categoría, tiempo de lectura, fecha, título, extracto, imagen, autor, tags
+ */
+
+import { getCategoryLabel, formatDate, getAuthorData } from '../../utils/blog';
+
+interface Props {
+  title: string;
+  excerpt: string;
+  category: string;
+  publishDate: string;
+  author: string;
+  readingTime: number;
+  heroImage: string;
+  heroAlt: string;
+  tags: string[];
+}
+
+const {
+  title,
+  excerpt,
+  category,
+  publishDate,
+  author,
+  readingTime,
+  heroImage,
+  heroAlt,
+  tags
+} = Astro.props;
+
+const categoryLabel = getCategoryLabel(category);
+const formattedDate = formatDate(publishDate);
+const authorInfo = getAuthorData(author);
+---
+
+<header class="blog-hero">
+  <div class="blog-hero__container">
+    <!-- Meta info -->
+    <div class="blog-hero__meta">
+      <a href={`/blog/categoria/${category}`} class="blog-hero__category">
+        {categoryLabel}
+      </a>
+      <span class="blog-hero__separator">·</span>
+      <span class="blog-hero__reading-time">
+        <i class="fas fa-clock" aria-hidden="true"></i>
+        {readingTime} min de lectura
+      </span>
+      <span class="blog-hero__separator">·</span>
+      <time datetime={publishDate} class="blog-hero__date">
+        {formattedDate}
+      </time>
+    </div>
+
+    <!-- Título -->
+    <h1 class="blog-hero__title">{title}</h1>
+
+    <!-- Extracto -->
+    <p class="blog-hero__excerpt">{excerpt}</p>
+
+    <!-- Imagen hero -->
+    <div class="blog-hero__image-wrapper">
+      <img
+        src={heroImage}
+        alt={heroAlt}
+        class="blog-hero__image"
+        loading="eager"
+        decoding="async"
+      />
+    </div>
+
+    <!-- Autor y tags -->
+    <div class="blog-hero__footer">
+      <div class="blog-hero__author">
+        <img
+          src={authorInfo.image}
+          alt={authorInfo.name}
+          class="blog-hero__author-image"
+          loading="lazy"
+        />
+        <div class="blog-hero__author-info">
+          <span class="blog-hero__author-name">Por: {authorInfo.name}</span>
+        </div>
+      </div>
+
+      {tags.length > 0 && (
+        <div class="blog-hero__tags">
+          {tags.slice(0, 4).map(tag => (
+            <span class="blog-hero__tag">{tag}</span>
+          ))}
+        </div>
+      )}
+    </div>
+  </div>
+</header>
+
+<style>
+  .blog-hero {
+    padding: var(--space-8) 0 var(--space-12);
+    background: linear-gradient(180deg, #f8f9fa 0%, var(--white) 100%);
+  }
+
+  .blog-hero__container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 var(--space-6);
+  }
+
+  .blog-hero__meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-2);
+    margin-bottom: var(--space-6);
+    font-size: 0.875rem;
+    color: var(--gray-600);
+  }
+
+  .blog-hero__category {
+    display: inline-block;
+    padding: var(--space-1) var(--space-3);
+    background: linear-gradient(135deg, var(--blue-primary) 0%, var(--blue-dark) 100%);
+    color: white;
+    font-weight: 600;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-radius: 20px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .blog-hero__category:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+  }
+
+  .blog-hero__separator {
+    color: var(--gray-400);
+  }
+
+  .blog-hero__reading-time,
+  .blog-hero__date {
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
+  }
+
+  .blog-hero__reading-time i {
+    font-size: 0.75rem;
+    color: var(--gold);
+  }
+
+  .blog-hero__title {
+    font-family: var(--font-display);
+    font-size: var(--text-3xl);
+    font-weight: 700;
+    color: var(--gray-900);
+    line-height: 1.2;
+    margin-bottom: var(--space-6);
+    letter-spacing: -0.02em;
+  }
+
+  .blog-hero__excerpt {
+    font-size: var(--text-lg);
+    color: var(--gray-600);
+    line-height: 1.7;
+    margin-bottom: var(--space-8);
+  }
+
+  .blog-hero__image-wrapper {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: var(--space-8);
+    box-shadow: var(--shadow-elevation-medium);
+  }
+
+  .blog-hero__image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    display: block;
+  }
+
+  .blog-hero__footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-4);
+    padding-top: var(--space-6);
+    border-top: 1px solid var(--gray-200);
+  }
+
+  .blog-hero__author {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+  }
+
+  .blog-hero__author-image {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--gold);
+  }
+
+  .blog-hero__author-name {
+    font-weight: 600;
+    color: var(--gray-900);
+    font-size: 0.9375rem;
+  }
+
+  .blog-hero__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+
+  .blog-hero__tag {
+    padding: var(--space-1) var(--space-3);
+    background: var(--gray-100);
+    color: var(--gray-700);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    border-radius: 6px;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .blog-hero {
+      padding: var(--space-6) 0 var(--space-8);
+    }
+
+    .blog-hero__title {
+      font-size: var(--text-2xl);
+    }
+
+    .blog-hero__excerpt {
+      font-size: var(--text-base);
+    }
+
+    .blog-hero__footer {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+</style>

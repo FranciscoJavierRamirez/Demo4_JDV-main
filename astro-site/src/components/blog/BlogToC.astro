@@ -1,0 +1,234 @@
+---
+/**
+ * BlogToC - Tabla de contenidos
+ * Desktop: sticky sidebar
+ * Mobile: colapsable en la parte superior
+ */
+
+interface Heading {
+  depth: number;
+  slug: string;
+  text: string;
+}
+
+interface Props {
+  headings: Heading[];
+}
+
+const { headings } = Astro.props;
+
+// Solo mostrar H2 y H3
+const filteredHeadings = headings.filter(h => h.depth === 2 || h.depth === 3);
+---
+
+{filteredHeadings.length > 0 && (
+  <>
+    <!-- Mobile: colapsable -->
+    <details class="toc-mobile">
+      <summary class="toc-mobile__summary">
+        <i class="fas fa-list-ul" aria-hidden="true"></i>
+        <span>Contenido del artículo</span>
+        <i class="fas fa-chevron-down toc-mobile__chevron" aria-hidden="true"></i>
+      </summary>
+      <nav class="toc-mobile__nav" aria-label="Tabla de contenidos">
+        {filteredHeadings.map(h => (
+          <a
+            href={`#${h.slug}`}
+            class={`toc-link toc-link--depth-${h.depth}`}
+          >
+            {h.text}
+          </a>
+        ))}
+      </nav>
+    </details>
+
+    <!-- Desktop: sticky sidebar -->
+    <nav class="toc-desktop" aria-label="Tabla de contenidos">
+      <h4 class="toc-desktop__title">
+        <i class="fas fa-list-ul" aria-hidden="true"></i>
+        En este artículo
+      </h4>
+      <ul class="toc-desktop__list">
+        {filteredHeadings.map(h => (
+          <li>
+            <a
+              href={`#${h.slug}`}
+              class={`toc-link toc-link--depth-${h.depth}`}
+              data-heading={h.slug}
+            >
+              {h.text}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </>
+)}
+
+<style>
+  /* Mobile ToC */
+  .toc-mobile {
+    display: block;
+    margin: 0 0 var(--space-6);
+    background: var(--gray-50);
+    border: 1px solid var(--gray-200);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .toc-mobile__summary {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-4) var(--space-5);
+    font-weight: 600;
+    color: var(--gray-800);
+    cursor: pointer;
+    list-style: none;
+    transition: background 0.2s ease;
+  }
+
+  .toc-mobile__summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .toc-mobile__summary:hover {
+    background: var(--gray-100);
+  }
+
+  .toc-mobile__summary i:first-child {
+    color: var(--gold);
+  }
+
+  .toc-mobile__chevron {
+    margin-left: auto;
+    font-size: 0.75rem;
+    transition: transform 0.3s ease;
+  }
+
+  .toc-mobile[open] .toc-mobile__chevron {
+    transform: rotate(180deg);
+  }
+
+  .toc-mobile__nav {
+    display: flex;
+    flex-direction: column;
+    padding: 0 var(--space-5) var(--space-4);
+    border-top: 1px solid var(--gray-200);
+  }
+
+  @media (min-width: 1024px) {
+    .toc-mobile {
+      display: none;
+    }
+  }
+
+  /* Desktop ToC */
+  .toc-desktop {
+    display: none;
+  }
+
+  @media (min-width: 1024px) {
+    .toc-desktop {
+      display: block;
+      position: sticky;
+      top: 100px;
+      max-height: calc(100vh - 120px);
+      overflow-y: auto;
+      padding: var(--space-5);
+      background: var(--gray-50);
+      border: 1px solid var(--gray-200);
+      border-radius: 12px;
+    }
+  }
+
+  .toc-desktop__title {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--gray-900);
+    margin-bottom: var(--space-4);
+    padding-bottom: var(--space-3);
+    border-bottom: 1px solid var(--gray-200);
+  }
+
+  .toc-desktop__title i {
+    color: var(--gold);
+  }
+
+  .toc-desktop__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+
+  /* Shared link styles */
+  .toc-link {
+    display: block;
+    padding: var(--space-2) var(--space-3);
+    font-size: 0.875rem;
+    color: var(--gray-600);
+    text-decoration: none;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    border-left: 2px solid transparent;
+  }
+
+  .toc-link:hover {
+    color: var(--blue-primary);
+    background: rgba(59, 130, 246, 0.05);
+  }
+
+  .toc-link.active {
+    color: var(--blue-primary);
+    background: rgba(59, 130, 246, 0.1);
+    border-left-color: var(--blue-primary);
+    font-weight: 600;
+  }
+
+  .toc-link--depth-3 {
+    padding-left: var(--space-6);
+    font-size: 0.8125rem;
+  }
+</style>
+
+<script>
+  // Highlight current section on scroll
+  const tocLinks = document.querySelectorAll('.toc-desktop .toc-link');
+
+  if (tocLinks.length > 0) {
+    const observerOptions = {
+      rootMargin: '-100px 0px -80% 0px',
+      threshold: 0
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          tocLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('data-heading') === id) {
+              link.classList.add('active');
+            }
+          });
+        }
+      });
+    }, observerOptions);
+
+    // Observe all headings
+    tocLinks.forEach(link => {
+      const headingId = link.getAttribute('data-heading');
+      const heading = document.getElementById(headingId || '');
+      if (heading) {
+        observer.observe(heading);
+      }
+    });
+  }
+</script>

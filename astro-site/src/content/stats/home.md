@@ -4,8 +4,8 @@ stats:
     target: 35
     label: "Años en CGR"
   - icon: "fas fa-briefcase"
-    target: 8
-    label: "Áreas de Especialización"
+    target: 10
+    label: "Áreas de Práctica"
   - icon: "fas fa-map-marked-alt"
     target: 16
     label: "Regiones de Chile"
