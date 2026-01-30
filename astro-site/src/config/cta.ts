@@ -5,11 +5,11 @@
 
 export const ctaLinks = {
   whatsapp: {
-    url: "https://wa.me/56965870256?text=Consulta%20desde%20el%20blog%20de%20JDV%20Abogados",
+    url: "https://wa.me/56941692900?text=Consulta%20desde%20el%20blog%20de%20JDV%20Abogados",
     label: "WhatsApp"
   },
   calendly: {
-    url: "https://wa.me/56965870256?text=Quisiera%20agendar%20una%20consulta%20con%20JDV%20Abogados",
+    url: "https://wa.me/56941692900?text=Quisiera%20agendar%20una%20consulta%20con%20JDV%20Abogados",
     label: "Agendar Consulta"
   },
   newsletter: {

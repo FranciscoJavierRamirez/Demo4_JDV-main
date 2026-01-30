@@ -1,0 +1,234 @@
+---
+const offices = [
+  {
+    badge: "Oficina Principal",
+    name: "Edificio World Trade Center",
+    address: "Nueva Tajamar 481, Torre N, Oficina 303",
+    city: "Las Condes, Santiago, Chile",
+    image: "/oficina_WTC.jpg",
+    imageAlt: "Edificio World Trade Center - Oficina principal JDV Abogados",
+    mapUrl: "https://maps.google.com/?q=Nueva+Tajamar+481+Torre+N+oficina+303+Las+Condes+Santiago+Chile",
+    mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3330.1!2d-70.601!3d-33.413!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662cf26e2222d65%3A0x!2sNueva+Tajamar+481%2C+Las+Condes%2C+Santiago!5e0!3m2!1ses!2scl!4v1",
+  },
+  {
+    badge: "Oficina Secundaria",
+    name: "Edificio Apoquindo",
+    address: "Av Apoquindo 6410, Oficina 212",
+    city: "Las Condes, Santiago, Chile",
+    image: "/oficina_apoquindo.png",
+    imageAlt: "Edificio Apoquindo 6410 - Oficina secundaria JDV Abogados",
+    mapUrl: "https://maps.google.com/?q=Av+Apoquindo+6410+oficina+212+Las+Condes+Santiago+Chile",
+    mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3330.1!2d-70.575!3d-33.408!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662cf!2sAv+Apoquindo+6410%2C+Las+Condes%2C+Santiago!5e0!3m2!1ses!2scl!4v1",
+  },
+];
+---
+
+<!-- Oficinas Section - Dark Premium -->
+<section class="relative py-20 bg-[var(--blue-deeper)] text-white overflow-hidden">
+  <!-- Mesh Gradient Orbs -->
+  <div class="absolute inset-0 pointer-events-none overflow-hidden">
+    <div class="absolute top-[-20%] left-[-10%] w-[70%] h-[70%] rounded-full bg-[radial-gradient(circle,rgba(59,130,246,0.4)_0%,transparent_70%)] blur-[120px] animate-[floatOrb_20s_ease-in-out_infinite]"></div>
+    <div class="absolute bottom-[-30%] right-[-10%] w-[60%] h-[60%] rounded-full bg-[radial-gradient(circle,rgba(29,78,216,0.4)_0%,transparent_70%)] blur-[100px] animate-[floatOrb_25s_ease-in-out_infinite_reverse]"></div>
+    <div class="absolute top-[40%] right-[10%] w-[40%] h-[40%] rounded-full bg-[radial-gradient(circle,rgba(201,162,84,0.15)_0%,transparent_70%)] blur-[80px] animate-[floatOrb_15s_ease-in-out_5s_infinite]"></div>
+  </div>
+
+  <!-- Noise Texture -->
+  <div class="absolute inset-0 opacity-[0.03] pointer-events-none">
+    <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+      <filter id="officesNoise"><feTurbulence baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/></filter>
+      <rect width="100%" height="100%" filter="url(#officesNoise)"/>
+    </svg>
+  </div>
+
+  <!-- Gradient Overlay -->
+  <div class="absolute inset-0 bg-gradient-to-br from-[rgba(12,35,64,0.98)] via-[rgba(12,35,64,0.94)] to-[rgba(26,77,122,0.88)] pointer-events-none"></div>
+
+  <div class="container relative">
+    <!-- Section Header -->
+    <div class="text-center mb-14">
+      <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-lg text-white/90 text-sm font-semibold mb-4 border border-white/20 shadow-lg">
+        <i class="fas fa-building text-[var(--gold)]"></i>
+        Nuestras Oficinas
+      </span>
+      <h2 class="text-[clamp(1.75rem,4vw,2.5rem)] font-bold text-white mb-3 drop-shadow-[0_2px_8px_rgba(0,0,0,0.3)]" style="font-family: var(--font-display);">
+        Encuéntranos en Las Condes
+      </h2>
+      <p class="text-white/70 text-lg max-w-2xl mx-auto">
+        Contamos con dos ubicaciones estratégicas para atenderle con la comodidad y profesionalismo que merece.
+      </p>
+    </div>
+
+    <!-- Cards Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
+      {offices.map((office) => (
+        <article class="bg-white/10 backdrop-blur-lg rounded-2xl overflow-hidden border border-white/20 shadow-[0_8px_30px_rgba(0,0,0,0.3)] transition-all duration-300 hover:-translate-y-2 hover:border-white/30 hover:shadow-[0_12px_40px_rgba(201,169,97,0.25),0_0_60px_rgba(201,169,97,0.15)]">
+          <!-- Image -->
+          <div class="relative h-56 overflow-hidden">
+            <img
+              src={office.image}
+              alt={office.imageAlt}
+              class="w-full h-full object-cover"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-[rgba(12,35,64,0.6)] to-transparent"></div>
+            <span class="absolute top-4 left-4 px-3 py-1.5 rounded-full text-xs font-bold uppercase tracking-wide bg-gradient-to-r from-[var(--gold)] to-[#D4AF37] text-[var(--gray-900)] shadow-md">
+              {office.badge}
+            </span>
+          </div>
+
+          <!-- Content -->
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-white mb-2" style="font-family: var(--font-display);">
+              {office.name}
+            </h3>
+            <div class="flex items-start gap-3 text-white/70 mb-4">
+              <i class="fas fa-map-marker-alt text-[var(--gold)] mt-1 shrink-0"></i>
+              <div>
+                <p class="m-0">{office.address}</p>
+                <p class="m-0 text-sm text-white/50">{office.city}</p>
+              </div>
+            </div>
+
+            <!-- Map -->
+            <div class="rounded-xl overflow-hidden border border-white/20 mb-4">
+              <iframe
+                src={office.mapEmbed}
+                width="100%"
+                height="200"
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                title={`Mapa ${office.name}`}
+              ></iframe>
+            </div>
+
+            <!-- CTA -->
+            <a
+              href={office.mapUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="contact-cta-btn inline-flex items-center gap-2 w-full justify-center px-5 py-3 rounded-xl bg-gradient-to-br from-[#1a365d] via-[#1e3a5f] to-[#0f172a] border-2 border-[rgba(201,169,97,0.4)] font-semibold no-underline transition-all duration-200 shadow-[0_4px_20px_rgba(0,0,0,0.3),0_0_30px_rgba(201,169,97,0.15)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.4),0_0_40px_rgba(201,169,97,0.25)] hover:-translate-y-0.5 relative overflow-hidden"
+            >
+              <span class="relative z-10 bg-gradient-to-r from-[#C9A961] via-[#E5D5AA] to-[#D4AF37] bg-clip-text text-transparent flex items-center gap-2">
+                <i class="fas fa-directions"></i>
+                Cómo llegar
+              </span>
+            </a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- Contact Info - Dark Premium -->
+<section class="relative py-16 bg-[var(--blue-deeper)] overflow-hidden">
+  <!-- Gradient Overlay -->
+  <div class="absolute inset-0 bg-gradient-to-br from-[rgba(12,35,64,0.98)] via-[rgba(12,35,64,0.96)] to-[rgba(26,77,122,0.90)] pointer-events-none"></div>
+
+  <div class="container relative">
+    <div class="max-w-3xl mx-auto">
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
+        <!-- Phone -->
+        <a href="tel:+56941692900" class="flex flex-col items-center gap-3 p-6 rounded-2xl bg-white/[0.08] backdrop-blur-sm border border-white/10 no-underline transition-all duration-200 hover:bg-white/[0.12] hover:border-[var(--gold)]/30 hover:shadow-[0_12px_40px_rgba(201,169,97,0.15)] hover:scale-[1.02] group">
+          <div class="w-12 h-12 flex items-center justify-center rounded-full bg-[var(--gold)]/20 border border-[var(--gold)]/30 text-[var(--gold)] group-hover:bg-[var(--gold)] group-hover:text-[var(--gray-900)] transition-all duration-200">
+            <i class="fas fa-phone text-lg"></i>
+          </div>
+          <span class="text-white font-semibold">+56 9 4169 2900</span>
+          <span class="text-white/50 text-sm">Llamar ahora</span>
+        </a>
+
+        <!-- WhatsApp -->
+        <a href="https://wa.me/56941692900?text=Necesito%20m%C3%A1s%20informaci%C3%B3n%20porque%20estoy%20interesado%20en%20recibir%20asesor%C3%ADa%20legal" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center gap-3 p-6 rounded-2xl bg-white/[0.08] backdrop-blur-sm border border-white/10 no-underline transition-all duration-200 hover:bg-white/[0.12] hover:border-green-500/30 hover:shadow-[0_12px_40px_rgba(34,197,94,0.15)] hover:scale-[1.02] group">
+          <div class="w-12 h-12 flex items-center justify-center rounded-full bg-green-500/20 border border-green-500/30 text-green-400 group-hover:bg-green-500 group-hover:text-white transition-all duration-200">
+            <i class="fab fa-whatsapp text-xl"></i>
+          </div>
+          <span class="text-white font-semibold">WhatsApp</span>
+          <span class="text-white/50 text-sm">Respuesta rápida</span>
+        </a>
+
+        <!-- Email -->
+        <a href="mailto:contacto@jdviabogados.cl" class="flex flex-col items-center gap-3 p-6 rounded-2xl bg-white/[0.08] backdrop-blur-sm border border-white/10 no-underline transition-all duration-200 hover:bg-white/[0.12] hover:border-[var(--gold)]/30 hover:shadow-[0_12px_40px_rgba(201,169,97,0.15)] hover:scale-[1.02] group">
+          <div class="w-12 h-12 flex items-center justify-center rounded-full bg-[var(--gold)]/20 border border-[var(--gold)]/30 text-[var(--gold)] group-hover:bg-[var(--gold)] group-hover:text-[var(--gray-900)] transition-all duration-200">
+            <i class="fas fa-envelope text-lg"></i>
+          </div>
+          <span class="text-white font-semibold">Email</span>
+          <span class="text-white/50 text-sm">contacto@jdviabogados.cl</span>
+        </a>
+      </div>
+
+      <!-- Schedule -->
+      <div class="mt-8 text-center">
+        <p class="text-white/70">
+          <i class="fas fa-clock text-[var(--gold)] mr-2"></i>
+          <strong class="text-white/90">Horario de atención:</strong> Lunes a Viernes, 9:00 - 18:00 hrs
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA - Premium with animated orbs -->
+<section class="relative py-16 bg-gradient-to-br from-[var(--blue-primary)] via-[var(--blue-dark)] to-[var(--blue-deeper)] text-white text-center overflow-hidden">
+  <!-- Orbs -->
+  <div class="absolute inset-0 pointer-events-none overflow-hidden">
+    <div class="absolute top-[-30%] left-[10%] w-[350px] h-[350px] rounded-full bg-[radial-gradient(circle,var(--gold)_0%,transparent_70%)] blur-[80px] opacity-25 animate-[floatOrb_18s_ease-in-out_infinite]"></div>
+    <div class="absolute bottom-[-20%] right-[15%] w-[280px] h-[280px] rounded-full bg-[radial-gradient(circle,var(--gold)_0%,transparent_70%)] blur-[60px] opacity-20 animate-[floatOrb_22s_ease-in-out_infinite_reverse]"></div>
+  </div>
+
+  <div class="container relative">
+    <div class="max-w-2xl mx-auto">
+      <!-- Icon -->
+      <div class="w-16 h-16 mx-auto mb-6 flex items-center justify-center rounded-2xl bg-gradient-to-br from-[rgba(201,169,97,0.2)] to-[rgba(212,175,55,0.15)] backdrop-blur-lg border-2 border-[rgba(201,169,97,0.3)] animate-[pulseIcon_3s_ease-in-out_infinite]">
+        <i class="fas fa-gavel text-[var(--gold)] text-2xl"></i>
+      </div>
+
+      <h2 class="text-[clamp(1.5rem,3.5vw,2.25rem)] font-extrabold mb-4 tracking-[-0.01em]" style="font-family: var(--font-display);">
+        <span class="bg-gradient-to-br from-white to-[var(--gold-light)] bg-clip-text text-transparent">Agende su consulta hoy</span>
+      </h2>
+      <p class="text-white/80 text-lg mb-8">
+        Nuestro equipo está preparado para analizar su caso y orientarle con la mejor estrategia legal.
+      </p>
+      <a
+        href="https://wa.me/56941692900?text=Necesito%20m%C3%A1s%20informaci%C3%B3n%20porque%20estoy%20interesado%20en%20recibir%20asesor%C3%ADa%20legal"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="contact-cta-main inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-[var(--gold)] text-[var(--gray-900)] font-bold text-lg no-underline transition-all duration-200 shadow-[0_4px_20px_rgba(201,169,97,0.4)] hover:shadow-[0_8px_30px_rgba(201,169,97,0.5)] hover:-translate-y-0.5 relative overflow-hidden"
+      >
+        <i class="fab fa-whatsapp text-xl"></i>
+        Agendar consulta
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  @keyframes floatOrb {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(30px, -20px) scale(1.05); }
+    66% { transform: translate(-20px, 15px) scale(0.95); }
+  }
+
+  @keyframes pulseIcon {
+    0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(201,169,97,0.3); }
+    50% { transform: scale(1.05); box-shadow: 0 0 20px 5px rgba(201,169,97,0.15); }
+  }
+
+  .contact-cta-btn::before,
+  .contact-cta-main::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+    transition: left 0.5s ease;
+  }
+
+  .contact-cta-btn:hover::before,
+  .contact-cta-main:hover::before {
+    left: 100%;
+  }
+</style>

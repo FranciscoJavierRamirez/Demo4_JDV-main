@@ -9,8 +9,8 @@ actions:
     action: "openModal()"
   phone:
     icon: "fas fa-phone-alt"
-    text: "+56 9 XXXX XXXX"
-    href: "tel:+56912345678"
+    text: "+56 9 4169 2900"
+    href: "tel:+56941692900"
 features:
   - icon: "fas fa-clock"
     text: "Respuesta en menos de 24 horas"

@@ -10,14 +10,22 @@ if (!areasData?.data) {
 const { sectionTitle, sectionSubtitle, areas } = areasData.data;
 ---
 
-<section id="areas" class="relative py-24 bg-linear-to-b from-[#dbeafe] via-[#eff6ff] to-[#f8fafc] overflow-hidden">
-  <!-- Decorative mesh gradient background -->
-  <div class="absolute inset-0 pointer-events-none">
-    <div class="absolute top-1/4 left-1/4 w-[600px] h-[600px] rounded-full blur-[150px] opacity-[0.10] bg-[radial-gradient(circle,var(--blue-primary)_0%,transparent_70%)]"></div>
-    <div class="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] rounded-full blur-[120px] opacity-[0.08] bg-[radial-gradient(circle,var(--gold)_0%,transparent_70%)]"></div>
-    <!-- Subtle grid pattern -->
-    <div class="absolute inset-0 opacity-[0.015]" style="background-image: linear-gradient(var(--blue-primary) 1px, transparent 1px), linear-gradient(90deg, var(--blue-primary) 1px, transparent 1px); background-size: 60px 60px;"></div>
+<section id="areas" class="relative py-24 bg-[var(--blue-deeper)] overflow-hidden">
+  <!-- Mesh Gradient Orbs -->
+  <div class="absolute inset-0 pointer-events-none overflow-hidden">
+    <div class="absolute top-[-20%] left-[-10%] w-[70%] h-[70%] rounded-full bg-[radial-gradient(circle,rgba(59,130,246,0.4)_0%,transparent_70%)] blur-[120px] animate-[areasFloat_20s_ease-in-out_infinite]"></div>
+    <div class="absolute bottom-[-30%] right-[-10%] w-[60%] h-[60%] rounded-full bg-[radial-gradient(circle,rgba(29,78,216,0.4)_0%,transparent_70%)] blur-[100px] animate-[areasFloat_25s_ease-in-out_infinite_reverse]"></div>
+    <div class="absolute top-[40%] right-[20%] w-[40%] h-[40%] rounded-full bg-[radial-gradient(circle,rgba(201,162,84,0.15)_0%,transparent_70%)] blur-[80px] animate-[areasFloat_15s_ease-in-out_5s_infinite]"></div>
   </div>
+  <!-- Noise Texture -->
+  <div class="absolute inset-0 opacity-[0.03] pointer-events-none">
+    <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+      <filter id="areasNoise"><feTurbulence baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/></filter>
+      <rect width="100%" height="100%" filter="url(#areasNoise)"/>
+    </svg>
+  </div>
+  <!-- Gradient Overlay -->
+  <div class="absolute inset-0 bg-gradient-to-br from-[rgba(12,35,64,0.98)] via-[rgba(12,35,64,0.94)] to-[rgba(26,77,122,0.88)] pointer-events-none"></div>
   <div class="container relative z-10">
     <!-- Section Header with Pill/Badge -->
     <div class="text-center mb-16 scroll-reveal-header">
@@ -39,7 +47,7 @@ const { sectionTitle, sectionSubtitle, areas } = areasData.data;
         </div>
       </div>
       
-      <p class="text-[clamp(1.125rem,2vw,1.25rem)] text-(--gray-600) max-w-[700px] mx-auto leading-relaxed">
+      <p class="text-[clamp(1.125rem,2vw,1.25rem)] text-white/70 max-w-[700px] mx-auto leading-relaxed">
         {sectionSubtitle}
       </p>
     </div>
@@ -115,6 +123,12 @@ const { sectionTitle, sectionSubtitle, areas } = areasData.data;
 </section>
 
 <style>
+  @keyframes areasFloat {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(30px, -20px) scale(1.05); }
+    66% { transform: translate(-20px, 15px) scale(0.95); }
+  }
+
   /* Typography - Display font for headings */
   #areas h2,
   #areas h3 {
