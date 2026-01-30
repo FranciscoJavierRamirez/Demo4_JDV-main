@@ -108,8 +108,8 @@ faq:
     answer: "Sí, atendemos organizaciones a nivel nacional. Las capacitaciones pueden realizarse de forma presencial en cualquier región o en modalidad remota (videoconferencia) según las preferencias y necesidades logísticas de su organización."
   - question: "¿Cuántas personas pueden participar en una capacitación?"
     answer: "El número de participantes es flexible. Las charlas pueden dirigirse a grupos grandes (50-100 personas), mientras que los talleres prácticos son más efectivos con grupos reducidos (10-25 personas) para permitir interacción y resolución de dudas personalizadas."
-  - question: "¿Ofrecen capacitaciones gratuitas para ciertas organizaciones?"
-    answer: "Sí, bajo coordinación previa, ofrecemos acuerdos especiales de formación gratuita para asociaciones de funcionarios, fundaciones sin fines de lucro y organizaciones sociales que cumplan ciertos criterios. Contáctenos para evaluar su caso."
+  - question: "¿Ofrecen condiciones especiales para ciertas organizaciones?"
+    answer: "Sí, bajo coordinación previa, ofrecemos acuerdos especiales de formación para asociaciones de funcionarios, fundaciones sin fines de lucro y organizaciones sociales que cumplan ciertos criterios. Contáctenos para evaluar su caso."
   - question: "¿Se entrega certificado de participación?"
     answer: "Sí, todos los participantes reciben un certificado de asistencia emitido por JDV Abogados, válido para acreditar horas de capacitación ante empleadores y organizaciones."
 

@@ -8,3 +8,21 @@
 >
   <i class="fab fa-whatsapp"></i>
 </a>
+
+<style>
+  a {
+    animation: whatsapp-pulse 2s infinite;
+  }
+
+  @keyframes whatsapp-pulse {
+    0% {
+      box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5);
+    }
+    70% {
+      box-shadow: 0 0 0 20px rgba(37, 211, 102, 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+    }
+  }
+</style>

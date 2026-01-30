@@ -52,4 +52,4 @@ Nuestro equipo, con más de tres décadas de experiencia en Contraloría, puede 
 
 Si usted es directivo en el sector público y desea entender mejor sus responsabilidades, o si enfrenta un procedimiento donde se cuestiona su rol de supervisión, podemos ayudarle a evaluar su caso.
 
-La consulta inicial es confidencial y sin costo. A veces, una conversación oportuna evita problemas mayores.
+A veces, una conversación oportuna evita problemas mayores.

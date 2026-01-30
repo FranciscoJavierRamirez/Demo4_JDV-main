@@ -3,7 +3,7 @@ slug: "defensa-estatutaria"
 
 seo:
   title: "Defensa Estatutaria para Funcionarios Públicos | JDV Abogados"
-  description: "Ex Contralora Regional defiende funcionarios en sumarios, Ley Karin, término de contrata. 35 años en CGR. Consulta gratuita."
+  description: "Ex Contralora Regional defiende funcionarios en sumarios, Ley Karin, término de contrata. 35 años en CGR. Agende su consulta."
   canonical: "/areas-practicas/defensa-estatutaria"
 
 hero:
@@ -87,7 +87,7 @@ servicesIncluded:
 
 process:
   - step: 1
-    title: "Consulta Gratuita (30 min)"
+    title: "Consulta Inicial (30 min)"
     description: "Evaluamos su caso sin compromiso. Analizamos antecedentes, plazos y estrategia inicial."
   - step: 2
     title: "Estrategia Personalizada"
@@ -100,8 +100,8 @@ process:
     description: "Acompañamiento posterior a la resolución del caso, incluyendo apelaciones si es necesario."
 
 faq:
-  - question: "¿La consulta inicial es realmente gratuita?"
-    answer: "Sí, completamente. La primera consulta de 30 minutos no tiene costo ni compromiso. Es para conocernos, evaluar su caso y explicarle sus opciones."
+  - question: "¿Cómo funciona la consulta inicial?"
+    answer: "La primera consulta de 30 minutos es sin compromiso. Es para conocernos, evaluar su caso y explicarle sus opciones."
   - question: "¿Puedo defenderme solo en un sumario administrativo?"
     answer: "Técnicamente sí, pero es muy arriesgado. Los procedimientos disciplinarios tienen plazos breves, tecnicismos legales y consecuencias graves (destitución, multa). Un error puede costarle su carrera."
   - question: "¿Qué factores influyen en la duración de un sumario administrativo?"
@@ -110,12 +110,12 @@ faq:
     answer: "Atendemos casos a nivel nacional. Nuestra experiencia como Contralora Regional en Magallanes (1994-2009), Aysén (2012-2017) y Arica (2018-2020) nos permite conocer las dinámicas de cada zona del país. Trabajamos presencial o remoto según su necesidad."
   - question: "¿Qué pasa si ya me notificaron cargos o una medida disciplinaria?"
     answer: "No es tarde. Podemos presentar descargos, recursos de reposición o apelaciones. Lo importante es actuar rápido porque los plazos son breves e improrrogables. Contáctenos de inmediato."
-  - question: "¿Cómo funciona la consulta inicial gratuita?"
-    answer: "La consulta inicial de 30 minutos es sin costo ni compromiso. Evaluamos su caso, analizamos los antecedentes disponibles, explicamos sus opciones y definimos si podemos ayudarle. Es el primer paso para entender su situación y las estrategias disponibles."
+  - question: "¿Qué incluye la consulta inicial?"
+    answer: "En la consulta inicial de 30 minutos evaluamos su caso, analizamos los antecedentes disponibles, explicamos sus opciones y definimos si podemos ayudarle. Es el primer paso para entender su situación y las estrategias disponibles."
 
 finalCta:
   headline: "Proteja su carrera hoy. No enfrente esto solo."
-  text: "Un procedimiento disciplinario puede cambiar su vida. No deje su estabilidad laboral y su futuro en manos del azar. Agende su consulta gratuita y obtenga claridad sobre su caso."
+  text: "Un procedimiento disciplinario puede cambiar su vida. No deje su estabilidad laboral y su futuro en manos del azar. Agende su consulta inicial y obtenga claridad sobre su caso."
   button: "Agendar Consulta"
 ---
 

@@ -11,11 +11,19 @@ const { sectionTitle, sectionSubtitle, areas } = areasData.data;
 ---
 
 <section id="areas" class="relative py-24 bg-[var(--blue-deeper)] overflow-hidden">
-  <!-- Mesh Gradient Orbs -->
+  <!-- Mesh Gradient Orbs - Multiple layers for luminosity -->
   <div class="absolute inset-0 pointer-events-none overflow-hidden">
-    <div class="absolute top-[-20%] left-[-10%] w-[70%] h-[70%] rounded-full bg-[radial-gradient(circle,rgba(59,130,246,0.4)_0%,transparent_70%)] blur-[120px] animate-[areasFloat_20s_ease-in-out_infinite]"></div>
-    <div class="absolute bottom-[-30%] right-[-10%] w-[60%] h-[60%] rounded-full bg-[radial-gradient(circle,rgba(29,78,216,0.4)_0%,transparent_70%)] blur-[100px] animate-[areasFloat_25s_ease-in-out_infinite_reverse]"></div>
-    <div class="absolute top-[40%] right-[20%] w-[40%] h-[40%] rounded-full bg-[radial-gradient(circle,rgba(201,162,84,0.15)_0%,transparent_70%)] blur-[80px] animate-[areasFloat_15s_ease-in-out_5s_infinite]"></div>
+    <!-- Primary blue orbs -->
+    <div class="absolute top-[-15%] left-[-5%] w-[65%] h-[65%] rounded-full bg-[radial-gradient(circle,rgba(59,130,246,0.55)_0%,transparent_65%)] blur-[100px] animate-[areasFloat_20s_ease-in-out_infinite]"></div>
+    <div class="absolute bottom-[-20%] right-[-5%] w-[55%] h-[55%] rounded-full bg-[radial-gradient(circle,rgba(37,99,235,0.5)_0%,transparent_65%)] blur-[90px] animate-[areasFloat_25s_ease-in-out_infinite_reverse]"></div>
+    <!-- Secondary lighter blue orbs -->
+    <div class="absolute top-[10%] right-[5%] w-[50%] h-[50%] rounded-full bg-[radial-gradient(circle,rgba(96,165,250,0.35)_0%,transparent_60%)] blur-[110px] animate-[areasFloat_18s_ease-in-out_3s_infinite]"></div>
+    <div class="absolute bottom-[5%] left-[15%] w-[45%] h-[45%] rounded-full bg-[radial-gradient(circle,rgba(59,130,246,0.3)_0%,transparent_60%)] blur-[100px] animate-[areasFloat_22s_ease-in-out_7s_infinite_reverse]"></div>
+    <!-- Gold accent orbs -->
+    <div class="absolute top-[35%] right-[25%] w-[35%] h-[35%] rounded-full bg-[radial-gradient(circle,rgba(201,162,84,0.2)_0%,transparent_65%)] blur-[80px] animate-[areasFloat_15s_ease-in-out_5s_infinite]"></div>
+    <div class="absolute top-[60%] left-[5%] w-[30%] h-[30%] rounded-full bg-[radial-gradient(circle,rgba(201,169,97,0.15)_0%,transparent_60%)] blur-[70px] animate-[areasFloat_17s_ease-in-out_2s_infinite_reverse]"></div>
+    <!-- Subtle cyan highlight for depth -->
+    <div class="absolute top-[5%] left-[40%] w-[40%] h-[30%] rounded-full bg-[radial-gradient(circle,rgba(125,211,252,0.15)_0%,transparent_60%)] blur-[90px] animate-[areasFloat_23s_ease-in-out_4s_infinite]"></div>
   </div>
   <!-- Noise Texture -->
   <div class="absolute inset-0 opacity-[0.03] pointer-events-none">
@@ -24,8 +32,8 @@ const { sectionTitle, sectionSubtitle, areas } = areasData.data;
       <rect width="100%" height="100%" filter="url(#areasNoise)"/>
     </svg>
   </div>
-  <!-- Gradient Overlay -->
-  <div class="absolute inset-0 bg-gradient-to-br from-[rgba(12,35,64,0.98)] via-[rgba(12,35,64,0.94)] to-[rgba(26,77,122,0.88)] pointer-events-none"></div>
+  <!-- Gradient Overlay - lighter to let orbs breathe -->
+  <div class="absolute inset-0 bg-gradient-to-br from-[rgba(12,35,64,0.88)] via-[rgba(12,35,64,0.82)] to-[rgba(26,77,122,0.75)] pointer-events-none"></div>
   <div class="container relative z-10">
     <!-- Section Header with Pill/Badge -->
     <div class="text-center mb-16 scroll-reveal-header">
@@ -172,9 +180,10 @@ const { sectionTitle, sectionSubtitle, areas } = areasData.data;
 
   .area-card:hover {
     transform: translateY(-4px);
-    box-shadow: 
-      0 25px 50px -12px rgba(0, 0, 0, 0.25),
-      0 0 0 1px rgba(59, 130, 246, 0.15);
+    box-shadow:
+      0 25px 50px -12px rgba(59, 130, 246, 0.3),
+      0 0 0 1px rgba(59, 130, 246, 0.2),
+      0 0 40px rgba(59, 130, 246, 0.15);
   }
 
   /* Background image - visible by default, moves UP on hover to reveal */
@@ -399,63 +408,104 @@ const { sectionTitle, sectionSubtitle, areas } = areasData.data;
       transform: scale(0.985) !important;
       transition: transform 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
     }
-    
-    .area-card:active .glass-bg {
-      background: rgba(255,255,255,0.95);
+
+    /* Mobile: show image expanded with dark overlay by default */
+    .area-card {
+      background: rgba(12,35,64,0.95);
+      border-color: rgba(255,255,255,0.15);
     }
-    
-    /* Disable hover effects on mobile for cleaner touch experience */
+
+    .card-bg-image {
+      filter: grayscale(0%) saturate(1.2) brightness(1);
+      transform: scale(1.1);
+      opacity: 1;
+    }
+
+    .card-overlay {
+      background: linear-gradient(
+        to top,
+        rgba(12,35,64,0.85) 0%,
+        rgba(12,35,64,0.5) 30%,
+        rgba(12,35,64,0.15) 55%,
+        transparent 70%
+      );
+    }
+
+    .glass-bg {
+      background: rgba(12,35,64,0.8);
+      backdrop-filter: blur(16px);
+      border-top-color: rgba(255,255,255,0.15);
+    }
+
+    .card-title {
+      color: white;
+    }
+
+    .card-description {
+      color: rgba(255,255,255,0.85);
+    }
+
+    .card-action {
+      color: var(--gold);
+    }
+
+    .card-icon:not(.bg-linear-to-br) {
+      background: var(--gold);
+      color: white;
+      border-color: transparent;
+    }
+
+    /* Disable hover effects on mobile */
     .area-card:hover {
       transform: none;
     }
-    
+
     .area-card:hover .card-content {
       transform: translateY(0);
     }
-    
+
     .area-card:hover .card-bg-image {
-      transform: translateY(0) scale(1.02);
-      filter: grayscale(20%) brightness(1.05);
-      opacity: 0.75;
+      transform: scale(1.1);
+      filter: grayscale(0%) saturate(1.2) brightness(1);
+      opacity: 1;
     }
-    
+
     .area-card:hover .card-overlay {
       background: linear-gradient(
         to top,
-        rgba(255,255,255,0.9) 0%,
-        rgba(255,255,255,0.6) 30%,
-        rgba(255,255,255,0.1) 50%,
+        rgba(12,35,64,0.85) 0%,
+        rgba(12,35,64,0.5) 30%,
+        rgba(12,35,64,0.15) 55%,
         transparent 70%
       );
       transform: translateY(0);
     }
-    
+
     .area-card:hover .glass-bg {
-      background: rgba(255,255,255,0.88);
-      border-top-color: rgba(255,255,255,0.5);
+      background: rgba(12,35,64,0.8);
+      border-top-color: rgba(255,255,255,0.15);
     }
-    
+
     .area-card:hover .card-title {
-      color: var(--gray-900);
+      color: white;
     }
-    
+
     .area-card:hover .card-description {
-      color: var(--gray-600);
+      color: rgba(255,255,255,0.85);
     }
-    
+
     .area-card:hover .card-action {
-      color: var(--blue-primary);
+      color: var(--gold);
     }
-    
+
     .area-card:hover .card-icon {
       transform: none;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     }
-    
+
     .area-card:hover .card-icon:not(.bg-linear-to-br) {
-      background: rgba(255,255,255,0.9);
-      color: var(--blue-primary);
-      border-color: rgba(255,255,255,0.5);
+      background: var(--gold);
+      color: white;
+      border-color: transparent;
     }
   }
   

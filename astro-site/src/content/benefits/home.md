@@ -16,5 +16,5 @@ benefits:
 
   - icon: "fas fa-map-marked-alt"
     title: "Accesibilidad"
-    text: "Primera consulta gratuita y atención a domicilio para adultos mayores y personas con movilidad reducida."
+    text: "Atención personalizada, con seguimiento cercano y disponibilidad para resolver sus consultas en cualquier etapa del proceso."
 ---

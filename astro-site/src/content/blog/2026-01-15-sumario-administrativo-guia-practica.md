@@ -50,4 +50,4 @@ No se trata de "trucos" ni de buscar tecnicismos. Se trata de ejercer correctame
 
 Si usted o alguien cercano ha sido notificado de un sumario administrativo, el momento de buscar orientación es ahora. No cuando ya se formularon cargos. No cuando el plazo para presentar descargos está por vencer.
 
-Nuestro equipo puede evaluar su situación de manera confidencial y orientarle sobre los pasos a seguir. La primera conversación no tiene costo y puede marcar una diferencia significativa en el desarrollo del proceso.
+Nuestro equipo puede evaluar su situación de manera confidencial y orientarle sobre los pasos a seguir. Una conversación oportuna puede marcar una diferencia significativa en el desarrollo del proceso.

@@ -11,15 +11,27 @@ const { sectionTitle, benefits } = benefitsData.data;
 <!-- Benefits Section - High Contrast Dark Mode -->
 <section id="benefits" class="relative py-24 bg-(--blue-deeper) overflow-hidden">
   
+  <!-- Transition gradient from AreasGrid -->
+  <div class="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-[rgba(26,77,122,0.6)] via-[rgba(37,99,235,0.2)] to-transparent pointer-events-none"></div>
+
   <!-- Decorative Background Elements -->
-  <div class="absolute inset-0 pointer-events-none">
+  <div class="absolute inset-0 pointer-events-none overflow-hidden">
     <!-- Grid Pattern -->
     <div class="absolute inset-0 opacity-[0.05]" style="background-image: linear-gradient(rgba(255,255,255,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.3) 1px, transparent 1px); background-size: 40px 40px;"></div>
-    
-    <!-- Glow Orbs -->
-    <div class="absolute top-0 left-1/4 w-[600px] h-[600px] bg-[radial-gradient(circle,rgba(59,130,246,0.15)_0%,transparent_70%)] blur-[100px] rounded-full mix-blend-screen animate-[pulseGlow_8s_ease-in-out_infinite]"></div>
-    <div class="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(201,162,84,0.1)_0%,transparent_70%)] blur-[100px] rounded-full mix-blend-screen animate-[pulseGlow_10s_ease-in-out_infinite_reverse]"></div>
+
+    <!-- Primary Glow Orbs -->
+    <div class="absolute top-[-10%] left-[15%] w-[55%] h-[55%] bg-[radial-gradient(circle,rgba(59,130,246,0.4)_0%,transparent_65%)] blur-[100px] rounded-full animate-[benefitsFloat_20s_ease-in-out_infinite]"></div>
+    <div class="absolute bottom-[-15%] right-[10%] w-[50%] h-[50%] bg-[radial-gradient(circle,rgba(37,99,235,0.35)_0%,transparent_65%)] blur-[90px] rounded-full animate-[benefitsFloat_24s_ease-in-out_infinite_reverse]"></div>
+    <!-- Secondary lighter orbs -->
+    <div class="absolute top-[30%] right-[5%] w-[40%] h-[40%] bg-[radial-gradient(circle,rgba(96,165,250,0.25)_0%,transparent_60%)] blur-[110px] rounded-full animate-[benefitsFloat_18s_ease-in-out_4s_infinite]"></div>
+    <div class="absolute bottom-[10%] left-[5%] w-[35%] h-[35%] bg-[radial-gradient(circle,rgba(59,130,246,0.2)_0%,transparent_60%)] blur-[90px] rounded-full animate-[benefitsFloat_22s_ease-in-out_6s_infinite_reverse]"></div>
+    <!-- Gold accent orbs -->
+    <div class="absolute top-[50%] left-[30%] w-[30%] h-[30%] bg-[radial-gradient(circle,rgba(201,162,84,0.18)_0%,transparent_65%)] blur-[80px] rounded-full animate-[benefitsFloat_15s_ease-in-out_3s_infinite]"></div>
+    <div class="absolute top-[10%] right-[25%] w-[25%] h-[25%] bg-[radial-gradient(circle,rgba(201,169,97,0.12)_0%,transparent_60%)] blur-[70px] rounded-full animate-[benefitsFloat_17s_ease-in-out_8s_infinite_reverse]"></div>
   </div>
+
+  <!-- Gradient Overlay - lighter to let orbs show -->
+  <div class="absolute inset-0 bg-gradient-to-br from-[rgba(12,35,64,0.85)] via-[rgba(12,35,64,0.78)] to-[rgba(26,77,122,0.72)] pointer-events-none"></div>
 
   <div class="container relative z-10">
     <!-- Section Header -->
@@ -34,7 +46,7 @@ const { sectionTitle, benefits } = benefitsData.data;
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
       {benefits.map((benefit, index) => (
         <div 
-          class="benefit-card group relative p-8 rounded-[24px] bg-white/5 backdrop-blur-md border border-white/10 transition-all duration-300 hover:bg-white/10 hover:translate-y-[-5px] hover:shadow-[0_8px_32px_rgba(0,0,0,0.3)] overflow-hidden"
+          class="benefit-card group relative p-8 rounded-[24px] bg-white/5 backdrop-blur-md border border-white/10 transition-all duration-300 hover:bg-white/10 hover:translate-y-[-5px] hover:border-[rgba(201,169,97,0.5)] hover:shadow-[0_8px_32px_rgba(201,169,97,0.35),0_0_60px_rgba(201,169,97,0.2),0_0_100px_rgba(201,169,97,0.1),0_20px_40px_rgba(0,0,0,0.25)] overflow-hidden"
           data-index={index}
         >
           <!-- Hover Gradient Glow -->
@@ -61,6 +73,12 @@ const { sectionTitle, benefits } = benefitsData.data;
 </section>
 
 <style>
+  @keyframes benefitsFloat {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(30px, -20px) scale(1.05); }
+    66% { transform: translate(-20px, 15px) scale(0.95); }
+  }
+
   /* ========================================
      Benefits Section Scroll Reveal Animations
      ======================================== */

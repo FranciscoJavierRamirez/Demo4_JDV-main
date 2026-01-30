@@ -19,7 +19,7 @@ areas:
     title: "Defensa Penal"
     description: "Representación de víctimas e imputados ante el sistema de justicia penal chileno."
     link: "/areas-practicas/defensa-penal"
-    image: "/areas/defensa-penal.jpg"
+    image: "/defensa-penal.avif"
 
   - icon: "fas fa-heart"
     title: "Cliente Senior"

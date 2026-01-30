@@ -1,8 +1,8 @@
 ---
-title: "Agendar Consulta Gratuita"
+title: "Agendar Consulta Inicial"
 proBonoNotice:
   title: "Evaluación Pro Bono:"
-  message: "Por favor describe tu situación socioeconómica en el mensaje. Evaluaremos tu caso y te informaremos si calificas para servicios gratuitos."
+  message: "Por favor describe brevemente tu situación legal. Evaluaremos tu caso y te contactaremos a la brevedad."
 fields:
   name:
     label: "Nombre Completo *"

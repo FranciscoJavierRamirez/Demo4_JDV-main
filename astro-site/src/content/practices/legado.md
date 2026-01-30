@@ -87,7 +87,7 @@ servicesIncluded:
 
 process:
   - step: 1
-    title: "Consulta Confidencial (Gratuita)"
+    title: "Consulta Inicial Reservada"
     description: "Conversamos sobre tu situación familiar, tus miedos, tus dependientes y tu patrimonio. Todo en estricta confidencialidad."
   - step: 2
     title: "Diseño del Plan de Legado"
@@ -107,7 +107,7 @@ faq:
   - question: "¿Qué pasa si no hago nada y muero sin testamento?"
     answer: "Tu patrimonio se reparte según la ley (sucesión intestada), sin considerar necesidades especiales. No podrás usar la cuarta de libre disposición para proteger a tu dependiente. Tus mascotas quedan a la suerte de quien las recoja. No dejes esto al azar."
   - question: "¿Qué factores influyen en la planificación de un legado?"
-    answer: "La estrategia depende de varios factores: número de beneficiarios, tipo de bienes, necesidades especiales de tus dependientes, y las herramientas legales más adecuadas (testamento, fideicomiso, legado modal). En la consulta gratuita evaluamos tu situación y diseñamos un plan personalizado."
+    answer: "La estrategia depende de varios factores: número de beneficiarios, tipo de bienes, necesidades especiales de tus dependientes, y las herramientas legales más adecuadas (testamento, fideicomiso, legado modal). En la consulta inicial evaluamos tu situación y diseñamos un plan personalizado."
   - question: "¿Puedo cambiar el testamento después si cambia mi situación?"
     answer: "Sí, absolutamente. El testamento es revocable: puedes modificarlo o anularlo cuando quieras. Ofrecemos servicio de actualización periódica para adaptarlo a nuevas circunstancias (nacimientos, fallecimientos, cambios patrimoniales)."
   - question: "¿Qué es un albacea fiduciario y por qué lo necesito?"
@@ -115,7 +115,7 @@ faq:
 
 finalCta:
   headline: "No dejes al azar el futuro de quienes más amas"
-  text: "Cada día que pasa sin un plan legal es un día de incertidumbre. Protege hoy a tus hijos con necesidades especiales y tus mascotas. Agenda tu consulta confidencial gratuita."
+  text: "Cada día que pasa sin un plan legal es un día de incertidumbre. Protege hoy a tus hijos con necesidades especiales y tus mascotas. Agenda tu consulta confidencial."
   button: "Agendar Consulta Confidencial"
 ---
 

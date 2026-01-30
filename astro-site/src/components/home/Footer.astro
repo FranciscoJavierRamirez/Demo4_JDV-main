@@ -17,12 +17,13 @@ const { brand, columns, trust, bottom, legal } = footerData.data;
     <div class="absolute top-0 left-0 right-0 h-16 bg-gradient-to-b from-[var(--blue-deeper)]/20 to-transparent pointer-events-none"></div>
     
     <div class="container relative">
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+      <!-- Fila principal: 4 columnas en desktop -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-10 gap-y-10">
         <!-- Brand Column -->
         <div class="flex flex-col gap-4">
           <h3 class="font-bold text-lg mb-2 text-[var(--gold)]">{brand.title}</h3>
           <p class="opacity-85 leading-relaxed text-[0.9375rem]">{brand.description}</p>
-          
+
           <!-- Rating -->
           <div class="mt-4">
             <div class="flex gap-1 mb-2">
@@ -33,14 +34,14 @@ const { brand, columns, trust, bottom, legal } = footerData.data;
             </div>
             <p class="text-white/85 text-sm m-0">{brand.rating.text}</p>
           </div>
-          
+
           <!-- Social -->
           <div class="flex gap-3 mt-2">
             {brand.social.map(social => (
-              <a 
-                href={social.url} 
-                target="_blank" 
-                rel="noopener noreferrer" 
+              <a
+                href={social.url}
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label={social.label}
                 class="w-11 h-11 flex items-center justify-center bg-white/10 rounded-[10px] text-white no-underline transition-all duration-150 hover:bg-[var(--gold)] hover:text-[var(--gray-900)] hover:-translate-y-0.5"
               >
@@ -85,10 +86,10 @@ const { brand, columns, trust, bottom, legal } = footerData.data;
             {columns.contact.items.map(item => (
               <li class="flex items-center gap-3 opacity-85 text-[0.9375rem]">
                 {item.href ? (
-                  <a 
-                    href={item.href} 
+                  <a
+                    href={item.href}
                     class="flex items-center gap-3 text-white/85 no-underline transition-colors duration-150 hover:text-[var(--gold)]"
-                    target={item.href.startsWith('https://wa.me') ? '_blank' : undefined} 
+                    target={item.href.startsWith('https://wa.me') ? '_blank' : undefined}
                     rel={item.href.startsWith('https://wa.me') ? 'noopener noreferrer' : undefined}
                   >
                     <i class={`${item.icon} text-[var(--gold)] w-5`}></i>
@@ -108,6 +109,50 @@ const { brand, columns, trust, bottom, legal } = footerData.data;
             {columns.contact.schedule.days}<br/>
             {columns.contact.schedule.hours}
           </p>
+        </div>
+      </div>
+
+      <!-- Fila secundaria: Oficina WTC - Imagen + Mapa -->
+      <div class="mt-12 pt-10 border-t border-white/10">
+        <h3 class="font-bold text-lg mb-6 text-[var(--gold)]">Nuestra Oficina</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-3xl">
+          <!-- Imagen Oficina WTC -->
+          <div class="rounded-xl overflow-hidden border border-white/10">
+            <img
+              src="/oficina_WTC.jpg"
+              alt="Edificio WTC, Nueva Tajamar 481, Las Condes"
+              class="w-full h-48 object-cover"
+              loading="lazy"
+              width="400"
+              height="192"
+            />
+            <div class="px-3 py-2 bg-white/5">
+              <p class="text-white/70 text-xs m-0">Edificio WTC · Torre N, Of. 303</p>
+            </div>
+          </div>
+
+          <!-- Mapa Oficina WTC -->
+          <div class="rounded-xl overflow-hidden border border-white/10">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3330.2!2d-70.6!3d-33.41!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNuV2YSBUYWphbWFyIDQ4MQ!5e0!3m2!1ses!2scl!4v1700000000000!5m2!1ses!2scl&q=Nueva+Tajamar+481,+Las+Condes,+Santiago,+Chile"
+              width="100%"
+              height="192"
+              style="border:0;"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Ubicación oficina WTC, Nueva Tajamar 481, Las Condes"
+            ></iframe>
+            <a
+              href="https://maps.google.com/?q=Nueva+Tajamar+481+Torre+N+oficina+303+Las+Condes+Santiago+Chile"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex items-center justify-center gap-2 py-2 bg-white/5 text-[var(--gold)] text-sm font-medium no-underline transition-colors duration-150 hover:bg-white/10"
+            >
+              <i class="fas fa-map-marker-alt"></i>
+              Ver en Google Maps
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -152,6 +197,37 @@ const { brand, columns, trust, bottom, legal } = footerData.data;
       </nav>
       <p class="text-[var(--gray-500)] text-[0.8125rem] text-center max-w-[800px] mx-auto leading-relaxed">
         {legal.disclaimer}
+      </p>
+    </div>
+  </div>
+
+  <!-- Firma del desarrollador -->
+  <div class="border-t border-white/5 py-5 bg-black/40">
+    <div class="container flex flex-col items-center gap-2">
+      <p class="text-[var(--gray-500)] text-xs m-0 flex items-center gap-1.5 flex-wrap justify-center">
+        Hecho con
+        <svg class="w-4 h-4 inline-block" viewBox="0 0 24 24" fill="#7DD3FC" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+        </svg>
+        por
+        <a
+          href="https://www.healthytek.cl"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-sky-300 no-underline font-semibold tracking-wide transition-colors duration-150 hover:text-sky-200"
+        >HealthyTEK SpA</a>
+      </p>
+      <p class="text-[var(--gray-600)] text-[0.6875rem] m-0 italic">Tu Fábrica Digital</p>
+      <p class="text-[var(--gray-600)] text-[0.625rem] m-0 flex items-center gap-3 flex-wrap justify-center">
+        <a href="https://www.healthytek.cl" target="_blank" rel="noopener noreferrer" class="text-sky-300/70 no-underline transition-colors duration-150 hover:text-sky-200">
+          <i class="fas fa-globe w-3.5"></i> www.healthytek.cl
+        </a>
+        <a href="mailto:contacto@healthytek.cl" class="text-sky-300/70 no-underline transition-colors duration-150 hover:text-sky-200">
+          <i class="fas fa-envelope w-3.5"></i> contacto@healthytek.cl
+        </a>
+        <a href="https://wa.me/56965870256" target="_blank" rel="noopener noreferrer" class="text-sky-300/70 no-underline transition-colors duration-150 hover:text-sky-200">
+          <i class="fab fa-whatsapp w-3.5"></i> +56 9 6587 0256
+        </a>
       </p>
     </div>
   </div>

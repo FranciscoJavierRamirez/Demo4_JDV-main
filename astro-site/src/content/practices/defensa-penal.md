@@ -11,7 +11,7 @@ hero:
   h1: "Defensa Penal: Representación ante el Sistema de Justicia"
   breadcrumbTitle: "Defensa Penal"
   tagline: "Asumimos la representación de víctimas de delitos y de quienes enfrentan el actuar punitivo del Estado"
-  image: "/areas/defensa-penal.jpg"
+  image: "/defensa-penal.avif"
 
 trust:
   - value: "35+"

@@ -5,7 +5,7 @@ sectionSubtitle: "Respuestas a las consultas más comunes sobre nuestros servici
 questions:
   - id: 1
     question: "¿Cuánto cuesta la primera consulta?"
-    answer: "La **primera consulta es completamente gratuita**. En esta reunión inicial evaluamos su caso, le explicamos las opciones legales disponibles y le entregamos un presupuesto transparente. No hay compromiso de contratación."
+    answer: "La primera consulta es una reunión inicial donde evaluamos su caso, le explicamos las opciones legales disponibles y le entregamos un presupuesto transparente. No hay compromiso de contratación."
 
   - id: 2
     question: "¿Atienden casos en todo Chile?"
@@ -25,5 +25,5 @@ questions:
 
   - id: 6
     question: "¿Qué documentos necesito para la primera consulta?"
-    answer: "Para aprovechar al máximo la consulta gratuita, traiga: **1)** Cédula de identidad, **2)** Documentos relacionados al caso (notificaciones, contratos, correos), **3)** Cronología escrita de los hechos, **4)** Nombres y datos de personas involucradas. Si no tiene toda la documentación, agende su consulta y le orientaremos."
+    answer: "Para aprovechar al máximo la consulta inicial, traiga: **1)** Cédula de identidad, **2)** Documentos relacionados al caso (notificaciones, contratos, correos), **3)** Cronología escrita de los hechos, **4)** Nombres y datos de personas involucradas. Si no tiene toda la documentación, agende su consulta y le orientaremos."
 ---
