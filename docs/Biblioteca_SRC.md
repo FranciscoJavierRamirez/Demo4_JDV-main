@@ -1,6 +1,6 @@
 # Biblioteca de Componentes - Directorio SRC
 
-**Fecha de última actualización:** 2026-01-30
+**Fecha de última actualización:** 2026-02-01
 **Estado del proyecto:** 90% completado
 **Propósito:** Documentación viva que refleja el estado actual de implementación
 
@@ -15,11 +15,12 @@
 5. [Componentes de Áreas de Práctica (Practice)](#5-componentes-de-áreas-de-práctica-practice)
 6. [Componentes de About (Nosotros)](#6-componentes-de-about-nosotros)
 7. [Componentes de Blog](#7-componentes-de-blog)
-8. [Componentes Utilitarios](#8-componentes-utilitarios)
-9. [Content Collections](#9-content-collections)
-10. [Config y Utils](#10-config-y-utils)
-11. [Estilos (Styles)](#11-estilos-styles)
-12. [Diagrama de Relaciones](#12-diagrama-de-relaciones)
+8. [Componentes de Agenda (Reservas)](#8-componentes-de-agenda-reservas)
+9. [Componentes Utilitarios](#9-componentes-utilitarios)
+10. [Content Collections](#10-content-collections)
+11. [Config y Utils](#11-config-y-utils)
+12. [Estilos (Styles)](#12-estilos-styles)
+13. [Diagrama de Relaciones](#13-diagrama-de-relaciones)
 
 ---
 
@@ -44,6 +45,7 @@ Rutas del sitio que ensamblan componentes.
 |--------|----------|-----------|--------|
 | **index.astro** | `/` | Página principal del sitio | ✅ Completa |
 | **nosotros.astro** | `/nosotros/` | Página "Quiénes Somos" | ✅ Completa |
+| **agenda.astro** | `/agenda` | Página de reserva de consultas con Calendly | ✅ Completa |
 | **design-system.astro** | `/design-system/` | Sistema de diseño / guía de estilo | ✅ Completa |
 
 ### Páginas de Blog
@@ -160,7 +162,22 @@ Componentes para el sistema de blog.
 
 ---
 
-## 8. Componentes Utilitarios
+## 8. Componentes de Agenda (Reservas)
+
+Componentes para la página de reserva de consultas (`/agenda`).
+
+| Componente | Ubicación | Propósito |
+|------------|-----------|-----------|
+| **HeroAgenda.astro** | `/components/agenda/` | Hero compacto con portrait circular, título y meta badges. Layout horizontal en desktop. |
+| **CalendlyWidget.astro** | `/components/agenda/` | Widget inline de Calendly con loader animado y detección de carga via postMessage. |
+| **ProfileCard.astro** | `/components/agenda/` | Tarjeta de perfil profesional: avatar, datos de contacto, detalles de consulta. Sidebar sticky en desktop. |
+| **PrepTips.astro** | `/components/agenda/` | 4 tips de preparación para la consulta con animación stagger al scroll. |
+| **AgendaTrust.astro** | `/components/agenda/` | 3 badges de confianza: datos protegidos, confirmación inmediata, sin compromiso. |
+
+---
+
+## 9. Componentes Utilitarios
+
 
 Componentes reutilizables globales.
 
@@ -171,7 +188,7 @@ Componentes reutilizables globales.
 
 ---
 
-## 9. Content Collections
+## 10. Content Collections
 
 Sistema de gestión de contenido basado en Markdown + frontmatter YAML con validación de schemas Zod.
 
@@ -231,7 +248,7 @@ Artículos:
 
 ---
 
-## 10. Config y Utils
+## 11. Config y Utils
 
 | Archivo | Ubicación | Propósito |
 |---------|-----------|-----------|
@@ -240,7 +257,7 @@ Artículos:
 
 ---
 
-## 11. Estilos (Styles)
+## 12. Estilos (Styles)
 
 | Archivo | Ubicación | Propósito |
 |---------|-----------|-----------|
@@ -251,7 +268,7 @@ Artículos:
 
 ---
 
-## 12. Diagrama de Relaciones
+## 13. Diagrama de Relaciones
 
 ### Arquitectura de Páginas
 
@@ -300,6 +317,14 @@ BaseLayout (HTML + CSS + JS)
 │       ├── BlogRelated
 │       └── BlogCTA
 
+├── agenda.astro (Reservas)
+│   ├── Header minimalista (logo + volver)
+│   ├── HeroAgenda
+│   ├── CalendlyWidget + ProfileCard (sidebar)
+│   ├── PrepTips
+│   ├── AgendaTrust
+│   └── WhatsAppFloat
+│
 PracticeLayout (HTML + CSS + JS)
 └── areas-practicas/[slug].astro
     ├── Header (reutilizado)
@@ -323,17 +348,26 @@ PracticeLayout (HTML + CSS + JS)
     └── BackToTop
 ```
 
+### Flujo de CTAs de Reserva
+
+```
+CTAs que redirigen a /agenda:
+1. Header → Botón "Agendar" (desktop nav)
+2. FullscreenMenu → CTA "Agendar Consulta" (mobile)
+3. Hero → CTA Primario
+4. CTA Section → Botón principal
+5. PracticeHero → Botón "Agendar Consulta"
+6. PracticeFinalCTA → Botón primario de área
+
+CTAs que abren WhatsApp (separados):
+- CTA Section → Botón secundario teléfono
+- PracticeFinalCTA → Botón "WhatsApp Directo"
+- WhatsAppFloat → Botón flotante
+```
+
 ### Flujo de Interacción con Modal
 
 ```
-Puntos de apertura del Modal:
-1. Header → Botón "Agenda Ahora"
-2. Hero → CTA Primario
-3. ProBono → CTA
-4. CTA Section → Botón principal
-5. PracticeFinalCTA → Botón de área
-6. AboutCTA → Botón de contacto
-
 Modal cierra con:
 - Click en overlay (backdrop)
 - Botón X
@@ -347,6 +381,7 @@ Modal cierra con:
 ### Páginas Completas
 - ✅ Home (`/`)
 - ✅ Nosotros (`/nosotros/`)
+- ✅ Agenda / Reservas (`/agenda`) — Calendly + JSON-LD structured data
 - ✅ Blog (`/blog/`) + 3 artículos
 - ✅ Design System (`/design-system/`)
 - ✅ 10 Áreas de Práctica (todas implementadas)
@@ -403,6 +438,6 @@ Modal cierra con:
 
 ---
 
-**Última revisión:** 2026-01-30
+**Última revisión:** 2026-02-01
 **Mantenedor:** Claude Code
 **Versión:** 2.0.0

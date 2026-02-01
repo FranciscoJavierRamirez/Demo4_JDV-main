@@ -21,6 +21,12 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
   │   │   ├── Hero.astro            - Hero section
   │   │   ├── BackToTop.astro       - Back to top button
   │   │   ├── WhatsAppFloat.astro   - WhatsApp floating button
+  │   │   ├── agenda/              - Booking page components
+  │   │   │   ├── HeroAgenda.astro     - Compact hero with portrait
+  │   │   │   ├── CalendlyWidget.astro - Calendly inline embed
+  │   │   │   ├── ProfileCard.astro    - Professional profile sidebar
+  │   │   │   ├── PrepTips.astro       - Consultation prep tips
+  │   │   │   └── AgendaTrust.astro    - Trust badges
   │   │   ├── home/                 - Home page components
   │   │   │   ├── AreasGrid.astro   - Practice areas grid
   │   │   │   ├── Benefits.astro    - Benefits section
@@ -56,6 +62,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
   │   │   └── PracticeLayout.astro  - Practice area layout
   │   └── pages/
   │       ├── index.astro           - Home page
+  │       ├── agenda.astro          - Booking page (Calendly)
   │       └── areas-practicas/      - Practice area pages
   │           ├── index.astro
   │           ├── defensa-estatutaria.astro
@@ -327,16 +334,15 @@ Modern browsers (ES6+ features):
 
 ### Implemented
 - **Home** (`/`) - Complete
+- **Nosotros** (`/nosotros/`) - Complete
+- **Agenda / Reservas** (`/agenda`) - Calendly booking page with JSON-LD structured data
+- **Blog** (`/blog/`) - Complete with 3 articles
 - **Áreas de Práctica Index** (`/areas-practicas/`) - Complete
-- **8 Practice Area Pages** - All complete (defensa-estatutaria, defensa-administrativa, cliente-senior, legado, civil, inmobiliaria-copropiedad, animalista, capacitacion)
+- **10 Practice Area Pages** - All complete
 - **Design System** (`/design-system/`) - Reference page
 
 ### Pending Implementation
-- **Quiénes Somos** (`/nosotros/`) - About page
-- **Blog** (`/blog/`) - Blog listing and posts
 - **Contacto** (`/contacto/`) - Contact page with form
-
-Note: Navigation links in `Header.astro` currently point to `/` for pending pages.
 
 ## Production Checklist
 
@@ -354,7 +360,7 @@ Note: Navigation links in `Header.astro` currently point to `/` for pending page
    - [ ] Configure conversion tracking
 
 4. **SEO**
-   - [ ] Add JSON-LD structured data
+   - [x] Add JSON-LD structured data (implemented on `/agenda`)
    - [ ] Create sitemap.xml
    - [ ] Configure robots.txt
 

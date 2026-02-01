@@ -1,0 +1,136 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroAgenda from '../components/agenda/HeroAgenda.astro';
+import CalendlyWidget from '../components/agenda/CalendlyWidget.astro';
+import ProfileCard from '../components/agenda/ProfileCard.astro';
+import PrepTips from '../components/agenda/PrepTips.astro';
+import AgendaTrust from '../components/agenda/AgendaTrust.astro';
+import WhatsAppFloat from '../components/WhatsAppFloat.astro';
+---
+
+<BaseLayout
+  title="Agendar Consulta | JDV Abogados — Jacqueline Del Valle"
+  description="Reserve una consulta de 30 minutos con la abogada Jacqueline Del Valle. Atención personalizada, confidencial y profesional. JDV Abogados."
+>
+  <!-- Calendly assets -->
+  <Fragment slot="head">
+    <link rel="preconnect" href="https://assets.calendly.com">
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "LegalService",
+      "name": "JDV Abogados",
+      "description": "Estudio jurídico en Chile especializado en defensa estatutaria, administrativa, derecho civil, inmobiliario y animalista.",
+      "url": "https://jdvabogados.cl",
+      "logo": "https://jdvabogados.cl/favicon.svg",
+      "image": "https://jdvabogados.cl/Jaqueline_home_hero.png",
+      "telephone": "+56941692900",
+      "email": "jacquelinedelvalle@jdvabogados.cl",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "CL",
+        "addressLocality": "Chile"
+      },
+      "founder": {
+        "@type": "Person",
+        "name": "Jacqueline Del Valle",
+        "jobTitle": "Abogada Fundadora"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "Chile"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Consulta Legal",
+        "itemListElement": [{
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Consulta Legal de 30 minutos",
+            "description": "Consulta personalizada, confidencial y profesional con la abogada Jacqueline Del Valle. Disponible en modalidad virtual o presencial.",
+            "provider": { "@type": "LegalService", "name": "JDV Abogados" }
+          }
+        }]
+      },
+      "potentialAction": {
+        "@type": "ReserveAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://jdvabogados.cl/agenda",
+          "actionPlatform": ["https://schema.org/DesktopWebPlatform", "https://schema.org/MobileWebPlatform"]
+        },
+        "result": {
+          "@type": "Reservation",
+          "name": "Consulta Legal de 30 minutos"
+        }
+      }
+    })} />
+  </Fragment>
+
+  <!-- Minimal Header - Dark theme -->
+  <header id="agendaHeader" class="fixed top-0 left-0 right-0 z-[1000] bg-[rgba(12,35,64,0.85)] backdrop-blur-[20px] backdrop-saturate-[180%] border-b border-white/[0.06] shadow-[0_4px_24px_rgba(0,0,0,0.15)] transition-all duration-300">
+    <div class="flex items-center justify-between h-[60px] sm:h-[68px] px-4 sm:px-6 max-w-[1440px] mx-auto">
+      <!-- Logo -->
+      <a
+        href="/"
+        class="flex items-center gap-1.5 font-[var(--font-display)] text-[1.25rem] sm:text-[1.4rem] font-bold tracking-[-0.02em] no-underline transition-all duration-300 hover:scale-105"
+        aria-label="JDV Abogados - Ir a inicio"
+      >
+        <span class="bg-gradient-to-br from-[#C9A961] to-[#D4AF37] bg-clip-text text-transparent">JDV</span>
+        <span class="bg-gradient-to-br from-[#C9A961] to-[#D4AF37] bg-clip-text text-transparent">Abogados</span>
+      </a>
+
+      <!-- Back to site -->
+      <a
+        href="/"
+        class="flex items-center gap-2 text-sm font-medium text-white/70 no-underline px-4 py-2.5 rounded-xl border border-white/[0.1] bg-white/[0.05] backdrop-blur-sm transition-all duration-200 hover:bg-white/[0.1] hover:border-white/[0.2] hover:text-white hover:-translate-y-px hover:shadow-[0_4px_12px_rgba(0,0,0,0.15)] min-h-11 active:scale-[0.98]"
+      >
+        <i class="fas fa-arrow-left text-xs text-[var(--gold)]"></i>
+        <span class="hidden sm:inline">Volver al sitio</span>
+        <span class="sm:hidden">Volver</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- Spacer for fixed header -->
+  <div class="h-[60px] sm:h-[68px]"></div>
+
+  <!-- Hero -->
+  <HeroAgenda />
+
+  <!-- Main Content: Sidebar + Calendly -->
+  <section class="relative py-8 sm:py-12 lg:py-16 overflow-hidden">
+    <!-- Deep blue background continuous with hero -->
+    <div class="absolute inset-0 bg-gradient-to-b from-[#0c2340] via-[#0e2a4a] to-[#0c2340]"></div>
+    <!-- Subtle orbs -->
+    <div class="absolute top-[20%] right-[-10%] w-[400px] h-[400px] rounded-full bg-[radial-gradient(circle,rgba(59,130,246,0.08)_0%,transparent_70%)] blur-[80px] pointer-events-none"></div>
+    <div class="absolute bottom-[10%] left-[-5%] w-[300px] h-[300px] rounded-full bg-[radial-gradient(circle,rgba(201,169,97,0.06)_0%,transparent_70%)] blur-[60px] pointer-events-none"></div>
+
+    <div class="relative z-10 max-w-[1200px] mx-auto px-3 sm:px-6">
+      <div class="flex flex-col lg:flex-row gap-5 lg:gap-8">
+        <!-- Profile Card (sidebar on desktop, below calendar on mobile) -->
+        <aside class="order-2 lg:order-1 lg:w-[320px] lg:flex-shrink-0">
+          <div class="lg:sticky lg:top-[88px]">
+            <ProfileCard />
+          </div>
+        </aside>
+
+        <!-- Calendly Widget -->
+        <div class="order-1 lg:order-2 flex-1 min-w-0">
+          <CalendlyWidget />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Prep Tips -->
+  <PrepTips />
+
+  <!-- Trust Badges -->
+  <AgendaTrust />
+
+  <!-- WhatsApp Float -->
+  <WhatsAppFloat />
+</BaseLayout>

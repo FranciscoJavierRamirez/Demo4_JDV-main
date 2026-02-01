@@ -1,0 +1,102 @@
+---
+---
+
+<section class="relative py-8 sm:py-10 lg:py-12 overflow-hidden bg-[#0c2340]">
+  <!-- Mesh Gradient Background -->
+  <div class="absolute inset-0 z-0">
+    <div class="absolute top-[-20%] left-[-10%] w-[70%] h-[70%] rounded-full bg-[radial-gradient(circle,rgba(59,130,246,0.35)_0%,transparent_70%)] blur-[120px] animate-[heroFloat_20s_ease-in-out_infinite]"></div>
+    <div class="absolute bottom-[-15%] right-[-5%] w-[60%] h-[60%] rounded-full bg-[radial-gradient(circle,rgba(29,78,216,0.35)_0%,transparent_70%)] blur-[100px] animate-[heroFloat_25s_ease-in-out_infinite_reverse]"></div>
+  </div>
+
+  <!-- Gradient Overlay -->
+  <div class="absolute inset-0 z-[2] bg-gradient-to-br from-[rgba(12,35,64,0.97)] via-[rgba(12,35,64,0.92)] to-[rgba(26,77,122,0.85)]"></div>
+
+  <div class="relative z-10 max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Breadcrumb -->
+    <nav class="flex justify-center lg:justify-start mb-5 sm:mb-6 text-sm hero-animate" style="--delay: 0s" aria-label="Breadcrumb">
+      <a href="/" class="text-white/60 hover:text-white transition-colors duration-200 no-underline">Inicio</a>
+      <span class="mx-2 text-white/30">/</span>
+      <span class="text-[var(--gold-light)] font-medium">Agendar Consulta</span>
+    </nav>
+
+    <!-- Compact horizontal layout -->
+    <div class="flex flex-col lg:flex-row lg:items-center lg:gap-8">
+      <!-- Portrait + Text -->
+      <div class="hero-animate flex flex-col sm:flex-row items-center sm:items-start lg:items-center gap-4 sm:gap-6 text-center sm:text-left" style="--delay: 0.05s">
+        <!-- Circular portrait -->
+        <div class="relative flex-shrink-0">
+          <div class="absolute inset-[-6px] bg-[radial-gradient(circle,rgba(201,169,97,0.25)_0%,transparent_70%)] rounded-full animate-[pulseGlow_3s_ease-in-out_infinite]"></div>
+          <div class="relative w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden border-2 border-[rgba(201,169,97,0.4)] shadow-[0_8px_32px_rgba(201,169,97,0.2),0_0_40px_rgba(0,0,0,0.3)]">
+            <picture>
+              <source srcset="/Jaqueline_home_hero.webp" type="image/webp">
+              <img
+                src="/Jaqueline_home_hero.png"
+                alt="Jacqueline Del Valle"
+                class="w-full h-full object-cover object-top"
+                loading="eager"
+                width="96"
+                height="96"
+              />
+            </picture>
+          </div>
+        </div>
+
+        <!-- Title block -->
+        <div>
+          <h1 class="font-[var(--font-display)] text-[clamp(1.6rem,4vw,2.5rem)] font-black tracking-[-0.02em] leading-[1.12] text-white mb-2">
+            Agende su Consulta
+            <span class="bg-gradient-to-r from-[#FDFBF7] via-[#E5D5AA] to-[#C9A254] bg-clip-text text-transparent"> con Jacqueline Del Valle</span>
+          </h1>
+          <p class="text-[clamp(0.85rem,1.5vw,1rem)] text-white/75 leading-relaxed max-w-[480px]">
+            Atención personalizada, confidencial y profesional.
+          </p>
+        </div>
+      </div>
+
+      <!-- Meta badges — right side on desktop -->
+      <div class="hero-animate flex flex-wrap justify-center lg:justify-end gap-2 mt-5 lg:mt-0 lg:ml-auto flex-shrink-0" style="--delay: 0.2s">
+        <div class="meta-badge flex items-center gap-2 text-xs sm:text-sm px-3.5 py-2 bg-white/[0.08] backdrop-blur-md rounded-lg border border-white/[0.12] transition-all duration-300 hover:bg-white/[0.14] hover:border-[rgba(201,169,97,0.3)] cursor-default">
+          <i class="fas fa-clock text-[var(--gold)] text-xs"></i>
+          <span class="font-medium text-white/90">30 min</span>
+        </div>
+        <div class="meta-badge flex items-center gap-2 text-xs sm:text-sm px-3.5 py-2 bg-white/[0.08] backdrop-blur-md rounded-lg border border-white/[0.12] transition-all duration-300 hover:bg-white/[0.14] hover:border-[rgba(201,169,97,0.3)] cursor-default">
+          <i class="fas fa-video text-[var(--gold)] text-xs"></i>
+          <span class="font-medium text-white/90">Virtual / Presencial</span>
+        </div>
+        <div class="meta-badge flex items-center gap-2 text-xs sm:text-sm px-3.5 py-2 bg-white/[0.08] backdrop-blur-md rounded-lg border border-white/[0.12] transition-all duration-300 hover:bg-white/[0.14] hover:border-[rgba(201,169,97,0.3)] cursor-default">
+          <i class="fas fa-globe-americas text-[var(--gold)] text-xs"></i>
+          <span class="font-medium text-white/90">Cobertura Nacional</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero-animate {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: heroFadeIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: var(--delay, 0s);
+  }
+
+  @keyframes heroFadeIn {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes heroFloat {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(30px, -50px) scale(1.05); }
+    66% { transform: translate(-20px, 20px) scale(0.97); }
+  }
+
+  @keyframes pulseGlow {
+    0%, 100% { opacity: 0.6; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.2); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-animate { animation: none; opacity: 1; transform: none; }
+    .meta-badge { transition: none; }
+  }
+</style>

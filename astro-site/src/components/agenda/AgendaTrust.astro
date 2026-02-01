@@ -1,0 +1,81 @@
+---
+const badges = [
+  {
+    icon: "fas fa-lock",
+    title: "Datos Protegidos",
+    description: "Su información está encriptada y segura"
+  },
+  {
+    icon: "fas fa-envelope-open-text",
+    title: "Confirmación Inmediata",
+    description: "Recibirá confirmación por correo electrónico"
+  },
+  {
+    icon: "fas fa-handshake",
+    title: "Sin Compromiso",
+    description: "Primera consulta de orientación general"
+  }
+];
+---
+
+<section class="relative py-12 sm:py-16 overflow-hidden">
+  <!-- Background -->
+  <div class="absolute inset-0 bg-[#0a1e38]"></div>
+  <!-- Top divider -->
+  <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent"></div>
+
+  <div class="relative z-10 max-w-[900px] mx-auto px-4 sm:px-6">
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-5">
+      {badges.map((badge, i) => (
+        <div
+          class="trust-item group flex flex-col items-center text-center p-5 sm:p-6 rounded-xl sm:rounded-2xl bg-white/[0.03] border border-white/[0.06] transition-all duration-300 hover:bg-white/[0.07] hover:border-[rgba(201,169,97,0.15)] hover:-translate-y-0.5"
+          data-delay={i}
+        >
+          <div class="w-12 h-12 flex items-center justify-center rounded-full bg-gradient-to-br from-[rgba(201,169,97,0.12)] to-[rgba(212,175,55,0.06)] border border-[rgba(201,169,97,0.12)] mb-3.5 transition-all duration-300 group-hover:shadow-[0_0_24px_rgba(201,169,97,0.12)] group-hover:scale-[1.08]">
+            <i class={`${badge.icon} text-[var(--gold)] text-lg`}></i>
+          </div>
+          <h3 class="font-semibold text-sm text-white mb-1">{badge.title}</h3>
+          <p class="text-xs text-white/40 leading-relaxed">{badge.description}</p>
+        </div>
+      ))}
+    </div>
+
+    <!-- Bottom note -->
+    <p class="text-center text-xs text-white/25 mt-8 sm:mt-10">
+      <i class="fas fa-shield-alt mr-1"></i> JDV Abogados — Atención profesional y confidencial
+    </p>
+  </div>
+</section>
+
+<style>
+  .trust-item {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .trust-item.visible { opacity: 1; transform: translateY(0); }
+  .trust-item[data-delay="0"].visible { transition-delay: 0s; }
+  .trust-item[data-delay="1"].visible { transition-delay: 0.1s; }
+  .trust-item[data-delay="2"].visible { transition-delay: 0.2s; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .trust-item { transition: none; opacity: 1; transform: none; }
+  }
+</style>
+
+<script is:inline>
+  (function() {
+    var items = document.querySelectorAll('.trust-item');
+    if ('IntersectionObserver' in window) {
+      var obs = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) { entry.target.classList.add('visible'); obs.unobserve(entry.target); }
+        });
+      }, { threshold: 0.2 });
+      items.forEach(function(item) { obs.observe(item); });
+    } else {
+      items.forEach(function(item) { item.classList.add('visible'); });
+    }
+  })();
+</script>
