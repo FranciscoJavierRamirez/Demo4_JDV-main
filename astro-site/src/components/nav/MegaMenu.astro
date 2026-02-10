@@ -4,16 +4,14 @@ const columns = [
   {
     title: "Defensa Legal",
     items: [
-      { href: "/areas-practicas/defensa-estatutaria", icon: "fas fa-shield-alt", title: "Defensa Estatutaria", desc: "Protección de funcionarios públicos" },
-      { href: "/areas-practicas/defensa-administrativa", icon: "fas fa-building", title: "Defensa Administrativa", desc: "Representación ante órganos públicos" },
+      { href: "/areas-practicas/defensa-estatutaria", icon: "fas fa-shield-alt", title: "Defensa Estatutaria", desc: "Protección de funcionarios públicos", featured: true },
+      { href: "/areas-practicas/defensa-administrativa", icon: "fas fa-building", title: "Defensa Administrativa", desc: "Representación ante órganos públicos", featured: true },
       { href: "/areas-practicas/defensa-penal", icon: "fas fa-gavel", title: "Defensa Penal", desc: "Víctimas e imputados" }
     ]
   },
   {
     title: "Servicios Especializados",
     items: [
-      { href: "/areas-practicas/cliente-senior", icon: "fas fa-heart", title: "Cliente Senior", desc: "Atención personalizada para adultos mayores" },
-      { href: "/areas-practicas/legado", icon: "fas fa-file-signature", title: "Legado", desc: "Planificación sucesoria" },
       { href: "/areas-practicas/familia-menores", icon: "fas fa-users", title: "Familia y Menores", desc: "Divorcios, tuiciones y alimentos" }
     ]
   },
@@ -21,13 +19,12 @@ const columns = [
     title: "Derecho Civil",
     items: [
       { href: "/areas-practicas/civil", icon: "fas fa-balance-scale", title: "Civil", desc: "Cobranzas y litigios civiles" },
-      { href: "/areas-practicas/inmobiliaria-copropiedad", icon: "fas fa-home", title: "Inmobiliaria", desc: "Compraventa y copropiedad" }
+      { href: "/areas-practicas/inmobiliaria-copropiedad", icon: "fas fa-home", title: "Inmobiliaria y Copropiedad", desc: "Compraventa y copropiedad", featured: true }
     ]
   },
   {
     title: "Otras Áreas",
     items: [
-      { href: "/areas-practicas/animalista", icon: "fas fa-paw", title: "Animalista", desc: "Defensa de mascotas y tutores" },
       { href: "/areas-practicas/capacitacion", icon: "fas fa-chalkboard-teacher", title: "Capacitación", desc: "Cursos y talleres para organizaciones" }
     ]
   }
@@ -60,7 +57,10 @@ const columns = [
                         <i class={`${item.icon} text-white text-sm`}></i>
                       </div>
                       <div>
-                        <strong class="block text-[var(--gray-900)] font-semibold text-sm group-hover:text-[var(--gold-dark)] transition-colors">{item.title}</strong>
+                        <strong class="flex items-center gap-1.5 text-[var(--gray-900)] font-semibold text-sm group-hover:text-[var(--gold-dark)] transition-colors">
+                          {item.title}
+                          {item.featured && <span class="text-[0.6rem] px-1.5 py-0.5 bg-[var(--gold)]/10 text-[var(--gold)] rounded-full font-bold">★</span>}
+                        </strong>
                         <span class="text-[var(--gray-500)] text-xs">{item.desc}</span>
                       </div>
                     </a>

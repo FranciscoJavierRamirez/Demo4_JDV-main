@@ -1,7 +1,7 @@
 ---
 seo:
   title: "Quiénes Somos | JDV Abogados"
-  description: "JDV Abogados es un estudio jurídico con 10 áreas de práctica y cobertura nacional e internacional. Conozca a nuestro equipo de abogados comprometidos con su defensa."
+  description: "JDV Abogados es un estudio jurídico con 8 áreas de práctica y cobertura nacional e internacional. Conozca a nuestro equipo de abogados comprometidos con su defensa."
 
 hero:
   badge:
@@ -12,7 +12,7 @@ hero:
   foundationText: "JDV Abogados es un estudio jurídico con cobertura nacional e internacional, fundado por Jacqueline Del Valle Inostroza. Nuestro equipo de abogados brinda asesoría y defensa legal en diversas áreas del derecho, con un compromiso ético, transparente y profundamente humano. Los invitamos a conocernos y confiar en nosotros."
   stats:
     - icon: "fas fa-gavel"
-      number: "10"
+      number: "8"
       label: "Áreas de Práctica"
       suffix: ""
     - icon: "fas fa-map-marked-alt"
@@ -43,8 +43,8 @@ vision:
 
 values:
   - icon: "fas fa-briefcase"
-    title: "10 Áreas de Práctica"
-    description: "Defensa Estatutaria, Administrativa, Civil, Familia, Inmobiliaria, Animalista y más"
+    title: "8 Áreas de Práctica"
+    description: "Defensa Estatutaria, Administrativa, Penal, Civil, Familia, Inmobiliaria y más"
     detail: "Cobertura integral para diversas necesidades legales"
   - icon: "fas fa-users"
     title: "Equipo de Abogados"
@@ -108,7 +108,7 @@ team:
 
 cta:
   title: "¿Necesita Asesoría Legal?"
-  text: "Nuestro equipo de abogados está listo para atender su caso. Contamos con 10 áreas de práctica y cobertura nacional e internacional."
+  text: "Nuestro equipo de abogados está listo para atender su caso. Contamos con 8 áreas de práctica y cobertura nacional e internacional."
   button:
     text: "Agendar Consulta"
     icon: "fab fa-whatsapp"

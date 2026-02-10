@@ -22,11 +22,11 @@ fields:
     options:
       - "Defensa Estatutaria"
       - "Defensa Administrativa"
+      - "Defensa Penal"
       - "Cliente Senior"
-      - "Legado"
+      - "Familia y Menores"
       - "Civil"
       - "Inmobiliaria"
-      - "Animalista"
       - "Capacitación"
     required: true
   message:

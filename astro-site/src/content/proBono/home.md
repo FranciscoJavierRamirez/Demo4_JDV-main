@@ -16,7 +16,7 @@ criteria:
   - icon: "fas fa-check-circle"
     text: "Casos de especial relevancia social o defensa de derechos fundamentales"
   - icon: "fas fa-check-circle"
-    text: "Organizaciones sin fines de lucro (fundaciones animalistas, asociaciones comunitarias)"
+    text: "Organizaciones sin fines de lucro (fundaciones, asociaciones comunitarias)"
 
 cta:
   question: "¿Crees que calificas?"

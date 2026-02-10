@@ -34,18 +34,6 @@ const allServices: RelatedService[] = [
     icon: "⚖️"
   },
   {
-    slug: "cliente-senior",
-    title: "Cliente Senior",
-    description: "Atención legal integral y personalizada para adultos mayores.",
-    icon: "👴"
-  },
-  {
-    slug: "legado",
-    title: "Legado",
-    description: "Planificación sucesoria para proteger a dependientes vulnerables.",
-    icon: "📜"
-  },
-  {
     slug: "civil",
     title: "Derecho Civil",
     description: "Contratos, obligaciones, cobranzas y litigios civiles.",
@@ -56,12 +44,6 @@ const allServices: RelatedService[] = [
     title: "Inmobiliaria y Copropiedad",
     description: "Compraventa, arriendos y administración de comunidades.",
     icon: "🏠"
-  },
-  {
-    slug: "animalista",
-    title: "Derecho Animalista",
-    description: "Defensa de derechos animales y responsabilidad veterinaria.",
-    icon: "🐾"
   },
   {
     slug: "capacitacion",
@@ -82,13 +64,10 @@ const relatedMatrix: Record<string, string[]> = {
   "defensa-estatutaria": ["defensa-administrativa", "defensa-penal", "capacitacion"],
   "defensa-administrativa": ["defensa-estatutaria", "defensa-penal", "capacitacion"],
   "defensa-penal": ["defensa-administrativa", "civil", "familia-menores"],
-  "cliente-senior": ["legado", "familia-menores", "inmobiliaria-copropiedad"],
-  "legado": ["cliente-senior", "familia-menores", "animalista"],
   "civil": ["defensa-penal", "inmobiliaria-copropiedad", "familia-menores"],
-  "inmobiliaria-copropiedad": ["civil", "cliente-senior", "legado"],
-  "animalista": ["civil", "legado", "capacitacion"],
+  "inmobiliaria-copropiedad": ["civil", "familia-menores", "capacitacion"],
   "capacitacion": ["defensa-estatutaria", "defensa-administrativa", "defensa-penal"],
-  "familia-menores": ["legado", "civil", "cliente-senior"]
+  "familia-menores": ["civil", "inmobiliaria-copropiedad", "defensa-penal"]
 };
 
 // Determine which services to show

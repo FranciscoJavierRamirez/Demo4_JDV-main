@@ -121,33 +121,25 @@ export const serviceLabels: Record<string, { name: string; href: string }> = {
     name: 'Defensa Administrativa',
     href: '/areas-practicas/defensa-administrativa'
   },
-  'civil': {
-    name: 'Derecho Civil',
-    href: '/areas-practicas/civil'
-  },
-  'cliente-senior': {
-    name: 'Cliente Senior',
-    href: '/areas-practicas/cliente-senior'
-  },
-  'legado': {
-    name: 'Legado',
-    href: '/areas-practicas/legado'
-  },
-  'animalista': {
-    name: 'Derecho Animalista',
-    href: '/areas-practicas/animalista'
-  },
-  'capacitacion': {
-    name: 'Capacitación',
-    href: '/areas-practicas/capacitacion'
-  },
   'inmobiliaria-copropiedad': {
     name: 'Inmobiliaria y Copropiedad',
     href: '/areas-practicas/inmobiliaria-copropiedad'
   },
+  'defensa-penal': {
+    name: 'Defensa Penal',
+    href: '/areas-practicas/defensa-penal'
+  },
   'familia-menores': {
     name: 'Familia y Menores',
     href: '/areas-practicas/familia-menores'
+  },
+  'civil': {
+    name: 'Derecho Civil',
+    href: '/areas-practicas/civil'
+  },
+  'capacitacion': {
+    name: 'Capacitación',
+    href: '/areas-practicas/capacitacion'
   }
 };
 

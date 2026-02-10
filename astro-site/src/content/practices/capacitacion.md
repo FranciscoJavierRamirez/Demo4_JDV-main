@@ -101,7 +101,7 @@ process:
 
 faq:
   - question: "¿Qué temas pueden cubrirse en las capacitaciones?"
-    answer: "Las capacitaciones abarcan diversas áreas: Estatuto Administrativo, Ley Karin (acoso laboral y sexual), procedimientos disciplinarios, derechos funcionarios, Ley de Copropiedad Inmobiliaria, normativa animalista (Ley Cholito), compras públicas, probidad administrativa, y más. El contenido se adapta a las necesidades de cada organización."
+    answer: "Las capacitaciones abarcan diversas áreas: Estatuto Administrativo, Ley Karin (acoso laboral y sexual), procedimientos disciplinarios, derechos funcionarios, Ley de Copropiedad Inmobiliaria, compras públicas, probidad administrativa, y más. El contenido se adapta a las necesidades de cada organización."
   - question: "¿Qué formatos de capacitación ofrecen?"
     answer: "Ofrecemos diversos formatos adaptados a las necesidades de cada organización: charlas informativas breves, talleres prácticos con ejercicios y casos, y cursos especializados de mayor profundidad. El diseño se ajusta a sus objetivos y disponibilidad."
   - question: "¿Se realizan capacitaciones presenciales fuera de Santiago?"
@@ -146,6 +146,5 @@ No se trata solo de exponer teoría. Nuestras capacitaciones combinan **rigor t�
 - **Procedimientos Disciplinarios**: Cómo enfrentar sumarios e investigaciones
 - **Ley de Copropiedad**: Gestión de comunidades y resolución de conflictos
 - **Probidad y Transparencia**: Estándares éticos en el sector público
-- **Normativa Animalista**: Ley Cholito y responsabilidades de tutores
 
 **¿Su organización necesita otra temática?** Diseñamos contenidos a medida.

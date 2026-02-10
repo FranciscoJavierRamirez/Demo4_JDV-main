@@ -90,7 +90,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
   │   │   ├── home/hero.md          - Hero content
   │   │   ├── modal/home.md         - Modal content
   │   │   ├── newsletter/home.md    - Newsletter content
-  │   │   ├── practices/            - Individual practice pages (10 areas)
+  │   │   ├── practices/            - Individual practice pages (8 areas)
   │   │   ├── proBono/home.md       - Pro bono content
   │   │   ├── stats/home.md         - Stats content
   │   │   ├── team/                 - Team member profiles (4 members)
@@ -108,7 +108,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
   │       │   ├── index.astro
   │       │   ├── [...slug].astro   - Dynamic blog posts
   │       │   └── categoria/[categoria].astro
-  │       └── areas-practicas/      - Practice area pages (10)
+  │       └── areas-practicas/      - Practice area pages (8)
   └── public/
       ├── home/
       │   ├── style.css             - All CSS (loaded by BaseLayout)
@@ -219,7 +219,7 @@ The project uses a hybrid approach:
 ### Key Interactive Features
 
 **Navigation System:**
-- **Desktop**: Mega menu with hover interactions (grid layout, 10 practice areas)
+- **Desktop**: Mega menu with hover interactions (grid layout, 8 practice areas)
 - **Mobile**: Fullscreen overlay menu with slide-in animation
 - **Sticky behavior**: Appears after 100px scroll, hides on scroll down
 
@@ -240,23 +240,21 @@ The project uses a hybrid approach:
 1. **Hero Section**: Background image + animated orbs + floating cards (desktop) + trust indicators
 2. **Stats Section**: 4 animated counters
 3. **Trust Badges**: Static horizontal badges
-4. **Practice Areas**: 10 cards with gradient hover effects
+4. **Practice Areas**: 8 cards with gradient hover effects
 5. **Benefits Section**: 4 value propositions
 6. **CTA Section**: Blue gradient + consultation button
 7. **Footer**: 4-column layout
 
-### Service Areas (10 Total)
+### Service Areas (8 Total)
 
 1. **Defensa Estatutaria** - Defense of public sector employees
 2. **Defensa Administrativa** - Representation before public administration
 3. **Defensa Penal** - Criminal defense representation
 4. **Cliente Senior** - In-home legal services for elderly clients
 5. **Familia y Menores** - Family law and child protection
-6. **Legado** - Estate planning for dependents and pets
-7. **Civil** - General civil law matters
-8. **Inmobiliaria y Copropiedad** - Real estate and condominium law
-9. **Animalista** - Animal welfare and veterinary malpractice
-10. **Capacitación** - Corporate training and workshops
+6. **Civil** - General civil law matters
+7. **Inmobiliaria y Copropiedad** - Real estate and condominium law
+8. **Capacitación** - Corporate training and workshops
 
 ## Code Conventions
 
@@ -384,7 +382,7 @@ Modern browsers (ES6+ features):
 - **Agenda / Reservas** (`/agenda`) - Calendly booking page with JSON-LD structured data
 - **Blog** (`/blog/`) - Complete with 3 articles and category pages
 - **Áreas de Práctica Index** (`/areas-practicas/`) - Complete
-- **10 Practice Area Pages** - All complete (defensa-estatutaria, defensa-administrativa, defensa-penal, cliente-senior, familia-menores, legado, civil, inmobiliaria-copropiedad, animalista, capacitacion)
+- **8 Practice Area Pages** - All complete (defensa-estatutaria, defensa-administrativa, defensa-penal, cliente-senior, familia-menores, civil, inmobiliaria-copropiedad, capacitacion)
 - **Design System** (`/design-system/`) - Reference page
 
 ## Production Checklist

@@ -7,6 +7,12 @@ const menuItems = [
   { href: "/#faq", label: "FAQ" },
   { href: "/contacto", label: "Contacto" }
 ];
+
+const featuredAreas = [
+  { href: "/areas-practicas/defensa-estatutaria", label: "Defensa Estatutaria", icon: "fas fa-shield-alt" },
+  { href: "/areas-practicas/defensa-administrativa", label: "Defensa Administrativa", icon: "fas fa-building" },
+  { href: "/areas-practicas/inmobiliaria-copropiedad", label: "Inmobiliaria y Copropiedad", icon: "fas fa-home" }
+];
 ---
 
 <!-- Full Screen Mobile Menu -->
@@ -24,19 +30,37 @@ const menuItems = [
   <div class="relative h-full flex flex-col justify-center px-8 py-24">
     <nav class="flex flex-col gap-2" aria-label="Navegación principal">
       {menuItems.map((item, index) => (
-        <a 
-          href={item.href} 
-          class="fullscreen-link group flex items-center gap-6 py-4 text-white no-underline opacity-0 -translate-x-8 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]"
-          style={`transition-delay: ${index * 80}ms`}
-          aria-label={`Ir a ${item.label}`}
-        >
-          <span class="link-number font-mono text-sm text-[var(--gold)] opacity-60 w-8" aria-hidden="true">
-            {String(index + 1).padStart(2, '0')}
-          </span>
-          <span class="link-text font-[var(--font-display)] text-[clamp(1.75rem,5vw,3rem)] font-bold tracking-[-0.02em] transition-all duration-300 group-hover:text-[var(--gold)] group-hover:translate-x-4">
-            {item.label}
-          </span>
-        </a>
+        <>
+          <a
+            href={item.href}
+            class="fullscreen-link group flex items-center gap-6 py-4 text-white no-underline opacity-0 -translate-x-8 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]"
+            style={`transition-delay: ${index * 80}ms`}
+            aria-label={`Ir a ${item.label}`}
+          >
+            <span class="link-number font-mono text-sm text-[var(--gold)] opacity-60 w-8" aria-hidden="true">
+              {String(index + 1).padStart(2, '0')}
+            </span>
+            <span class="link-text font-[var(--font-display)] text-[clamp(1.75rem,5vw,3rem)] font-bold tracking-[-0.02em] transition-all duration-300 group-hover:text-[var(--gold)] group-hover:translate-x-4">
+              {item.label}
+            </span>
+          </a>
+          {/* Áreas destacadas después de "Áreas de Práctica" */}
+          {item.label === "Áreas de Práctica" && (
+            <div class="fullscreen-link featured-areas pl-14 pb-2 opacity-0 -translate-x-8 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]" style={`transition-delay: ${(index + 0.5) * 80}ms`}>
+              <div class="flex flex-wrap gap-2">
+                {featuredAreas.map((area) => (
+                  <a
+                    href={area.href}
+                    class="inline-flex items-center gap-2 px-3 py-1.5 bg-white/10 backdrop-blur-sm rounded-full text-white/90 text-sm font-medium transition-all duration-200 hover:bg-[var(--gold)] hover:text-[var(--gray-900)] no-underline"
+                  >
+                    <i class={`${area.icon} text-xs`}></i>
+                    {area.label}
+                  </a>
+                ))}
+              </div>
+            </div>
+          )}
+        </>
       ))}
     </nav>
 
@@ -62,6 +86,11 @@ const menuItems = [
   }
 
   .fullscreen-menu.active .fullscreen-link {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .fullscreen-menu.active .featured-areas {
     opacity: 1;
     transform: translateX(0);
   }

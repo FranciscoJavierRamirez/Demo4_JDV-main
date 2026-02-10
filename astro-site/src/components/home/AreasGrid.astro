@@ -60,16 +60,20 @@ const { sectionTitle, sectionSubtitle, areas } = areasData.data;
       </p>
     </div>
 
-    <!-- Bento Grid Layout -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 auto-rows-[minmax(300px,auto)]">
+    <!-- Bento Grid Layout - 12 columnas para flexibilidad -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6 auto-rows-[minmax(280px,auto)]">
       {areas.map((area, index) => {
-        const isFeatured = index === 0 || index === 1;
+        const isFeatured = index === 0 || index === 1 || index === 2;
+        // Principales: 4 cols cada una (4+4+4=12) = 1 fila completa
+        // Secundarias: 3 cols cada una (3+3+3+3=12) = 1 fila de 4
+        // Última: centrada
+        const gridClass = isFeatured
+          ? 'md:col-span-1 lg:col-span-4 min-h-[340px]'
+          : 'md:col-span-1 lg:col-span-3 min-h-[280px]';
         return (
-          <a 
+          <a
             href={area.link}
-            class={`area-card scroll-reveal-card group relative rounded-[24px] overflow-hidden cursor-pointer flex flex-col justify-end transition-all duration-500
-              ${isFeatured ? 'md:col-span-2 lg:col-span-2 min-h-[360px]' : 'col-span-1 min-h-[300px]'}
-            `}
+            class={`area-card scroll-reveal-card group relative rounded-[24px] overflow-hidden cursor-pointer flex flex-col justify-end transition-all duration-500 ${gridClass}`}
             style={`transition-delay: ${index * 80}ms`}
           >
             <!-- Background Image Layer - Reveals on hover -->
@@ -278,13 +282,15 @@ const { sectionTitle, sectionSubtitle, areas } = areasData.data;
 
   /* Featured cards special styling */
   .area-card:nth-child(1),
-  .area-card:nth-child(2) {
+  .area-card:nth-child(2),
+  .area-card:nth-child(3) {
     border-color: rgba(59, 130, 246, 0.15);
   }
 
   .area-card:nth-child(1):hover,
-  .area-card:nth-child(2):hover {
-    box-shadow: 
+  .area-card:nth-child(2):hover,
+  .area-card:nth-child(3):hover {
+    box-shadow:
       0 30px 60px -15px rgba(59, 130, 246, 0.35),
       0 0 0 1px rgba(59, 130, 246, 0.2);
   }
