@@ -59,8 +59,8 @@ columns:
         text: "+56 9 4169 2900"
         href: "tel:+56941692900"
       - icon: "fas fa-envelope"
-        text: "contacto@jdviabogados.cl"
-        href: "mailto:contacto@jdviabogados.cl"
+        text: "contacto@jdvabogados.cl"
+        href: "mailto:contacto@jdvabogados.cl"
       - icon: "fab fa-whatsapp"
         text: "WhatsApp"
         href: "https://wa.me/56941692900"
@@ -73,7 +73,7 @@ columns:
     schedule:
       title: "Horario:"
       days: "Lunes a Viernes"
-      hours: "9:00 - 18:00 hrs"
+      hours: "14:00 - 18:00 hrs"
 
 trust:
   title: "Certificaciones y Reconocimientos"
