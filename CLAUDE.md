@@ -21,13 +21,33 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
   │   │   ├── Hero.astro            - Hero section
   │   │   ├── BackToTop.astro       - Back to top button
   │   │   ├── WhatsAppFloat.astro   - WhatsApp floating button
+  │   │   ├── about/               - About page components
+  │   │   │   ├── AboutHero.astro      - About hero section
+  │   │   │   ├── AboutMission.astro   - Mission statement
+  │   │   │   ├── AboutTimeline.astro  - Career timeline
+  │   │   │   ├── AboutFounderProfile.astro - Founder profile
+  │   │   │   ├── AboutTeam.astro      - Team members
+  │   │   │   └── AboutCTA.astro       - About page CTA
   │   │   ├── agenda/              - Booking page components
   │   │   │   ├── HeroAgenda.astro     - Compact hero with portrait
   │   │   │   ├── CalendlyWidget.astro - Calendly inline embed
   │   │   │   ├── ProfileCard.astro    - Professional profile sidebar
   │   │   │   ├── PrepTips.astro       - Consultation prep tips
   │   │   │   └── AgendaTrust.astro    - Trust badges
+  │   │   ├── blog/                - Blog components
+  │   │   │   ├── BlogHero.astro       - Blog post hero
+  │   │   │   ├── BlogContent.astro    - Article content
+  │   │   │   ├── BlogAuthor.astro     - Author card
+  │   │   │   ├── BlogBreadcrumbs.astro
+  │   │   │   ├── BlogCTA.astro        - Blog call to action
+  │   │   │   ├── BlogProgress.astro   - Reading progress
+  │   │   │   ├── BlogRelated.astro    - Related posts
+  │   │   │   ├── BlogShare.astro      - Social sharing
+  │   │   │   └── BlogToC.astro        - Table of contents
+  │   │   ├── contact/             - Contact page components
+  │   │   │   └── ContactOffices.astro - Office locations
   │   │   ├── home/                 - Home page components
+  │   │   │   ├── AboutPreview.astro - About preview section
   │   │   │   ├── AreasGrid.astro   - Practice areas grid
   │   │   │   ├── Benefits.astro    - Benefits section
   │   │   │   ├── CTA.astro         - Call to action
@@ -44,29 +64,51 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
   │   │   │   └── FullscreenMenu.astro - Mobile menu
   │   │   └── practice/             - Practice area page components
   │   │       ├── PracticeHero.astro
+  │   │       ├── PracticeBreadcrumbs.astro
+  │   │       ├── PracticeContent.astro
+  │   │       ├── PracticeFAQ.astro
+  │   │       ├── PracticeFinalCTA.astro
+  │   │       ├── PracticeObjective.astro
+  │   │       ├── PracticePainPoints.astro
   │   │       ├── PracticeProcess.astro
-  │   │       └── ... (11 components)
+  │   │       ├── PracticeRelatedServices.astro
+  │   │       ├── PracticeResults.astro
+  │   │       ├── PracticeServicesIncluded.astro
+  │   │       ├── PracticeTarget.astro
+  │   │       ├── PracticeTestimonials.astro
+  │   │       └── PracticeTrustBar.astro
   │   ├── content/                  - Content Collections (Markdown)
   │   │   ├── config.ts             - Collection schemas
-  │   │   ├── home/hero.md          - Hero content
+  │   │   ├── about/main.md         - About page content
+  │   │   ├── aboutPreview/home.md  - About preview content
   │   │   ├── areas/home.md         - Practice areas content
   │   │   ├── benefits/home.md      - Benefits content
-  │   │   ├── stats/home.md         - Stats content
+  │   │   ├── blog/                 - Blog posts (3 articles)
+  │   │   ├── cta/home.md           - CTA content
   │   │   ├── faq/home.md           - FAQ content
-  │   │   ├── practices/            - Individual practice pages
-  │   │   │   ├── defensa-estatutaria.md
-  │   │   │   └── legado.md
-  │   │   └── ...                   - Other content collections
+  │   │   ├── footer/home.md        - Footer content
+  │   │   ├── home/hero.md          - Hero content
+  │   │   ├── modal/home.md         - Modal content
+  │   │   ├── newsletter/home.md    - Newsletter content
+  │   │   ├── practices/            - Individual practice pages (10 areas)
+  │   │   ├── proBono/home.md       - Pro bono content
+  │   │   ├── stats/home.md         - Stats content
+  │   │   ├── team/                 - Team member profiles (4 members)
+  │   │   └── trustBadges/home.md   - Trust badges content
   │   ├── layouts/
   │   │   ├── BaseLayout.astro      - Main HTML layout
   │   │   └── PracticeLayout.astro  - Practice area layout
   │   └── pages/
   │       ├── index.astro           - Home page
+  │       ├── nosotros.astro        - About page
   │       ├── agenda.astro          - Booking page (Calendly)
-  │       └── areas-practicas/      - Practice area pages
-  │           ├── index.astro
-  │           ├── defensa-estatutaria.astro
-  │           └── legado.astro
+  │       ├── contacto.astro        - Contact page
+  │       ├── design-system.astro   - Design system reference
+  │       ├── blog/                 - Blog pages
+  │       │   ├── index.astro
+  │       │   ├── [...slug].astro   - Dynamic blog posts
+  │       │   └── categoria/[categoria].astro
+  │       └── areas-practicas/      - Practice area pages (10)
   └── public/
       ├── home/
       │   ├── style.css             - All CSS (loaded by BaseLayout)
@@ -177,7 +219,7 @@ The project uses a hybrid approach:
 ### Key Interactive Features
 
 **Navigation System:**
-- **Desktop**: Mega menu with hover interactions (4-column grid, 8 practice areas)
+- **Desktop**: Mega menu with hover interactions (grid layout, 10 practice areas)
 - **Mobile**: Fullscreen overlay menu with slide-in animation
 - **Sticky behavior**: Appears after 100px scroll, hides on scroll down
 
@@ -198,21 +240,23 @@ The project uses a hybrid approach:
 1. **Hero Section**: Background image + animated orbs + floating cards (desktop) + trust indicators
 2. **Stats Section**: 4 animated counters
 3. **Trust Badges**: Static horizontal badges
-4. **Practice Areas**: 8 cards with gradient hover effects
+4. **Practice Areas**: 10 cards with gradient hover effects
 5. **Benefits Section**: 4 value propositions
 6. **CTA Section**: Blue gradient + consultation button
 7. **Footer**: 4-column layout
 
-### Service Areas (8 Total)
+### Service Areas (10 Total)
 
 1. **Defensa Estatutaria** - Defense of public sector employees
 2. **Defensa Administrativa** - Representation before public administration
-3. **Cliente Senior** - In-home legal services for elderly clients
-4. **Legado** - Estate planning for dependents and pets
-5. **Civil** - General civil law matters
-6. **Inmobiliaria y Copropiedad** - Real estate and condominium law
-7. **Animalista** - Animal welfare and veterinary malpractice
-8. **Capacitación** - Corporate training and workshops
+3. **Defensa Penal** - Criminal defense representation
+4. **Cliente Senior** - In-home legal services for elderly clients
+5. **Familia y Menores** - Family law and child protection
+6. **Legado** - Estate planning for dependents and pets
+7. **Civil** - General civil law matters
+8. **Inmobiliaria y Copropiedad** - Real estate and condominium law
+9. **Animalista** - Animal welfare and veterinary malpractice
+10. **Capacitación** - Corporate training and workshops
 
 ## Code Conventions
 
@@ -333,16 +377,15 @@ Modern browsers (ES6+ features):
 ## Pages Status
 
 ### Implemented
-- **Home** (`/`) - Complete
-- **Nosotros** (`/nosotros/`) - Complete
-- **Agenda / Reservas** (`/agenda`) - Calendly booking page with JSON-LD structured data
-- **Blog** (`/blog/`) - Complete with 3 articles
-- **Áreas de Práctica Index** (`/areas-practicas/`) - Complete
-- **10 Practice Area Pages** - All complete
-- **Design System** (`/design-system/`) - Reference page
 
-### Pending Implementation
-- **Contacto** (`/contacto/`) - Contact page with form
+- **Home** (`/`) - Complete
+- **Nosotros** (`/nosotros/`) - Complete with timeline and team
+- **Contacto** (`/contacto/`) - Contact page with office locations
+- **Agenda / Reservas** (`/agenda`) - Calendly booking page with JSON-LD structured data
+- **Blog** (`/blog/`) - Complete with 3 articles and category pages
+- **Áreas de Práctica Index** (`/areas-practicas/`) - Complete
+- **10 Practice Area Pages** - All complete (defensa-estatutaria, defensa-administrativa, defensa-penal, cliente-senior, familia-menores, legado, civil, inmobiliaria-copropiedad, animalista, capacitacion)
+- **Design System** (`/design-system/`) - Reference page
 
 ## Production Checklist
 
