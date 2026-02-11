@@ -4,9 +4,10 @@ import { TeamCard } from './TeamCard';
 import { TeamMemberModal } from './TeamMemberModal';
 import { BottomSheet } from './BottomSheet';
 
-// Hook para detectar viewport mobile
+// Hook para detectar viewport mobile (SSR-safe)
 const useMediaQuery = (query: string): boolean => {
-  const [matches, setMatches] = useState(false);
+  // Usar null como valor inicial para indicar "no determinado aún"
+  const [matches, setMatches] = useState<boolean | null>(null);
 
   useEffect(() => {
     const media = window.matchMedia(query);
@@ -17,7 +18,8 @@ const useMediaQuery = (query: string): boolean => {
     return () => media.removeEventListener('change', listener);
   }, [query]);
 
-  return matches;
+  // Durante SSR y primera renderización, retorna false (desktop) para consistencia
+  return matches ?? false;
 };
 
 interface Biography {
@@ -53,7 +55,13 @@ interface Props {
 
 export const TeamSection = ({ founder, associates }: Props) => {
   const [selectedMember, setSelectedMember] = useState<TeamMember | null>(null);
+  const [isClient, setIsClient] = useState(false);
   const isMobile = useMediaQuery('(max-width: 768px)');
+
+  // Marcar cuando estamos en el cliente para evitar hydration mismatch
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   const handleCardClick = (member: TeamMember) => {
     setSelectedMember(member);
@@ -92,24 +100,26 @@ export const TeamSection = ({ founder, associates }: Props) => {
         </div>
       )}
 
-      {/* Modal/BottomSheet based on viewport */}
-      <AnimatePresence>
-        {selectedMember && (
-          isMobile ? (
-            <BottomSheet
-              member={selectedMember}
-              isOpen={!!selectedMember}
-              onClose={handleCloseModal}
-            />
-          ) : (
-            <TeamMemberModal
-              member={selectedMember}
-              isOpen={!!selectedMember}
-              onClose={handleCloseModal}
-            />
-          )
-        )}
-      </AnimatePresence>
+      {/* Modal/BottomSheet based on viewport - solo renderiza en cliente */}
+      {isClient && (
+        <AnimatePresence>
+          {selectedMember && (
+            isMobile ? (
+              <BottomSheet
+                member={selectedMember}
+                isOpen={!!selectedMember}
+                onClose={handleCloseModal}
+              />
+            ) : (
+              <TeamMemberModal
+                member={selectedMember}
+                isOpen={!!selectedMember}
+                onClose={handleCloseModal}
+              />
+            )
+          )}
+        </AnimatePresence>
+      )}
     </LayoutGroup>
   );
 };
