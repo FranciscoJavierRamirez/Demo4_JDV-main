@@ -24,7 +24,7 @@ const offices = [
 ---
 
 <!-- Oficinas Section - Dark Premium -->
-<section class="relative py-20 bg-[var(--blue-deeper)] text-white overflow-hidden">
+<section id="offices-section" class="relative py-20 bg-[var(--blue-deeper)] text-white overflow-hidden">
   <!-- Mesh Gradient Orbs -->
   <div class="absolute inset-0 pointer-events-none overflow-hidden">
     <div class="absolute top-[-20%] left-[-10%] w-[70%] h-[70%] rounded-full bg-[radial-gradient(circle,rgba(59,130,246,0.4)_0%,transparent_70%)] blur-[120px] animate-[floatOrb_20s_ease-in-out_infinite]"></div>
@@ -45,7 +45,7 @@ const offices = [
 
   <div class="container relative">
     <!-- Section Header -->
-    <div class="text-center mb-14">
+    <div class="offices-header text-center mb-14">
       <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-lg text-white/90 text-sm font-semibold mb-4 border border-white/20 shadow-lg">
         <i class="fas fa-building text-[var(--gold)]"></i>
         Nuestras Oficinas
@@ -60,8 +60,8 @@ const offices = [
 
     <!-- Cards Grid -->
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
-      {offices.map((office) => (
-        <article class="bg-white/10 backdrop-blur-lg rounded-2xl overflow-hidden border border-white/20 shadow-[0_8px_30px_rgba(0,0,0,0.3)] transition-all duration-300 hover:-translate-y-2 hover:border-white/30 hover:shadow-[0_12px_40px_rgba(201,169,97,0.25),0_0_60px_rgba(201,169,97,0.15)]">
+      {offices.map((office, index) => (
+        <article class="office-card bg-white/10 backdrop-blur-lg rounded-2xl overflow-hidden border border-white/20 shadow-[0_8px_30px_rgba(0,0,0,0.3)] transition-all duration-300 hover:-translate-y-2 hover:border-white/30 hover:shadow-[0_12px_40px_rgba(201,169,97,0.25),0_0_60px_rgba(201,169,97,0.15)]" data-index={index}>
           <!-- Image -->
           <div class="relative h-56 overflow-hidden">
             <img
@@ -123,7 +123,7 @@ const offices = [
 </section>
 
 <!-- Contact Info - Dark Premium -->
-<section class="relative py-16 bg-[var(--blue-deeper)] overflow-hidden">
+<section id="contact-info" class="relative py-16 bg-[var(--blue-deeper)] overflow-hidden">
   <!-- Gradient Overlay -->
   <div class="absolute inset-0 bg-gradient-to-br from-[rgba(12,35,64,0.98)] via-[rgba(12,35,64,0.96)] to-[rgba(26,77,122,0.90)] pointer-events-none"></div>
 
@@ -131,7 +131,7 @@ const offices = [
     <div class="max-w-3xl mx-auto">
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
         <!-- Phone -->
-        <a href="tel:+56941692900" class="flex flex-col items-center gap-3 p-6 rounded-2xl bg-white/[0.08] backdrop-blur-sm border border-white/10 no-underline transition-all duration-200 hover:bg-white/[0.12] hover:border-[var(--gold)]/30 hover:shadow-[0_12px_40px_rgba(201,169,97,0.15)] hover:scale-[1.02] group">
+        <a href="tel:+56941692900" class="contact-info-card flex flex-col items-center gap-3 p-6 rounded-2xl bg-white/[0.08] backdrop-blur-sm border border-white/10 no-underline transition-all duration-200 hover:bg-white/[0.12] hover:border-[var(--gold)]/30 hover:shadow-[0_12px_40px_rgba(201,169,97,0.15)] hover:scale-[1.02] group" data-index="0">
           <div class="w-12 h-12 flex items-center justify-center rounded-full bg-[var(--gold)]/20 border border-[var(--gold)]/30 text-[var(--gold)] group-hover:bg-[var(--gold)] group-hover:text-[var(--gray-900)] transition-all duration-200">
             <i class="fas fa-phone text-lg"></i>
           </div>
@@ -140,7 +140,7 @@ const offices = [
         </a>
 
         <!-- WhatsApp -->
-        <a href="https://wa.me/56941692900?text=Necesito%20m%C3%A1s%20informaci%C3%B3n%20porque%20estoy%20interesado%20en%20recibir%20asesor%C3%ADa%20legal" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center gap-3 p-6 rounded-2xl bg-white/[0.08] backdrop-blur-sm border border-white/10 no-underline transition-all duration-200 hover:bg-white/[0.12] hover:border-green-500/30 hover:shadow-[0_12px_40px_rgba(34,197,94,0.15)] hover:scale-[1.02] group">
+        <a href="https://wa.me/56941692900?text=Necesito%20m%C3%A1s%20informaci%C3%B3n%20porque%20estoy%20interesado%20en%20recibir%20asesor%C3%ADa%20legal" target="_blank" rel="noopener noreferrer" class="contact-info-card flex flex-col items-center gap-3 p-6 rounded-2xl bg-white/[0.08] backdrop-blur-sm border border-white/10 no-underline transition-all duration-200 hover:bg-white/[0.12] hover:border-green-500/30 hover:shadow-[0_12px_40px_rgba(34,197,94,0.15)] hover:scale-[1.02] group" data-index="1">
           <div class="w-12 h-12 flex items-center justify-center rounded-full bg-green-500/20 border border-green-500/30 text-green-400 group-hover:bg-green-500 group-hover:text-white transition-all duration-200">
             <i class="fab fa-whatsapp text-xl"></i>
           </div>
@@ -149,7 +149,7 @@ const offices = [
         </a>
 
         <!-- Email -->
-        <a href="mailto:contacto@jdviabogados.cl" class="flex flex-col items-center gap-3 p-6 rounded-2xl bg-white/[0.08] backdrop-blur-sm border border-white/10 no-underline transition-all duration-200 hover:bg-white/[0.12] hover:border-[var(--gold)]/30 hover:shadow-[0_12px_40px_rgba(201,169,97,0.15)] hover:scale-[1.02] group">
+        <a href="mailto:contacto@jdviabogados.cl" class="contact-info-card flex flex-col items-center gap-3 p-6 rounded-2xl bg-white/[0.08] backdrop-blur-sm border border-white/10 no-underline transition-all duration-200 hover:bg-white/[0.12] hover:border-[var(--gold)]/30 hover:shadow-[0_12px_40px_rgba(201,169,97,0.15)] hover:scale-[1.02] group" data-index="2">
           <div class="w-12 h-12 flex items-center justify-center rounded-full bg-[var(--gold)]/20 border border-[var(--gold)]/30 text-[var(--gold)] group-hover:bg-[var(--gold)] group-hover:text-[var(--gray-900)] transition-all duration-200">
             <i class="fas fa-envelope text-lg"></i>
           </div>
@@ -159,7 +159,7 @@ const offices = [
       </div>
 
       <!-- Schedule -->
-      <div class="mt-8 text-center">
+      <div class="contact-schedule mt-8 text-center">
         <p class="text-white/70">
           <i class="fas fa-clock text-[var(--gold)] mr-2"></i>
           <strong class="text-white/90">Horario de atención:</strong> Lunes a Viernes, 9:00 - 18:00 hrs
@@ -170,7 +170,7 @@ const offices = [
 </section>
 
 <!-- CTA - Premium with animated orbs -->
-<section class="relative py-16 bg-gradient-to-br from-[var(--blue-primary)] via-[var(--blue-dark)] to-[var(--blue-deeper)] text-white text-center overflow-hidden">
+<section id="contact-cta" class="relative py-16 bg-gradient-to-br from-[var(--blue-primary)] via-[var(--blue-dark)] to-[var(--blue-deeper)] text-white text-center overflow-hidden">
   <!-- Orbs -->
   <div class="absolute inset-0 pointer-events-none overflow-hidden">
     <div class="absolute top-[-30%] left-[10%] w-[350px] h-[350px] rounded-full bg-[radial-gradient(circle,var(--gold)_0%,transparent_70%)] blur-[80px] opacity-25 animate-[floatOrb_18s_ease-in-out_infinite]"></div>
@@ -178,9 +178,9 @@ const offices = [
   </div>
 
   <div class="container relative">
-    <div class="max-w-2xl mx-auto">
+    <div class="cta-content max-w-2xl mx-auto">
       <!-- Icon -->
-      <div class="w-16 h-16 mx-auto mb-6 flex items-center justify-center rounded-2xl bg-gradient-to-br from-[rgba(201,169,97,0.2)] to-[rgba(212,175,55,0.15)] backdrop-blur-lg border-2 border-[rgba(201,169,97,0.3)] animate-[pulseIcon_3s_ease-in-out_infinite]">
+      <div class="cta-icon w-16 h-16 mx-auto mb-6 flex items-center justify-center rounded-2xl bg-gradient-to-br from-[rgba(201,169,97,0.2)] to-[rgba(212,175,55,0.15)] backdrop-blur-lg border-2 border-[rgba(201,169,97,0.3)] animate-[pulseIcon_3s_ease-in-out_infinite]">
         <i class="fas fa-gavel text-[var(--gold)] text-2xl"></i>
       </div>
 
@@ -231,4 +231,285 @@ const offices = [
   .contact-cta-main:hover::before {
     left: 100%;
   }
+
+  /* ========================================
+     SCROLL REVEAL ANIMATIONS
+     ======================================== */
+
+  /* Offices Section Header */
+  .offices-header {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  .offices-header.visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* Office Cards - Staggered entrance */
+  .office-card {
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+  }
+
+  .office-card.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .office-card[data-index="0"].visible { transition-delay: 0ms; }
+  .office-card[data-index="1"].visible { transition-delay: 150ms; }
+
+  /* Contact Info Cards - Staggered entrance */
+  .contact-info-card {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+
+  .contact-info-card.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .contact-info-card[data-index="0"].visible { transition-delay: 0ms; }
+  .contact-info-card[data-index="1"].visible { transition-delay: 100ms; }
+  .contact-info-card[data-index="2"].visible { transition-delay: 200ms; }
+
+  /* Contact Schedule */
+  .contact-schedule {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  .contact-schedule.visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* CTA Section Content */
+  .cta-content {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  .cta-content.visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* CTA Icon entrance animation */
+  .cta-icon {
+    opacity: 0;
+    transform: scale(0.8) rotate(-10deg);
+  }
+
+  .cta-content.visible .cta-icon {
+    animation: ctaIconReveal 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+  }
+
+  @keyframes ctaIconReveal {
+    0% {
+      opacity: 0;
+      transform: scale(0.8) rotate(-10deg);
+    }
+    60% {
+      opacity: 1;
+      transform: scale(1.1) rotate(5deg);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1) rotate(0deg);
+    }
+  }
+
+  /* ========================================
+     REDUCED MOTION - Accessibility
+     ======================================== */
+
+  @media (prefers-reduced-motion: reduce) {
+    .offices-header,
+    .office-card,
+    .contact-info-card,
+    .contact-schedule,
+    .cta-content,
+    .cta-icon {
+      opacity: 1;
+      transform: none;
+      transition: none;
+      animation: none;
+    }
+  }
 </style>
+
+<script>
+  // ========================================
+  // Contact Page - Scroll Reveal Animation
+  // ========================================
+  const initContactAnimations = () => {
+    // Elements to animate
+    const officesSection = document.querySelector('#offices-section');
+    const officesHeader = document.querySelector('.offices-header');
+    const officeCards = document.querySelectorAll('.office-card');
+
+    const contactInfoSection = document.querySelector('#contact-info');
+    const contactInfoCards = document.querySelectorAll('.contact-info-card');
+    const contactSchedule = document.querySelector('.contact-schedule');
+
+    const ctaSection = document.querySelector('#contact-cta');
+    const ctaContent = document.querySelector('.cta-content');
+
+    // Check for reduced motion preference
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (prefersReducedMotion) {
+      // Show everything immediately without animation
+      officesHeader?.classList.add('visible');
+      officeCards.forEach(card => card.classList.add('visible'));
+      contactInfoCards.forEach(card => card.classList.add('visible'));
+      contactSchedule?.classList.add('visible');
+      ctaContent?.classList.add('visible');
+      return;
+    }
+
+    // Observer options matching existing patterns
+    const observerOptions = {
+      threshold: 0.15,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    // ========================================
+    // Offices Section Observer
+    // ========================================
+    let officesAnimated = false;
+
+    const officesObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !officesAnimated) {
+          officesAnimated = true;
+
+          // Animate header first
+          officesHeader?.classList.add('visible');
+
+          // Then animate cards with stagger
+          officeCards.forEach((card, index) => {
+            setTimeout(() => {
+              card.classList.add('visible');
+            }, 200 + (index * 150));
+          });
+
+          officesObserver.disconnect();
+        }
+      });
+    }, observerOptions);
+
+    if (officesSection) {
+      officesObserver.observe(officesSection);
+    }
+
+    // ========================================
+    // Contact Info Section Observer
+    // ========================================
+    let contactInfoAnimated = false;
+
+    const contactInfoObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !contactInfoAnimated) {
+          contactInfoAnimated = true;
+
+          // Animate cards with stagger
+          contactInfoCards.forEach((card, index) => {
+            setTimeout(() => {
+              card.classList.add('visible');
+            }, 100 + (index * 100));
+          });
+
+          // Animate schedule after cards
+          setTimeout(() => {
+            contactSchedule?.classList.add('visible');
+          }, 400);
+
+          contactInfoObserver.disconnect();
+        }
+      });
+    }, observerOptions);
+
+    if (contactInfoSection) {
+      contactInfoObserver.observe(contactInfoSection);
+    }
+
+    // ========================================
+    // CTA Section Observer
+    // ========================================
+    let ctaAnimated = false;
+
+    const ctaObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !ctaAnimated) {
+          ctaAnimated = true;
+          ctaContent?.classList.add('visible');
+          ctaObserver.disconnect();
+        }
+      });
+    }, { threshold: 0.2, rootMargin: '0px 0px -30px 0px' });
+
+    if (ctaSection) {
+      ctaObserver.observe(ctaSection);
+    }
+
+    // ========================================
+    // Chrome Fallback - 500ms timeout
+    // ========================================
+    setTimeout(() => {
+      const isVisible = (el: Element | null): boolean => {
+        if (!el) return false;
+        const rect = el.getBoundingClientRect();
+        return rect.top < window.innerHeight && rect.bottom >= 0;
+      };
+
+      // Offices section fallback
+      if (!officesAnimated && officesSection && isVisible(officesSection)) {
+        officesAnimated = true;
+        officesHeader?.classList.add('visible');
+        officeCards.forEach((card, index) => {
+          setTimeout(() => card.classList.add('visible'), 200 + (index * 150));
+        });
+        officesObserver.disconnect();
+      }
+
+      // Contact info section fallback
+      if (!contactInfoAnimated && contactInfoSection && isVisible(contactInfoSection)) {
+        contactInfoAnimated = true;
+        contactInfoCards.forEach((card, index) => {
+          setTimeout(() => card.classList.add('visible'), 100 + (index * 100));
+        });
+        setTimeout(() => contactSchedule?.classList.add('visible'), 400);
+        contactInfoObserver.disconnect();
+      }
+
+      // CTA section fallback
+      if (!ctaAnimated && ctaSection && isVisible(ctaSection)) {
+        ctaAnimated = true;
+        ctaContent?.classList.add('visible');
+        ctaObserver.disconnect();
+      }
+    }, 500);
+  };
+
+  // Run on DOM ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initContactAnimations);
+  } else {
+    initContactAnimations();
+  }
+</script>

@@ -10,6 +10,7 @@ areas:
     link: "/areas-practicas/defensa-estatutaria"
     image: "/areas/defensa-estatutaria.webp"
     category: "principal"
+    focal: "center"
 
   - icon: "fas fa-building"
     title: "Defensa Administrativa"
@@ -17,6 +18,7 @@ areas:
     link: "/areas-practicas/defensa-administrativa"
     image: "/areas/defensa-administrativa.webp"
     category: "principal"
+    focal: "center"
 
   - icon: "fas fa-home"
     title: "Inmobiliaria y Copropiedad"
@@ -24,6 +26,7 @@ areas:
     link: "/areas-practicas/inmobiliaria-copropiedad"
     image: "/areas/inmobiliaria.webp"
     category: "principal"
+    focal: "center"
 
   # Áreas Complementarias
   - icon: "fas fa-gavel"
@@ -32,6 +35,7 @@ areas:
     link: "/areas-practicas/defensa-penal"
     image: "/areas/defensa-penal.webp"
     category: "complementaria"
+    focal: "center"
 
   - icon: "fas fa-users"
     title: "Familia y Menores"
@@ -39,6 +43,7 @@ areas:
     link: "/areas-practicas/familia-menores"
     image: "/areas/familia-menores.webp"
     category: "complementaria"
+    focal: "top"
 
   - icon: "fas fa-balance-scale"
     title: "Civil"
@@ -46,6 +51,7 @@ areas:
     link: "/areas-practicas/civil"
     image: "/areas/civil.webp"
     category: "complementaria"
+    focal: "center"
 
   - icon: "fas fa-passport"
     title: "Migraciones y Extranjería"
@@ -53,6 +59,7 @@ areas:
     link: "/areas-practicas/migraciones-extranjeria"
     image: "/areas/migraciones.webp"
     category: "complementaria"
+    focal: "top"
 
   # Otros Servicios
   - icon: "fas fa-chalkboard-teacher"
@@ -61,4 +68,5 @@ areas:
     link: "/areas-practicas/capacitacion"
     image: "/areas/capacitacion.webp"
     category: "servicio"
+    focal: "center"
 ---

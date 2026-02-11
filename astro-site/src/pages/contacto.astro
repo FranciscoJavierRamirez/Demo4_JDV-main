@@ -30,7 +30,7 @@ import BackToTop from '../components/BackToTop.astro';
     <!-- Gradient Overlay -->
     <div class="absolute inset-0 bg-gradient-to-br from-[rgba(12,35,64,0.98)] via-[rgba(12,35,64,0.94)] to-[rgba(26,77,122,0.88)] pointer-events-none"></div>
 
-    <div class="container relative text-center">
+    <div class="container relative text-center contact-hero-content">
       <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-lg text-white/90 text-sm font-semibold mb-6 border border-white/20 shadow-lg">
         <i class="fas fa-map-marker-alt text-[var(--gold)]"></i>
         Dos ubicaciones en Las Condes
@@ -56,4 +56,47 @@ import BackToTop from '../components/BackToTop.astro';
     33% { transform: translate(30px, -20px) scale(1.05); }
     66% { transform: translate(-20px, 15px) scale(0.95); }
   }
+
+  /* Hero entrance animation */
+  .contact-hero-content {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .contact-hero-content.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .contact-hero-content {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
 </style>
+
+<script>
+  const initContactHeroAnimation = () => {
+    const heroContent = document.querySelector('.contact-hero-content');
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (prefersReducedMotion) {
+      heroContent?.classList.add('visible');
+      return;
+    }
+
+    setTimeout(() => {
+      heroContent?.classList.add('visible');
+    }, 100);
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initContactHeroAnimation);
+  } else {
+    initContactHeroAnimation();
+  }
+</script>
