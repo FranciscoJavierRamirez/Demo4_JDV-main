@@ -9,8 +9,8 @@ export const ctaLinks = {
     label: "WhatsApp"
   },
   calendly: {
-    url: "https://wa.me/56941692900?text=Quisiera%20agendar%20una%20consulta%20con%20JDV%20Abogados",
-    label: "Agendar Consulta"
+    url: "/formulario-contacto",
+    label: "Solicitar Consulta"
   },
   newsletter: {
     url: "#newsletter",

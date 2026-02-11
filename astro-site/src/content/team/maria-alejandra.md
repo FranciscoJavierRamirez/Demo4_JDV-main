@@ -15,7 +15,7 @@ credentials:
   - "Diplomados PUC en Familia, Litigación y Probidad"
   - "Docencia universitaria en Derecho"
 social:
-  linkedin: "https://www.linkedin.com/in/maria-alejandra-lopez-bertin"
+  linkedin: "https://www.linkedin.com/in/maría-alejandra-lópez-bertin-5027232a"
   email: "contacto@jdvabogados.cl"
 biography:
   formation: |

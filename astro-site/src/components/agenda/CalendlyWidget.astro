@@ -47,19 +47,46 @@
 </div>
 
 <style>
+  /* ====================================
+     ALTURA RESPONSIVA DEL IFRAME CALENDLY
+     Optimizado para mostrar calendario COMPLETO sin scroll
+     ==================================== */
+
   .calendly-inline-widget {
-    height: 620px;
+    /* Móvil pequeño */
+    height: 1100px;
+    min-height: 1100px;
   }
 
-  @media (min-width: 640px) {
+  /* Móvil mediano (>= 480px) */
+  @media (min-width: 480px) {
     .calendly-inline-widget {
-      height: 680px;
+      height: 1050px;
+      min-height: 1050px;
     }
   }
 
+  /* Tablet (>= 640px) */
+  @media (min-width: 640px) {
+    .calendly-inline-widget {
+      height: 1000px;
+      min-height: 1000px;
+    }
+  }
+
+  /* Desktop (>= 1024px) */
   @media (min-width: 1024px) {
     .calendly-inline-widget {
-      height: 720px;
+      height: 950px;
+      min-height: 950px;
+    }
+  }
+
+  /* Desktop grande (>= 1280px) */
+  @media (min-width: 1280px) {
+    .calendly-inline-widget {
+      height: 900px;
+      min-height: 900px;
     }
   }
 

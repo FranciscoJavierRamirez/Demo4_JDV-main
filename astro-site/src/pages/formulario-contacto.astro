@@ -1,0 +1,139 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import GoogleFormsWidget from '../components/agenda/GoogleFormsWidget.astro';
+import ProfileCard from '../components/agenda/ProfileCard.astro';
+import PrepTips from '../components/agenda/PrepTips.astro';
+import AgendaTrust from '../components/agenda/AgendaTrust.astro';
+import WhatsAppFloat from '../components/WhatsAppFloat.astro';
+---
+
+<BaseLayout
+  title="Formulario de Contacto | JDV Abogados — Jacqueline Del Valle"
+  description="Complete el formulario para solicitar una consulta con la abogada Jacqueline Del Valle. Respuesta en menos de 24 horas. JDV Abogados."
+>
+  <!-- JSON-LD Structured Data -->
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "LegalService",
+      "name": "JDV Abogados",
+      "description": "Estudio jurídico en Chile especializado en defensa estatutaria, defensa administrativa e inmobiliaria y copropiedad. Derecho civil, familia y más.",
+      "url": "https://jdvabogados.cl",
+      "logo": "https://jdvabogados.cl/favicon.svg",
+      "image": "https://jdvabogados.cl/foto%20para%20portada.png",
+      "telephone": "+56941692900",
+      "email": "jacquelinedelvalle@jdvabogados.cl",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "CL",
+        "addressLocality": "Chile"
+      },
+      "founder": {
+        "@type": "Person",
+        "name": "Jacqueline Del Valle",
+        "jobTitle": "Abogada Fundadora"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "Chile"
+      },
+      "potentialAction": {
+        "@type": "CommunicateAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://jdvabogados.cl/formulario-contacto",
+          "actionPlatform": ["https://schema.org/DesktopWebPlatform", "https://schema.org/MobileWebPlatform"]
+        }
+      }
+    })} />
+  </Fragment>
+
+  <!-- Minimal Header - Dark theme -->
+  <header id="formHeader" class="fixed top-0 left-0 right-0 z-[1000] bg-[rgba(12,35,64,0.85)] backdrop-blur-[20px] backdrop-saturate-[180%] border-b border-white/[0.06] shadow-[0_4px_24px_rgba(0,0,0,0.15)] transition-all duration-300">
+    <div class="flex items-center justify-between h-[60px] sm:h-[68px] px-4 sm:px-6 max-w-[1440px] mx-auto">
+      <!-- Logo -->
+      <a
+        href="/"
+        class="flex items-center gap-1.5 font-[var(--font-display)] text-[1.25rem] sm:text-[1.4rem] font-bold tracking-[-0.02em] no-underline transition-all duration-300 hover:scale-105"
+        aria-label="JDV Abogados - Ir a inicio"
+      >
+        <span class="bg-gradient-to-br from-[#C9A961] to-[#D4AF37] bg-clip-text text-transparent">JDV</span>
+        <span class="bg-gradient-to-br from-[#C9A961] to-[#D4AF37] bg-clip-text text-transparent">Abogados</span>
+      </a>
+
+      <!-- Back to site -->
+      <a
+        href="/"
+        class="flex items-center gap-2 text-sm font-medium text-white/70 no-underline px-4 py-2.5 rounded-xl border border-white/[0.1] bg-white/[0.05] backdrop-blur-sm transition-all duration-200 hover:bg-white/[0.1] hover:border-white/[0.2] hover:text-white hover:-translate-y-px hover:shadow-[0_4px_12px_rgba(0,0,0,0.15)] min-h-11 active:scale-[0.98]"
+      >
+        <i class="fas fa-arrow-left text-xs text-[var(--gold)]"></i>
+        <span class="hidden sm:inline">Volver al sitio</span>
+        <span class="sm:hidden">Volver</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- Spacer for fixed header -->
+  <div class="h-[60px] sm:h-[68px]"></div>
+
+  <!-- Hero Section - Compact -->
+  <section class="relative py-10 sm:py-14 lg:py-16 overflow-hidden">
+    <!-- Background -->
+    <div class="absolute inset-0 bg-gradient-to-b from-[#0c2340] via-[#0e2a4a] to-[#0c2340]"></div>
+    <!-- Orbs -->
+    <div class="absolute top-[-10%] right-[-5%] w-[300px] h-[300px] rounded-full bg-[radial-gradient(circle,rgba(201,169,97,0.12)_0%,transparent_70%)] blur-[80px] pointer-events-none"></div>
+    <div class="absolute bottom-[-15%] left-[-10%] w-[350px] h-[350px] rounded-full bg-[radial-gradient(circle,rgba(59,130,246,0.08)_0%,transparent_70%)] blur-[100px] pointer-events-none"></div>
+
+    <div class="relative z-10 max-w-[900px] mx-auto px-4 sm:px-6 text-center">
+      <!-- Badge -->
+      <div class="inline-flex items-center gap-2 px-4 py-2 bg-white/[0.08] backdrop-blur-sm border border-white/[0.1] rounded-full text-sm font-medium text-white/80 mb-5">
+        <i class="fas fa-file-alt text-[var(--gold)]"></i>
+        <span>Formulario de Contacto</span>
+      </div>
+
+      <!-- Title -->
+      <h1 class="font-[var(--font-display)] text-[clamp(1.75rem,4vw,2.5rem)] font-bold text-white mb-4 leading-tight">
+        Cuéntenos su situación
+      </h1>
+
+      <!-- Subtitle -->
+      <p class="text-base sm:text-lg text-white/70 max-w-[600px] mx-auto leading-relaxed">
+        Complete el formulario y nuestro equipo le contactará en menos de <strong class="text-[var(--gold-light)] font-semibold">24 horas hábiles</strong> para orientarle sobre su caso.
+      </p>
+    </div>
+  </section>
+
+  <!-- Main Content: Sidebar + Form -->
+  <section class="relative py-8 sm:py-12 lg:py-16 overflow-hidden">
+    <!-- Deep blue background -->
+    <div class="absolute inset-0 bg-gradient-to-b from-[#0c2340] via-[#0e2a4a] to-[#0c2340]"></div>
+    <!-- Subtle orbs -->
+    <div class="absolute top-[20%] right-[-10%] w-[400px] h-[400px] rounded-full bg-[radial-gradient(circle,rgba(59,130,246,0.08)_0%,transparent_70%)] blur-[80px] pointer-events-none"></div>
+    <div class="absolute bottom-[10%] left-[-5%] w-[300px] h-[300px] rounded-full bg-[radial-gradient(circle,rgba(201,169,97,0.06)_0%,transparent_70%)] blur-[60px] pointer-events-none"></div>
+
+    <div class="relative z-10 max-w-[1200px] mx-auto px-3 sm:px-6">
+      <div class="flex flex-col lg:flex-row gap-5 lg:gap-8">
+        <!-- Profile Card (sidebar on desktop, below form on mobile) -->
+        <aside class="order-2 lg:order-1 lg:w-[320px] lg:flex-shrink-0">
+          <div class="lg:sticky lg:top-[88px]">
+            <ProfileCard />
+          </div>
+        </aside>
+
+        <!-- Google Forms Widget -->
+        <div class="order-1 lg:order-2 flex-1 min-w-0">
+          <GoogleFormsWidget />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Prep Tips -->
+  <PrepTips />
+
+  <!-- Trust Badges -->
+  <AgendaTrust />
+
+  <!-- WhatsApp Float -->
+  <WhatsAppFloat />
+</BaseLayout>
