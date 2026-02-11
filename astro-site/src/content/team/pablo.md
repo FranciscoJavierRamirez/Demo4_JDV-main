@@ -8,7 +8,7 @@ shortDescription: "Derecho de Familia · Derecho Civil · Migración y Extranjer
 image: "/Pablo_Inostroza_Vallejos.webp"
 imgTx: -30
 imgTy: -60
-imgScale: 1.6
+imgScale: 1.3
 featured: false
 experienceNote: "Forma parte del equipo liderado por Jacqueline Del Valle"
 credentials:

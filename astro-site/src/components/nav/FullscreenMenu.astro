@@ -7,75 +7,54 @@ const menuItems = [
   { href: "/#faq", label: "FAQ" },
   { href: "/contacto", label: "Contacto" }
 ];
-
-const featuredAreas = [
-  { href: "/areas-practicas/defensa-estatutaria", label: "Defensa Estatutaria", icon: "fas fa-shield-alt" },
-  { href: "/areas-practicas/defensa-administrativa", label: "Defensa Administrativa", icon: "fas fa-building" },
-  { href: "/areas-practicas/inmobiliaria-copropiedad", label: "Inmobiliaria y Copropiedad", icon: "fas fa-home" },
-  { href: "/areas-practicas/migraciones-extranjeria", label: "Migraciones", icon: "fas fa-passport" }
-];
 ---
 
 <!-- Full Screen Mobile Menu -->
-<div 
-  id="fullscreenMenu" 
+<div
+  id="fullscreenMenu"
   class="fullscreen-menu fixed inset-0 z-[9999] opacity-0 invisible transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]"
-  role="dialog" 
-  aria-modal="true" 
+  role="dialog"
+  aria-modal="true"
   aria-label="Menú de navegación"
 >
   <!-- Background -->
   <div class="absolute inset-0 bg-gradient-to-br from-[#0c2340] via-[#1a4d7a] to-[#0077C8]" aria-hidden="true"></div>
-  
+
   <!-- Content -->
-  <div class="relative h-full flex flex-col justify-between px-6 py-20 sm:px-8 sm:py-24">
-    <nav class="flex flex-col gap-1 mt-8" aria-label="Navegación principal">
+  <div class="relative h-full flex flex-col justify-center px-8 py-24">
+    <nav class="flex flex-col gap-2" aria-label="Navegación principal">
       {menuItems.map((item, index) => (
-        <>
-          <a
-            href={item.href}
-            class="fullscreen-link group flex items-center gap-4 py-3 no-underline opacity-0 -translate-x-8 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]"
-            style={`transition-delay: ${index * 80}ms`}
-            aria-label={`Ir a ${item.label}`}
-          >
-            <span class="link-number font-mono text-sm text-[var(--gold)] opacity-60 w-8" aria-hidden="true">
-              {String(index + 1).padStart(2, '0')}
-            </span>
-            <span class="link-text font-[var(--font-display)] text-[clamp(1.5rem,4vw,2.5rem)] font-bold tracking-[-0.02em] text-[var(--gold)] transition-all duration-300 group-hover:text-white group-hover:translate-x-4">
-              {item.label}
-            </span>
-          </a>
-          {/* Áreas destacadas después de "Áreas de Práctica" */}
-          {item.label === "Áreas de Práctica" && (
-            <div class="fullscreen-link featured-areas pl-12 pb-1 opacity-0 -translate-x-8 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]" style={`transition-delay: ${(index + 0.5) * 80}ms`}>
-              <div class="flex flex-wrap gap-1.5">
-                {featuredAreas.map((area) => (
-                  <a
-                    href={area.href}
-                    class="inline-flex items-center gap-1.5 px-2.5 py-1 bg-white/10 backdrop-blur-sm rounded-full text-white/90 text-xs font-medium transition-all duration-200 hover:bg-[var(--gold)] hover:text-[var(--gray-900)] no-underline"
-                  >
-                    <i class={`${area.icon} text-[10px]`}></i>
-                    {area.label}
-                  </a>
-                ))}
-              </div>
-            </div>
-          )}
-        </>
+        <a
+          href={item.href}
+          class="fullscreen-link group flex items-center gap-6 py-4 text-white no-underline opacity-0 -translate-x-8 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]"
+          style={`transition-delay: ${index * 80}ms`}
+          aria-label={`Ir a ${item.label}`}
+        >
+          <span class="link-number font-mono text-sm text-[var(--gold)] opacity-60 w-8" aria-hidden="true">
+            {String(index + 1).padStart(2, '0')}
+          </span>
+          <span class="link-text font-[var(--font-display)] text-[clamp(1.75rem,5vw,3rem)] font-bold tracking-[-0.02em] transition-all duration-300 group-hover:text-[var(--gold)] group-hover:translate-x-4">
+            {item.label}
+          </span>
+        </a>
       ))}
     </nav>
 
-    <!-- Footer CTA -->
-    <div class="fullscreen-footer pt-6 pb-4 opacity-0 translate-y-8 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] delay-500">
+    <!-- Footer -->
+    <div class="fullscreen-footer mt-auto pt-12 opacity-0 translate-y-8 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] delay-500">
       <a
         href="/agenda"
-        class="mobile-cta-btn w-full max-w-md py-4 px-6 text-[var(--gray-900)] border-none rounded-xl font-bold text-base cursor-pointer transition-all duration-200 hover:-translate-y-1 flex items-center justify-center gap-2 no-underline"
+        class="mobile-cta-btn w-full max-w-md py-5 px-8 text-[var(--gray-900)] border-none rounded-2xl font-bold text-lg cursor-pointer transition-all duration-200 hover:-translate-y-1 flex items-center justify-center gap-2 no-underline"
         aria-label="Agendar consulta"
         onclick="document.getElementById('fullscreenMenu').classList.remove('active'); document.getElementById('navTogglePremium').classList.remove('active'); document.body.style.overflow = '';"
       >
         <i class="fas fa-calendar-check"></i>
         Agendar Consulta
       </a>
+      <div class="mt-8 text-white/80 space-y-2 text-center">
+        <p class="text-lg font-medium">+56 9 4169 2900</p>
+        <p class="text-base opacity-80">contacto@jdvabogados.cl</p>
+      </div>
     </div>
   </div>
 </div>
@@ -91,11 +70,6 @@ const featuredAreas = [
     transform: translateX(0);
   }
 
-  .fullscreen-menu.active .featured-areas {
-    opacity: 1;
-    transform: translateX(0);
-  }
-
   .fullscreen-menu.active .fullscreen-footer {
     opacity: 1;
     transform: translateY(0);
@@ -104,7 +78,7 @@ const featuredAreas = [
   /* Mobile CTA Button - Gold gradient styling */
   .mobile-cta-btn {
     background: linear-gradient(135deg, #C9A254 0%, #D4C5A0 50%, #B89350 100%);
-    box-shadow: 
+    box-shadow:
       0 4px 12px 0 rgba(201, 162, 84, 0.2),
       0 16px 32px 0 rgba(201, 162, 84, 0.15);
   }
