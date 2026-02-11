@@ -233,8 +233,7 @@ export const BottomSheet = ({ member, isOpen, onClose }: Props) => {
             layoutId={`image-container-${layoutId}`}
             className="w-full aspect-[4/3] overflow-hidden"
           >
-            <motion.img
-              layoutId={`image-${layoutId}`}
+            <img
               src={member.image}
               alt={member.name}
               style={{

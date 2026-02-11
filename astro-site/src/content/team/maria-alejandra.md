@@ -6,7 +6,6 @@ role: "Abogada Asociada · Derecho Civil, Laboral y Sucesiones"
 description: "Abogada titulada en 1997 con extensa trayectoria en Derecho de Familia, Derecho Laboral y Derecho Civil. Más de 25 años de ejercicio profesional en el sector público y privado."
 shortDescription: "Derecho Civil · Derecho Laboral · Sucesión por causa de muerte"
 image: "/maria_alejandra_quienes_somos.webp"
-imgTx: 15
 imgTy: 0
 featured: false
 experienceNote: "Más de 25 años de ejercicio profesional en el sector público y libre ejercicio"

@@ -217,8 +217,7 @@ export const TeamMemberModal = ({ member, isOpen, onClose }: Props) => {
                          shadow-[0_8px_30px_rgba(0,0,0,0.4)]"
               transition={{ type: "spring", stiffness: 300, damping: 30 }}
             >
-              <motion.img
-                layoutId={`image-${layoutId}`}
+              <img
                 src={member.image}
                 alt={member.name}
                 style={{
@@ -226,7 +225,6 @@ export const TeamMemberModal = ({ member, isOpen, onClose }: Props) => {
                   transformOrigin: 'center top'
                 }}
                 className="w-full h-full object-cover"
-                transition={{ type: "spring", stiffness: 300, damping: 30 }}
               />
             </motion.div>
 

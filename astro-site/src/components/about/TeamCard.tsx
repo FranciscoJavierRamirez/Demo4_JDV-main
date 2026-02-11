@@ -95,8 +95,7 @@ export const TeamCard = ({ member, index, onClick, isSelected }: TeamCardProps) 
           whileHover={!isSelected ? { scale: 1.03 } : undefined}
           transition={{ duration: 0.5 }}
         >
-          <motion.img
-            layoutId={isSelected ? undefined : `image-${layoutId}`}
+          <img
             src={member.image}
             alt={member.name}
             style={{
