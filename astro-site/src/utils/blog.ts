@@ -95,6 +95,11 @@ export const authorData: Record<string, { name: string; role: string; image: str
     role: 'Abogada Fundadora - 35 años en Contraloría General de la República',
     image: '/foto quienes somos JDV.webp'
   },
+  'maria-alejandra': {
+    name: 'María Alejandra López Bertín',
+    role: 'Abogada Asociada · Derecho de Familia, Laboral y Civil · +25 años de experiencia',
+    image: '/maria_alejandra_quienes_somos.webp'
+  },
   'equipo-jdv': {
     name: 'Equipo JDV Abogados',
     role: 'Estudio Jurídico Especializado',

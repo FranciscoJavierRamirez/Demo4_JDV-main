@@ -15,7 +15,7 @@ heroAlt: "Manos de padres e hijos entrelazadas simbolizando protección y víncu
 relatedServices:
   - "familia-menores"
   - "civil"
-author: "equipo-jdv"
+author: "maria-alejandra"
 featured: false
 draft: false
 showCtaInicio: true

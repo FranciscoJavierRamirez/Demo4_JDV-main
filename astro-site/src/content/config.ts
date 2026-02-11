@@ -542,7 +542,7 @@ const blogCollection = defineCollection({
     heroImage: z.string(),
     heroAlt: z.string(),
     relatedServices: z.array(z.string()).min(1).max(3),
-    author: z.enum(['jacqueline-del-valle', 'equipo-jdv']).default('jacqueline-del-valle'),
+    author: z.enum(['jacqueline-del-valle', 'maria-alejandra', 'equipo-jdv']).default('jacqueline-del-valle'),
     featured: z.boolean().default(false),
     draft: z.boolean().default(false),
     showCtaInicio: z.boolean().default(true),
