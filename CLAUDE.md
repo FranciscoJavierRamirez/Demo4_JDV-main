@@ -245,6 +245,33 @@ The project uses a hybrid approach:
 6. **CTA Section**: Blue gradient + consultation button
 7. **Footer**: 4-column layout
 
+### AreasGrid Component Features
+
+**Desktop Behavior:**
+- Glassmorphism cards with hover "opening" effect
+- Icons transition from blue → gold on hover (ALL cards)
+- Image reveals with parallax effect
+- Spotlight mouse-tracking effect
+
+**Mobile Behavior:**
+- Enhanced contrast: `rgba(30,58,95,0.95)` background (Material Design)
+- Luminous borders: `rgba(255,255,255,0.25)` (Apple HIG)
+- Elevation shadows for depth perception
+- ALL icons display in gold (including featured cards)
+- Uniform card height (320px) for consistent image display
+- Touch feedback with scale animation
+
+**Image Focal Point System:**
+- Configurable via `focal` property in `areas/home.md`
+- Options: `top` (15%), `center`, `bottom` (85%)
+- Prevents face cropping in images with people
+- CSS classes: `.focal-top`, `.focal-center`, `.focal-bottom`
+
+**Schema (`config.ts`):**
+```typescript
+focal: z.enum(['top', 'center', 'bottom']).optional().default('center')
+```
+
 ### Service Areas (7 Total)
 
 **Áreas Principales:**
