@@ -2,6 +2,12 @@ import { motion } from 'framer-motion';
 import { Star, Check, LinkedinLogo, ArrowUpRight } from '@phosphor-icons/react';
 import { useState } from 'react';
 
+interface Biography {
+  formation?: string;
+  experience?: string;
+  specializations?: string;
+}
+
 interface TeamCardProps {
   member: {
     name: string;
@@ -9,18 +15,28 @@ interface TeamCardProps {
     description: string;
     shortDescription?: string;
     image: string;
+    imgTx?: number;
+    imgTy?: number;
+    imgScale?: number;
     featured?: boolean;
     credentials?: string[];
     social?: {
       linkedin?: string;
       email?: string;
     };
+    biography?: Biography;
   };
   index: number;
+  onClick?: () => void;
+  isSelected?: boolean;
 }
 
-export const TeamCard = ({ member, index }: TeamCardProps) => {
+// Genera un ID único basado en el nombre (sin caracteres especiales)
+const generateLayoutId = (name: string) => name.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase();
+
+export const TeamCard = ({ member, index, onClick, isSelected }: TeamCardProps) => {
   const [mousePosition, setMousePosition] = useState({ x: '50%', y: '50%' });
+  const layoutId = generateLayoutId(member.name);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -44,12 +60,21 @@ export const TeamCard = ({ member, index }: TeamCardProps) => {
         scale: 1.01,
         transition: { duration: 0.3, ease: "easeOut" }
       }}
-      className="group relative bg-white/10 backdrop-blur-lg border border-white/20 
+      className={`group relative bg-white/10 backdrop-blur-lg border border-white/20
                  rounded-2xl overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.3)]
                  hover:shadow-[0_12px_40px_rgba(201,169,97,0.25),0_0_60px_rgba(201,169,97,0.15)]
-                 transition-shadow duration-500"
+                 transition-shadow duration-500 ${onClick ? 'cursor-pointer' : ''}`}
       data-featured={member.featured}
       onMouseMove={handleMouseMove}
+      onClick={onClick}
+      role={onClick ? "button" : undefined}
+      tabIndex={onClick ? 0 : undefined}
+      onKeyDown={(e) => {
+        if (onClick && (e.key === 'Enter' || e.key === ' ')) {
+          e.preventDefault();
+          onClick();
+        }
+      }}
     >
       {/* Spotlight Effect */}
       <div 
@@ -63,18 +88,20 @@ export const TeamCard = ({ member, index }: TeamCardProps) => {
       
       {/* Contenido vertical (imagen arriba) */}
       <div className="flex flex-col relative z-10">
-        {/* Imagen */}
-        <motion.div 
+        {/* Imagen con layoutId para shared transition */}
+        <motion.div
+          layoutId={isSelected ? undefined : `image-container-${layoutId}`}
           className="w-full aspect-[3/4] overflow-hidden bg-gradient-to-br from-gray-800 to-gray-900 shrink-0"
-          whileHover={{ scale: 1.03 }}
+          whileHover={!isSelected ? { scale: 1.03 } : undefined}
           transition={{ duration: 0.5 }}
         >
-          <img 
-            src={member.image} 
-            alt={member.name} 
+          <motion.img
+            layoutId={isSelected ? undefined : `image-${layoutId}`}
+            src={member.image}
+            alt={member.name}
             style={{
-              objectPosition: member.featured ? 'center 20%' : 'center top',
-              transform: member.featured ? 'scale(1.1)' : 'scale(1.2) translateY(-8%)'
+              transform: `translate(${member.imgTx ?? 0}px, ${member.imgTy ?? 0}px) scale(${member.imgScale ?? 1})`,
+              transformOrigin: 'center top'
             }}
             className="w-full h-full object-cover"
             loading={index === 0 ? "eager" : "lazy"}
@@ -131,16 +158,38 @@ export const TeamCard = ({ member, index }: TeamCardProps) => {
             </div>
           )}
 
+          {/* Read More Indicator */}
+          {onClick && (
+            <motion.div
+              className="mt-4 flex items-center justify-center gap-2 text-[#C9A961] text-sm font-medium
+                         opacity-70 group-hover:opacity-100 transition-opacity"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 0.7 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.7 }}
+            >
+              <span>Leer biografía completa</span>
+              <motion.span
+                className="inline-block"
+                animate={{ x: [0, 4, 0] }}
+                transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+              >
+                →
+              </motion.span>
+            </motion.div>
+          )}
+
           {/* LinkedIn Button */}
           {member.social?.linkedin && (
             <motion.a
               href={member.social.linkedin}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={(e) => e.stopPropagation()}
               className="mt-4 inline-flex items-center justify-center gap-2 px-4 py-2.5
                          bg-white/5 hover:bg-white/10 border border-white/20 hover:border-white/30
                          rounded-lg text-sm text-white/80 hover:text-white
-                         transition-all duration-300 group w-full"
+                         transition-all duration-300 group/linkedin w-full"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               initial={{ opacity: 0, y: 10 }}
@@ -150,7 +199,7 @@ export const TeamCard = ({ member, index }: TeamCardProps) => {
             >
               <LinkedinLogo size={18} weight="fill" className="text-[#0A66C2]" />
               <span className="font-medium">Ver perfil en LinkedIn</span>
-              <ArrowUpRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity -ml-1" />
+              <ArrowUpRight size={14} className="opacity-0 group-hover/linkedin:opacity-100 transition-opacity -ml-1" />
             </motion.a>
           )}
         </div>

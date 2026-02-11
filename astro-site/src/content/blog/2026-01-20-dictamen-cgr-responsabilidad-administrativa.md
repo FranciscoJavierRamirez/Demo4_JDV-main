@@ -7,7 +7,7 @@ tags:
   - "dictamen-cgr"
   - "responsabilidad-administrativa"
   - "jefaturas"
-heroImage: "/blog/dictamen-cgr-responsabilidad-administrativa.jpg"
+heroImage: "/blog/dictamen-cgr-responsabilidad-administrativa.webp"
 heroAlt: "Edificio institucional gubernamental representando la autoridad de la Contraloría General de la República"
 relatedServices:
   - "defensa-estatutaria"

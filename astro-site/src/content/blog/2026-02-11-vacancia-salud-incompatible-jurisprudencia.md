@@ -10,7 +10,7 @@ tags:
   - "compin"
   - "corte-suprema"
   - "licencias-medicas"
-heroImage: "/blog/vacancia-salud-incompatible-jurisprudencia.png"
+heroImage: "/blog/vacancia-salud-incompatible-jurisprudencia.webp"
 heroAlt: "Estatua de Temida sobre escritorio con documentos legales representando análisis jurisprudencial"
 relatedServices:
   - "defensa-estatutaria"

@@ -8,21 +8,21 @@ areas:
     title: "Defensa Estatutaria"
     description: "Protección de derechos de funcionarios públicos ante procedimientos disciplinarios y administrativos."
     link: "/areas-practicas/defensa-estatutaria"
-    image: "/areas/defensa-estatutaria.jpg"
+    image: "/areas/defensa-estatutaria.webp"
     category: "principal"
 
   - icon: "fas fa-building"
     title: "Defensa Administrativa"
     description: "Representación ante órganos públicos en licitaciones y procedimientos administrativos."
     link: "/areas-practicas/defensa-administrativa"
-    image: "/areas/defensa-administrativa.jpg"
+    image: "/areas/defensa-administrativa.webp"
     category: "principal"
 
   - icon: "fas fa-home"
     title: "Inmobiliaria y Copropiedad"
     description: "Asesoría en compraventa, regularización de propiedades y administración de edificios."
     link: "/areas-practicas/inmobiliaria-copropiedad"
-    image: "/areas/inmobiliaria.jpg"
+    image: "/areas/inmobiliaria.webp"
     category: "principal"
 
   # Áreas Complementarias
@@ -30,28 +30,28 @@ areas:
     title: "Defensa Penal"
     description: "Representación de víctimas e imputados ante el sistema de justicia penal chileno."
     link: "/areas-practicas/defensa-penal"
-    image: "/defensa-penal.avif"
+    image: "/areas/defensa-penal.webp"
     category: "complementaria"
 
   - icon: "fas fa-users"
     title: "Familia y Menores"
     description: "Divorcios, tuiciones, pensiones de alimentos y protección de niños, niñas y adolescentes."
     link: "/areas-practicas/familia-menores"
-    image: "/areas/familia-menores.jpg"
+    image: "/areas/familia-menores.webp"
     category: "complementaria"
 
   - icon: "fas fa-balance-scale"
     title: "Civil"
     description: "Resolución de conflictos civiles, cobranzas, contratos y litigios comerciales."
     link: "/areas-practicas/civil"
-    image: "/areas/civil.jpg"
+    image: "/areas/civil.webp"
     category: "complementaria"
 
   - icon: "fas fa-passport"
     title: "Migraciones y Extranjería"
     description: "Visas, regularización, defensa ante expulsiones y asesoría migratoria integral."
     link: "/areas-practicas/migraciones-extranjeria"
-    image: "/areas/migraciones.jpg"
+    image: "/areas/migraciones.webp"
     category: "complementaria"
 
   # Otros Servicios
@@ -59,6 +59,6 @@ areas:
     title: "Capacitación"
     description: "Talleres y charlas especializadas para organizaciones, empresas y fundaciones."
     link: "/areas-practicas/capacitacion"
-    image: "/areas/capacitacion.jpg"
+    image: "/areas/capacitacion.webp"
     category: "servicio"
 ---

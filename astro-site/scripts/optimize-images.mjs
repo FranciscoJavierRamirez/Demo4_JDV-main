@@ -15,11 +15,24 @@ const QUALITY = 85; // Calidad WebP (0-100)
 
 // Imágenes a optimizar con sus configuraciones
 const IMAGES_TO_OPTIMIZE = [
+  // Imágenes principales del hero y portada (las más pesadas)
+  {
+    input: 'foto para portada.png',
+    outputs: [
+      { suffix: '', width: 1920, quality: 82 },
+    ]
+  },
+  {
+    input: 'foto quienes somos JDV.png',
+    outputs: [
+      { suffix: '', width: 1440, quality: 82 },
+    ]
+  },
   {
     input: 'Jaqueline_home_hero.png',
     outputs: [
-      { suffix: '', width: 1024, quality: 85 },      // Original size, optimized
-      { suffix: '-og', width: 1200, quality: 90 },   // Open Graph (1200x630 recommended)
+      { suffix: '', width: 1024, quality: 85 },
+      { suffix: '-og', width: 1200, quality: 90 },
     ]
   },
   {
@@ -37,15 +50,137 @@ const IMAGES_TO_OPTIMIZE = [
   {
     input: 'maria_alejandra_quienes_somos.png',
     outputs: [
-      { suffix: '', width: 600, quality: 85 },
+      { suffix: '', width: 800, quality: 88 },
     ]
   },
   {
-    input: 'home/fondo_hero.png',
+    input: 'maria_alejandra_quienes_somos 2.png',
     outputs: [
-      { suffix: '', width: 1920, quality: 80 },
+      { suffix: '', width: 800, quality: 88 },
     ]
-  }
+  },
+  {
+    input: 'Pablo_Inostroza_Vallejos.jpg',
+    outputs: [
+      { suffix: '', width: 600, quality: 85 },
+    ]
+  },
+  // Oficinas
+  {
+    input: 'oficina_apoquindo.png',
+    outputs: [
+      { suffix: '', width: 800, quality: 82 },
+    ]
+  },
+  {
+    input: 'oficina_WTC.jpg',
+    outputs: [
+      { suffix: '', width: 800, quality: 82 },
+    ]
+  },
+  {
+    input: 'justice-hero.jpg',
+    outputs: [
+      { suffix: '', width: 1200, quality: 82 },
+    ]
+  },
+  // Blog
+  {
+    input: 'blog/test-drogas-autoridades-chile.png',
+    outputs: [
+      { suffix: '', width: 1200, quality: 82 },
+    ]
+  },
+  {
+    input: 'blog/vacancia-salud-incompatible-jurisprudencia.png',
+    outputs: [
+      { suffix: '', width: 1200, quality: 82 },
+    ]
+  },
+  {
+    input: 'blog/derecho-familia-guia-practica.png',
+    outputs: [
+      { suffix: '', width: 1200, quality: 82 },
+    ]
+  },
+  {
+    input: 'blog/dictamen-cgr-responsabilidad-administrativa.jpg',
+    outputs: [
+      { suffix: '', width: 1200, quality: 82 },
+    ]
+  },
+  {
+    input: 'blog/dictamen-cgr-responsabilidad-administrativa-fake.jpg',
+    outputs: [
+      { suffix: '', width: 1200, quality: 82 },
+    ]
+  },
+  {
+    input: 'blog/bienvenida-jdv-abogados.jpg',
+    outputs: [
+      { suffix: '', width: 1200, quality: 82 },
+    ]
+  },
+  {
+    input: 'blog/sumario-administrativo-guia-practica.jpg',
+    outputs: [
+      { suffix: '', width: 1200, quality: 82 },
+    ]
+  },
+  // Areas de práctica
+  {
+    input: 'areas/defensa-penal.jpg',
+    outputs: [{ suffix: '', width: 800, quality: 82 }]
+  },
+  {
+    input: 'areas/defensa-estatutaria.jpg',
+    outputs: [{ suffix: '', width: 800, quality: 82 }]
+  },
+  {
+    input: 'areas/defensa-administrativa.jpg',
+    outputs: [{ suffix: '', width: 800, quality: 82 }]
+  },
+  {
+    input: 'areas/inmobiliaria.jpg',
+    outputs: [{ suffix: '', width: 800, quality: 82 }]
+  },
+  {
+    input: 'areas/familia-menores.jpg',
+    outputs: [{ suffix: '', width: 800, quality: 82 }]
+  },
+  {
+    input: 'areas/civil.jpg',
+    outputs: [{ suffix: '', width: 800, quality: 82 }]
+  },
+  {
+    input: 'areas/cliente-senior.jpg',
+    outputs: [{ suffix: '', width: 800, quality: 82 }]
+  },
+  {
+    input: 'areas/capacitacion.jpg',
+    outputs: [{ suffix: '', width: 800, quality: 82 }]
+  },
+  {
+    input: 'areas/migraciones.jpg',
+    outputs: [{ suffix: '', width: 800, quality: 82 }]
+  },
+  {
+    input: 'areas/animalista.jpg',
+    outputs: [{ suffix: '', width: 800, quality: 82 }]
+  },
+  {
+    input: 'areas/legado.jpg',
+    outputs: [{ suffix: '', width: 800, quality: 82 }]
+  },
+  // Logo JDV Abogados
+  {
+    input: 'Logo_JDV_Abogados.jpg',
+    outputs: [
+      { suffix: '', width: 400, quality: 90 },           // Logo completo
+      { suffix: '-header', width: 200, quality: 90 },    // Para header
+      { suffix: '-favicon', width: 64, quality: 95 },    // Para favicon
+    ]
+  },
 ];
 
 async function optimizeImage(inputPath, outputPath, options = {}) {

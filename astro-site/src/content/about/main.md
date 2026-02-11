@@ -31,7 +31,7 @@ hero:
       text: "Conoce al Equipo"
       icon: "fas fa-users"
       href: "#team"
-  image: "/Jaqueline_quienes_somos.png"
+  image: "/foto quienes somos JDV.webp"
 
 mission:
   title: "Nuestra Misión"
@@ -105,6 +105,13 @@ timeline:
 team:
   title: "Nuestro Equipo"
   subtitle: "Abogados comprometidos con su defensa"
+  structureTitle: "Estructura del Estudio"
+  structureDescription: |
+    La fundadora dirige personalmente las áreas principales del estudio: Defensa Estatutaria, Defensa Administrativa e Inmobiliaria y Copropiedad, donde su experiencia de 35 años en la Contraloría General de la República constituye un diferenciador relevante.
+
+    En las áreas complementarias, el estudio cuenta con la colaboración de abogados asociados especializados. Pablo Inostroza Vallejos aporta su expertise en Derecho Civil, Defensa Penal y Migración y Extranjería. María Alejandra López Bertín se especializa en Derecho Civil, Derecho Laboral y Sucesión por causa de muerte.
+
+    Esta estructura permite ofrecer cobertura integral manteniendo el rigor técnico y la atención personalizada que caracterizan al estudio.
 
 cta:
   title: "¿Necesita Asesoría Legal?"

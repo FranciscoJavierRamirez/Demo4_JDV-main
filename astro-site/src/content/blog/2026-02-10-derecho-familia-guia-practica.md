@@ -10,7 +10,7 @@ tags:
   - "divorcio"
   - "interes-superior-nino"
   - "regimen-visitas"
-heroImage: "/blog/derecho-familia-guia-practica.png"
+heroImage: "/blog/derecho-familia-guia-practica.webp"
 heroAlt: "Manos de padres e hijos entrelazadas simbolizando protección y vínculo familiar"
 relatedServices:
   - "familia-menores"

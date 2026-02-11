@@ -27,6 +27,20 @@ const { badge, title, subtitle, description, teamPreview, cta } = aboutPreviewDa
   <div class="container relative z-10">
     <!-- Section Header -->
     <div class="about-header text-center mb-10 md:mb-12 lg:mb-16">
+      <!-- Logo del estudio -->
+      <div class="mb-6">
+        <picture>
+          <source srcset="/Logo_JDV_Abogados-square.webp" type="image/webp" />
+          <img
+            src="/Logo_JDV_Abogados.jpg"
+            alt="JDV Abogados"
+            class="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl object-cover shadow-[0_8px_32px_rgba(0,0,0,0.3)] border-2 border-[rgba(201,169,97,0.3)] mx-auto"
+            width="112"
+            height="112"
+          />
+        </picture>
+      </div>
+
       <!-- Badge with Glassmorphism -->
       <span class="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 bg-white/10 backdrop-blur-lg rounded-full border border-white/20 text-xs sm:text-sm font-semibold text-white mb-3 sm:mb-4 shadow-lg">
         <i class={`${badge.icon} text-[var(--gold)] text-sm`}></i>
@@ -73,12 +87,18 @@ const { badge, title, subtitle, description, teamPreview, cta } = aboutPreviewDa
         <div class="relative bg-white/10 backdrop-blur-lg border-2 border-white/20 ring-2 ring-[var(--gold)]/60 rounded-3xl p-2 sm:p-3 shadow-premium-gold transition-all duration-500 hover:ring-[var(--gold)]/80">
           <!-- Image Container -->
           <div class="relative aspect-[4/5] rounded-2xl overflow-hidden">
-            <img 
-              src="/Jaqueline_quienes_somos.png"
-              alt="Jacqueline Del Valle - Abogada Fundadora"
-              class="w-full h-full object-cover object-center transition-transform duration-500 hover:scale-105"
-              loading="lazy"
-            />
+            <picture>
+              <source srcset="/foto quienes somos JDV.webp" type="image/webp">
+              <img
+                src="/foto quienes somos JDV.png"
+                alt="Jacqueline Del Valle - Abogada Fundadora"
+                class="w-full h-full object-cover object-center transition-transform duration-500 hover:scale-105"
+                loading="lazy"
+                decoding="async"
+                width="600"
+                height="750"
+              />
+            </picture>
             <!-- Subtle gradient overlay -->
             <div class="absolute inset-0 bg-gradient-to-t from-[rgba(12,35,64,0.2)] via-transparent to-transparent pointer-events-none"></div>
           </div>

@@ -11,7 +11,7 @@ hero:
   h1: "Familia y Menores: Protección de Vínculos y Derechos"
   breadcrumbTitle: "Familia y Menores"
   tagline: "Representación jurídica en conflictos familiares con enfoque en el interés superior del niño y la dignidad de las personas"
-  image: "/areas/familia-menores.jpg"
+  image: "/areas/familia-menores.webp"
 
 trust:
   - value: "35+"

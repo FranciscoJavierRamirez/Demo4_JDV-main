@@ -9,7 +9,7 @@ interface Props {
 const {
   title = 'JDV Abogados - Estudio Jurídico Especializado en Chile',
   description = 'Estudio jurídico en Chile especializado en defensa estatutaria, defensa administrativa e inmobiliaria y copropiedad. Derecho civil, familia y más. Agende su consulta.',
-  ogImage = '/Jaqueline_home_hero.png',
+  ogImage = '/foto para portada.png',
   ogType = 'website'
 } = Astro.props;
 
@@ -52,8 +52,8 @@ import '../styles/global.css';
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <!-- Preload Hero Image for faster LCP (WebP with PNG fallback) -->
-  <link rel="preload" as="image" href="/Jaqueline_home_hero.webp" type="image/webp" fetchpriority="high">
+  <!-- Preload Hero Image for faster LCP (WebP optimizado) -->
+  <link rel="preload" as="image" href="/foto para portada.webp" type="image/webp" fetchpriority="high">
 
   <!-- Fonts: Playfair Display (Display) + Inter (Sans) - V.T.E.F. 2026 -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -61,7 +61,10 @@ import '../styles/global.css';
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-  <!-- Favicon -->
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 
   <!-- Additional head content from child layouts -->

@@ -11,7 +11,7 @@ hero:
   h1: "Capacitación Legal para Organizaciones"
   breadcrumbTitle: "Capacitación Legal"
   tagline: "Conocimiento jurídico práctico que transforma y empodera a su equipo"
-  image: "/areas/capacitacion.jpg"
+  image: "/areas/capacitacion.webp"
 
 trust:
   - value: "35+"

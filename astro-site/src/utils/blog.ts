@@ -93,7 +93,7 @@ export const authorData: Record<string, { name: string; role: string; image: str
   'jacqueline-del-valle': {
     name: 'Jacqueline del Valle Inostroza',
     role: 'Abogada Fundadora - 35 años en Contraloría General de la República',
-    image: '/Jaqueline_quienes_somos.png'
+    image: '/foto quienes somos JDV.webp'
   },
   'equipo-jdv': {
     name: 'Equipo JDV Abogados',

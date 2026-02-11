@@ -11,7 +11,7 @@ hero:
   h1: "Defensa Administrativa ante el Estado"
   breadcrumbTitle: "Defensa Administrativa"
   tagline: "Defensa en licitaciones y contratos públicos con quien fiscalizó estos procesos durante 35 años"
-  image: "/areas/defensa-administrativa.jpg"
+  image: "/areas/defensa-administrativa.webp"
 
 trust:
   - value: "35+"

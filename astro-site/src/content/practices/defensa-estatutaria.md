@@ -11,7 +11,7 @@ hero:
   h1: "Defensa Estatutaria para Funcionarios Públicos"
   breadcrumbTitle: "Defensa Estatutaria"
   tagline: "Defensa ante sumarios y Ley Karin con quien conoce el sistema desde adentro"
-  image: "/areas/defensa-estatutaria.jpg"
+  image: "/areas/defensa-estatutaria.webp"
 
 trust:
   - value: "35+"

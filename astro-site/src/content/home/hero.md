@@ -1,7 +1,7 @@
 ---
 badge:
   icon: "fas fa-balance-scale"
-  text: "Especialistas en Derecho Administrativo Chileno"
+  text: "Especialistas en Derecho Estatutario, Administrativo e Inmobiliario"
 
 title:
   line1: "Defendemos Sus Derechos"
@@ -49,6 +49,6 @@ scrollIndicator:
   target: "#about-preview"
 
 images:
-  hero: "/Jaqueline_home_hero.png"
+  hero: "/foto para portada.webp"
   heroAlt: "Jacqueline – Abogada Fundadora JDV Abogados"
 ---

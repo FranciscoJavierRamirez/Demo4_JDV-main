@@ -7,7 +7,7 @@ tags:
   - "jdv-abogados"
   - "bienvenida"
   - "estudio-juridico"
-heroImage: "/blog/bienvenida-jdv-abogados.jpg"
+heroImage: "/blog/bienvenida-jdv-abogados.webp"
 heroAlt: "Equipo de JDV Abogados dando la bienvenida"
 relatedServices:
   - "defensa-estatutaria"

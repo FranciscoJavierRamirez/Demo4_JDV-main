@@ -11,7 +11,7 @@ hero:
   h1: "Asesoría Inmobiliaria y de Copropiedad"
   breadcrumbTitle: "Inmobiliaria y Copropiedad"
   tagline: "Protegemos tu patrimonio y acompañamos a comunidades de propietarios en cada desafío"
-  image: "/areas/inmobiliaria.jpg"
+  image: "/areas/inmobiliaria.webp"
 
 trust:
   - value: "35+"

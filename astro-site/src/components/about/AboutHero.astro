@@ -52,6 +52,20 @@ const { badge, title, subtitle, foundationText, stats, cta, image } = Astro.prop
       
       <!-- Content - Left Side -->
       <div class="text-white lg:col-span-7">
+        <!-- Logo del estudio -->
+        <div class="about-hero-logo mb-6">
+          <picture>
+            <source srcset="/Logo_JDV_Abogados-square.webp" type="image/webp" />
+            <img
+              src="/Logo_JDV_Abogados.jpg"
+              alt="JDV Abogados"
+              class="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl object-cover shadow-[0_8px_32px_rgba(0,0,0,0.3)] border-2 border-[rgba(201,169,97,0.4)]"
+              width="96"
+              height="96"
+            />
+          </picture>
+        </div>
+
         <!-- Badge -->
         <div class="about-hero-badge inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 bg-white/10 backdrop-blur-lg rounded-full border border-white/20 text-xs sm:text-sm font-semibold mb-4 sm:mb-5 shadow-lg">
           <i class={`${badge.icon} text-[var(--gold)] text-sm sm:text-base`}></i>
@@ -162,11 +176,18 @@ const { badge, title, subtitle, foundationText, stats, cta, image } = Astro.prop
      About Hero Premium Animations
      ======================================== */
 
+  /* Logo entrance */
+  .about-hero-logo {
+    opacity: 0;
+    transform: scale(0.9);
+    animation: fadeInScale 0.7s ease-out forwards;
+  }
+
   /* Badge entrance */
   .about-hero-badge {
     opacity: 0;
     transform: translateY(-15px);
-    animation: slideInDown 0.6s ease-out forwards;
+    animation: slideInDown 0.6s ease-out 0.2s forwards;
   }
 
   /* Title entrance */

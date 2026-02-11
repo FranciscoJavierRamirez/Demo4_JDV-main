@@ -7,7 +7,7 @@ tags:
   - "sumario-administrativo"
   - "funcionarios-publicos"
   - "defensa-estatutaria"
-heroImage: "/blog/sumario-administrativo-guia-practica.jpg"
+heroImage: "/blog/sumario-administrativo-guia-practica.webp"
 heroAlt: "Profesionales en consulta legal sobre sumarios administrativos y defensa estatutaria"
 relatedServices:
   - "defensa-estatutaria"

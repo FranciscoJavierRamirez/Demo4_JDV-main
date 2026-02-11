@@ -11,7 +11,7 @@ hero:
   h1: "Migraciones y Extranjería: Defensa de sus Derechos en Chile"
   breadcrumbTitle: "Migraciones"
   tagline: "Representación legal especializada ante el Servicio Nacional de Migraciones"
-  image: "/areas/migraciones.jpg"
+  image: "/areas/migraciones.webp"
 
 trust:
   - value: "35+"

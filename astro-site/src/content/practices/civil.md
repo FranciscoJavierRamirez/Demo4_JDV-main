@@ -11,7 +11,7 @@ hero:
   h1: "Derecho Civil: Protección de sus Derechos Patrimoniales"
   breadcrumbTitle: "Derecho Civil"
   tagline: "Representación rigurosa en conflictos civiles, cobranzas y obligaciones"
-  image: "/areas/civil.jpg"
+  image: "/areas/civil.webp"
 
 trust:
   - value: "35+"

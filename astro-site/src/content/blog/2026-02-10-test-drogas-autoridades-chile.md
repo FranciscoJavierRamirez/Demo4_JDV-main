@@ -10,7 +10,7 @@ tags:
   - "contraloria"
   - "funcionarios-publicos"
   - "probidad"
-heroImage: "/blog/test-drogas-autoridades-chile.png"
+heroImage: "/blog/test-drogas-autoridades-chile.webp"
 heroAlt: "Balanza de justicia y martillo simbolizando el equilibrio entre privacidad y probidad pública"
 relatedServices:
   - "defensa-estatutaria"

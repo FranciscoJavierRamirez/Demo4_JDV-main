@@ -475,6 +475,8 @@ const aboutCollection = defineCollection({
     team: z.object({
       title: z.string(),
       subtitle: z.string(),
+      structureTitle: z.string().optional(),
+      structureDescription: z.string().optional(),
     }),
     cta: z.object({
       title: z.string(),
@@ -497,6 +499,9 @@ const teamCollection = defineCollection({
     description: z.string(),
     shortDescription: z.string().optional(),
     image: z.string(),
+    imgTx: z.number().optional(), // Traslación X en px
+    imgTy: z.number().optional(), // Traslación Y en px
+    imgScale: z.number().optional(), // Escala de la imagen
     featured: z.boolean().optional(),
     experienceNote: z.string().optional(),
     specialties: z.array(z.string()).optional(),
@@ -504,6 +509,12 @@ const teamCollection = defineCollection({
     social: z.object({
       linkedin: z.string().optional(),
       email: z.string().optional(),
+    }).optional(),
+    // Biografía expandida para modal con acordeón
+    biography: z.object({
+      formation: z.string().optional(),        // Formación académica
+      experience: z.string().optional(),       // Experiencia profesional
+      specializations: z.string().optional(),  // Especializaciones y áreas de práctica
     }).optional(),
   }),
 });

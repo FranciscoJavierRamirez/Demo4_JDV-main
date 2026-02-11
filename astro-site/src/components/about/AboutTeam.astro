@@ -1,17 +1,27 @@
 ---
 import { getCollection } from 'astro:content';
-import TeamCard from './TeamCard';
+import TeamSection from './TeamSection';
 
 interface Props {
   title: string;
   subtitle: string;
+  structureTitle?: string;
+  structureDescription?: string;
 }
 
-const { title, subtitle } = Astro.props;
+const { title, subtitle, structureTitle, structureDescription } = Astro.props;
 
 // Obtener todos los miembros del equipo ordenados
 const teamMembers = await getCollection('team');
 const sortedMembers = teamMembers.sort((a, b) => a.data.order - b.data.order);
+
+// Separar fundadora de asociados
+const founder = sortedMembers.find(m => m.data.featured);
+const associates = sortedMembers.filter(m => !m.data.featured);
+
+// Preparar datos para el componente React
+const founderData = founder?.data;
+const associatesData = associates.map(m => m.data);
 ---
 
 <section id="team" class="relative py-20 md:py-28 lg:py-32 overflow-hidden bg-[var(--blue-deeper)]">
@@ -64,16 +74,35 @@ const sortedMembers = teamMembers.sort((a, b) => a.data.order - b.data.order);
                   mx-auto mt-6 rounded-full opacity-80"></div>
     </div>
 
-    <!-- Team Grid con React Components -->
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto">
-      {sortedMembers.map((member, index) => (
-        <TeamCard 
-          member={member.data} 
-          index={index} 
-          client:visible 
-        />
-      ))}
-    </div>
+    <!-- Team Section (Founder + Associates + Modal) -->
+    <TeamSection
+      founder={founderData}
+      associates={associatesData}
+      client:visible
+    />
+
+    <!-- Bloque explicativo: Estructura del Estudio -->
+    {structureTitle && structureDescription && (
+      <div class="structure-block max-w-3xl mx-auto mt-10 md:mt-14 px-4">
+        <div class="bg-white/5 backdrop-blur-sm border border-[var(--gold)]/30
+                    rounded-2xl p-6 md:p-8 shadow-lg">
+          <h3 class="text-xl md:text-2xl font-bold text-white mb-4
+                     flex items-center gap-3"
+              style="font-family: var(--font-display);">
+            <span class="w-8 h-8 rounded-full bg-[var(--gold)]/20
+                         flex items-center justify-center">
+              <i class="fas fa-sitemap text-[var(--gold)] text-sm"></i>
+            </span>
+            {structureTitle}
+          </h3>
+          <div class="text-white/80 text-base leading-relaxed space-y-4">
+            {structureDescription.split('\n\n').map((paragraph: string) => (
+              <p>{paragraph}</p>
+            ))}
+          </div>
+        </div>
+      </div>
+    )}
   </div>
 </section>
 
@@ -119,9 +148,24 @@ const sortedMembers = teamMembers.sort((a, b) => a.data.order - b.data.order);
     }
   }
 
+  /* Structure block entrance animation */
+  .structure-block {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
+  }
+
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
   /* Reduced motion support */
   @media (prefers-reduced-motion: reduce) {
-    .team-header {
+    .team-header,
+    .structure-block {
       opacity: 1;
       transform: none;
       animation: none;
