@@ -8,6 +8,10 @@ if (!areasData?.data) {
 }
 
 const { sectionTitle, sectionSubtitle, areas } = areasData.data;
+
+// Separar áreas principales/complementarias de "Otros Servicios"
+const mainAreas = areas.slice(0, 7);  // Índices 0-6 (principales + complementarias)
+const servicioArea = areas[7];        // Capacitación (Otros Servicios)
 ---
 
 <section id="areas" class="relative py-24 bg-[var(--blue-deeper)] overflow-hidden">
@@ -41,20 +45,20 @@ const { sectionTitle, sectionSubtitle, areas } = areasData.data;
       <div class="section-pill inline-block relative mb-6">
         <!-- Glow effect behind -->
         <div class="absolute inset-0 bg-linear-to-r from-(--blue-primary)/20 via-(--gold)/15 to-(--blue-primary)/20 rounded-full blur-xl opacity-60"></div>
-        
+
         <!-- Pill content -->
         <div class="relative bg-white/95 backdrop-blur-sm px-8 py-4 rounded-full shadow-[0_4px_20px_rgba(0,0,0,0.08),0_8px_40px_rgba(59,130,246,0.12)] border border-white/80">
           <!-- Decorative icon -->
           <div class="absolute -left-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-linear-to-br from-(--gold) to-(--gold-dark) rounded-full flex items-center justify-center shadow-[0_4px_12px_rgba(201,169,97,0.4)]">
             <i class="fas fa-balance-scale text-white text-sm"></i>
           </div>
-          
+
           <h2 class="text-[clamp(1.75rem,3.5vw,2.5rem)] font-extrabold bg-linear-to-r from-[#1e3a5f] via-[#2563eb] to-[#3b82f6] bg-clip-text text-transparent tracking-[-0.02em] pl-6">
             {sectionTitle}
           </h2>
         </div>
       </div>
-      
+
       <p class="text-[clamp(1.125rem,2vw,1.25rem)] text-white/70 max-w-[700px] mx-auto leading-relaxed">
         {sectionSubtitle}
       </p>
@@ -62,74 +66,169 @@ const { sectionTitle, sectionSubtitle, areas } = areasData.data;
 
     <!-- Bento Grid Layout - 12 columnas para flexibilidad -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6 auto-rows-[minmax(280px,auto)]">
-      {areas.map((area, index) => {
+      {/* Áreas Principales y Complementarias (índices 0-5) */}
+      {mainAreas.map((area, index) => {
         const isFeatured = index === 0 || index === 1 || index === 2;
+        const isComplementaria = index === 3;
         // Principales: 4 cols cada una (4+4+4=12) = 1 fila completa
         // Secundarias: 3 cols cada una (3+3+3+3=12) = 1 fila de 4
-        // Última: centrada
         const gridClass = isFeatured
           ? 'md:col-span-1 lg:col-span-4 min-h-[340px]'
           : 'md:col-span-1 lg:col-span-3 min-h-[280px]';
+
         return (
-          <a
-            href={area.link}
-            class={`area-card scroll-reveal-card group relative rounded-[24px] overflow-hidden cursor-pointer flex flex-col justify-end transition-all duration-500 ${gridClass}`}
-            style={`transition-delay: ${index * 80}ms`}
-          >
-            <!-- Background Image Layer - Reveals on hover -->
-            {area.image && (
-              <div class="absolute inset-0 z-0">
-                <img 
-                  src={area.image} 
-                  alt=""
-                  class="card-bg-image w-full h-full object-cover"
-                  loading="lazy"
-                />
-                <!-- Color overlay - moves with content on hover -->
-                <div class="card-overlay absolute inset-0"></div>
+          <>
+            {/* Línea divisoria: Áreas Principales (antes del primer card) */}
+            {index === 0 && (
+              <div class="col-span-full flex items-center gap-4 mb-2 scroll-reveal-header">
+                <span class="text-white/60 text-xs font-semibold uppercase tracking-[0.15em] whitespace-nowrap">
+                  Áreas de Práctica Principales
+                </span>
+                <div class="flex-1 h-px bg-gradient-to-r from-white/25 to-transparent"></div>
               </div>
             )}
-            
-            <!-- Glassmorphism Content Container - Moves DOWN on hover -->
-            <div class="card-content relative z-10 p-4 md:p-5">
-              <!-- Glass background -->
-              <div class="absolute inset-0 glass-bg transition-all duration-500 rounded-t-[16px]"></div>
-              
-              <div class="relative z-10">
-                <!-- Icon + Title Row -->
-                <div class="flex items-center gap-3 mb-2">
-                  <div class={`card-icon w-10 h-10 flex items-center justify-center rounded-xl transition-all duration-500 shadow-md shrink-0
-                    ${isFeatured 
-                      ? 'bg-linear-to-br from-(--blue-primary) to-(--blue-deeper) text-white' 
-                      : 'bg-white/90 backdrop-blur-sm text-(--blue-primary) border border-white/50'}
-                  `}>
-                    <i class={`${area.icon} text-lg`}></i>
-                  </div>
-                  <h3 class={`card-title font-bold leading-tight transition-all duration-300
-                    ${isFeatured ? 'text-xl md:text-2xl' : 'text-lg'}
-                  `}>
-                    {area.title}
-                  </h3>
+
+            {/* Línea divisoria: Áreas Complementarias (antes del index 3) */}
+            {isComplementaria && (
+              <div class="col-span-full flex items-center gap-4 mt-4 mb-2 scroll-reveal-header">
+                <span class="text-white/50 text-xs font-medium uppercase tracking-[0.15em] whitespace-nowrap">
+                  Áreas Complementarias
+                </span>
+                <div class="flex-1 h-px bg-gradient-to-r from-white/20 to-transparent"></div>
+              </div>
+            )}
+
+            <a
+              href={area.link}
+              class={`area-card scroll-reveal-card group relative rounded-[24px] overflow-hidden cursor-pointer flex flex-col justify-end transition-all duration-500 ${gridClass}`}
+              style={`transition-delay: ${index * 80}ms`}
+            >
+              <!-- Background Image Layer - Reveals on hover -->
+              {area.image && (
+                <div class="absolute inset-0 z-0">
+                  <img
+                    src={area.image}
+                    alt=""
+                    class="card-bg-image w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                  <!-- Color overlay - moves with content on hover -->
+                  <div class="card-overlay absolute inset-0"></div>
                 </div>
-                
-                <!-- Description -->
-                <p class="card-description text-sm leading-snug mb-3 transition-all duration-300 line-clamp-2">
-                  {area.description}
-                </p>
-                
-                <!-- Action -->
-                <div class="card-action flex items-center gap-2 font-semibold text-xs tracking-wide uppercase transition-all duration-300">
-                  <span>Explorar Área</span>
-                  <i class="fas fa-arrow-right text-xs transition-transform duration-300 group-hover:translate-x-2"></i>
+              )}
+
+              <!-- Glassmorphism Content Container - Moves DOWN on hover -->
+              <div class="card-content relative z-10 p-4 md:p-5">
+                <!-- Glass background -->
+                <div class="absolute inset-0 glass-bg transition-all duration-500 rounded-t-[16px]"></div>
+
+                <div class="relative z-10">
+                  <!-- Icon + Title Row -->
+                  <div class="flex items-center gap-3 mb-2">
+                    <div class={`card-icon w-10 h-10 flex items-center justify-center rounded-xl transition-all duration-500 shadow-md shrink-0
+                      ${isFeatured
+                        ? 'bg-linear-to-br from-(--blue-primary) to-(--blue-deeper) text-white'
+                        : 'bg-white/90 backdrop-blur-sm text-(--blue-primary) border border-white/50'}
+                    `}>
+                      <i class={`${area.icon} text-lg`}></i>
+                    </div>
+                    <h3 class={`card-title font-bold leading-tight transition-all duration-300
+                      ${isFeatured ? 'text-xl md:text-2xl' : 'text-lg'}
+                    `}>
+                      {area.title}
+                    </h3>
+                  </div>
+
+                  <!-- Description -->
+                  <p class="card-description text-sm leading-snug mb-3 transition-all duration-300 line-clamp-2">
+                    {area.description}
+                  </p>
+
+                  <!-- Action -->
+                  <div class="card-action flex items-center gap-2 font-semibold text-xs tracking-wide uppercase transition-all duration-300">
+                    <span>Explorar Área</span>
+                    <i class="fas fa-arrow-right text-xs transition-transform duration-300 group-hover:translate-x-2"></i>
+                  </div>
                 </div>
               </div>
-            </div>
-            
-            <!-- Spotlight Effect Layer -->
-            <div class="spotlight absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-5"></div>
-          </a>
+
+              <!-- Spotlight Effect Layer -->
+              <div class="spotlight absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-5"></div>
+            </a>
+          </>
         );
       })}
+
+      {/* Sección "Otros Servicios" - Colapsable */}
+      {servicioArea && (
+        <div class="col-span-full mt-6 scroll-reveal-header">
+          {/* Header colapsable */}
+          <button
+            id="toggleOtrosServicios"
+            class="flex items-center gap-4 w-full text-left group cursor-pointer"
+            aria-expanded="false"
+            aria-controls="otrosServiciosContent"
+          >
+            <span class="text-white/40 text-xs font-medium uppercase tracking-[0.15em] whitespace-nowrap group-hover:text-white/60 transition-colors">
+              Otros Servicios
+            </span>
+            <div class="flex-1 h-px bg-gradient-to-r from-white/15 to-transparent"></div>
+            <span class="flex items-center gap-2 text-white/40 text-xs group-hover:text-white/60 transition-colors">
+              <span class="hidden sm:inline">Ver más</span>
+              <i class="fas fa-chevron-down text-[10px] transition-transform duration-300" id="chevronOtrosServicios"></i>
+            </span>
+          </button>
+
+          {/* Contenido colapsable */}
+          <div
+            id="otrosServiciosContent"
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6 overflow-hidden transition-all duration-500 ease-out"
+            style="max-height: 0; opacity: 0;"
+          >
+            <a
+              href={servicioArea.link}
+              class="area-card scroll-reveal-card group relative rounded-[24px] overflow-hidden cursor-pointer flex flex-col justify-end transition-all duration-500 md:col-span-1 lg:col-span-4 min-h-[280px] mt-4"
+            >
+              <!-- Background Image Layer -->
+              {servicioArea.image && (
+                <div class="absolute inset-0 z-0">
+                  <img
+                    src={servicioArea.image}
+                    alt=""
+                    class="card-bg-image w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                  <div class="card-overlay absolute inset-0"></div>
+                </div>
+              )}
+
+              <!-- Glassmorphism Content Container -->
+              <div class="card-content relative z-10 p-4 md:p-5">
+                <div class="absolute inset-0 glass-bg transition-all duration-500 rounded-t-[16px]"></div>
+                <div class="relative z-10">
+                  <div class="flex items-center gap-3 mb-2">
+                    <div class="card-icon w-10 h-10 flex items-center justify-center rounded-xl transition-all duration-500 shadow-md shrink-0 bg-white/90 backdrop-blur-sm text-(--blue-primary) border border-white/50">
+                      <i class={`${servicioArea.icon} text-lg`}></i>
+                    </div>
+                    <h3 class="card-title font-bold leading-tight transition-all duration-300 text-lg">
+                      {servicioArea.title}
+                    </h3>
+                  </div>
+                  <p class="card-description text-sm leading-snug mb-3 transition-all duration-300 line-clamp-2">
+                    {servicioArea.description}
+                  </p>
+                  <div class="card-action flex items-center gap-2 font-semibold text-xs tracking-wide uppercase transition-all duration-300">
+                    <span>Explorar Servicio</span>
+                    <i class="fas fa-arrow-right text-xs transition-transform duration-300 group-hover:translate-x-2"></i>
+                  </div>
+                </div>
+              </div>
+
+              <div class="spotlight absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-5"></div>
+            </a>
+          </div>
+        </div>
+      )}
     </div>
   </div>
 </section>
@@ -151,18 +250,18 @@ const { sectionTitle, sectionSubtitle, areas } = areasData.data;
   .section-pill {
     animation: pillFloat 3s ease-in-out infinite;
   }
-  
+
   .section-pill:hover {
     animation-play-state: paused;
   }
-  
+
   .section-pill:hover > div:last-child {
     transform: translateY(-2px);
-    box-shadow: 
+    box-shadow:
       0 8px 30px rgba(0, 0, 0, 0.1),
       0 12px 50px rgba(59, 130, 246, 0.18);
   }
-  
+
   @keyframes pillFloat {
     0%, 100% {
       transform: translateY(0);
@@ -171,12 +270,12 @@ const { sectionTitle, sectionSubtitle, areas } = areasData.data;
       transform: translateY(-4px);
     }
   }
-  
+
   /* Base card styling - Glassmorphism */
   .area-card {
     background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(249,250,251,0.9) 100%);
     border: 1px solid rgba(255,255,255,0.8);
-    box-shadow: 
+    box-shadow:
       0 4px 6px -1px rgba(0, 0, 0, 0.05),
       0 2px 4px -1px rgba(0, 0, 0, 0.03),
       inset 0 1px 0 rgba(255,255,255,0.6);
@@ -318,12 +417,12 @@ const { sectionTitle, sectionSubtitle, areas } = areasData.data;
   /* ========================================
      Scroll Reveal Animations
      ======================================== */
-  
+
   /* Header animation - slides down with scale */
   .scroll-reveal-header {
     opacity: 0;
     transform: translateY(-25px) scale(0.98);
-    transition: 
+    transition:
       opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
       transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
   }
@@ -337,7 +436,7 @@ const { sectionTitle, sectionSubtitle, areas } = areasData.data;
   .scroll-reveal-card {
     opacity: 0;
     transform: translateY(50px) scale(0.97);
-    transition: 
+    transition:
       opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
       transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
   }
@@ -355,7 +454,7 @@ const { sectionTitle, sectionSubtitle, areas } = areasData.data;
       transform: none;
       transition: none;
     }
-    
+
     .section-pill {
       animation: none;
     }
@@ -365,25 +464,25 @@ const { sectionTitle, sectionSubtitle, areas } = areasData.data;
      Mobile-Specific Premium Animations
      Elegant, fluid, bidirectional scroll reveal
      ======================================== */
-  
+
   @media (max-width: 768px) {
     /* Premium card reveal with elegant easing - bidirectional */
     .scroll-reveal-card {
       opacity: 0;
       transform: translateY(30px);
       filter: blur(4px);
-      transition: 
+      transition:
         opacity 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94),
         transform 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94),
         filter 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
-    
+
     .scroll-reveal-card.visible {
       opacity: 1;
       transform: translateY(0);
       filter: blur(0);
     }
-    
+
     /* Staggered animation delay based on card index via CSS custom property */
     .scroll-reveal-card:nth-child(1) { transition-delay: 0ms; }
     .scroll-reveal-card:nth-child(2) { transition-delay: 80ms; }
@@ -391,24 +490,24 @@ const { sectionTitle, sectionSubtitle, areas } = areasData.data;
     .scroll-reveal-card:nth-child(4) { transition-delay: 240ms; }
     .scroll-reveal-card:nth-child(5) { transition-delay: 320ms; }
     .scroll-reveal-card:nth-child(6) { transition-delay: 400ms; }
-    
+
     /* Header reveal - elegant fade with blur */
     .scroll-reveal-header {
       opacity: 0;
       transform: translateY(-20px);
       filter: blur(3px);
-      transition: 
+      transition:
         opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
         transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
         filter 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
-    
+
     .scroll-reveal-header.visible {
       opacity: 1;
       transform: translateY(0);
       filter: blur(0);
     }
-    
+
     /* Tactile feedback for mobile touch interactions */
     .area-card:active {
       transform: scale(0.985) !important;
@@ -514,18 +613,35 @@ const { sectionTitle, sectionSubtitle, areas } = areasData.data;
       border-color: transparent;
     }
   }
-  
+
   /* Performance optimizations for mobile */
   @media (max-width: 768px) {
     .scroll-reveal-card,
     .scroll-reveal-header {
       will-change: opacity, transform, filter;
     }
-    
+
     .scroll-reveal-card.visible,
     .scroll-reveal-header.visible {
       will-change: auto;
     }
+  }
+
+  /* ========================================
+     Toggle "Otros Servicios" Styles
+     ======================================== */
+  #chevronOtrosServicios {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  #chevronOtrosServicios.rotate-180 {
+    transform: rotate(180deg);
+  }
+
+  #otrosServiciosContent {
+    transition:
+      max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+      opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
 </style>
 
@@ -535,12 +651,12 @@ const { sectionTitle, sectionSubtitle, areas } = areasData.data;
   // Bidirectional, fluid animations for mobile & desktop
   // ========================================
   const section = document.getElementById('areas');
-  const header = section?.querySelector('.scroll-reveal-header') as HTMLElement | null;
+  const headers = section?.querySelectorAll<HTMLElement>('.scroll-reveal-header');
   const cards = section?.querySelectorAll<HTMLElement>('.scroll-reveal-card');
 
   // Detect mobile viewport
   const isMobile = window.matchMedia('(max-width: 768px)').matches;
-  
+
   // Check for reduced motion preference
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -550,48 +666,45 @@ const { sectionTitle, sectionSubtitle, areas } = areasData.data;
       // MOBILE: Bidirectional scroll animations
       // Cards reveal/hide based on viewport visibility
       // ========================================
-      
+
       // Header observer - bidirectional
-      if (header) {
+      headers?.forEach(header => {
         const headerObserverOptions: IntersectionObserverInit = {
           threshold: [0, 0.2, 0.4],
           rootMargin: '50px 0px -20px 0px'
         };
-        
+
         const headerObserver = new IntersectionObserver((entries) => {
           entries.forEach(entry => {
             if (entry.isIntersecting && entry.intersectionRatio >= 0.2) {
               header.classList.add('visible');
-            } else if (!entry.isIntersecting) {
-              // Optional: remove visible class when scrolling back up
-              // header.classList.remove('visible');
             }
           });
         }, headerObserverOptions);
-        
+
         headerObserver.observe(header);
-      }
-      
+      });
+
       // Card observers - bidirectional with smooth reveal
       const cardObserverOptions: IntersectionObserverInit = {
         threshold: [0, 0.1, 0.25, 0.5],
         rootMargin: '20px 0px -60px 0px'
       };
-      
+
       // Track last scroll position for direction detection
       let lastScrollY = window.scrollY;
       let scrollDirection: 'up' | 'down' = 'down';
-      
+
       window.addEventListener('scroll', () => {
         scrollDirection = window.scrollY > lastScrollY ? 'down' : 'up';
         lastScrollY = window.scrollY;
       }, { passive: true });
-      
+
       cards?.forEach((card, index) => {
         const cardObserver = new IntersectionObserver((entries) => {
           entries.forEach(entry => {
             const ratio = entry.intersectionRatio;
-            
+
             if (entry.isIntersecting) {
               // Progressive reveal based on visibility
               if (ratio >= 0.1) {
@@ -609,18 +722,20 @@ const { sectionTitle, sectionSubtitle, areas } = areasData.data;
             }
           });
         }, cardObserverOptions);
-        
+
         cardObserver.observe(card);
       });
 
       // Fallback con delay para Chrome mobile (si el observer no dispara en 500ms)
       setTimeout(() => {
-        if (header && !header.classList.contains('visible')) {
-          const headerRect = header.getBoundingClientRect();
-          if (headerRect.top < window.innerHeight && headerRect.bottom >= 0) {
-            header.classList.add('visible');
+        headers?.forEach(header => {
+          if (!header.classList.contains('visible')) {
+            const headerRect = header.getBoundingClientRect();
+            if (headerRect.top < window.innerHeight && headerRect.bottom >= 0) {
+              header.classList.add('visible');
+            }
           }
-        }
+        });
         cards?.forEach(card => {
           if (!card.classList.contains('visible')) {
             const cardRect = card.getBoundingClientRect();
@@ -630,7 +745,7 @@ const { sectionTitle, sectionSubtitle, areas } = areasData.data;
           }
         });
       }, 500);
-      
+
     } else {
       // ========================================
       // DESKTOP: Staggered animation when section is visible
@@ -644,18 +759,18 @@ const { sectionTitle, sectionSubtitle, areas } = areasData.data;
       const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
-            // Reveal header first
-            if (header) {
+            // Reveal headers first
+            headers?.forEach(header => {
               header.classList.add('visible');
-            }
-            
+            });
+
             // Then reveal cards with staggered delay
             cards?.forEach((card, index) => {
               setTimeout(() => {
                 card.classList.add('visible');
               }, 150 + (index * 100));
             });
-            
+
             revealObserver.disconnect();
           }
         });
@@ -665,10 +780,11 @@ const { sectionTitle, sectionSubtitle, areas } = areasData.data;
 
       // Fallback con delay para Chrome desktop (si el observer no dispara en 500ms)
       setTimeout(() => {
-        if (!header?.classList.contains('visible')) {
+        const firstHeader = headers?.[0];
+        if (!firstHeader?.classList.contains('visible')) {
           const rect = section.getBoundingClientRect();
           if (rect.top < window.innerHeight && rect.bottom >= 0) {
-            if (header) header.classList.add('visible');
+            headers?.forEach(header => header.classList.add('visible'));
             cards?.forEach((card, index) => {
               setTimeout(() => card.classList.add('visible'), 150 + (index * 100));
             });
@@ -679,7 +795,7 @@ const { sectionTitle, sectionSubtitle, areas } = areasData.data;
     }
   } else if (prefersReducedMotion) {
     // Immediately show all elements for users who prefer reduced motion
-    header?.classList.add('visible');
+    headers?.forEach(header => header.classList.add('visible'));
     cards?.forEach(card => card.classList.add('visible'));
   }
 
@@ -696,6 +812,33 @@ const { sectionTitle, sectionSubtitle, areas } = areasData.data;
         card.style.setProperty('--mouse-x', `${x}px`);
         card.style.setProperty('--mouse-y', `${y}px`);
       });
+    });
+  }
+
+  // ========================================
+  // Toggle "Otros Servicios" Section
+  // ========================================
+  const toggleBtn = document.getElementById('toggleOtrosServicios');
+  const content = document.getElementById('otrosServiciosContent') as HTMLElement | null;
+  const chevron = document.getElementById('chevronOtrosServicios');
+
+  if (toggleBtn && content && chevron) {
+    let isOpen = false;
+
+    toggleBtn.addEventListener('click', () => {
+      isOpen = !isOpen;
+
+      if (isOpen) {
+        content.style.maxHeight = '400px';
+        content.style.opacity = '1';
+        chevron.classList.add('rotate-180');
+        toggleBtn.setAttribute('aria-expanded', 'true');
+      } else {
+        content.style.maxHeight = '0';
+        content.style.opacity = '0';
+        chevron.classList.remove('rotate-180');
+        toggleBtn.setAttribute('aria-expanded', 'false');
+      }
     });
   }
 </script>

@@ -23,20 +23,23 @@ columns:
   areas:
     title: "Áreas de Práctica"
     links:
+      # Áreas Principales
       - text: "Defensa Estatutaria"
         href: "/areas-practicas/defensa-estatutaria"
       - text: "Defensa Administrativa"
         href: "/areas-practicas/defensa-administrativa"
+      - text: "Inmobiliaria y Copropiedad"
+        href: "/areas-practicas/inmobiliaria-copropiedad"
+      # Áreas Complementarias
       - text: "Defensa Penal"
         href: "/areas-practicas/defensa-penal"
-      - text: "Cliente Senior"
-        href: "/areas-practicas/cliente-senior"
       - text: "Familia y Menores"
         href: "/areas-practicas/familia-menores"
       - text: "Civil"
         href: "/areas-practicas/civil"
-      - text: "Inmobiliaria"
-        href: "/areas-practicas/inmobiliaria-copropiedad"
+      - text: "Migraciones y Extranjería"
+        href: "/areas-practicas/migraciones-extranjeria"
+      # Otros Servicios
       - text: "Capacitación"
         href: "/areas-practicas/capacitacion"
 

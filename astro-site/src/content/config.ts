@@ -92,6 +92,7 @@ const areasCollection = defineCollection({
       description: z.string(),
       link: z.string(),
       image: z.string().optional(),
+      category: z.enum(['principal', 'complementaria', 'servicio']).optional(),
     })),
   }),
 });

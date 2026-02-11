@@ -1,29 +1,25 @@
 ---
-// Mega Menu data
+// Mega Menu data - 3 columnas balanceadas
 const columns = [
   {
-    title: "Defensa Legal",
+    title: "Áreas Principales",
     items: [
       { href: "/areas-practicas/defensa-estatutaria", icon: "fas fa-shield-alt", title: "Defensa Estatutaria", desc: "Protección de funcionarios públicos", featured: true },
       { href: "/areas-practicas/defensa-administrativa", icon: "fas fa-building", title: "Defensa Administrativa", desc: "Representación ante órganos públicos", featured: true },
-      { href: "/areas-practicas/defensa-penal", icon: "fas fa-gavel", title: "Defensa Penal", desc: "Víctimas e imputados" }
-    ]
-  },
-  {
-    title: "Servicios Especializados",
-    items: [
-      { href: "/areas-practicas/familia-menores", icon: "fas fa-users", title: "Familia y Menores", desc: "Divorcios, tuiciones y alimentos" }
-    ]
-  },
-  {
-    title: "Derecho Civil",
-    items: [
-      { href: "/areas-practicas/civil", icon: "fas fa-balance-scale", title: "Civil", desc: "Cobranzas y litigios civiles" },
       { href: "/areas-practicas/inmobiliaria-copropiedad", icon: "fas fa-home", title: "Inmobiliaria y Copropiedad", desc: "Compraventa y copropiedad", featured: true }
     ]
   },
   {
-    title: "Otras Áreas",
+    title: "Áreas Complementarias",
+    items: [
+      { href: "/areas-practicas/defensa-penal", icon: "fas fa-gavel", title: "Defensa Penal", desc: "Víctimas e imputados" },
+      { href: "/areas-practicas/familia-menores", icon: "fas fa-users", title: "Familia y Menores", desc: "Divorcios, tuiciones y alimentos" },
+      { href: "/areas-practicas/civil", icon: "fas fa-balance-scale", title: "Civil", desc: "Cobranzas y litigios civiles" },
+      { href: "/areas-practicas/migraciones-extranjeria", icon: "fas fa-passport", title: "Migraciones", desc: "Visas, residencia y extranjería" }
+    ]
+  },
+  {
+    title: "Otros Servicios",
     items: [
       { href: "/areas-practicas/capacitacion", icon: "fas fa-chalkboard-teacher", title: "Capacitación", desc: "Cursos y talleres para organizaciones" }
     ]
@@ -40,12 +36,14 @@ const columns = [
     <div class="bg-white border border-[var(--gray-100)] rounded-2xl shadow-[0_25px_50px_rgba(0,0,0,0.15),0_10px_20px_rgba(0,0,0,0.08)] overflow-hidden">
       <div class="p-6 lg:p-8">
         <!-- Grid -->
-        <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
           {columns.map((col, colIndex) => (
             <div class="flex flex-col">
-              <h3 class="font-[var(--font-display)] text-xs font-bold uppercase tracking-[0.1em] text-[var(--gray-400)] mb-3 pb-2 border-b border-[var(--gray-100)]">
-                {col.title}
-              </h3>
+              {col.title && (
+                <h3 class="font-[var(--font-display)] text-xs font-bold uppercase tracking-[0.1em] text-[var(--gray-400)] mb-3 pb-2 border-b border-[var(--gray-100)]">
+                  {col.title}
+                </h3>
+              )}
               <ul class="list-none flex flex-col gap-1">
                 {col.items.map(item => (
                   <li>
@@ -69,7 +67,7 @@ const columns = [
               </ul>
 
               {/* Pro Bono Highlight in last column - Green theme */}
-              {colIndex === 3 && (
+              {colIndex === 2 && (
                 <div class="mt-3 p-3 bg-gradient-to-br from-[rgba(16,185,129,0.1)] to-[rgba(5,150,105,0.05)] rounded-xl border border-[rgba(16,185,129,0.25)]">
                   <div class="flex items-start gap-2.5">
                     <div class="w-8 h-8 flex items-center justify-center bg-gradient-to-br from-[#10b981] to-[#059669] rounded-lg flex-shrink-0">

@@ -56,18 +56,25 @@ const allServices: RelatedService[] = [
     title: "Familia y Menores",
     description: "Divorcios, tuiciones, pensiones de alimentos y protección de menores.",
     icon: "👨‍👩‍👧"
+  },
+  {
+    slug: "migraciones-extranjeria",
+    title: "Migraciones y Extranjería",
+    description: "Visas, residencia, regularización y defensa ante expulsiones.",
+    icon: "🌍"
   }
 ];
 
 // Cross-selling matrix: which services relate to which
 const relatedMatrix: Record<string, string[]> = {
   "defensa-estatutaria": ["defensa-administrativa", "defensa-penal", "capacitacion"],
-  "defensa-administrativa": ["defensa-estatutaria", "defensa-penal", "capacitacion"],
+  "defensa-administrativa": ["defensa-estatutaria", "migraciones-extranjeria", "capacitacion"],
   "defensa-penal": ["defensa-administrativa", "civil", "familia-menores"],
-  "civil": ["defensa-penal", "inmobiliaria-copropiedad", "familia-menores"],
+  "civil": ["defensa-penal", "inmobiliaria-copropiedad", "migraciones-extranjeria"],
   "inmobiliaria-copropiedad": ["civil", "familia-menores", "capacitacion"],
   "capacitacion": ["defensa-estatutaria", "defensa-administrativa", "defensa-penal"],
-  "familia-menores": ["civil", "inmobiliaria-copropiedad", "defensa-penal"]
+  "familia-menores": ["civil", "migraciones-extranjeria", "defensa-penal"],
+  "migraciones-extranjeria": ["civil", "familia-menores", "defensa-administrativa"]
 };
 
 // Determine which services to show

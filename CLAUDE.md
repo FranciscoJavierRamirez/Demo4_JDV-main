@@ -245,15 +245,20 @@ The project uses a hybrid approach:
 6. **CTA Section**: Blue gradient + consultation button
 7. **Footer**: 4-column layout
 
-### Service Areas (8 Total)
+### Service Areas (7 Total)
 
+**Áreas Principales:**
 1. **Defensa Estatutaria** - Defense of public sector employees
 2. **Defensa Administrativa** - Representation before public administration
-3. **Defensa Penal** - Criminal defense representation
-4. **Cliente Senior** - In-home legal services for elderly clients
+3. **Inmobiliaria y Copropiedad** - Real estate and condominium law
+
+**Áreas Complementarias:**
+4. **Defensa Penal** - Criminal defense representation
 5. **Familia y Menores** - Family law and child protection
 6. **Civil** - General civil law matters
-7. **Inmobiliaria y Copropiedad** - Real estate and condominium law
+
+**Otros Servicios:**
+7. **Capacitación** - Corporate training and workshops
 8. **Capacitación** - Corporate training and workshops
 
 ## Code Conventions
