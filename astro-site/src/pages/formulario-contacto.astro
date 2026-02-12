@@ -1,9 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import GoogleFormsWidget from '../components/agenda/GoogleFormsWidget.astro';
-import ProfileCard from '../components/agenda/ProfileCard.astro';
-import PrepTips from '../components/agenda/PrepTips.astro';
-import AgendaTrust from '../components/agenda/AgendaTrust.astro';
+import FormWidget from '../components/formulario/FormWidget.astro';
+import FormProfileCard from '../components/formulario/FormProfileCard.astro';
+import FormPrepTips from '../components/formulario/FormPrepTips.astro';
+import FormTrust from '../components/formulario/FormTrust.astro';
 import WhatsAppFloat from '../components/WhatsAppFloat.astro';
 ---
 
@@ -22,7 +22,7 @@ import WhatsAppFloat from '../components/WhatsAppFloat.astro';
       "logo": "https://jdvabogados.cl/favicon.svg",
       "image": "https://jdvabogados.cl/foto%20para%20portada.png",
       "telephone": "+56941692900",
-      "email": "jacquelinedelvalle@jdvabogados.cl",
+      "email": "jdelvalle@jdvabogados.cl",
       "address": {
         "@type": "PostalAddress",
         "addressCountry": "CL",
@@ -116,23 +116,23 @@ import WhatsAppFloat from '../components/WhatsAppFloat.astro';
         <!-- Profile Card (sidebar on desktop, below form on mobile) -->
         <aside class="order-2 lg:order-1 lg:w-[320px] lg:flex-shrink-0">
           <div class="lg:sticky lg:top-[88px]">
-            <ProfileCard />
+            <FormProfileCard />
           </div>
         </aside>
 
         <!-- Google Forms Widget -->
         <div class="order-1 lg:order-2 flex-1 min-w-0">
-          <GoogleFormsWidget />
+          <FormWidget />
         </div>
       </div>
     </div>
   </section>
 
   <!-- Prep Tips -->
-  <PrepTips />
+  <FormPrepTips />
 
   <!-- Trust Badges -->
-  <AgendaTrust />
+  <FormTrust />
 
   <!-- WhatsApp Float -->
   <WhatsAppFloat />

@@ -30,7 +30,7 @@ visualCards:
     text: "Todos merecen defensa legal de calidad, independiente de su situación económica"
   - icon: "fas fa-hands-helping"
     title: "Compromiso Social"
-    text: "35 años de servicio público nos enseñaron el valor de ayudar a quienes más lo necesitan"
+    text: "35 años de servicio público, defendemos sus derechos con rigos y dedicación"
   - icon: "fas fa-shield-alt"
     title: "Misma Calidad"
     text: "Los casos Pro Bono reciben la misma dedicación y profesionalismo que cualquier otro"

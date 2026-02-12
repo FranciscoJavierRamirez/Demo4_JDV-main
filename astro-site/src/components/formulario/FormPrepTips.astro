@@ -1,0 +1,109 @@
+---
+/**
+ * FormPrepTips - Consejos de preparación para /formulario-contacto
+ * Componente específico e independiente de /agenda
+ */
+
+const tips = [
+  {
+    icon: "fas fa-folder-open",
+    title: "Documentación",
+    text: "Tenga a mano la documentación relevante de su caso"
+  },
+  {
+    icon: "fas fa-list-ol",
+    title: "Cronología",
+    text: "Prepare un resumen cronológico de los hechos"
+  },
+  {
+    icon: "fas fa-question-circle",
+    title: "Preguntas",
+    text: "Anote las preguntas que desea consultar"
+  },
+  {
+    icon: "fas fa-wifi",
+    title: "Conexión",
+    text: "Verifique su conexión a internet si la sesión es virtual"
+  }
+];
+---
+
+<section class="relative py-14 sm:py-18 lg:py-20 overflow-hidden">
+  <!-- Subtle background gradient -->
+  <div class="absolute inset-0 bg-gradient-to-b from-[#0c2340] via-[#0f2d4f] to-[#0c2340]"></div>
+  <div class="absolute inset-0 opacity-[0.02] pointer-events-none" style="background-image: url('data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noise\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.65\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noise)\'/%3E%3C/svg%3E');"></div>
+
+  <div class="relative z-10 max-w-[1100px] mx-auto px-4 sm:px-6">
+    <!-- Section header -->
+    <div class="text-center mb-8 sm:mb-10 prep-section-header">
+      <h2 class="font-[var(--font-display)] text-[clamp(1.35rem,3vw,1.75rem)] font-bold text-white mb-2">
+        Prepare su consulta
+      </h2>
+      <p class="text-sm text-white/50 max-w-[400px] mx-auto">Estos pasos le ayudarán a aprovechar al máximo su tiempo</p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+      {tips.map((tip, i) => (
+        <div
+          class="prep-tip group relative p-4 sm:p-5 bg-white/[0.04] backdrop-blur-sm border border-white/[0.08] rounded-xl sm:rounded-2xl transition-all duration-300 hover:bg-white/[0.08] hover:border-[rgba(201,169,97,0.2)] hover:-translate-y-1 hover:shadow-[0_8px_24px_rgba(0,0,0,0.2)]"
+          data-delay={i}
+        >
+          <!-- Icon container -->
+          <div class="w-10 h-10 sm:w-11 sm:h-11 flex items-center justify-center rounded-xl bg-gradient-to-br from-[rgba(201,169,97,0.15)] to-[rgba(212,175,55,0.08)] border border-[rgba(201,169,97,0.15)] mb-3 transition-all duration-300 group-hover:shadow-[0_0_20px_rgba(201,169,97,0.15)] group-hover:scale-105">
+            <i class={`${tip.icon} text-[var(--gold)] text-sm sm:text-base`}></i>
+          </div>
+          <h3 class="text-sm font-semibold text-white mb-1">{tip.title}</h3>
+          <p class="text-xs sm:text-sm text-white/50 leading-relaxed">{tip.text}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .prep-section-header,
+  .prep-tip {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .prep-section-header.visible { opacity: 1; transform: translateY(0); }
+
+  .prep-tip.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .prep-tip[data-delay="0"].visible { transition-delay: 0s; }
+  .prep-tip[data-delay="1"].visible { transition-delay: 0.08s; }
+  .prep-tip[data-delay="2"].visible { transition-delay: 0.16s; }
+  .prep-tip[data-delay="3"].visible { transition-delay: 0.24s; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .prep-section-header,
+    .prep-tip { transition: none; opacity: 1; transform: none; }
+  }
+</style>
+
+<script is:inline>
+  (function() {
+    var header = document.querySelector('.prep-section-header');
+    var tips = document.querySelectorAll('.prep-tip');
+    if ('IntersectionObserver' in window) {
+      var obs = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+      if (header) obs.observe(header);
+      tips.forEach(function(tip) { obs.observe(tip); });
+    } else {
+      if (header) header.classList.add('visible');
+      tips.forEach(function(tip) { tip.classList.add('visible'); });
+    }
+  })();
+</script>

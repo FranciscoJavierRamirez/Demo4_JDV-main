@@ -4,7 +4,7 @@ sectionTitle: "¿Por Qué Elegir JDV Abogados?"
 benefits:
   - icon: "fas fa-medal"
     title: "Experiencia Comprobada"
-    text: "Más de 35 años de trayectoria en el sector público, defendiendo los derechos de nuestros clientes con rigor y dedicación."
+    text: "Más de 35 años de trayectoria en el sector público, defendemos sus derechos con rigor y dedicación."
 
   - icon: "fas fa-user-friends"
     title: "Atención Personalizada"

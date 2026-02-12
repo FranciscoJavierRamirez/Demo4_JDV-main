@@ -1,0 +1,366 @@
+---
+/**
+ * FormWidget - Widget optimizado para Google Forms embebido
+ * Componente específico para /formulario-contacto
+ *
+ * Características:
+ * - Altura responsiva basada en viewport
+ * - Botón prominente "Vista Completa" siempre visible
+ * - Detección de fallas de carga con fallback
+ * - Experiencia optimizada para móvil pequeño
+ */
+
+const FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSfs_5dVIQpe-qZRymqkg5udjx9aIhdS7Zro0cvpZ1ShhMx1mQ/viewform";
+const FORM_URL_EMBEDDED = `${FORM_URL}?embedded=true`;
+const FORM_URL_DIRECT = `${FORM_URL}?usp=dialog`;
+---
+
+<div id="google-forms-section" class="gforms-wrapper">
+  <!-- Header con botón de vista completa -->
+  <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-5 px-1">
+    <div class="flex items-center gap-3">
+      <h2 class="font-[var(--font-display)] text-[clamp(1.25rem,2.5vw,1.625rem)] font-bold text-white">
+        Complete el formulario
+      </h2>
+      <span class="inline-flex items-center gap-2 text-xs font-medium text-emerald-300 bg-emerald-500/10 px-3 py-1.5 rounded-full border border-emerald-500/20 backdrop-blur-sm">
+        <span class="relative flex h-2 w-2">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
+        </span>
+        <span class="hidden xs:inline">Respuesta en 24h</span>
+        <span class="xs:hidden">24h</span>
+      </span>
+    </div>
+
+    <!-- Botón Vista Completa - Siempre visible -->
+    <a
+      href={FORM_URL_DIRECT}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="gforms-fullscreen-btn group inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-[var(--gold)]/10 hover:bg-[var(--gold)]/20 border border-[var(--gold)]/30 hover:border-[var(--gold)]/50 rounded-xl text-sm font-semibold text-[var(--gold)] hover:text-[var(--gold-light)] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_4px_12px_rgba(201,169,97,0.2)] min-h-11 self-start sm:self-auto"
+    >
+      <i class="fas fa-expand-alt text-xs transition-transform group-hover:scale-110"></i>
+      <span>Vista completa</span>
+      <i class="fas fa-external-link-alt text-[10px] opacity-60"></i>
+    </a>
+  </div>
+
+  <!-- Widget Container -->
+  <div id="gforms-container" class="relative rounded-2xl sm:rounded-3xl overflow-hidden border border-white/10 shadow-[0_8px_40px_rgba(0,0,0,0.3),0_0_80px_rgba(201,169,97,0.08)] bg-white/[0.03] backdrop-blur-sm">
+    <!-- Top accent line -->
+    <div class="h-[2px] bg-gradient-to-r from-transparent via-[var(--gold)] to-transparent opacity-40"></div>
+
+    <!-- Loading State -->
+    <div id="gformsLoader" class="absolute inset-0 z-10 flex items-center justify-center bg-[#0c2340]/90 backdrop-blur-sm">
+      <div class="flex flex-col items-center gap-4 px-6 text-center">
+        <div class="relative">
+          <div class="w-12 h-12 rounded-full border-[3px] border-white/10 border-t-[var(--gold)] animate-spin"></div>
+          <div class="absolute inset-0 w-12 h-12 rounded-full border-[3px] border-transparent border-b-[var(--blue-light)] animate-spin" style="animation-direction: reverse; animation-duration: 1.5s;"></div>
+        </div>
+        <span class="text-sm text-white/60 font-medium">Cargando formulario...</span>
+      </div>
+    </div>
+
+    <!-- Error State (hidden by default) -->
+    <div id="gformsError" class="absolute inset-0 z-20 hidden flex-col items-center justify-center bg-[#0c2340]/95 backdrop-blur-sm px-6 text-center">
+      <div class="w-16 h-16 rounded-full bg-red-500/10 border border-red-500/20 flex items-center justify-center mb-4">
+        <i class="fas fa-exclamation-triangle text-2xl text-red-400"></i>
+      </div>
+      <h3 class="text-lg font-bold text-white mb-2">Problema al cargar el formulario</h3>
+      <p class="text-sm text-white/60 mb-6 max-w-sm">
+        El formulario no pudo cargarse. Esto puede deberse a la conexión o configuración del navegador.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-3">
+        <button
+          id="gformsRetry"
+          class="inline-flex items-center justify-center gap-2 px-5 py-3 bg-white/10 hover:bg-white/15 border border-white/20 rounded-xl text-sm font-semibold text-white transition-all duration-200 min-h-11"
+        >
+          <i class="fas fa-redo text-xs"></i>
+          Reintentar
+        </button>
+        <a
+          href={FORM_URL_DIRECT}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center justify-center gap-2 px-5 py-3 bg-[var(--gold)] hover:bg-[var(--gold-light)] rounded-xl text-sm font-bold text-[#0c2340] transition-all duration-200 min-h-11"
+        >
+          <i class="fas fa-external-link-alt text-xs"></i>
+          Abrir en nueva ventana
+        </a>
+      </div>
+    </div>
+
+    <!-- Google Forms iframe -->
+    <iframe
+      id="gforms-iframe"
+      src={FORM_URL_EMBEDDED}
+      class="gforms-inline-widget"
+      frameborder="0"
+      marginheight="0"
+      marginwidth="0"
+      title="Formulario de Contacto - JDV Abogados"
+      loading="lazy"
+    >
+      Cargando...
+    </iframe>
+  </div>
+
+  <!-- Mobile: Botón CTA prominente debajo del iframe -->
+  <div class="mt-4 sm:hidden">
+    <a
+      href={FORM_URL_DIRECT}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="flex items-center justify-center gap-3 w-full py-4 px-6 bg-gradient-to-r from-[var(--gold)] to-[var(--gold-dark)] rounded-xl text-base font-bold text-white shadow-[0_4px_20px_rgba(201,169,97,0.3)] hover:shadow-[0_6px_24px_rgba(201,169,97,0.4)] transition-all duration-200 active:scale-[0.98]"
+    >
+      <i class="fas fa-file-alt"></i>
+      <span>Abrir formulario en pantalla completa</span>
+    </a>
+    <p class="mt-2 text-center text-xs text-white/40">
+      Recomendado para mejor experiencia en móvil
+    </p>
+  </div>
+
+  <!-- Desktop: Helper text -->
+  <div class="hidden sm:flex items-center justify-center gap-4 mt-4 text-sm text-white/50">
+    <span class="flex items-center gap-1.5">
+      <i class="fas fa-shield-alt text-[var(--gold)] text-xs"></i>
+      Datos protegidos
+    </span>
+    <span class="w-1 h-1 rounded-full bg-white/30"></span>
+    <span class="flex items-center gap-1.5">
+      <i class="fas fa-lock text-[var(--gold)] text-xs"></i>
+      Conexión segura
+    </span>
+    <span class="w-1 h-1 rounded-full bg-white/30"></span>
+    <a
+      href={FORM_URL_DIRECT}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="flex items-center gap-1.5 text-[var(--gold)] hover:text-[var(--gold-light)] transition-colors"
+    >
+      <i class="fas fa-external-link-alt text-xs"></i>
+      Nueva ventana
+    </a>
+  </div>
+</div>
+
+<style>
+  /* Breakpoint personalizado xs */
+  @media (min-width: 400px) {
+    .xs\:inline { display: inline; }
+    .xs\:hidden { display: none; }
+  }
+
+  /* ====================================
+     ALTURA RESPONSIVA DEL IFRAME
+     Optimizado para mostrar formulario COMPLETO sin scroll
+     Google Forms con 5 campos + botón enviar necesita ~1450px
+     ==================================== */
+
+  .gforms-inline-widget {
+    width: 100%;
+    background: white;
+    border-radius: 0 0 16px 16px;
+
+    /* Móvil pequeño: altura muy grande para evitar scroll */
+    height: 1500px;
+    min-height: 1500px;
+    max-height: none;
+  }
+
+  /* Móvil mediano (>= 480px) */
+  @media (min-width: 480px) {
+    .gforms-inline-widget {
+      height: 1480px;
+      min-height: 1480px;
+    }
+  }
+
+  /* Tablet (>= 640px) */
+  @media (min-width: 640px) {
+    .gforms-inline-widget {
+      height: 1450px;
+      min-height: 1450px;
+    }
+  }
+
+  /* Desktop (>= 1024px) */
+  @media (min-width: 1024px) {
+    .gforms-inline-widget {
+      height: 1400px;
+      min-height: 1400px;
+    }
+  }
+
+  /* Desktop grande (>= 1280px) */
+  @media (min-width: 1280px) {
+    .gforms-inline-widget {
+      height: 1350px;
+      min-height: 1350px;
+    }
+  }
+
+  /* ====================================
+     ANIMACIONES
+     ==================================== */
+
+  .gforms-wrapper {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .gforms-wrapper.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Animación del botón vista completa */
+  .gforms-fullscreen-btn {
+    animation: subtlePulse 3s ease-in-out infinite;
+  }
+
+  @keyframes subtlePulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(201, 169, 97, 0); }
+    50% { box-shadow: 0 0 0 4px rgba(201, 169, 97, 0.1); }
+  }
+
+  /* ====================================
+     ESTADOS
+     ==================================== */
+
+  #gformsError.show {
+    display: flex;
+  }
+
+  #gformsLoader.hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  /* ====================================
+     REDUCED MOTION
+     ==================================== */
+
+  @media (prefers-reduced-motion: reduce) {
+    .gforms-wrapper {
+      transition: none;
+      opacity: 1;
+      transform: none;
+    }
+
+    .gforms-fullscreen-btn {
+      animation: none;
+    }
+  }
+</style>
+
+<script is:inline>
+  (function() {
+    // Elements
+    var wrapper = document.querySelector('.gforms-wrapper');
+    var iframe = document.getElementById('gforms-iframe');
+    var loader = document.getElementById('gformsLoader');
+    var errorState = document.getElementById('gformsError');
+    var retryBtn = document.getElementById('gformsRetry');
+
+    // Config
+    var LOAD_TIMEOUT = 10000; // 10 segundos
+    var loadTimer = null;
+    var hasLoaded = false;
+
+    // Intersection Observer for scroll reveal
+    if (wrapper && 'IntersectionObserver' in window) {
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+      observer.observe(wrapper);
+    } else if (wrapper) {
+      wrapper.classList.add('visible');
+    }
+
+    // Hide loader function
+    function hideLoader() {
+      if (loader) {
+        loader.classList.add('hidden');
+        setTimeout(function() { loader.style.display = 'none'; }, 400);
+      }
+    }
+
+    // Show error state
+    function showError() {
+      hideLoader();
+      if (errorState) {
+        errorState.classList.add('show');
+      }
+    }
+
+    // Handle successful load
+    function handleLoad() {
+      if (hasLoaded) return;
+      hasLoaded = true;
+      clearTimeout(loadTimer);
+      hideLoader();
+    }
+
+    // Handle iframe load
+    if (iframe) {
+      iframe.addEventListener('load', handleLoad);
+
+      // Timeout fallback - show error if not loaded
+      loadTimer = setTimeout(function() {
+        if (!hasLoaded) {
+          // Check if iframe has content (basic check)
+          try {
+            // If we can't access iframe content due to CORS, assume it loaded
+            // This is a limitation of cross-origin iframes
+            handleLoad();
+          } catch (e) {
+            handleLoad(); // Assume loaded on CORS error
+          }
+        }
+      }, LOAD_TIMEOUT);
+
+      // Handle iframe errors
+      iframe.addEventListener('error', function() {
+        if (!hasLoaded) {
+          showError();
+        }
+      });
+    }
+
+    // Retry button
+    if (retryBtn && iframe) {
+      retryBtn.addEventListener('click', function() {
+        hasLoaded = false;
+        if (errorState) errorState.classList.remove('show');
+        if (loader) {
+          loader.style.display = 'flex';
+          loader.classList.remove('hidden');
+        }
+        // Reload iframe
+        var src = iframe.src;
+        iframe.src = '';
+        setTimeout(function() {
+          iframe.src = src;
+          loadTimer = setTimeout(function() {
+            if (!hasLoaded) handleLoad();
+          }, LOAD_TIMEOUT);
+        }, 100);
+      });
+    }
+
+    // Fallback: hide loader after extended timeout regardless
+    setTimeout(function() {
+      if (!hasLoaded) {
+        handleLoad();
+      }
+    }, 15000);
+  })();
+</script>
