@@ -381,19 +381,21 @@ const servicioArea = areas[7];        // Capacitación (Otros Servicios)
     border-color: transparent !important;
   }
 
-  /* Featured cards special styling */
-  .area-card:nth-child(1),
-  .area-card:nth-child(2),
-  .area-card:nth-child(3) {
-    border-color: rgba(59, 130, 246, 0.15);
-  }
+  /* Featured cards special styling - Desktop only */
+  @media (min-width: 769px) {
+    .area-card:nth-child(2),
+    .area-card:nth-child(3),
+    .area-card:nth-child(4) {
+      border-color: rgba(59, 130, 246, 0.15);
+    }
 
-  .area-card:nth-child(1):hover,
-  .area-card:nth-child(2):hover,
-  .area-card:nth-child(3):hover {
-    box-shadow:
-      0 30px 60px -15px rgba(59, 130, 246, 0.35),
-      0 0 0 1px rgba(59, 130, 246, 0.2);
+    .area-card:nth-child(2):hover,
+    .area-card:nth-child(3):hover,
+    .area-card:nth-child(4):hover {
+      box-shadow:
+        0 30px 60px -15px rgba(59, 130, 246, 0.35),
+        0 0 0 1px rgba(59, 130, 246, 0.2);
+    }
   }
 
   /* Spotlight effect */
@@ -518,9 +520,10 @@ const servicioArea = areas[7];        // Capacitación (Otros Servicios)
 
     /* Mobile: show image expanded with dark overlay by default */
     /* Enhanced contrast: Material Design elevation + Apple HIG luminous borders */
+    /* IMPORTANT: border-color override ensures uniform borders for ALL cards including featured ones */
     .area-card {
       background: rgba(30,58,95,0.95);
-      border: 1px solid rgba(255,255,255,0.25);
+      border: 1px solid rgba(255,255,255,0.25) !important;
       box-shadow:
         0 4px 12px rgba(0,0,0,0.3),
         0 8px 32px rgba(0,0,0,0.2),

@@ -1,7 +1,7 @@
 # Biblioteca de Componentes - Directorio SRC
 
-**Fecha de última actualización:** 2026-02-01
-**Estado del proyecto:** 90% completado
+**Fecha de última actualización:** 2026-02-11
+**Estado del proyecto:** 95% completado
 **Propósito:** Documentación viva que refleja el estado actual de implementación
 
 ---
@@ -16,11 +16,13 @@
 6. [Componentes de About (Nosotros)](#6-componentes-de-about-nosotros)
 7. [Componentes de Blog](#7-componentes-de-blog)
 8. [Componentes de Agenda (Reservas)](#8-componentes-de-agenda-reservas)
-9. [Componentes Utilitarios](#9-componentes-utilitarios)
-10. [Content Collections](#10-content-collections)
-11. [Config y Utils](#11-config-y-utils)
-12. [Estilos (Styles)](#12-estilos-styles)
-13. [Diagrama de Relaciones](#13-diagrama-de-relaciones)
+9. [Componentes de Formulario](#9-componentes-de-formulario)
+10. [Componentes de Contacto](#10-componentes-de-contacto)
+11. [Componentes Utilitarios](#11-componentes-utilitarios)
+12. [Content Collections](#12-content-collections)
+13. [Config y Utils](#13-config-y-utils)
+14. [Estilos (Styles)](#14-estilos-styles)
+15. [Diagrama de Relaciones](#15-diagrama-de-relaciones)
 
 ---
 
@@ -46,6 +48,8 @@ Rutas del sitio que ensamblan componentes.
 | **index.astro** | `/` | Página principal del sitio | ✅ Completa |
 | **nosotros.astro** | `/nosotros/` | Página "Quiénes Somos" | ✅ Completa |
 | **agenda.astro** | `/agenda` | Página de reserva de consultas con Calendly | ✅ Completa |
+| **contacto.astro** | `/contacto/` | Página de contacto con ubicaciones de oficinas | ✅ Completa |
+| **formulario-contacto.astro** | `/formulario-contacto` | Formulario de contacto con Google Forms | ✅ Completa |
 | **design-system.astro** | `/design-system/` | Sistema de diseño / guía de estilo | ✅ Completa |
 
 ### Páginas de Blog
@@ -63,13 +67,11 @@ Rutas del sitio que ensamblan componentes.
 | **defensa-estatutaria.astro** | `/areas-practicas/defensa-estatutaria` | ✅ |
 | **defensa-administrativa.astro** | `/areas-practicas/defensa-administrativa` | ✅ |
 | **defensa-penal.astro** | `/areas-practicas/defensa-penal` | ✅ |
-| **cliente-senior.astro** | `/areas-practicas/cliente-senior` | ✅ |
-| **legado.astro** | `/areas-practicas/legado` | ✅ |
+| **familia-menores.astro** | `/areas-practicas/familia-menores` | ✅ |
 | **civil.astro** | `/areas-practicas/civil` | ✅ |
 | **inmobiliaria-copropiedad.astro** | `/areas-practicas/inmobiliaria-copropiedad` | ✅ |
-| **animalista.astro** | `/areas-practicas/animalista` | ✅ |
+| **migraciones-extranjeria.astro** | `/areas-practicas/migraciones-extranjeria` | ✅ |
 | **capacitacion.astro** | `/areas-practicas/capacitacion` | ✅ |
-| **familia-menores.astro** | `/areas-practicas/familia-menores` | ✅ |
 
 ---
 
@@ -140,6 +142,9 @@ Componentes para la página "Quiénes Somos" (`/nosotros/`).
 | **AboutTimeline.astro** | `/components/about/` | Timeline/hitos del estudio (componente Astro). |
 | **AboutTimelineClient.tsx** | `/components/about/` | Timeline interactivo con animaciones (React + Framer Motion). |
 | **TeamCard.tsx** | `/components/about/` | Tarjeta individual de miembro del equipo (React). |
+| **TeamSection.tsx** | `/components/about/` | Sección completa del equipo con grid responsive (React). |
+| **TeamMemberModal.tsx** | `/components/about/` | Modal de detalle de miembro del equipo (React + Framer Motion). |
+| **BottomSheet.tsx** | `/components/about/` | Bottom sheet mobile para detalles de equipo (React + Framer Motion). |
 | **AboutCTA.astro** | `/components/about/` | CTA de la página nosotros. |
 
 ---
@@ -170,14 +175,37 @@ Componentes para la página de reserva de consultas (`/agenda`).
 |------------|-----------|-----------|
 | **HeroAgenda.astro** | `/components/agenda/` | Hero compacto con portrait circular, título y meta badges. Layout horizontal en desktop. |
 | **CalendlyWidget.astro** | `/components/agenda/` | Widget inline de Calendly con loader animado y detección de carga via postMessage. |
+| **GoogleFormsWidget.astro** | `/components/agenda/` | Widget inline de Google Forms como alternativa a Calendly. |
 | **ProfileCard.astro** | `/components/agenda/` | Tarjeta de perfil profesional: avatar, datos de contacto, detalles de consulta. Sidebar sticky en desktop. |
 | **PrepTips.astro** | `/components/agenda/` | 4 tips de preparación para la consulta con animación stagger al scroll. |
 | **AgendaTrust.astro** | `/components/agenda/` | 3 badges de confianza: datos protegidos, confirmación inmediata, sin compromiso. |
 
 ---
 
-## 9. Componentes Utilitarios
+## 9. Componentes de Formulario
 
+Componentes para la página de formulario de contacto (`/formulario-contacto`).
+
+| Componente | Ubicación | Propósito |
+|------------|-----------|-----------|
+| **FormWidget.astro** | `/components/formulario/` | Widget principal del formulario de contacto. |
+| **FormProfileCard.astro** | `/components/formulario/` | Tarjeta de perfil en sidebar del formulario. |
+| **FormPrepTips.astro** | `/components/formulario/` | Tips de preparación para el formulario. |
+| **FormTrust.astro** | `/components/formulario/` | Badges de confianza del formulario. |
+
+---
+
+## 10. Componentes de Contacto
+
+Componentes para la página de contacto (`/contacto/`).
+
+| Componente | Ubicación | Propósito |
+|------------|-----------|-----------|
+| **ContactOffices.astro** | `/components/contact/` | Sección de ubicaciones de oficinas con mapa y datos de contacto. |
+
+---
+
+## 11. Componentes Utilitarios
 
 Componentes reutilizables globales.
 
@@ -188,7 +216,7 @@ Componentes reutilizables globales.
 
 ---
 
-## 10. Content Collections
+## 12. Content Collections
 
 Sistema de gestión de contenido basado en Markdown + frontmatter YAML con validación de schemas Zod.
 
@@ -216,20 +244,23 @@ Sistema de gestión de contenido basado en Markdown + frontmatter YAML con valid
 | Collection | Ubicación | Usado Por |
 |------------|-----------|-----------|
 | **about** | `/content/about/main.md` | Componentes de About |
-| **team** | `/content/team/*.md` (4 miembros) | `AboutTeam.astro`, `TeamCard.tsx` |
+| **team** | `/content/team/*.md` (3 miembros) | `AboutTeam.astro`, `TeamCard.tsx`, `TeamSection.tsx` |
 
-Miembros del equipo: `jacqueline.md`, `pablo.md`, `alonso.md`, `maria-alejandra.md`
+Miembros del equipo: `jacqueline.md`, `pablo.md`, `maria-alejandra.md`
 
 ### Collections de Blog
 
 | Collection | Ubicación | Artículos |
 |------------|-----------|-----------|
-| **blog** | `/content/blog/*.md` | 3 artículos publicados |
+| **blog** | `/content/blog/*.md` | 6 artículos publicados |
 
 Artículos:
 - `2026-01-01-bienvenida-jdv-abogados.md`
 - `2026-01-15-sumario-administrativo-guia-practica.md`
 - `2026-01-20-dictamen-cgr-responsabilidad-administrativa.md`
+- `2026-02-10-test-drogas-autoridades-chile.md`
+- `2026-02-10-derecho-familia-guia-practica.md`
+- `2026-02-11-vacancia-salud-incompatible-jurisprudencia.md`
 
 ### Collections de Practices
 
@@ -238,17 +269,15 @@ Artículos:
 | `defensa-estatutaria.md` | `defensa-estatutaria` | ✅ |
 | `defensa-administrativa.md` | `defensa-administrativa` | ✅ |
 | `defensa-penal.md` | `defensa-penal` | ✅ |
-| `cliente-senior.md` | `cliente-senior` | ✅ |
-| `legado.md` | `legado` | ✅ |
+| `familia-menores.md` | `familia-menores` | ✅ |
 | `civil.md` | `civil` | ✅ |
 | `inmobiliaria-copropiedad.md` | `inmobiliaria-copropiedad` | ✅ |
-| `animalista.md` | `animalista` | ✅ |
+| `migraciones-extranjeria.md` | `migraciones-extranjeria` | ✅ |
 | `capacitacion.md` | `capacitacion` | ✅ |
-| `familia-menores.md` | `familia-menores` | ✅ |
 
 ---
 
-## 11. Config y Utils
+## 13. Config y Utils
 
 | Archivo | Ubicación | Propósito |
 |---------|-----------|-----------|
@@ -257,7 +286,7 @@ Artículos:
 
 ---
 
-## 12. Estilos (Styles)
+## 14. Estilos (Styles)
 
 | Archivo | Ubicación | Propósito |
 |---------|-----------|-----------|
@@ -268,7 +297,7 @@ Artículos:
 
 ---
 
-## 13. Diagrama de Relaciones
+## 15. Diagrama de Relaciones
 
 ### Arquitectura de Páginas
 
@@ -299,11 +328,30 @@ BaseLayout (HTML + CSS + JS)
 │   ├── AboutMission
 │   ├── AboutTimeline / AboutTimelineClient
 │   ├── AboutTeam → Content: team/*
+│   │   ├── TeamSection
+│   │   ├── TeamCard
+│   │   ├── TeamMemberModal
+│   │   └── BottomSheet
 │   ├── AboutCTA
 │   ├── Footer (reutilizado)
 │   ├── Modal (reutilizado)
 │   ├── WhatsAppFloat
 │   └── BackToTop
+│
+├── contacto.astro (Contacto)
+│   ├── Header (reutilizado)
+│   ├── ContactOffices
+│   ├── Footer (reutilizado)
+│   ├── WhatsAppFloat
+│   └── BackToTop
+│
+├── formulario-contacto.astro (Formulario)
+│   ├── Header minimalista
+│   ├── FormWidget
+│   ├── FormProfileCard
+│   ├── FormPrepTips
+│   ├── FormTrust
+│   └── WhatsAppFloat
 │
 ├── blog/index.astro (Blog Listing)
 │   └── blog/[...slug].astro (Blog Post)
@@ -320,7 +368,7 @@ BaseLayout (HTML + CSS + JS)
 ├── agenda.astro (Reservas)
 │   ├── Header minimalista (logo + volver)
 │   ├── HeroAgenda
-│   ├── CalendlyWidget + ProfileCard (sidebar)
+│   ├── CalendlyWidget / GoogleFormsWidget + ProfileCard (sidebar)
 │   ├── PrepTips
 │   ├── AgendaTrust
 │   └── WhatsAppFloat
@@ -382,21 +430,22 @@ Modal cierra con:
 - ✅ Home (`/`)
 - ✅ Nosotros (`/nosotros/`)
 - ✅ Agenda / Reservas (`/agenda`) — Calendly + JSON-LD structured data
-- ✅ Blog (`/blog/`) + 3 artículos
+- ✅ Contacto (`/contacto/`) — Oficinas y datos de contacto
+- ✅ Formulario de Contacto (`/formulario-contacto`) — Google Forms
+- ✅ Blog (`/blog/`) + 6 artículos
 - ✅ Design System (`/design-system/`)
-- ✅ 10 Áreas de Práctica (todas implementadas)
+- ✅ 8 Áreas de Práctica (todas implementadas)
 
 ### Pendientes de Implementación
-- ⏳ Contacto (`/contacto/`) - Página de contacto con formulario
-- ⏳ Conexión de formularios a backend (Modal, Newsletter, Contacto)
+- ⏳ Conexión de formularios a backend (Modal, Newsletter)
 - ⏳ Índice de Áreas de Práctica (`/areas-practicas/`)
 
 ### Content Collections
 - ✅ Todas las collections definidas con schemas Zod
 - ✅ Contenido del Home completo
-- ✅ 10/10 archivos de practices implementados
-- ✅ 3 artículos de blog publicados
-- ✅ 4 miembros del equipo documentados
+- ✅ 8/8 archivos de practices implementados
+- ✅ 6 artículos de blog publicados
+- ✅ 3 miembros del equipo documentados
 - ✅ Contenido de About completo
 
 ---
@@ -438,6 +487,6 @@ Modal cierra con:
 
 ---
 
-**Última revisión:** 2026-02-01
+**Última revisión:** 2026-02-11
 **Mantenedor:** Claude Code
-**Versión:** 2.0.0
+**Versión:** 2.1.0
