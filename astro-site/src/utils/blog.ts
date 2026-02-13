@@ -103,7 +103,7 @@ export const authorData: Record<string, { name: string; role: string; image: str
   'equipo-jdv': {
     name: 'Equipo JDV Abogados',
     role: 'Estudio Jurídico Especializado',
-    image: '/favicon.svg'
+    image: '/favicon-2026.svg'
   }
 };
 
@@ -157,18 +157,30 @@ export function getServiceData(service: string) {
 
 /**
  * Obtiene posts relacionados por categoría
+ * Primero busca posts de la misma categoría, luego completa con otros posts
  */
 export function getRelatedPosts(
   currentPost: BlogPost,
   allPosts: BlogPost[],
   limit = 3
 ): BlogPost[] {
-  return getPublishedPosts(allPosts)
-    .filter(post =>
-      post.slug !== currentPost.slug &&
-      post.data.category === currentPost.data.category
-    )
-    .slice(0, limit);
+  const published = getPublishedPosts(allPosts)
+    .filter(post => post.slug !== currentPost.slug);
+
+  // Primero: posts de la misma categoría
+  const sameCategory = published
+    .filter(post => post.data.category === currentPost.data.category);
+
+  // Si hay suficientes posts de la misma categoría, retornarlos
+  if (sameCategory.length >= limit) {
+    return sameCategory.slice(0, limit);
+  }
+
+  // Si no, completar con posts de otras categorías
+  const otherPosts = published
+    .filter(post => post.data.category !== currentPost.data.category);
+
+  return [...sameCategory, ...otherPosts].slice(0, limit);
 }
 
 /**

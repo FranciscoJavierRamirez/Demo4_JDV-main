@@ -121,7 +121,7 @@ const description = 'Blog de JDV Abogados: análisis jurídico y actualidad lega
 
         {posts.length > 0 ? (
           <div class="blog-listing__grid">
-            {posts.filter(p => !p.data.featured).map((post, index) => (
+            {posts.filter(p => !featuredPosts.some(fp => fp.slug === p.slug)).map((post, index) => (
               <a href={`/blog/${post.slug}`} class="blog-card blog-card-animated" data-index={index}
                 <div class="blog-card__image">
                   <img
@@ -620,15 +620,12 @@ const description = 'Blog de JDV Abogados: análisis jurídico y actualidad lega
     }
 
     .blog-listing__categories-nav {
-      justify-content: flex-start;
-      overflow-x: auto;
-      flex-wrap: nowrap;
-      padding-bottom: var(--space-2);
-      -webkit-overflow-scrolling: touch;
+      justify-content: center;
+      flex-wrap: wrap;
     }
 
     .blog-listing__category-btn {
-      flex-shrink: 0;
+      white-space: nowrap;
     }
   }
 

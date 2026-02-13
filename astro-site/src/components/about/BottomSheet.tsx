@@ -17,6 +17,7 @@ interface TeamMember {
   imgTx?: number;
   imgTy?: number;
   imgScale?: number;
+  focal?: 'top' | 'center' | 'bottom';
   featured?: boolean;
   credentials?: string[];
   experienceNote?: string;
@@ -107,6 +108,7 @@ export const BottomSheet = ({ member, isOpen, onClose }: Props) => {
   const dragControls = useDragControls();
   const y = useMotionValue(0);
   const [openSection, setOpenSection] = useState<string | null>('formation');
+  const [imageLoaded, setImageLoaded] = useState(false);
 
   // Transform para opacidad del backdrop basado en el drag
   const backdropOpacity = useTransform(y, [0, 300], [1, 0]);
@@ -126,10 +128,11 @@ export const BottomSheet = ({ member, isOpen, onClose }: Props) => {
     };
   }, [isOpen, handleKeyDown]);
 
-  // Reset accordion when sheet opens
+  // Reset accordion and image state when sheet opens
   useEffect(() => {
     if (isOpen && member) {
       setOpenSection('formation');
+      setImageLoaded(false);
       y.set(0);
     }
   }, [isOpen, member, y]);
@@ -231,16 +234,28 @@ export const BottomSheet = ({ member, isOpen, onClose }: Props) => {
           {/* Hero Image */}
           <motion.div
             layoutId={`image-container-${layoutId}`}
-            className="w-full aspect-[4/3] overflow-hidden"
+            className="w-full aspect-[3/4] sm:aspect-[4/3] overflow-hidden relative"
           >
+            {/* Blur Placeholder */}
+            {!imageLoaded && (
+              <div className="absolute inset-0 bg-gradient-to-br from-gray-800 to-gray-900 animate-pulse" />
+            )}
+
             <img
               src={member.image}
               alt={member.name}
+              onLoad={() => setImageLoaded(true)}
               style={{
-                transform: `translate(${member.imgTx ?? 0}px, ${member.imgTy ?? 0}px) scale(${member.imgScale ?? 1})`,
-                transformOrigin: 'center top'
+                objectPosition:
+                  member.focal === 'top' ? 'center 15%' :
+                  member.focal === 'bottom' ? 'center 85%' :
+                  'center center',
+                transform: `scale(${member.imgScale ?? 1})`,
+                transformOrigin: 'center center'
               }}
-              className="w-full h-full object-cover"
+              className={`w-full h-full object-cover transition-opacity duration-300 ${
+                imageLoaded ? 'opacity-100' : 'opacity-0'
+              }`}
             />
           </motion.div>
 

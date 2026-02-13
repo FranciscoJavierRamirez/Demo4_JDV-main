@@ -503,6 +503,7 @@ const teamCollection = defineCollection({
     imgTx: z.number().optional(), // Traslación X en px
     imgTy: z.number().optional(), // Traslación Y en px
     imgScale: z.number().optional(), // Escala de la imagen
+    focal: z.enum(['top', 'center', 'bottom']).optional().default('center'), // Focal point para object-position
     featured: z.boolean().optional(),
     experienceNote: z.string().optional(),
     specialties: z.array(z.string()).optional(),

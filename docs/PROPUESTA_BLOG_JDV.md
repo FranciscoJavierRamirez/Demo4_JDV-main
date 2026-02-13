@@ -7,18 +7,19 @@
 3. [Estructura de Archivos](#estructura-de-archivos)
 4. [Componentes del Blog (8 total)](#componentes-del-blog)
 5. [Plantilla Simplificada del Archivo .md](#plantilla-simplificada-del-archivo-md)
-6. [Sistema de CTAs](#sistema-de-ctas)
-7. [Sistema de Publicación Programada](#sistema-de-publicación-programada)
-8. [Diseño Mobile-First](#diseño-mobile-first)
-9. [SEO y AEO Completo](#seo-y-aeo-completo)
-10. [Guía Editorial del Blog](#guía-editorial-del-blog)
-11. [Implementación Técnica](#implementación-técnica)
-12. [Manual de Mantención](#manual-de-mantención)
-13. [Checklist de Nuevo Post](#checklist-de-nuevo-post)
-14. [Métricas y Analytics](#métricas-y-analytics)
-15. [Calendario Editorial](#calendario-editorial)
-16. [Monitoreo y Alertas](#monitoreo-y-alertas)
-17. [Herramienta de Scaffolding (CLI)](#herramienta-de-scaffolding-cli)
+6. [Estándar de Imágenes del Blog](#estándar-de-imágenes-del-blog)
+7. [Sistema de CTAs](#sistema-de-ctas)
+8. [Sistema de Publicación Programada](#sistema-de-publicación-programada)
+9. [Diseño Mobile-First](#diseño-mobile-first)
+10. [SEO y AEO Completo](#seo-y-aeo-completo)
+11. [Guía Editorial del Blog](#guía-editorial-del-blog)
+12. [Implementación Técnica](#implementación-técnica)
+13. [Manual de Mantención](#manual-de-mantención)
+14. [Checklist de Nuevo Post](#checklist-de-nuevo-post)
+15. [Métricas y Analytics](#métricas-y-analytics)
+16. [Calendario Editorial](#calendario-editorial)
+17. [Monitoreo y Alertas](#monitoreo-y-alertas)
+18. [Herramienta de Scaffolding (CLI)](#herramienta-de-scaffolding-cli)
 
 ---
 
@@ -426,6 +427,452 @@ El sistema calcula automáticamente:
 | `metaDescription` | `excerpt` |
 | `canonical` | `/blog/` + `slug` |
 | `ogImage` | `heroImage` |
+
+---
+
+## Estándar de Imágenes del Blog
+
+### Especificaciones Técnicas Obligatorias
+
+**CRÍTICO**: Las imágenes hero son el elemento visual más importante del blog y afectan directamente:
+- **SEO**: Open Graph para redes sociales (LinkedIn, Twitter, Facebook)
+- **UX**: Primera impresión visual en tarjetas del blog
+- **Performance**: Core Web Vitals (LCP - Largest Contentful Paint)
+- **Profesionalismo**: Consistencia visual de la marca
+
+#### Imagen Hero (Principal del Post)
+
+| Especificación | Valor | Razón |
+|----------------|-------|-------|
+| **Dimensiones** | **1200x630px** | Estándar Open Graph / Twitter Card |
+| **Aspect Ratio** | **1.91:1** (16:9 aproximado) | Óptimo para redes sociales |
+| **Formato** | **WebP** (preferido) | 25-35% más ligero que JPG |
+| | **JPG** (alternativa) | Compatible universal |
+| **Calidad** | **85%** | Balance calidad/peso |
+| **Peso máximo** | **150KB** | Performance (LCP < 2.5s) |
+| **Nomenclatura** | `slug-del-post.webp` | Consistencia y trazabilidad |
+| **Ubicación** | `/public/blog/` | Servidos estáticamente |
+
+#### ❌ Formatos NO Permitidos
+
+- **PNG**: Demasiado pesado para fotos (usar solo para gráficos con transparencia)
+- **GIF**: Obsoleto, no optimizado
+- **SVG**: No aplicable para fotografías
+- **BMP/TIFF**: Formatos no web
+
+---
+
+### Proceso de Preparación de Imágenes
+
+#### Flujo de Trabajo Correcto
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│           PROCESO DE PREPARACIÓN DE IMÁGENES                 │
+├─────────────────────────────────────────────────────────────┤
+│                                                             │
+│  1. OBTENER IMAGEN FUENTE                                   │
+│     ├── Stock photos (Unsplash, Pexels)                     │
+│     ├── Fotografía propia                                   │
+│     └── Diseño personalizado (Canva, Figma)                 │
+│                                                             │
+│  2. VERIFICAR RESOLUCIÓN MÍNIMA                              │
+│     └── Mínimo 1920x1080px (Full HD)                        │
+│     └── Idealmente 2400x1350px o superior                   │
+│                                                             │
+│  3. RECORTAR A 1200x630px (NO ESTIRAR)                      │
+│     ├── Si imagen es horizontal → Crop desde centro         │
+│     ├── Si imagen es vertical → Crop desde centro           │
+│     └── Si imagen es cuadrada → Crop desde centro           │
+│                                                             │
+│  4. CONVERTIR A WEBP                                         │
+│     └── Calidad 85% (balance óptimo)                        │
+│                                                             │
+│  5. VALIDAR                                                  │
+│     ├── Dimensiones exactas: 1200x630px                     │
+│     ├── Peso < 150KB                                        │
+│     └── Sin distorsión visual                               │
+│                                                             │
+│  6. GUARDAR                                                  │
+│     └── /public/blog/slug-del-post.webp                     │
+│                                                             │
+└─────────────────────────────────────────────────────────────┘
+```
+
+---
+
+### Comandos y Herramientas
+
+#### Opción 1: ImageMagick + cwebp (RECOMENDADO)
+
+**Instalación (macOS):**
+```bash
+brew install imagemagick webp
+```
+
+**Proceso completo:**
+
+```bash
+# 1. Recortar imagen a 1200x630px (manteniendo proporción, crop desde centro)
+magick imagen-fuente.jpg -resize 1200x630^ -gravity center -extent 1200x630 imagen-temp.jpg
+
+# 2. Convertir a WebP con calidad 85%
+cwebp -q 85 imagen-temp.jpg -o slug-del-post.webp
+
+# 3. Validar dimensiones
+sips -g pixelWidth -g pixelHeight slug-del-post.webp
+
+# 4. Verificar peso
+ls -lh slug-del-post.webp
+
+# 5. Mover a carpeta correcta
+mv slug-del-post.webp /path/to/public/blog/
+```
+
+**Explicación de parámetros de ImageMagick:**
+
+| Parámetro | Función |
+|-----------|---------|
+| `-resize 1200x630^` | Escala la imagen hasta cubrir 1200x630 (el `^` es crítico) |
+| `-gravity center` | Define el punto de anclaje para el crop (centro de la imagen) |
+| `-extent 1200x630` | Recorta (crop) al tamaño exacto 1200x630px |
+
+**Alternativas de gravity:**
+- `center` - Recorta desde el centro (DEFAULT, recomendado)
+- `north` - Recorta priorizando la parte superior
+- `south` - Recorta priorizando la parte inferior
+- `east/west` - Recorta priorizando derecha/izquierda
+
+#### Opción 2: Herramientas Online (Para no técnicos)
+
+1. **Squoosh (Google)**: https://squoosh.app
+   - Subir imagen
+   - Ajustar a 1200x630px (resize)
+   - Exportar como WebP calidad 85%
+
+2. **TinyPNG**: https://tinypng.com
+   - Soporta WebP
+   - Compresión automática inteligente
+
+3. **Canva** (diseño desde cero):
+   - Crear diseño personalizado 1200x630px
+   - Exportar como JPG alta calidad
+   - Convertir a WebP con Squoosh o cwebp
+
+---
+
+### Errores Comunes y Cómo Evitarlos
+
+#### ❌ ERROR 1: Estirar/Distorsionar Imágenes
+
+**Síntoma:** Objetos deformados (caras anchas, edificios aplastados)
+
+**Causa:** Usar `sips -z` o resize forzado sin crop
+
+```bash
+# ❌ INCORRECTO (distorsiona):
+sips -z 630 1200 imagen-vertical.png
+
+# ✅ CORRECTO (recorta):
+magick imagen-vertical.png -resize 1200x630^ -gravity center -extent 1200x630 salida.png
+```
+
+**Identificación visual:**
+
+```
+IMAGEN ORIGINAL (500x750 - vertical)    MÉTODO INCORRECTO           MÉTODO CORRECTO
+┌──────────┐                           ┌───────────────────────┐    ┌───────────────────────┐
+│          │                           │ ░░░░░░░░░░░░░░░░░░░░░ │    │ ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ │
+│  👤      │  ─── sips -z ───>         │ ░░░🤸░░░░░░░░░░░░░░░░ │    │ ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ │
+│          │      (estira)             │ ░░░░░░░░░░░░░░░░░░░░░ │    │ ▓▓▓▓▓👤▓▓▓▓▓▓▓▓▓▓▓▓▓ │
+│          │                           │ Distorsionado (ancho) │    │ ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ │
+│  🏛️     │                           └───────────────────────┘    └───────────────────────┘
+│          │  ─── magick ───>                                      Recortado (proporcional)
+└──────────┘      (recorta)
+```
+
+#### ❌ ERROR 2: Dimensiones Incorrectas
+
+**Síntoma:** Imagen no es exactamente 1200x630px
+
+**Validación:**
+```bash
+sips -g pixelWidth -g pixelHeight imagen.webp
+# Debe mostrar: pixelWidth: 1200, pixelHeight: 630
+```
+
+**Solución:** Repetir proceso de crop con `-extent 1200x630`
+
+#### ❌ ERROR 3: Archivo Demasiado Pesado
+
+**Síntoma:** Imagen > 150KB
+
+**Soluciones progresivas:**
+
+```bash
+# 1. Reducir calidad WebP de 85% a 80%
+cwebp -q 80 imagen.jpg -o salida.webp
+
+# 2. Si aún es pesada, reducir a 75%
+cwebp -q 75 imagen.jpg -o salida.webp
+
+# 3. Última opción: optimizar JPG fuente primero
+magick imagen.jpg -quality 85 -strip imagen-optimizada.jpg
+cwebp -q 85 imagen-optimizada.jpg -o salida.webp
+```
+
+**Umbral de alerta:**
+- < 100KB ✅ Excelente
+- 100-150KB ✅ Aceptable
+- 150-200KB ⚠️ Revisar (puede afectar LCP)
+- > 200KB ❌ Inaceptable (re-optimizar)
+
+#### ❌ ERROR 4: Usar PNG para Fotografías
+
+**Por qué es un error:**
+- PNG es lossless (sin pérdida) → archivos 3-5x más pesados que JPG/WebP
+- PNG es ideal para gráficos, logos, screenshots (no fotos)
+
+**Solución:**
+```bash
+# Convertir PNG a JPG primero (si es foto)
+magick imagen.png imagen.jpg
+
+# Luego procesar como JPG normal
+magick imagen.jpg -resize 1200x630^ -gravity center -extent 1200x630 temp.jpg
+cwebp -q 85 temp.jpg -o salida.webp
+```
+
+#### ❌ ERROR 5: No Validar Antes de Commit
+
+**Checklist pre-publicación:**
+
+```bash
+# Validar dimensiones
+sips -g pixelWidth -g pixelHeight /public/blog/slug-del-post.webp
+# Esperado: 1200 x 630
+
+# Validar peso
+ls -lh /public/blog/slug-del-post.webp
+# Esperado: < 150K
+
+# Verificar que existe
+ls -la /public/blog/slug-del-post.webp
+
+# Test visual (abrir en navegador)
+open /public/blog/slug-del-post.webp
+```
+
+---
+
+### Script de Validación Automática
+
+Crear `/astro-site/scripts/validate-blog-images.sh`:
+
+```bash
+#!/bin/bash
+# Valida que todas las imágenes del blog cumplan estándares
+
+ERRORS=0
+WARNINGS=0
+
+echo "🔍 Validando imágenes del blog..."
+echo ""
+
+cd "$(dirname "$0")/../public/blog" || exit 1
+
+# Obtener imágenes usadas por posts
+USED_IMAGES=$(grep -h "heroImage:" ../../src/content/blog/*.md 2>/dev/null | sed 's/.*\/blog\///;s/".*//')
+
+if [ -z "$USED_IMAGES" ]; then
+  echo "⚠️  No se encontraron posts en src/content/blog/"
+  exit 1
+fi
+
+echo "Imágenes a validar:"
+echo "$USED_IMAGES" | nl
+echo ""
+
+for img in $USED_IMAGES; do
+  echo "─────────────────────────────────────────"
+  echo "📸 $img"
+
+  # Verificar que existe
+  if [ ! -f "$img" ]; then
+    echo "   ❌ ERROR: Archivo no existe"
+    ((ERRORS++))
+    continue
+  fi
+
+  # Obtener dimensiones
+  WIDTH=$(sips -g pixelWidth "$img" 2>/dev/null | tail -1 | awk '{print $2}')
+  HEIGHT=$(sips -g pixelHeight "$img" 2>/dev/null | tail -1 | awk '{print $2}')
+
+  # Validar dimensiones
+  if [ "$WIDTH" != "1200" ] || [ "$HEIGHT" != "630" ]; then
+    echo "   ❌ ERROR: Dimensiones ${WIDTH}x${HEIGHT} (debe ser 1200x630)"
+    ((ERRORS++))
+  else
+    echo "   ✅ Dimensiones correctas: 1200x630"
+  fi
+
+  # Obtener peso en KB
+  SIZE_BYTES=$(stat -f%z "$img" 2>/dev/null || stat -c%s "$img" 2>/dev/null)
+  SIZE_KB=$((SIZE_BYTES / 1024))
+
+  # Validar peso
+  if [ "$SIZE_KB" -gt 200 ]; then
+    echo "   ❌ ERROR: Peso ${SIZE_KB}KB (debe ser < 150KB, máx 200KB)"
+    ((ERRORS++))
+  elif [ "$SIZE_KB" -gt 150 ]; then
+    echo "   ⚠️  WARNING: Peso ${SIZE_KB}KB (recomendado < 150KB)"
+    ((WARNINGS++))
+  else
+    echo "   ✅ Peso correcto: ${SIZE_KB}KB"
+  fi
+
+  # Validar formato
+  EXT="${img##*.}"
+  if [ "$EXT" = "webp" ]; then
+    echo "   ✅ Formato: WebP (óptimo)"
+  elif [ "$EXT" = "jpg" ] || [ "$EXT" = "jpeg" ]; then
+    echo "   ⚠️  Formato: JPG (funciona, pero WebP es mejor)"
+    ((WARNINGS++))
+  else
+    echo "   ❌ ERROR: Formato .$EXT no recomendado (usar WebP o JPG)"
+    ((ERRORS++))
+  fi
+done
+
+echo "─────────────────────────────────────────"
+echo ""
+
+if [ $ERRORS -eq 0 ] && [ $WARNINGS -eq 0 ]; then
+  echo "✅ Todas las imágenes cumplen el estándar"
+  exit 0
+elif [ $ERRORS -eq 0 ]; then
+  echo "⚠️  Se encontraron $WARNINGS advertencias (no críticas)"
+  exit 0
+else
+  echo "❌ Se encontraron $ERRORS errores y $WARNINGS advertencias"
+  echo ""
+  echo "Para corregir imágenes con dimensiones incorrectas:"
+  echo "  magick imagen.jpg -resize 1200x630^ -gravity center -extent 1200x630 temp.jpg"
+  echo "  cwebp -q 85 temp.jpg -o imagen.webp"
+  echo ""
+  exit 1
+fi
+```
+
+**Uso:**
+
+```bash
+# Dar permisos de ejecución
+chmod +x scripts/validate-blog-images.sh
+
+# Ejecutar
+./scripts/validate-blog-images.sh
+
+# Integrar en package.json
+"scripts": {
+  "validate:images": "bash scripts/validate-blog-images.sh"
+}
+
+# Usar antes de commits
+npm run validate:images
+```
+
+---
+
+### Recuperación de Imágenes Originales desde Git
+
+Si una imagen fue distorsionada y necesitas recuperar la original del historial:
+
+```bash
+# 1. Ver historial de commits del archivo
+git log --all --full-history -- "public/blog/nombre-imagen.png"
+
+# 2. Recuperar versión específica
+git show COMMIT_HASH:astro-site/public/blog/nombre-imagen.png > /tmp/original.png
+
+# 3. Validar dimensiones originales
+sips -g pixelWidth -g pixelHeight /tmp/original.png
+
+# 4. Si es vertical/horizontal, recortar correctamente
+magick /tmp/original.png -resize 1200x630^ -gravity center -extent 1200x630 temp.png
+cwebp -q 85 temp.png -o public/blog/nombre-imagen.webp
+```
+
+---
+
+### Checklist de Validación de Imágenes
+
+Antes de hacer commit de un nuevo post:
+
+- [ ] Imagen existe en `/public/blog/slug-del-post.webp`
+- [ ] Dimensiones verificadas: exactamente 1200x630px
+- [ ] Peso verificado: < 150KB (máx 200KB)
+- [ ] Formato: WebP (o JPG justificado)
+- [ ] Sin distorsión visual (objetos proporcionados)
+- [ ] Nombre coincide con slug del post
+- [ ] `heroAlt` descriptivo en frontmatter
+- [ ] Build local exitoso: `npm run build`
+- [ ] Validación visual en navegador
+
+---
+
+### Recursos Recomendados
+
+**Bancos de Imágenes Gratuitas (Creative Commons / Royalty-Free):**
+
+1. **Unsplash** (https://unsplash.com)
+   - Licencia: Uso comercial permitido
+   - Calidad: Excelente (alta resolución)
+   - Ideal para: Escenas, conceptos, fondos
+
+2. **Pexels** (https://pexels.com)
+   - Licencia: Uso comercial permitido
+   - Calidad: Muy buena
+   - Ideal para: Variedad de temas
+
+3. **Pixabay** (https://pixabay.com)
+   - Licencia: Uso comercial permitido
+   - Calidad: Variable
+   - Ideal para: Iconografía, ilustraciones
+
+**Herramientas de Diseño:**
+
+1. **Canva** (https://canva.com)
+   - Template "Facebook Post" (1200x630px perfecto)
+   - Drag & drop, fácil de usar
+   - Versión gratuita suficiente
+
+2. **Figma** (https://figma.com)
+   - Frame 1200x630px
+   - Profesional, colaborativo
+   - Curva de aprendizaje mayor
+
+**Keywords de Búsqueda por Categoría:**
+
+| Categoría Blog | Keywords Unsplash/Pexels |
+|----------------|--------------------------|
+| Derecho Administrativo | "government building", "courthouse", "justice", "law books" |
+| Funcionarios Públicos | "office", "professional", "team meeting", "government" |
+| Contraloría | "audit", "documents", "scales justice", "chilean flag" |
+| Actualidad Legal | "newspaper", "breaking news", "parliament", "legislation" |
+| Guías Prácticas | "checklist", "guide", "step by step", "planning" |
+| Casos de Estudio | "case study", "analysis", "research", "investigation" |
+
+---
+
+### Documentación de Referencia
+
+Para más información sobre optimización de imágenes:
+
+- **ImageMagick Docs**: https://imagemagick.org/script/command-line-options.php
+- **WebP Compression Guide**: https://developers.google.com/speed/webp/docs/cwebp
+- **Open Graph Image Size**: https://ogp.me/#structured
+- **Core Web Vitals**: https://web.dev/vitals/
 
 ---
 

@@ -1,0 +1,95 @@
+---
+/**
+ * FormLayout.astro
+ * Layout especializado para páginas de formularios (contacto, agenda)
+ *
+ * Diferencias vs BaseLayout:
+ * - NO incluye scripts de navegación (mainNav, megaMenu, fullscreenMenu)
+ * - Header simplificado renderizado por cada página
+ * - Optimizado para páginas standalone sin navegación compleja
+ *
+ * Uso: /formulario-contacto, /agenda
+ */
+
+interface Props {
+  title?: string;
+  description?: string;
+  ogImage?: string;
+  ogType?: string;
+}
+
+const {
+  title = 'JDV Abogados - Estudio Jurídico Especializado en Chile',
+  description = 'Estudio jurídico en Chile especializado en defensa estatutaria, defensa administrativa e inmobiliaria y copropiedad. Derecho civil, familia y más. Agende su consulta.',
+  ogImage = '/foto para portada.png',
+  ogType = 'website'
+} = Astro.props;
+
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') || 'https://jdvabogados.cl';
+const canonicalUrl = new URL(Astro.url.pathname, siteUrl).toString();
+const ogImageUrl = new URL(ogImage, siteUrl).toString();
+
+import '../styles/global.css';
+---
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content={description}>
+  <title>{title}</title>
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href={canonicalUrl}>
+
+  <!-- Open Graph / Facebook / WhatsApp -->
+  <meta property="og:type" content={ogType}>
+  <meta property="og:url" content={canonicalUrl}>
+  <meta property="og:title" content={title}>
+  <meta property="og:description" content={description}>
+  <meta property="og:image" content={ogImageUrl}>
+  <meta property="og:image:width" content="1024">
+  <meta property="og:image:height" content="1536">
+  <meta property="og:site_name" content="JDV Abogados">
+  <meta property="og:locale" content="es_CL">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content={title}>
+  <meta name="twitter:description" content={description}>
+  <meta name="twitter:image" content={ogImageUrl}>
+
+  <!-- Preconnect for Performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Preload Hero Image for faster LCP (WebP optimizado) -->
+  <link rel="preload" as="image" href="/foto para portada.webp" type="image/webp" fetchpriority="high">
+
+  <!-- Fonts: Playfair Display (Display) + Inter (Sans) - V.T.E.F. 2026 -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Favicons (orden optimizado para Chrome) -->
+  <link rel="icon" type="image/svg+xml" href="/favicon-2026.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32-2026.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192-2026.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-2026.png">
+  <link rel="shortcut icon" href="/favicon-2026.ico">
+
+  <!-- Additional head content from child layouts -->
+  <slot name="head" />
+</head>
+<body>
+  <slot />
+
+  <!--
+    NO navigation scripts here
+    FormLayout is designed for standalone pages without complex navigation
+    (mega menus, mobile menus, etc.)
+  -->
+</body>
+</html>

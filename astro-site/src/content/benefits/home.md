@@ -1,20 +1,20 @@
 ---
-sectionTitle: "¿Por Qué Elegir JDV Abogados?"
+sectionTitle: "¿Por qué elegir JDV Abogados?"
 
 benefits:
-  - icon: "fas fa-medal"
-    title: "Experiencia Comprobada"
-    text: "Más de 35 años de trayectoria en el sector público, defendemos sus derechos con rigor y dedicación."
+  - icon: "fa-solid fa-scale-balanced"
+    title: "Especialización Comprobada"
+    text: "Años de experiencia en defensa estatutaria, administrativa y derecho civil. Conocimiento profundo del marco legal chileno."
 
-  - icon: "fas fa-user-friends"
+  - icon: "fa-solid fa-handshake"
     title: "Atención Personalizada"
-    text: "Comunicación directa con el equipo legal y seguimiento periódico del estado de su caso."
+    text: "Cada caso recibe análisis individual. Comunicación directa con la abogada titular desde la primera consulta."
 
-  - icon: "fas fa-chart-line"
-    title: "Compromiso con el Cliente"
-    text: "Transparencia en honorarios, informes periódicos de avance y disponibilidad para resolver sus consultas."
+  - icon: "fa-solid fa-shield-halved"
+    title: "Estrategia Jurídica Sólida"
+    text: "Defensas fundamentadas en jurisprudencia actualizada. Representación orientada a resultados favorables para el cliente."
 
-  - icon: "fas fa-map-marked-alt"
-    title: "Accesibilidad"
-    text: "Atención personalizada, con seguimiento cercano y disponibilidad para resolver sus consultas en cualquier etapa del proceso."
+  - icon: "fa-solid fa-comments"
+    title: "Transparencia Total"
+    text: "Información clara sobre procesos, plazos y honorarios. Sin sorpresas, solo compromiso profesional."
 ---

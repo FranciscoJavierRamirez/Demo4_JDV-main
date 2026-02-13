@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Fondo azul -->
+  <rect width="512" height="512" fill="#1A4D7A"/>
+  
+  <!-- Balanza de justicia (simplificada) -->
+  <g fill="#C9A961">
+    <!-- Poste central -->
+    <rect x="246" y="140" width="20" height="180" rx="2"/>
+    <!-- Base -->
+    <rect x="226" y="310" width="60" height="15" rx="3"/>
+    <!-- Travesaño superior -->
+    <rect x="156" y="148" width="200" height="12" rx="2"/>
+    <!-- Platillo izquierdo -->
+    <ellipse cx="186" cy="190" rx="40" ry="8"/>
+    <path d="M 146 182 Q 146 170 156 168 L 216 168 Q 226 170 226 182 L 226 190 Q 226 198 216 200 L 156 200 Q 146 198 146 190 Z"/>
+    <!-- Cadena izquierda -->
+    <line x1="186" y1="160" x2="186" y2="182" stroke="#C9A961" stroke-width="3"/>
+    <!-- Platillo derecho -->
+    <ellipse cx="326" cy="190" rx="40" ry="8"/>
+    <path d="M 286 182 Q 286 170 296 168 L 356 168 Q 366 170 366 182 L 366 190 Q 366 198 356 200 L 296 200 Q 286 198 286 190 Z"/>
+    <!-- Cadena derecha -->
+    <line x1="326" y1="160" x2="326" y2="182" stroke="#C9A961" stroke-width="3"/>
+  </g>
+  
+  <!-- Texto JDV -->
+  <text x="256" y="380" font-family="Georgia, serif" font-size="80" font-weight="bold" fill="white" text-anchor="middle">JDV</text>
+  <text x="256" y="430" font-family="Arial, sans-serif" font-size="32" font-weight="normal" fill="white" text-anchor="middle" letter-spacing="8">ABOGADOS</text>
+</svg>

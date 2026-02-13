@@ -49,6 +49,6 @@ scrollIndicator:
   target: "#about-preview"
 
 images:
-  hero: "/foto para portada.webp"
-  heroAlt: "Jacqueline – Abogada Fundadora JDV Abogados"
+  hero: "/nueva_imagen_hero_azul.png"
+  heroAlt: "Jacqueline Del Valle – Abogada Fundadora JDV Abogados"
 ---

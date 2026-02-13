@@ -18,6 +18,7 @@ interface TeamCardProps {
     imgTx?: number;
     imgTy?: number;
     imgScale?: number;
+    focal?: 'top' | 'center' | 'bottom';
     featured?: boolean;
     credentials?: string[];
     social?: {

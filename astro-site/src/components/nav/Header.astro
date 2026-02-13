@@ -20,9 +20,9 @@ import FullscreenMenu from './FullscreenMenu.astro';
       >
         <!-- Logo imagen -->
         <picture>
-          <source srcset="/Logo_JDV_Abogados-square.webp" type="image/webp" />
+          <source srcset="/logos/jdv-logo-square-112.webp" type="image/webp" />
           <img
-            src="/Logo_JDV_Abogados.jpg"
+            src="/logos/jdv-logo-square-112.png"
             alt=""
             class="h-12 w-12 sm:h-14 sm:w-14 rounded-xl object-cover shadow-md"
             width="56"
@@ -30,10 +30,10 @@ import FullscreenMenu from './FullscreenMenu.astro';
             aria-hidden="true"
           />
         </picture>
-        <!-- Texto: visible en sm+ -->
-        <div class="hidden sm:flex flex-col leading-tight">
-          <span class="text-[1.25rem] font-bold tracking-tight bg-gradient-to-br from-[#C9A961] to-[#D4AF37] bg-clip-text text-transparent">JDV</span>
-          <span class="text-[0.7rem] font-semibold tracking-[0.15em] uppercase text-[var(--gray-600)]">Abogados</span>
+        <!-- Texto: visible en todas las vistas -->
+        <div class="flex flex-col leading-tight">
+          <span class="text-[1.125rem] sm:text-[1.25rem] font-bold tracking-tight bg-gradient-to-br from-[#C9A961] to-[#D4AF37] bg-clip-text text-transparent">JDV</span>
+          <span class="text-[0.65rem] sm:text-[0.7rem] font-semibold tracking-[0.15em] uppercase text-[var(--gray-600)]">Abogados</span>
         </div>
       </a>
     </div>

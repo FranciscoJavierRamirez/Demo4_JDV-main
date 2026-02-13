@@ -96,7 +96,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
   │   │   ├── team/                 - Team member profiles (4 members)
   │   │   └── trustBadges/home.md   - Trust badges content
   │   ├── layouts/
-  │   │   ├── BaseLayout.astro      - Main HTML layout
+  │   │   ├── BaseLayout.astro      - Main HTML layout with navigation
+  │   │   ├── FormLayout.astro      - Layout for standalone forms (no nav scripts)
+  │   │   ├── BlogLayout.astro      - Blog layout with navigation
   │   │   └── PracticeLayout.astro  - Practice area layout
   │   └── pages/
   │       ├── index.astro           - Home page
@@ -172,6 +174,31 @@ The site uses Astro's component-based architecture:
 - All text content lives in `src/content/` as Markdown files
 - Components fetch content via `getEntry()` from Content Collections
 - This makes content updates easy without touching component code
+
+### Layout Architecture
+
+The project uses **specialized layouts** for different page types:
+
+**Layout Selection Guide:**
+
+| Layout | Use For | Navigation Scripts | Notes |
+|--------|---------|-------------------|-------|
+| **BaseLayout.astro** | Home, Nosotros, Contacto, Practice areas | ✅ Yes (mega menu, mobile menu) | Default layout with full navigation |
+| **FormLayout.astro** | `/formulario-contacto`, `/agenda` | ❌ No | Standalone pages without complex navigation |
+| **BlogLayout.astro** | Blog index, blog posts | ✅ Yes (mega menu, mobile menu) | Similar to BaseLayout with blog-specific features |
+| **PracticeLayout.astro** | Individual practice area pages | ✅ Yes (via BaseLayout) | Wraps BaseLayout with practice-specific structure |
+
+**Why FormLayout exists:**
+- Pages like `/formulario-contacto` have their own custom header (not the main nav)
+- BaseLayout includes global scripts for `#mainNav`, `#areasToggle`, `#megaMenu`, etc.
+- These scripts would run on FormLayout pages looking for elements that don't exist
+- **Issue:** This caused crashes on mobile when clicking buttons (event listeners on missing DOM elements)
+- **Solution:** FormLayout is identical to BaseLayout but WITHOUT navigation scripts
+
+**When to use FormLayout:**
+- Page has custom header (not Header.astro component)
+- No mega menu or mobile fullscreen menu needed
+- Standalone form or booking page
 
 ### CSS Architecture (Tailwind CSS 4)
 

@@ -7,6 +7,7 @@ description: "Abogada titulada en 1997 con extensa trayectoria en Derecho de Fam
 shortDescription: "Derecho Civil · Derecho Laboral · Sucesión por causa de muerte"
 image: "/maria_alejandra_quienes_somos.webp"
 imgTy: 0
+focal: "top"
 featured: false
 experienceNote: "Más de 25 años de ejercicio profesional en el sector público y libre ejercicio"
 credentials:

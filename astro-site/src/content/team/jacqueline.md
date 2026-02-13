@@ -5,6 +5,7 @@ role: "Abogada Fundadora · Derecho Administrativo y Estatutario"
 description: "Abogada titulada de la Universidad de Valparaíso con más de 30 años de trayectoria en el sector público, destacando su desempeño en la Contraloría General de la República."
 shortDescription: "+30 años en CGR · Contralora Regional · Derecho Administrativo"
 image: "/foto quienes somos JDV.webp"
+focal: "top"
 featured: true
 credentials:
   - "Abogada Universidad de Valparaíso · +30 años de experiencia"
