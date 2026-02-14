@@ -2,9 +2,9 @@
 order: 2
 level: "associate"
 name: "Pablo Inostroza Vallejos"
-role: "Abogado Asociado · Derecho de Familia, Civil y Migraciones"
-description: "Abogado titulado de la Universidad de Chile, con sólida formación jurídica y una trayectoria profesional enfocada en el Derecho de Familia y materias vinculadas al estatuto personal."
-shortDescription: "Derecho de Familia · Derecho Civil · Migración y Extranjería"
+role: "Abogado Asociado · Derecho de Familia y Menores, Civil y Migraciones"
+description: "Abogado titulado de la Universidad de Chile, con sólida formación jurídica y una trayectoria profesional enfocada en el Derecho de Familia y Menores y materias vinculadas al estatuto personal."
+shortDescription: "Derecho de Familia y Menores · Derecho Civil · Migración y Extranjería"
 image: "/Pablo_Inostroza_Vallejos.webp"
 imgTx: -30
 imgTy: -60
@@ -22,9 +22,9 @@ social:
   email: "contacto@jdvabogados.cl"
 biography:
   formation: |
-    Abogado titulado de la Universidad de Chile, con sólida formación jurídica y una trayectoria profesional enfocada en el Derecho de Familia y materias vinculadas al estatuto personal.
+    Abogado titulado de la Universidad de Chile, con sólida formación jurídica y una trayectoria profesional enfocada en el Derecho de Familia y Menores y materias vinculadas al estatuto personal.
   experience: |
-    Cuenta con amplia experiencia en la conducción de divorcios de alta complejidad, incluyendo aquellos que involucran patrimonios relevantes, relaciones familiares transfronterizas y conflictos de especial sensibilidad jurídica y humana.
+    Cuenta con amplia experiencia en la conducción de divorcios de alta complejidad, incluyendo aquellos que involucran patrimonios relevantes, relaciones familiares transfronterizas y conflictos de especial sensibilidad jurídica y humana. Su práctica incluye representación en tuiciones, pensiones de alimentos, relación directa y regular, y medidas de protección para menores.
 
     Ha desarrollado una práctica especializada en reconocimiento y validez de matrimonios celebrados en el extranjero, abordando con rigor los aspectos de derecho internacional privado y su correcta incorporación al ordenamiento jurídico chileno. Asimismo, posee experiencia en materias de migración, asesorando a personas y familias en procesos que requieren una adecuada coordinación entre el derecho familiar y la normativa migratoria vigente.
   specializations: |

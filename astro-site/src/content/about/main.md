@@ -109,7 +109,7 @@ team:
   structureDescription: |
     La fundadora dirige personalmente las áreas principales del estudio: Defensa Estatutaria, Defensa Administrativa e Inmobiliaria y Copropiedad, donde su experiencia de 35 años en la Contraloría General de la República constituye un diferenciador relevante.
 
-    En las áreas complementarias, el estudio cuenta con la colaboración de abogados asociados especializados. Pablo Inostroza Vallejos aporta su expertise en Derecho Civil, Defensa Penal y Migración y Extranjería. María Alejandra López Bertín se especializa en Derecho Civil, Derecho Laboral y Sucesión por causa de muerte.
+    En las áreas complementarias, el estudio cuenta con la colaboración de abogados asociados especializados. Pablo Inostroza Vallejos aporta su expertise en Derecho Civil, Defensa Penal, Migración y Extranjería, y Familia y Menores. María Alejandra López Bertín se especializa en Derecho Civil, Derecho Laboral, Sucesión por causa de muerte, y Familia y Menores.
 
     Esta estructura permite ofrecer cobertura integral manteniendo el rigor técnico y la atención personalizada que caracterizan al estudio.
 
