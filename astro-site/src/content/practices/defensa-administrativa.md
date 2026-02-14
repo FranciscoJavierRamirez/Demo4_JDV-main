@@ -27,13 +27,13 @@ target:
     description: "Participa en licitaciones públicas y necesita asesoría en bases, ofertas o resolución de conflictos con organismos públicos."
   - icon: "📋"
     title: "Oferentes en ChileCompra"
-    description: "Presentaste una oferta y fuiste descalificado injustamente, o enfrentas demoras en pagos o adjudicaciones."
+    description: "Presentó una oferta y fue descalificado injustamente, o enfrenta demoras en pagos o adjudicaciones."
   - icon: "⚖️"
     title: "Ciudadanos ante la Administración"
-    description: "Requieres gestionar permisos, autorizaciones o trámites ante servicios públicos y enfrentas trabas o demoras injustificadas."
+    description: "Requiere gestionar permisos, autorizaciones o trámites ante servicios públicos y enfrenta trabas o demoras injustificadas."
   - icon: "🚨"
     title: "Afectado por Arbitrariedades"
-    description: "Has sido víctima de decisiones irregulares, discriminación en licitaciones o incumplimientos de la Administración."
+    description: "Ha sido víctima de decisiones irregulares, discriminación en licitaciones o incumplimientos de la Administración."
 
 painPoints:
   - "Descalificación injusta de ofertas en licitaciones públicas sin fundamento"
@@ -44,7 +44,7 @@ painPoints:
   - "Vulneración del principio de igualdad de los oferentes y respeto irrestricto de las bases"
 
 objective:
-  text: "Nuestro objetivo es equilibrar la relación entre particulares y el Estado, exigiendo el cumplimiento estricto del principio de legalidad, transparencia y probidad que debe regir toda actuación administrativa. Con 35 años de experiencia en Contraloría, nuestro equipo conoce los procesos internos y cómo defender tus derechos de manera efectiva."
+  text: "Nuestro objetivo es equilibrar la relación entre particulares y el Estado, exigiendo el cumplimiento estricto del principio de legalidad, transparencia y probidad que debe regir toda actuación administrativa. Con 35 años de experiencia en Contraloría, nuestro equipo conoce los procesos internos y cómo defender sus derechos de manera efectiva."
   commitments:
     - "Análisis exhaustivo de bases, contratos y actuaciones administrativas"
     - "Estrategia jurídica basada en jurisprudencia de Contraloría y tribunales"
@@ -88,7 +88,7 @@ servicesIncluded:
 process:
   - step: 1
     title: "Evaluación del Caso"
-    description: "Analizamos tu situación, revisamos documentos (bases, ofertas, resoluciones) y definimos la estrategia inicial."
+    description: "Analizamos su situación, revisamos documentos (bases, ofertas, resoluciones) y definimos la estrategia inicial."
   - step: 2
     title: "Estrategia Jurídica"
     description: "Diseñamos el plan de acción: recursos administrativos, reclamos ante Contraloría o acciones judiciales."
@@ -101,7 +101,7 @@ process:
 
 faq:
   - question: "¿Qué puedo hacer si me descalificaron injustamente de una licitación?"
-    answer: "Puedes presentar un reclamo ante el organismo licitante y, si no prospera, recurrir ante la Contraloría General de la República o interponer un recurso de protección. Es fundamental actuar rápido porque los plazos son breves."
+    answer: "Puede presentar un reclamo ante el organismo licitante y, si no prospera, recurrir ante la Contraloría General de la República o interponer un recurso de protección. Es fundamental actuar rápido porque los plazos son breves."
   - question: "¿Es urgente reclamar una decisión de ChileCompra?"
     answer: "Sí, los plazos para impugnar decisiones en compras públicas son breves según la normativa vigente. Es crucial contactar a un abogado especializado de inmediato para no perder oportunidades de defensa. Cada día cuenta."
   - question: "¿Pueden ayudarme si un servicio público no responde mis solicitudes?"
@@ -137,6 +137,6 @@ Nuestra experiencia abarca todo el espectro de la relación entre particulares y
 
 ## Principios que defendemos
 
-**Legalidad, transparencia y probidad** no son solo conceptos abstractos. Nuestra formación en la CGR, con marcado énfasis en ética y probidad, nos permite exigirlos efectivamente en tu representación. Cuando la Administración no los respeta, hay herramientas legales para actuar.
+**Legalidad, transparencia y probidad** no son solo conceptos abstractos. Nuestra formación en la CGR, con marcado énfasis en ética y probidad, nos permite exigirlos efectivamente en su representación. Cuando la Administración no los respeta, hay herramientas legales para actuar.
 
-Nuestro compromiso es que recibas un trato justo, conforme a derecho, sin importar el tamaño de tu empresa o la complejidad del trámite.
+Nuestro compromiso es que reciba un trato justo, conforme a derecho, sin importar el tamaño de su empresa o la complejidad del trámite.

@@ -355,9 +355,19 @@ Edit the appropriate Markdown file in `src/content/`:
 
 ### Key Writing Rules
 
-**Voice:**
-- Always use **first person plural institutional** ("nosotros", "nuestro equipo", "representamos")
-- Never use first person singular ("yo", "mi experiencia", "te acompaño")
+**Voice and Tone:**
+
+- **First person plural institutional for the firm:** "nosotros", "nuestro equipo", "representamos", "nuestro objetivo"
+- **USTEDEO FORMAL for addressing the client/reader:** Always use "usted", "su", "le" when referring to the client
+- **PROHIBITED:** Tuteo (tú, tu, te, ti, tus, contigo) - creates inappropriate informality for legal services
+- **PROHIBITED:** First person singular ("yo", "mi experiencia", "te acompaño")
+
+**Examples:**
+
+- ✅ CORRECT: "Nuestro equipo evalúa **su** situación y **le** presenta las opciones disponibles"
+- ✅ CORRECT: "Si **usted** enfrenta un sumario administrativo, podemos ayudarle"
+- ❌ WRONG: "Evaluamos **tu** caso y **te** acompañamos" (tuteo)
+- ❌ WRONG: "**Yo te ayudo** en cada etapa" (first person singular + tuteo)
 
 **Ethical Promises:**
 - **PROHIBITED:** Promise results ("garantizamos", "ganamos tu caso", "resultado asegurado")
@@ -368,15 +378,28 @@ Edit the appropriate Markdown file in `src/content/`:
 - Avoid anglicisms or generic terms
 
 **CTAs:**
-- Use: "Agendar consulta", "Solicitar evaluación", "Hablar con el equipo"
-- Avoid: "Contratar ahora", "Oferta", "Promo"
+
+- Use (with USTEDEO formal): "Agende su consulta", "Solicite una evaluación", "Converse con nuestro equipo", "Evalúe su caso"
+- Neutral (acceptable): "Agendar consulta", "Solicitar evaluación", "Hablar con el equipo"
+- Avoid (tuteo): "Agenda tu consulta", "Evalúa tu caso"
+- Avoid (commercial): "Contratar ahora", "Oferta", "Promo"
+
+**Special Cases and Exceptions:**
+
+- **Form placeholders:** Use neutral infinitive or USTEDEO ("Su email profesional" NOT "Tu email")
+- **Breadcrumbs/Navigation:** Use neutral nouns ("Áreas de Práctica", "Nosotros")
+- **Headings/Titles:** Prefer neutral or institutional voice ("Defensa Estatutaria", "Nuestro Equipo")
+- **Imperative CTAs:** When using imperative verbs, they implicitly carry USTEDEO formal ("Agende", "Solicite", "Converse")
 
 **SEO 2026:**
+
 - Title: 50-60 characters with search intent + brand
 - Meta description: 140-160 characters with benefit + sober CTA
 
 ### Pre-Publication Checklist
-- [ ] All text in institutional voice
+
+- [ ] All text in institutional voice ("nosotros", "nuestro equipo")
+- [ ] **USTEDEO FORMAL used consistently** (usted, su, le) - NO TUTEO (tú, tu, te, tus)
 - [ ] No result promises
 - [ ] Correct Chilean legal terminology
 - [ ] SEO title < 60 characters

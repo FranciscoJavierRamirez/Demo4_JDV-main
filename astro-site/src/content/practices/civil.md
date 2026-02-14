@@ -103,7 +103,7 @@ faq:
   - question: "¿Qué es la prescripción de una deuda y por qué es importante actuar rápido?"
     answer: "La prescripción extingue la posibilidad de cobrar judicialmente una deuda. Cada tipo de documento tiene plazos legales específicos según la normativa civil chilena. Pasado el plazo, la deuda se convierte en obligación natural (no exigible judicialmente). Es fundamental evaluar su caso cuanto antes."
   - question: "¿Qué necesito para iniciar un juicio ejecutivo?"
-    answer: "Necesitas un título ejecutivo: pagaré, cheque protestado, factura con acuse de recibo, escritura pública o sentencia firme. Con estos documentos podemos embargar bienes del deudor directamente."
+    answer: "Necesita un título ejecutivo: pagaré, cheque protestado, factura con acuse de recibo, escritura pública o sentencia firme. Con estos documentos podemos embargar bienes del deudor directamente."
   - question: "¿Qué opciones legales tengo para recuperar una propiedad arrendada?"
     answer: "Existen distintos procedimientos según la causa: juicio de término de arrendamiento por incumplimiento, procedimiento 'Devuélveme mi casa' para casos de no pago, y acciones posesorias. En la consulta evaluamos cuál es la vía más adecuada para su situación específica."
   - question: "¿Es mejor negociar o demandar directamente?"
@@ -121,7 +121,7 @@ finalCta:
 
 ## Experiencia en litigio civil
 
-El derecho civil abarca una amplia gama de conflictos patrimoniales que afectan directamente tu economía y tranquilidad. Desde deudas impagas hasta propiedades ocupadas ilegalmente, **cada situación requiere una estrategia específica**.
+El derecho civil abarca una amplia gama de conflictos patrimoniales que afectan directamente su economía y tranquilidad. Desde deudas impagas hasta propiedades ocupadas ilegalmente, **cada situación requiere una estrategia específica**.
 
 Nuestro enfoque combina la **gestión prejudicial eficiente** con la **acción judicial decidida** cuando es necesario. No todos los casos deben llegar a tribunales, pero cuando toca litigar, lo hacemos con rigor y determinación.
 

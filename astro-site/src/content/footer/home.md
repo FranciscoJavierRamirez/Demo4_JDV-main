@@ -1,7 +1,7 @@
 ---
 brand:
   title: "JDV Abogados"
-  description: "Defendemos tus derechos con experiencia, dedicación y un enfoque humano."
+  description: "Defendemos sus derechos con experiencia, dedicación y un enfoque humano."
   rating:
     stars: 4.9
     text: "4.9/5 en Google Reviews"

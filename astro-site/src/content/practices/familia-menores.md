@@ -24,21 +24,21 @@ trust:
 target:
   - icon: "👨‍👩‍👧"
     title: "Padres en Proceso de Separación"
-    description: "Enfrentas un divorcio o separación y necesitas resolver el cuidado personal, régimen de visitas y pensión de alimentos de tus hijos."
+    description: "Enfrenta un divorcio o separación y necesita resolver el cuidado personal, régimen de visitas y pensión de alimentos de sus hijos."
   - icon: "👶"
     title: "Abuelos o Familiares"
-    description: "Buscas obtener el cuidado personal de un menor o regularizar un régimen de relación directa y regular con tus nietos."
+    description: "Busca obtener el cuidado personal de un menor o regularizar un régimen de relación directa y regular con sus nietos."
   - icon: "🛡️"
     title: "Menores en Situación de Vulneración"
     description: "Un niño, niña o adolescente enfrenta situación de riesgo o vulneración de derechos y requiere protección judicial."
   - icon: "⚖️"
     title: "Demandado por Alimentos"
-    description: "Has sido demandado por pensión de alimentos y necesitas representación para defender tus derechos y capacidad económica."
+    description: "Ha sido demandado por pensión de alimentos y necesita representación para defender sus derechos y capacidad económica."
 
 painPoints:
-  - "Incertidumbre sobre cómo proteger a tus hijos durante un proceso de separación"
-  - "Desconocimiento de tus derechos como padre, madre o familiar en el sistema de familia"
-  - "Angustia ante la posibilidad de perder el contacto regular con tus hijos"
+  - "Incertidumbre sobre cómo proteger a sus hijos durante un proceso de separación"
+  - "Desconocimiento de sus derechos como padre, madre o familiar en el sistema de familia"
+  - "Angustia ante la posibilidad de perder el contacto regular con sus hijos"
   - "Conflictos de alta carga emocional que dificultan tomar decisiones racionales"
   - "Falta de información clara sobre los procedimientos ante Tribunales de Familia"
   - "Preocupación por el bienestar de menores en situación de vulnerabilidad"
@@ -88,7 +88,7 @@ servicesIncluded:
 process:
   - step: 1
     title: "Evaluación Inicial"
-    description: "Analizamos tu situación familiar, identificamos las necesidades jurídicas y explicamos las opciones disponibles."
+    description: "Analizamos su situación familiar, identificamos las necesidades jurídicas y explicamos las opciones disponibles."
   - step: 2
     title: "Definición de Estrategia"
     description: "Diseñamos el plan de acción priorizando soluciones colaborativas o preparando la vía judicial según corresponda."
@@ -103,7 +103,7 @@ faq:
   - question: "¿Es obligatoria la mediación antes de demandar en materias de familia?"
     answer: "Sí, en la mayoría de los casos. La Ley exige mediación previa obligatoria en materias de alimentos, cuidado personal y relación directa y regular. Solo se exceptúan casos de violencia intrafamiliar o vulneración grave de derechos."
   - question: "¿La información que comparto sobre mi situación familiar es confidencial?"
-    answer: "Sí, absolutamente. Todo lo que nos compartas está protegido por el secreto profesional. Además, los procedimientos de familia tienen carácter reservado por ley, protegiendo especialmente la intimidad de los menores involucrados."
+    answer: "Sí, absolutamente. Todo lo que nos comparta está protegido por el secreto profesional. Además, los procedimientos de familia tienen carácter reservado por ley, protegiendo especialmente la intimidad de los menores involucrados."
   - question: "¿Qué significa el interés superior del niño?"
     answer: "Es el principio rector del derecho de familia chileno. Significa que en toda decisión judicial o administrativa que afecte a menores, debe priorizarse su bienestar integral por sobre los intereses de los adultos."
   - question: "¿Puedo modificar una sentencia de alimentos o tuición ya dictada?"
@@ -111,11 +111,11 @@ faq:
   - question: "¿Qué pasa si el otro padre no cumple el régimen de visitas o la pensión?"
     answer: "Existen mecanismos de cumplimiento forzado. En pensiones: retención judicial, arresto y arraigo. En régimen de visitas: apercibimientos, multas y eventualmente modificación del cuidado personal."
   - question: "¿Atienden casos en regiones o solo en Santiago?"
-    answer: "Atendemos casos a nivel nacional. Nuestro equipo tiene experiencia en distintas zonas del país y trabajamos presencial o remoto según tu necesidad."
+    answer: "Atendemos casos a nivel nacional. Nuestro equipo tiene experiencia en distintas zonas del país y trabajamos presencial o remoto según su necesidad."
 
 finalCta:
-  headline: "¿Enfrentas un conflicto familiar? Busquemos soluciones."
-  text: "Los asuntos de familia requieren sensibilidad y rigor jurídico. Nuestro equipo te acompaña con ética, confidencialidad y un enfoque centrado en proteger lo que más importa. Agenda una consulta."
+  headline: "¿Enfrenta un conflicto familiar? Busquemos soluciones."
+  text: "Los asuntos de familia requieren sensibilidad y rigor jurídico. Nuestro equipo le acompaña con ética, confidencialidad y un enfoque centrado en proteger lo que más importa. Agende una consulta."
   button: "Agendar Consulta"
 ---
 

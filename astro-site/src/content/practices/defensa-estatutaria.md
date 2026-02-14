@@ -119,11 +119,11 @@ finalCta:
   button: "Agendar Consulta"
 ---
 
-## ¿Por qué necesitas defensa especializada?
+## ¿Por qué necesita defensa especializada?
 
 Los procedimientos disciplinarios no son juicios civiles comunes. Requieren **conocimiento profundo** del Estatuto Administrativo, Ley Karin y **jurisprudencia de Contraloría**.
 
-**No basta con ser abogado.** Necesitas a alguien que haya trabajado dentro del sistema.
+**No basta con ser abogado.** Necesita a alguien que haya trabajado dentro del sistema.
 
 > **Nuestro equipo integra 35 años en la Contraloría General de la República**, como Abogada Jefe, Contralora Regional y Jefa de Responsabilidad Administrativa. Esta trayectoria otorga una perspectiva única: **sabemos cómo piensa la Administración, porque fuimos parte de ella.**
 

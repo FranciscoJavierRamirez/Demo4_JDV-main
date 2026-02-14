@@ -6,7 +6,7 @@ intro:
   icon: "fas fa-heart"
   text: "En JDV Abogados creemos en el acceso equitativo a la justicia. Por eso, ofrecemos servicios legales <strong>Pro Bono</strong> (gratuitos) para personas que califiquen según criterios socioeconómicos."
 
-criteriaTitle: "¿Calificas para Servicios Pro Bono?"
+criteriaTitle: "¿Califica para Servicios Pro Bono?"
 
 criteria:
   - icon: "fas fa-check-circle"
@@ -19,8 +19,8 @@ criteria:
     text: "Organizaciones sin fines de lucro (fundaciones, asociaciones comunitarias)"
 
 cta:
-  question: "¿Crees que calificas?"
-  description: "Consulta por nuestros servicios Pro Bono. Evaluaremos tu caso y te informaremos si cumples los requisitos."
+  question: "¿Cree que califica?"
+  description: "Consulte por nuestros servicios Pro Bono. Evaluaremos su caso y le informaremos si cumple los requisitos."
   buttonText: "Consultar por Pro Bono"
   buttonAction: "openProBonoModal()"
 
@@ -30,7 +30,7 @@ visualCards:
     text: "Todos merecen defensa legal de calidad, independiente de su situación económica"
   - icon: "fas fa-hands-helping"
     title: "Compromiso Social"
-    text: "Defendemos sus derechos con rigos y dedicación"
+    text: "Defendemos sus derechos con rigor y dedicación"
   - icon: "fas fa-shield-alt"
     title: "Misma Calidad"
     text: "Los casos Pro Bono reciben la misma dedicación y profesionalismo que cualquier otro"

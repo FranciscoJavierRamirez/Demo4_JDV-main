@@ -2,7 +2,7 @@
 title: "Agendar Consulta Inicial"
 proBonoNotice:
   title: "Evaluación Pro Bono:"
-  message: "Por favor describe brevemente tu situación legal. Evaluaremos tu caso y te contactaremos a la brevedad."
+  message: "Por favor describa brevemente su situación legal. Evaluaremos su caso y le contactaremos a la brevedad."
 fields:
   name:
     label: "Nombre Completo *"

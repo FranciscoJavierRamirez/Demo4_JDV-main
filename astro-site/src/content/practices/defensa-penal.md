@@ -24,19 +24,19 @@ trust:
 target:
   - icon: "🛡️"
     title: "Víctima de Delito"
-    description: "Has sufrido un delito y necesitas representación para ejercer tus derechos en el proceso penal, obtener protección y buscar reparación."
+    description: "Ha sufrido un delito y necesita representación para ejercer sus derechos en el proceso penal, obtener protección y buscar reparación."
   - icon: "⚖️"
     title: "Imputado o Formalizado"
-    description: "Enfrentas una investigación penal o formalización y requieres defensa técnica especializada desde las primeras diligencias."
+    description: "Enfrenta una investigación penal o formalización y requiere defensa técnica especializada desde las primeras diligencias."
   - icon: "👥"
     title: "Familiar de Imputado"
-    description: "Tu familiar está detenido o formalizado y necesitas orientación urgente sobre sus derechos y opciones de defensa."
+    description: "Su familiar está detenido o formalizado y necesita orientación urgente sobre sus derechos y opciones de defensa."
   - icon: "🏢"
     title: "Empresa o Institución"
-    description: "Tu organización enfrenta denuncias penales o requiere asesoría preventiva en materias de responsabilidad penal."
+    description: "Su organización enfrenta denuncias penales o requiere asesoría preventiva en materias de responsabilidad penal."
 
 painPoints:
-  - "Incertidumbre sobre tus derechos y el funcionamiento del sistema penal chileno"
+  - "Incertidumbre sobre sus derechos y el funcionamiento del sistema penal chileno"
   - "Plazos breves e improrrogables que exigen actuación inmediata y técnicamente fundada"
   - "Riesgo de medidas cautelares gravosas como prisión preventiva sin defensa oportuna"
   - "Desprotección de víctimas que desconocen cómo ejercer sus derechos en el proceso"
@@ -46,7 +46,7 @@ painPoints:
 objective:
   text: "Nuestro objetivo es que cada cliente reciba una representación legal rigurosa, ética y estratégicamente fundada, ya sea como víctima que busca justicia o como imputado que enfrenta el poder punitivo del Estado. Actuamos con estándares de probidad, transparencia y resguardo estricto de confidencialidad, definiendo una hoja de ruta procesal clara desde la primera etapa del procedimiento."
   commitments:
-    - "Intervención temprana: actuación desde las primeras diligencias para proteger tus derechos"
+    - "Intervención temprana: actuación desde las primeras diligencias para proteger sus derechos"
     - "Estrategia jurídica personalizada según las particularidades de cada caso"
     - "Comunicación periódica sobre hitos del caso y escenarios procesales"
     - "Carga controlada de causas: atención dedicada y preparación estratégica de cada audiencia"
@@ -91,7 +91,7 @@ process:
     description: "Análisis de antecedentes, calificación legal preliminar y definición de escenarios procesales. Explicamos opciones y estrategia."
   - step: 2
     title: "Definición de Estrategia"
-    description: "Diseñamos el plan de defensa o representación según tu calidad procesal (víctima, imputado, querellante)."
+    description: "Diseñamos el plan de defensa o representación según su calidad procesal (víctima, imputado, querellante)."
   - step: 3
     title: "Ejecución y Representación"
     description: "Actuación en diligencias, audiencias y presentación de escritos con preparación estratégica de cada intervención."
@@ -101,21 +101,21 @@ process:
 
 faq:
   - question: "¿Cuándo debo contactar a un abogado en materia penal?"
-    answer: "Lo antes posible. En materia penal, una intervención temprana puede cambiar el curso del procedimiento. Si eres víctima, puedes actuar desde la denuncia. Si eres imputado, desde la primera citación o detención."
-  - question: "¿La información que comparto con ustedes es confidencial?"
-    answer: "Sí, absolutamente. El secreto profesional es un deber ético y legal del abogado. Toda la información que nos entregues está protegida y no puede ser revelada sin tu autorización, incluso después de terminada la relación profesional."
+    answer: "Lo antes posible. En materia penal, una intervención temprana puede cambiar el curso del procedimiento. Si es víctima, puede actuar desde la denuncia. Si es imputado, desde la primera citación o detención."
+  - question: "¿La información que comparto es confidencial?"
+    answer: "Sí, absolutamente. El secreto profesional es un deber ético y legal del abogado. Toda la información que nos entregue está protegida y no puede ser revelada sin su autorización, incluso después de terminada la relación profesional."
   - question: "¿Qué diferencia hay entre la Defensoría Penal Pública y un abogado particular?"
-    answer: "La Defensoría Penal Pública presta un servicio gratuito y profesional, pero con alta carga de casos. Un abogado particular ofrece atención personalizada, carga controlada de causas y comunicación directa sobre tu caso específico."
+    answer: "La Defensoría Penal Pública presta un servicio gratuito y profesional, pero con alta carga de casos. Un abogado particular ofrece atención personalizada, carga controlada de causas y comunicación directa sobre su caso específico."
   - question: "¿Qué derechos tengo como víctima de un delito?"
-    answer: "Tienes derecho a ser informada del estado de la investigación, a solicitar medidas de protección, a presentar querella, a participar en audiencias, a ser oída antes de decisiones importantes y a obtener reparación del daño causado."
+    answer: "Tiene derecho a ser informada del estado de la investigación, a solicitar medidas de protección, a presentar querella, a participar en audiencias, a ser oída antes de decisiones importantes y a obtener reparación del daño causado."
   - question: "¿Qué es la prisión preventiva y cómo se evita?"
     answer: "Es una medida cautelar excepcional que priva de libertad durante el proceso. Se discute en audiencia de formalización. Una defensa técnica oportuna puede proponer medidas alternativas menos gravosas como arraigo, firma periódica o prohibición de acercarse."
   - question: "¿Atienden casos en regiones o solo en Santiago?"
-    answer: "Atendemos casos a nivel nacional. Nuestra experiencia profesional en distintas zonas del país nos permite conocer las dinámicas de cada región. Trabajamos presencial o remoto según tu necesidad."
+    answer: "Atendemos casos a nivel nacional. Nuestra experiencia profesional en distintas zonas del país nos permite conocer las dinámicas de cada región. Trabajamos presencial o remoto según su necesidad."
 
 finalCta:
-  headline: "¿Enfrentas un proceso penal? No esperes."
-  text: "En materia penal, cada día cuenta. Ya sea que busques justicia como víctima o requieras defensa como imputado, una intervención temprana puede cambiar el curso del procedimiento. Agenda una consulta confidencial."
+  headline: "¿Enfrenta un proceso penal? No espere."
+  text: "En materia penal, cada día cuenta. Ya sea que busque justicia como víctima o requiera defensa como imputado, una intervención temprana puede cambiar el curso del procedimiento. Agende una consulta confidencial."
   button: "Agendar Consulta"
 ---
 

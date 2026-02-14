@@ -80,7 +80,7 @@ servicesIncluded:
     description: "Elaboración de folletos informativos, guías y documentación de apoyo para consulta y distribución interna."
   - icon: "🔄"
     title: "Actualización Normativa"
-    description: "Sesiones sobre cambios legislativos recientes y su impacto en tu sector (Ley Karin, reformas, etc.)."
+    description: "Sesiones sobre cambios legislativos recientes y su impacto en su sector (Ley Karin, reformas, etc.)."
   - icon: "🤝"
     title: "Asesoría Post-Capacitación"
     description: "Período de consultas posterior para resolver dudas que surjan en la aplicación práctica."
@@ -119,11 +119,12 @@ finalCta:
   button: "Solicitar Información"
 ---
 
-## ¿Por qué capacitar a tu equipo en materias legales?
+## ¿Por qué capacitar a su equipo en materias legales?
 
 El desconocimiento de la normativa no exime de su cumplimiento. Organizaciones, empresas y comunidades enfrentan **riesgos evitables** cuando sus equipos no conocen el marco legal que regula su actuar.
 
 **Una capacitación oportuna puede:**
+
 - Prevenir conflictos laborales y demandas
 - Evitar sanciones por incumplimiento normativo
 - Mejorar el clima organizacional

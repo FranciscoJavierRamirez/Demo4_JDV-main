@@ -1,7 +1,7 @@
 ---
 title: "Newsletter Jurídico"
 subtitle: "Recibe orientación legal, actualizaciones de leyes chilenas y casos de éxito"
-placeholder: "Tu email profesional"
+placeholder: "Su email profesional"
 buttonText: "Suscribirse"
-note: "No spam. Cancela cuando quieras. Leído por +2,000 profesionales."
+note: "No spam. Cancele cuando quiera. Leído por +2,000 profesionales."
 ---
