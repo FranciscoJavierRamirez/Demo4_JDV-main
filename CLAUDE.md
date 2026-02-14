@@ -299,7 +299,7 @@ The project uses a hybrid approach:
 focal: z.enum(['top', 'center', 'bottom']).optional().default('center')
 ```
 
-### Service Areas (7 Total)
+### Service Areas (8 Total)
 
 **Áreas Principales:**
 1. **Defensa Estatutaria** - Defense of public sector employees
@@ -310,9 +310,9 @@ focal: z.enum(['top', 'center', 'bottom']).optional().default('center')
 4. **Defensa Penal** - Criminal defense representation
 5. **Familia y Menores** - Family law and child protection
 6. **Civil** - General civil law matters
+7. **Migraciones y Extranjería** - Immigration and foreign nationals law
 
 **Otros Servicios:**
-7. **Capacitación** - Corporate training and workshops
 8. **Capacitación** - Corporate training and workshops
 
 ## Code Conventions
@@ -464,7 +464,7 @@ Modern browsers (ES6+ features):
 - **Agenda / Reservas** (`/agenda`) - Calendly booking page with JSON-LD structured data
 - **Blog** (`/blog/`) - Complete with 3 articles and category pages
 - **Áreas de Práctica Index** (`/areas-practicas/`) - Complete
-- **8 Practice Area Pages** - All complete (defensa-estatutaria, defensa-administrativa, defensa-penal, cliente-senior, familia-menores, civil, inmobiliaria-copropiedad, capacitacion)
+- **8 Practice Area Pages** - All complete (defensa-estatutaria, defensa-administrativa, defensa-penal, familia-menores, civil, inmobiliaria-copropiedad, migraciones-extranjeria, capacitacion)
 - **Design System** (`/design-system/`) - Reference page
 
 ## Production Checklist

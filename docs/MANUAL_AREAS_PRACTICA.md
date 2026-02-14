@@ -39,13 +39,13 @@ astro-site/
 │   ├── content/
 │   │   └── practices/
 │   │       ├── defensa-estatutaria.md    ← Contenido
-│   │       ├── legado.md                  ← Contenido
+│   │       ├── migraciones-extranjeria.md ← Contenido
 │   │       └── [tu-nueva-area].md         ← CREAR
 │   │
 │   ├── pages/
 │   │   └── areas-practicas/
 │   │       ├── defensa-estatutaria.astro ← Página
-│   │       ├── legado.astro               ← Página
+│   │       ├── migraciones-extranjeria.astro ← Página
 │   │       └── [tu-nueva-area].astro      ← CREAR
 │   │
 │   └── components/
@@ -635,11 +635,11 @@ Servicios relacionados recomendados por área:
 |------|------------------------|
 | defensa-estatutaria | defensa-administrativa, civil, capacitacion |
 | defensa-administrativa | defensa-estatutaria, civil, capacitacion |
-| cliente-senior | legado, civil, inmobiliaria-copropiedad |
-| legado | cliente-senior, civil, animalista |
-| civil | defensa-estatutaria, inmobiliaria-copropiedad, legado |
-| inmobiliaria-copropiedad | civil, cliente-senior, legado |
-| animalista | civil, legado, capacitacion |
+| defensa-penal | civil, familia-menores, migraciones-extranjeria |
+| familia-menores | civil, defensa-penal, migraciones-extranjeria |
+| civil | defensa-estatutaria, inmobiliaria-copropiedad, familia-menores |
+| inmobiliaria-copropiedad | civil, familia-menores, capacitacion |
+| migraciones-extranjeria | civil, familia-menores, defensa-administrativa |
 | capacitacion | defensa-estatutaria, defensa-administrativa, civil |
 
 ---
@@ -841,45 +841,41 @@ Evitar:
 
 ---
 
-### 1.1 Política de Tratamiento al Cliente (Tú vs. Usted)
+### 1.1 Política de Tratamiento al Cliente
 
-**Enfoque híbrido según tipo de área:**
+**USTEDEO FORMAL obligatorio en todas las áreas.**
 
-El sitio utiliza un enfoque diferenciado para maximizar la conversión sin sacrificar profesionalismo:
+El sitio utiliza tratamiento formal consistente para proyectar profesionalismo y confianza:
 
-| Tipo de Área | Tratamiento | Justificación |
-|--------------|-------------|---------------|
-| **Técnicas/Institucionales** | **Ustedeo formal** | El cliente espera formalidad al tratar con el Estado o temas legales técnicos |
-| **Emocionales** | **Tuteo cálido** | La conexión emocional es clave para la conversión en temas sensibles |
+| Contexto | Tratamiento | Justificación |
+|----------|-------------|---------------|
+| **Todas las Áreas de Práctica** | **Ustedeo formal** | El cliente espera formalidad en servicios legales profesionales |
 | **Home y páginas generales** | **Ustedeo formal** | Primera impresión institucional |
+| **Formularios y CTAs** | **Ustedeo formal o neutro** | Consistencia con el resto del sitio |
 
-**Clasificación de áreas:**
+**Áreas de Práctica actuales (8 total):**
 
-**Áreas Técnicas (Ustedeo obligatorio):**
-* Defensa Estatutaria
-* Defensa Administrativa
-* Defensa Penal
-* Civil
-* Inmobiliaria y Copropiedad
-* Capacitación
+- Defensa Estatutaria
+- Defensa Administrativa
+- Defensa Penal
+- Familia y Menores
+- Civil
+- Inmobiliaria y Copropiedad
+- Migraciones y Extranjería
+- Capacitación
 
-**Áreas Emocionales (Tuteo permitido):**
-* Legado (hijos con necesidades especiales, mascotas)
-* Animalista (mascotas, vínculo emocional)
-* Cliente Senior (adultos mayores)
-* Familia y Menores (conflictos familiares, hijos)
+**Reglas de redacción:**
 
-**Reglas para tuteo en áreas emocionales:**
-* Mantener tuteo coherente en TODO el archivo
-* No mezclar tuteo con ustedeo en el mismo documento
-* El tuteo debe ser cálido pero respetuoso, nunca coloquial
-* Evitar diminutivos o expresiones demasiado informales
+- Usar siempre "usted", "su", "le" al dirigirse al cliente
+- PROHIBIDO el tuteo (tú, tu, te, ti, tus, contigo)
+- Mantener tratamiento coherente en TODO el documento
+- Los CTAs imperativos llevan implícito el ustedeo ("Agende", "Solicite", "Converse")
 
-**Ejemplo tuteo correcto (área emocional):**
-> "Tu mascota merece protección legal seria. Te acompañamos en cada paso."
-
-**Ejemplo ustedeo correcto (área técnica):**
+**Ejemplo correcto:**
 > "Su caso requiere intervención especializada. Le acompañamos en cada etapa del procedimiento."
+
+**Ejemplo incorrecto (PROHIBIDO):**
+> "Tu caso requiere intervención. Te acompañamos en cada etapa."
 
 ---
 
@@ -1144,9 +1140,8 @@ Cada nueva Área debe incluir al menos **una frase diferencial**:
 Antes de aprobar un nuevo archivo `.md`, verificar:
 
 * [ ] Voz institucional ("nosotros", "nuestro equipo")
-* [ ] Tratamiento correcto según tipo de área (ver sección 1.1):
-  * Áreas técnicas: ustedeo formal ("usted", "su", "le")
-  * Áreas emocionales: tuteo cálido permitido ("tú", "tu", "te")
+* [ ] USTEDEO FORMAL en todo el documento ("usted", "su", "le")
+* [ ] PROHIBIDO tuteo ("tú", "tu", "te", "ti", "tus", "contigo")
 * [ ] No hay promesas de resultado ("garantizamos", "exitosamente", "asegurado")
 * [ ] Terminología legal chilena correcta
 * [ ] SEO title < 60 caracteres
@@ -1157,7 +1152,6 @@ Antes de aprobar un nuevo archivo `.md`, verificar:
 * [ ] FAQ no incluye plazos específicos ni promesas de tiempos
 * [ ] No hay comparaciones agresivas con competencia
 * [ ] Contenido Markdown < 80 líneas
-* [ ] Tratamiento coherente en todo el archivo (no mezclar tú/usted)
 
 ---
 
@@ -1287,13 +1281,12 @@ Cada Área debe contener explícitamente:
 
 ---
 
-### 5. StoryBrand (solo para áreas emocionales)
+### 5. StoryBrand (uso moderado)
 
-Aplicable SOLO a:
+Aplicable con moderación en áreas con componente emocional como:
 
-* Legado
-* Animalista
-* Cliente Senior
+* Familia y Menores
+* Migraciones y Extranjería
 
 **Reglas:**
 
@@ -1303,6 +1296,7 @@ Aplicable SOLO a:
 * Plan = proceso legal
 * Éxito = seguridad jurídica
 * Evitar tono motivacional exagerado
+* Mantener USTEDEO FORMAL incluso con enfoque narrativo
 
 ---
 
@@ -1332,30 +1326,27 @@ Cada Área debe optimizar:
 
 ## Política de Migración Editorial (Áreas Existentes)
 
-**Estado: COMPLETADO (Enero 2026)**
+**Estado: COMPLETADO (Febrero 2026)**
 
-Las siguientes áreas han sido refactorizadas según las nuevas políticas:
+Las siguientes áreas han sido refactorizadas con USTEDEO FORMAL:
 
-**Áreas técnicas (ustedeo aplicado):**
+**Áreas de Práctica (8 total):**
+
 * ✅ defensa-estatutaria
 * ✅ defensa-administrativa
 * ✅ defensa-penal
+* ✅ familia-menores
 * ✅ civil
 * ✅ inmobiliaria-copropiedad
-* ✅ capacitación
-
-**Áreas emocionales (tuteo mantenido):**
-* ✅ legado
-* ✅ animalista
-* ✅ cliente-senior
-* ✅ familia-menores
+* ✅ migraciones-extranjeria
+* ✅ capacitacion
 
 **Cambios aplicados en todas las áreas:**
 
 * [x] Voz institucional ("nosotros", "nuestro equipo")
 * [x] Eliminadas promesas de resultado ("garantizamos", "exitosamente")
 * [x] Sustituido "yo / mi" → "nuestro equipo"
-* [x] Tratamiento correcto según tipo de área (tú/usted)
+* [x] USTEDEO FORMAL en todas las áreas (usted, su, le)
 * [x] Results alineados a promesas de proceso, no de resultado
 * [x] FAQ sin plazos específicos comprometedores
 
@@ -1367,4 +1358,4 @@ Si encuentras problemas no documentados aquí, contactar al desarrollador princi
 
 ---
 
-*Última actualización: Enero 2026 (v2.0 - Política de tratamiento híbrido)*
+*Última actualización: Febrero 2026 (v3.0 - USTEDEO FORMAL obligatorio, 8 áreas actualizadas)*

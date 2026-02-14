@@ -1,7 +1,7 @@
 # Biblioteca de Componentes - Directorio SRC
 
-**Fecha de última actualización:** 2026-02-11
-**Estado del proyecto:** 95% completado
+**Fecha de última actualización:** 2026-02-14
+**Estado del proyecto:** 98% completado
 **Propósito:** Documentación viva que refleja el estado actual de implementación
 
 ---
@@ -252,7 +252,7 @@ Miembros del equipo: `jacqueline.md`, `pablo.md`, `maria-alejandra.md`
 
 | Collection | Ubicación | Artículos |
 |------------|-----------|-----------|
-| **blog** | `/content/blog/*.md` | 6 artículos publicados |
+| **blog** | `/content/blog/*.md` | 7 artículos publicados |
 
 Artículos:
 - `2026-01-01-bienvenida-jdv-abogados.md`
@@ -261,6 +261,7 @@ Artículos:
 - `2026-02-10-test-drogas-autoridades-chile.md`
 - `2026-02-10-derecho-familia-guia-practica.md`
 - `2026-02-11-vacancia-salud-incompatible-jurisprudencia.md`
+- `confianza-legitima-cgr-suprema.md`
 
 ### Collections de Practices
 
@@ -432,7 +433,7 @@ Modal cierra con:
 - ✅ Agenda / Reservas (`/agenda`) — Calendly + JSON-LD structured data
 - ✅ Contacto (`/contacto/`) — Oficinas y datos de contacto
 - ✅ Formulario de Contacto (`/formulario-contacto`) — Google Forms
-- ✅ Blog (`/blog/`) + 6 artículos
+- ✅ Blog (`/blog/`) + 7 artículos
 - ✅ Design System (`/design-system/`)
 - ✅ 8 Áreas de Práctica (todas implementadas)
 
@@ -444,7 +445,7 @@ Modal cierra con:
 - ✅ Todas las collections definidas con schemas Zod
 - ✅ Contenido del Home completo
 - ✅ 8/8 archivos de practices implementados
-- ✅ 6 artículos de blog publicados
+- ✅ 7 artículos de blog publicados
 - ✅ 3 miembros del equipo documentados
 - ✅ Contenido de About completo
 
@@ -487,6 +488,6 @@ Modal cierra con:
 
 ---
 
-**Última revisión:** 2026-02-11
+**Última revisión:** 2026-02-14
 **Mantenedor:** Claude Code
-**Versión:** 2.1.0
+**Versión:** 2.2.0
