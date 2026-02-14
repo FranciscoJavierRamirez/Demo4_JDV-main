@@ -1,28 +1,104 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-  <!-- Fondo azul -->
-  <rect width="512" height="512" fill="#1A4D7A"/>
-  
-  <!-- Balanza de justicia (simplificada) -->
-  <g fill="#C9A961">
-    <!-- Poste central -->
-    <rect x="246" y="140" width="20" height="180" rx="2"/>
-    <!-- Base -->
-    <rect x="226" y="310" width="60" height="15" rx="3"/>
-    <!-- Travesaño superior -->
-    <rect x="156" y="148" width="200" height="12" rx="2"/>
-    <!-- Platillo izquierdo -->
-    <ellipse cx="186" cy="190" rx="40" ry="8"/>
-    <path d="M 146 182 Q 146 170 156 168 L 216 168 Q 226 170 226 182 L 226 190 Q 226 198 216 200 L 156 200 Q 146 198 146 190 Z"/>
-    <!-- Cadena izquierda -->
-    <line x1="186" y1="160" x2="186" y2="182" stroke="#C9A961" stroke-width="3"/>
-    <!-- Platillo derecho -->
-    <ellipse cx="326" cy="190" rx="40" ry="8"/>
-    <path d="M 286 182 Q 286 170 296 168 L 356 168 Q 366 170 366 182 L 366 190 Q 366 198 356 200 L 296 200 Q 286 198 286 190 Z"/>
-    <!-- Cadena derecha -->
-    <line x1="326" y1="160" x2="326" y2="182" stroke="#C9A961" stroke-width="3"/>
-  </g>
-  
-  <!-- Texto JDV -->
-  <text x="256" y="380" font-family="Georgia, serif" font-size="80" font-weight="bold" fill="white" text-anchor="middle">JDV</text>
-  <text x="256" y="430" font-family="Arial, sans-serif" font-size="32" font-weight="normal" fill="white" text-anchor="middle" letter-spacing="8">ABOGADOS</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800">
+    <defs>
+        <!-- Fondo Azul Real -->
+        <radialGradient id="royalBlueGrad" cx="50%" cy="30%" r="90%" fx="50%" fy="30%">
+            <stop offset="0%" stop-color="#0f4c81" />
+            <stop offset="100%" stop-color="#031b38" />
+        </radialGradient>
+
+        <!-- Degradado Dorado Metálico -->
+        <linearGradient id="luxuryGold" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#cfb57a" />
+            <stop offset="20%" stop-color="#f5e6ba" />
+            <stop offset="50%" stop-color="#b89348" />
+            <stop offset="80%" stop-color="#fdf5c9" />
+            <stop offset="100%" stop-color="#cfb57a" />
+        </linearGradient>
+
+        <!-- Sombra para profundidad -->
+        <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+            <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#000000" flood-opacity="0.4"/>
+        </filter>
+    </defs>
+
+    <!-- Fondo -->
+    <rect width="800" height="800" fill="url(#royalBlueGrad)" />
+
+    <!-- Grupo de la Balanza -->
+    <g transform="translate(400, 310)" filter="url(#softShadow)">
+
+        <!-- 1. Pilar Central -->
+        <!-- Varilla -->
+        <rect x="-7" y="-120" width="14" height="260" fill="url(#luxuryGold)" rx="1"/>
+        <!-- Tope superior (redondeado pequeño) -->
+        <path d="M -7 -120 L 7 -120 L 7 -125 Q 7 -130 0 -130 Q -7 -130 -7 -125 Z" fill="url(#luxuryGold)" />
+
+        <!-- Base (Slab rectangular redondeado) -->
+        <path d="M -75 140 L 75 140 L 75 152 Q 75 160 65 160 L -65 160 Q -75 160 -75 152 Z" fill="url(#luxuryGold)" />
+
+        <!-- 2. Viga Horizontal (Forma compleja de "ola") -->
+        <path d="M -5 -60
+                 Q -40 -60 -90 -45
+                 T -180 -30
+                 Q -195 -25 -190 -15
+                 Q -185 -5 -170 -10
+                 Q -100 -25 -5 -35
+                 L 5 -35
+                 Q 100 -25 170 -10
+                 Q 185 -5 190 -15
+                 Q 195 -25 180 -30
+                 T 90 -45
+                 Q 40 -60 5 -60 Z"
+              fill="url(#luxuryGold)" />
+
+        <!-- Pequeños botones en las puntas de la viga -->
+        <circle cx="-185" cy="-22" r="8" fill="url(#luxuryGold)" />
+        <circle cx="185" cy="-22" r="8" fill="url(#luxuryGold)" />
+
+        <!-- 3. Plato Izquierdo -->
+        <g transform="translate(-185, -22)">
+            <!-- Triángulo de soporte (Grueso) -->
+            <path d="M 0 0 L -55 100 L 55 100 L 0 0 Z M 0 15 L 42 92 L -42 92 L 0 15 Z" fill="url(#luxuryGold)" fill-rule="evenodd"/>
+
+            <!-- El Plato (Hemisferio) -->
+            <path d="M -55 100
+                     L 55 100
+                     Q 55 165 0 165
+                     Q -55 165 -55 100 Z"
+                  fill="url(#luxuryGold)" />
+        </g>
+
+        <!-- 4. Plato Derecho -->
+        <g transform="translate(185, -22)">
+            <!-- Triángulo de soporte (Grueso) -->
+            <path d="M 0 0 L -55 100 L 55 100 L 0 0 Z M 0 15 L 42 92 L -42 92 L 0 15 Z" fill="url(#luxuryGold)" fill-rule="evenodd"/>
+
+            <!-- El Plato (Hemisferio) -->
+            <path d="M -55 100
+                     L 55 100
+                     Q 55 165 0 165
+                     Q -55 165 -55 100 Z"
+                  fill="url(#luxuryGold)" />
+        </g>
+    </g>
+
+    <!-- Texto JDV -->
+    <text x="400" y="600"
+          font-family="'Times New Roman', Times, serif"
+          font-size="160"
+          font-weight="normal"
+          fill="#ffffff"
+          text-anchor="middle"
+          letter-spacing="0"
+          filter="url(#softShadow)">JDV</text>
+
+    <!-- Texto ABOGADOS -->
+    <text x="400" y="670"
+          font-family="'Montserrat', 'Arial', sans-serif"
+          font-size="42"
+          font-weight="500"
+          fill="#ffffff"
+          text-anchor="middle"
+          letter-spacing="12"
+          filter="url(#softShadow)">ABOGADOS</text>
 </svg>
