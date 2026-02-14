@@ -23,6 +23,22 @@ const { seo, hero, mission, vision, values, founderProfile, timeline, team, cta 
 ---
 
 <AboutLayout title={seo.title} description={seo.description}>
+  <!-- OPTIMIZED: Page-specific resource hints (Phases 2 & 3) -->
+  <Fragment slot="head">
+    <!-- Phase 2: Preload critical hero image for faster LCP -->
+    <link
+      rel="preload"
+      as="image"
+      href="/foto quienes somos JDV.webp"
+      type="image/webp"
+      fetchpriority="high"
+    />
+
+    <!-- Phase 3: Prefetch likely next navigation destinations -->
+    <link rel="prefetch" href="/areas-practicas" />
+    <link rel="prefetch" href="/contacto" />
+  </Fragment>
+
   <!-- Navigation -->
   <Header />
 
